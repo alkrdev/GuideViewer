@@ -1,0 +1,38 @@
+﻿<Window x:Class="Guideviewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="350" 
+        Width="1600" 
+        ResizeMode="NoResize" 
+        SizeToContent="WidthAndHeight">
+    <Grid>
+        <DataGrid Name="MyDataGrid" 
+            Margin="0,39,4,-39"  
+            Padding="1"
+            Background="#FF212121" 
+            SelectionUnit="Cell" 
+            VerticalGridLinesBrush="Black"
+            VerticalScrollBarVisibility="Hidden" 
+            GridLinesVisibility="None" 
+            HeadersVisibility="Column" 
+            MaxWidth="1600" 
+            MaxHeight="900" 
+            MaxColumnWidth="320" CanUserReorderColumns="False" CanUserSortColumns="False"/>
+
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1590" IsMainMenu="True">
+            <MenuItem Header="Options" x:Name="Options">
+                <MenuItem Header="Save" Click="SaveToFile_OnClick"></MenuItem>
+                <MenuItem Header="Load" Click="LoadFile_OnClick"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Delete first row" Click="DeleteFirstRow_OnClick">
+            </MenuItem>
+            <Label Content="Progress:" Height="17" Margin="0" Padding="0"/>
+            <TextBox Height="23" TextWrapping="Wrap" Width="68" Text="" Padding="0,2,0,0"/>
+        </Menu>
+    </Grid>
+</Window>
+
