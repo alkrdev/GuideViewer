@@ -10,9 +10,13 @@
         ResizeMode="NoResize" 
         SizeToContent="WidthAndHeight">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1583*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
         <DataGrid Name="MyDataGrid" 
-            Margin="0,39,4,-39"  
-            Padding="1"
+            Margin="0,25,0,0"  
+            Padding="3"
             Background="#FF212121" 
             SelectionUnit="Cell" 
             VerticalGridLinesBrush="Black"
@@ -21,9 +25,9 @@
             HeadersVisibility="Column" 
             MaxWidth="1600" 
             MaxHeight="900" 
-            MaxColumnWidth="320" CanUserReorderColumns="False" CanUserSortColumns="False"/>
+            MaxColumnWidth="320" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.ColumnSpan="2"/>
 
-        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1590" IsMainMenu="True">
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1594" IsMainMenu="True" Grid.ColumnSpan="2">
             <MenuItem Header="Options" x:Name="Options">
                 <MenuItem Header="Save" Click="SaveToFile_OnClick"></MenuItem>
                 <MenuItem Header="Load" Click="LoadFile_OnClick"></MenuItem>
@@ -31,7 +35,7 @@
             <MenuItem Header="Delete first row" Click="DeleteFirstRow_OnClick">
             </MenuItem>
             <Label Content="Progress:" Height="17" Margin="0" Padding="0"/>
-            <TextBox Height="23" TextWrapping="Wrap" Width="68" Text="" Padding="0,2,0,0"/>
+            <TextBox Height="23" TextWrapping="Wrap" Width="68" Text="" Padding="0,2,0,0" />
         </Menu>
     </Grid>
 </Window>

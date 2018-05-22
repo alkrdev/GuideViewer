@@ -6,6 +6,7 @@ using Google.Apis.Util.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,25 @@ namespace Guideviewer {
 
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
-        static string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
+        static string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
+
+        #region Initialize
+
+        static string[] SkillNames = {
+            "Total", "Attack", "Defense",
+            "Strength", "Constitution", "Ranged",
+            "Prayer", "Magic", "Cooking",
+            "Woodcutting", "Fletching", "Fishing",
+            "Firemaking", "Crafting", "Smithing",
+            "Mining", "Herblore", "Agility",
+            "Thieving", "Slayer", "Farming",
+            "Runecrafting", "Hunter", "Construction",
+            "Summoning", "Dungeoneering", "Divination",
+            "Invention"
+        };
+
+        public static int[] loadedSkillLevels;
+        public static int[] loadedSkillExperiences;
 
         private const string ApplicationName = "GuideViewer";
 
@@ -47,39 +66,39 @@ namespace Guideviewer {
         SaveFileDialog sfd = new SaveFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         };
-        
+
 
         OpenFileDialog ofd = new OpenFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         };
 
         public Binding[] Bind = {
-            new Binding("Qt"), 
-            new Binding("L"), 
-            new Binding("Mqc"), 
-            new Binding("Cp"), 
-            new Binding("Tcp"), 
+            new Binding("Qt"),
+            new Binding("L"),
+            new Binding("Mqc"),
+            new Binding("Cp"),
+            new Binding("Tcp"),
             new Binding("Im")
         };
 
         public string[] Header = {
-            "Quest / Train to", 
-            "Lamps", 
-            "Master Quest Cape", 
-            "Completionist Cape", 
-            "Trimmed Completionist Cape", 
+            "Quest / Train to",
+            "Lamps",
+            "Master Quest Cape",
+            "Completionist Cape",
+            "Trimmed Completionist Cape",
             "Ironman"
         };
 
         public DataGridTextColumn[] Colu = {
-            new DataGridTextColumn(), 
-            new DataGridTextColumn(), 
-            new DataGridTextColumn(), 
-            new DataGridTextColumn(), 
-            new DataGridTextColumn(), 
+            new DataGridTextColumn(),
+            new DataGridTextColumn(),
+            new DataGridTextColumn(),
+            new DataGridTextColumn(),
+            new DataGridTextColumn(),
             new DataGridTextColumn()
         };
-        
+
         public struct MyData {
             public string Qt { set; get; }
             public string L { set; get; }
@@ -89,11 +108,15 @@ namespace Guideviewer {
             public string Im { set; get; }
         }
 
+        #endregion
+
         public MainWindow() {
             InitializeComponent();
 
             StreamReader sr = new StreamReader("deletedrows.txt");
             deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
+
+            #region Style
 
             var style = new Style(typeof(TextBlock));
             var headerstyle = new Style(typeof(DataGridColumnHeader));
@@ -103,15 +126,19 @@ namespace Guideviewer {
             style.Setters.Add(new Setter(TextBlock.TextAlignmentProperty, TextAlignment.Center));
             style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
 
-            headerstyle.Setters.Add(new Setter(DataGridColumnHeader.HorizontalContentAlignmentProperty, HorizontalAlignment.Center));
+            headerstyle.Setters.Add(new Setter(DataGridColumnHeader.HorizontalContentAlignmentProperty,
+                HorizontalAlignment.Center));
 
             cell.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Black));
             cell.Setters.Add(new Setter(DataGridCell.PaddingProperty, new Thickness(3)));
 
+            MyDataGrid.MinRowHeight = 30;
+
+            #endregion
 
             #region GoogleRequest
 
-            String myUrl = "[REDACTED]";
+            String myUrl = "[Redacted]";
 
             System.Net.WebClient client = new System.Net.WebClient();
             {
@@ -155,6 +182,9 @@ namespace Guideviewer {
             Response = request.Execute();
             IList<IList<Object>> values = response.Values;
             Values = response.Values;
+
+            #region Create Columns
+
 
             if (values != null && values.Count > 0) {
                 foreach (var col in values) {
@@ -239,7 +269,11 @@ namespace Guideviewer {
                     });
                 }
             }
+
+            #endregion
         }
+
+        #region Methods
 
         private void DeleteFirstRow_OnClick(object sender, RoutedEventArgs e) {
             MyDataGrid.Items.RemoveAt(1);
@@ -264,24 +298,34 @@ namespace Guideviewer {
                     MyDataGrid.Items.Clear();
 
                     if (Values != null) {
-                        for (int i = 0; i < Values.Count; i++) {
+                        for (int a = 0; a < Values.Count; a++) {
                             MyDataGrid.Items.Add(new MyData {
-                                Qt = ColumnAList[i],
-                                L = ColumnBList[i],
-                                Mqc = ColumnCList[i],
-                                Cp = ColumnDList[i],
-                                Tcp = ColumnEList[i],
-                                Im = ColumnFList[i]
+                                Qt = ColumnAList[a],
+                                L = ColumnBList[a],
+                                Mqc = ColumnCList[a],
+                                Cp = ColumnDList[a],
+                                Tcp = ColumnEList[a],
+                                Im = ColumnFList[a]
                             });
                         }
-                    }
-
-                    int removeCount = Convert.ToInt32(sr.ReadToEnd());
-                    for (int i = 0; i < removeCount; i++) {
-                        MyDataGrid.Items.RemoveAt(i);
                     }
                 }
             }
         }
+
+        private void collectData () {
+            WebClient wc = new WebClient();
+            var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + sender);
+            
+            for (int i = 0; i < SkillNames.Length; i++) {
+                var skills = s.Split('\n');
+                var categories = skills[i].Split(',');
+                var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
+                var result = "The " + SkillNames[i] + " level of the user is: " + skill.Item1 + "." + Environment.NewLine +
+                         "The " + SkillNames[i] + " experience of the user is: " + skill.Item2 + ".";
+                MessageBox.Show(result);
+            }
+        }
+        #endregion
     }
 }
