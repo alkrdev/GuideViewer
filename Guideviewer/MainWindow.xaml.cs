@@ -12,10 +12,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
-
+using System.Linq;
 
 namespace Guideviewer {
     /// <summary>
@@ -25,11 +24,13 @@ namespace Guideviewer {
 
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
-        static string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
+        static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
 
         #region Initialize
 
-        static string[] SkillNames = {
+        public string userName { get; set; }
+
+        static readonly string[] SkillNames = {
             "Total", "Attack", "Defense",
             "Strength", "Constitution", "Ranged",
             "Prayer", "Magic", "Cooking",
@@ -42,8 +43,8 @@ namespace Guideviewer {
             "Invention"
         };
 
-        public static int[] loadedSkillLevels;
-        public static int[] loadedSkillExperiences;
+        public static int[] LoadedSkillLevels;
+        public static int[] LoadedSkillExperiences;
 
         private const string ApplicationName = "GuideViewer";
 
@@ -51,7 +52,7 @@ namespace Guideviewer {
         private float widthMed = 1600 / 5 / 5 * 3.7f;
         private float widthSm = 1600 / 5 / 4.6f;
 
-        private int deletedFirstRows;
+        private int _deletedFirstRows;
 
         public IList<IList<Object>> Values;
         public ValueRange Response;
@@ -113,34 +114,17 @@ namespace Guideviewer {
         public MainWindow() {
             InitializeComponent();
 
+            DataContext = this;
+
             StreamReader sr = new StreamReader("deletedrows.txt");
-            deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
+            _deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
 
-            #region Style
-
-            var style = new Style(typeof(TextBlock));
-            var headerstyle = new Style(typeof(DataGridColumnHeader));
-            var cell = new Style(typeof(DataGridCell));
-
-            style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
-            style.Setters.Add(new Setter(TextBlock.TextAlignmentProperty, TextAlignment.Center));
-            style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
-
-            headerstyle.Setters.Add(new Setter(DataGridColumnHeader.HorizontalContentAlignmentProperty,
-                HorizontalAlignment.Center));
-
-            cell.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Black));
-            cell.Setters.Add(new Setter(DataGridCell.PaddingProperty, new Thickness(3)));
-
-            MyDataGrid.MinRowHeight = 30;
-
-            #endregion
-
+            
             #region GoogleRequest
 
-            String myUrl = "[Redacted]";
+            String myUrl = "https://api.myjson.com/bins/[REDACTED].json";
 
-            System.Net.WebClient client = new System.Net.WebClient();
+            WebClient client = new WebClient();
             {
                 client.DownloadFile(myUrl, "\\client_secret.json");
             }
@@ -184,7 +168,25 @@ namespace Guideviewer {
             Values = response.Values;
 
             #region Create Columns
+            #region Style
 
+            var style = new Style(typeof(TextBlock));
+            var headerstyle = new Style(typeof(DataGridColumnHeader));
+            var cell = new Style(typeof(DataGridCell));
+
+            style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
+            style.Setters.Add(new Setter(TextBlock.TextAlignmentProperty, TextAlignment.Center));
+            style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
+
+            headerstyle.Setters.Add(new Setter(DataGridColumnHeader.HorizontalContentAlignmentProperty,
+                HorizontalAlignment.Center));
+
+            cell.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Black));
+            cell.Setters.Add(new Setter(DataGridCell.PaddingProperty, new Thickness(3)));
+
+            MyDataGrid.MinRowHeight = 30;
+
+            #endregion
 
             if (values != null && values.Count > 0) {
                 foreach (var col in values) {
@@ -257,18 +259,7 @@ namespace Guideviewer {
 
             }
 
-            if (values != null) {
-                for (int i = 0; i < values.Count; i++) {
-                    MyDataGrid.Items.Add(new MyData {
-                        Qt = ColumnAList[i],
-                        L = ColumnBList[i],
-                        Mqc = ColumnCList[i],
-                        Cp = ColumnDList[i],
-                        Tcp = ColumnEList[i],
-                        Im = ColumnFList[i]
-                    });
-                }
-            }
+            FillAllColumns();
 
             #endregion
         }
@@ -277,7 +268,7 @@ namespace Guideviewer {
 
         private void DeleteFirstRow_OnClick(object sender, RoutedEventArgs e) {
             MyDataGrid.Items.RemoveAt(1);
-            deletedFirstRows++;
+            _deletedFirstRows++;
         }
 
         private void SaveToFile_OnClick(object sender, RoutedEventArgs e) {
@@ -285,45 +276,62 @@ namespace Guideviewer {
             if (result == true) {
                 string path = sfd.FileName;
                 StreamWriter sw = new StreamWriter(File.Create(path));
-                sw.WriteAsync(deletedFirstRows.ToString());
+                sw.WriteAsync(_deletedFirstRows.ToString());
                 sw.Dispose();
             }
         }
 
         private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
             if (ofd.ShowDialog() == true) {
-                string path = ofd.FileName;
-                using (StreamReader sr = new StreamReader(File.OpenRead(path))) {
 
-                    MyDataGrid.Items.Clear();
+                MyDataGrid.Items.Clear();
 
-                    if (Values != null) {
-                        for (int a = 0; a < Values.Count; a++) {
-                            MyDataGrid.Items.Add(new MyData {
-                                Qt = ColumnAList[a],
-                                L = ColumnBList[a],
-                                Mqc = ColumnCList[a],
-                                Cp = ColumnDList[a],
-                                Tcp = ColumnEList[a],
-                                Im = ColumnFList[a]
-                            });
-                        }
-                    }
-                }
+                FillAllColumns();
             }
         }
 
-        private void collectData () {
+        private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
             WebClient wc = new WebClient();
-            var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + sender);
+            var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + userName);
             
             for (int i = 0; i < SkillNames.Length; i++) {
                 var skills = s.Split('\n');
                 var categories = skills[i].Split(',');
                 var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
-                var result = "The " + SkillNames[i] + " level of the user is: " + skill.Item1 + "." + Environment.NewLine +
-                         "The " + SkillNames[i] + " experience of the user is: " + skill.Item2 + ".";
-                MessageBox.Show(result);
+
+
+//                var result = "The " + SkillNames[i] + " level of the user is: " + skill.Item1 + "." + Environment.NewLine +
+//                         "The " + SkillNames[i] + " experience of the user is: " + skill.Item2 + ".";
+//                MessageBox.Show(result);
+
+//                foreach (var dgc in MyDataGrid.Columns) {
+//                    if (dgc.GetCellContent(i).ToString().Contains('a')) {
+//                        MessageBox.Show("CONTAINS");
+//                    }
+//                }
+
+                var RowOnGrid = MyDataGrid.Items.OfType<DataGridRow>();
+                MyDataGrid.SelectAllCells();
+
+                TextBlock x = MyDataGrid.Columns[0].GetCellContent(MyDataGrid.Items[i]) as TextBlock;
+                if (x != null && x.Text.Contains("ALMOST"))
+                    MyDataGrid.Items.RemoveAt(1);
+                MessageBox.Show(x.Text);
+            }
+        }
+
+        private void FillAllColumns() {
+            if (Values != null) {
+                for (int a = 0; a < Values.Count; a++) {
+                    MyDataGrid.Items.Add(new MyData {
+                        Qt = ColumnAList[a],
+                        L = ColumnBList[a],
+                        Mqc = ColumnCList[a],
+                        Cp = ColumnDList[a],
+                        Tcp = ColumnEList[a],
+                        Im = ColumnFList[a]
+                    });
+                }
             }
         }
         #endregion
