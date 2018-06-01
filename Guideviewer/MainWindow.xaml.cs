@@ -1,12 +1,7 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Sheets.v4;
-using Google.Apis.Sheets.v4.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Windows;
@@ -14,9 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
-using System.Linq;
-
 
 namespace Guideviewer {
     /// <summary>
@@ -31,16 +26,14 @@ namespace Guideviewer {
 
         public string userName { get; set; }
 
-        public List<string> SkillsList = new User().SkillNames;
-        
+        public static List<string> SkillsList = new User().SkillNames;
 
-        public static int[] LoadedSkillLevels;
-        public static int[] LoadedSkillExperiences;
+        public int[] LoadedSkillLevels = new int[SkillsList.Count];
+        public int[] LoadedSkillExperiences = new int[SkillsList.Count];
 
-
-        private float widthDef = 1600 / 5;
-        private float widthMed = 1600 / 5 / 5 * 3.7f;
-        private float widthSm = 1600 / 5 / 4.6f;
+        private float widthDef = 320;
+        private float widthMed = 236.8F;
+        private float widthSm = 69.56522F;
 
         private int _deletedFirstRows;
 
@@ -54,12 +47,12 @@ namespace Guideviewer {
         public List<string> ColumnEList = new List<string>();
         public List<string> ColumnFList = new List<string>();
 
-        SaveFileDialog sfd = new SaveFileDialog {
+        public SaveFileDialog Sfd = new SaveFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         };
 
 
-        OpenFileDialog ofd = new OpenFileDialog {
+        public OpenFileDialog Ofd = new OpenFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         };
 
@@ -104,15 +97,15 @@ namespace Guideviewer {
         public MainWindow() {
             InitializeComponent();
 
-            StreamReader sr = new StreamReader("deletedrows.txt");
+            var sr = new StreamReader("deletedrows.txt");
             _deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
 
-            Class1 google = new Class1();
-            SpreadsheetsResource.ValuesResource.GetRequest request = google.GoogleRequest();
+            var google = new GoogleRequest();
+            var request = google.GoogleRequestInit();
 
-            ValueRange response = request.Execute();
+            var response = request.Execute();
             Response = request.Execute();
-            IList<IList<Object>> values = response.Values;
+            var values = response.Values;
             Values = response.Values;
 
             #region Create Columns
@@ -124,13 +117,13 @@ namespace Guideviewer {
 
             style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
             style.Setters.Add(new Setter(TextBlock.TextAlignmentProperty, TextAlignment.Center));
-            style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
+            style.Setters.Add(new Setter(VerticalAlignmentProperty, VerticalAlignment.Center));
 
-            headerstyle.Setters.Add(new Setter(DataGridColumnHeader.HorizontalContentAlignmentProperty,
+            headerstyle.Setters.Add(new Setter(HorizontalContentAlignmentProperty,
                 HorizontalAlignment.Center));
 
-            cell.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Black));
-            cell.Setters.Add(new Setter(DataGridCell.PaddingProperty, new Thickness(3)));
+            cell.Setters.Add(new Setter(BackgroundProperty, Brushes.Black));
+            cell.Setters.Add(new Setter(PaddingProperty, new Thickness(3)));
 
             MyDataGrid.MinRowHeight = 30;
 
@@ -220,9 +213,9 @@ namespace Guideviewer {
         }
 
         private void SaveToFile_OnClick(object sender, RoutedEventArgs e) {
-            bool? result = sfd.ShowDialog();
+            bool? result = Sfd.ShowDialog();
             if (result == true) {
-                string path = sfd.FileName;
+                string path = Sfd.FileName;
                 StreamWriter sw = new StreamWriter(File.Create(path));
                 sw.WriteAsync(_deletedFirstRows.ToString());
                 sw.Dispose();
@@ -230,7 +223,7 @@ namespace Guideviewer {
         }
 
         private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
-            if (ofd.ShowDialog() == true) {
+            if (Ofd.ShowDialog() == true) {
 
                 MyDataGrid.Items.Clear();
 
@@ -249,24 +242,30 @@ namespace Guideviewer {
                     var categories = skills[i].Split(',');
                     var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
 
+                    LoadedSkillLevels[i] = skill.Item1;
+                    LoadedSkillExperiences[i] = skill.Item2;
 
-//                var result = "The " + SkillNames[i] + " level of the user is: " + skill.Item1 + "." + Environment.NewLine +
-//                         "The " + SkillNames[i] + " experience of the user is: " + skill.Item2 + ".";
-//                MessageBox.Show(result);
+                    User u = new User();
 
-//                foreach (var dgc in MyDataGrid.Columns) {
-//                    if (dgc.GetCellContent(i).ToString().Contains('a')) {
-//                        MessageBox.Show("CONTAINS");
-//                    }
-//                }
-                
-                    var RowOnGrid = MyDataGrid.Items.OfType<DataGridRow>();
-                    MyDataGrid.SelectAllCells();
+                    foreach (var t in ColumnAList) {
+                        if (t.Contains("[Train")) {
+                            for (int k = 1; k < 99; k++) {
+                                string combined = u.SkillNames[i] + " to ";
 
-                    TextBlock x = MyDataGrid.Columns[0].GetCellContent(MyDataGrid.Items[i]) as TextBlock;
-                    if (x != null && x.Text.Contains("ALMOST"))
-                        MyDataGrid.Items.RemoveAt(1);
-                    MessageBox.Show(x.Text);
+                                if (t.Contains(k.ToString()) && t.Contains(combined)) {
+                                    int skillPrefix = t.IndexOf(combined, 2, StringComparison.Ordinal);
+
+                                    string number = t.Substring(skillPrefix + combined.Length, 2);
+                                    
+                                    MessageBox.Show("The " + u.SkillNames[i] + " level required is " + number + ", and the users " + u.SkillNames[i] + " level is " + skill.Item1);
+
+                                    string fullString = combined + number + ",";
+
+                                    ColumnAList[i] = ColumnAList[i].Replace(fullString, " ");
+                                }
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception d) {

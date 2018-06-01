@@ -40,7 +40,7 @@
             </MenuItem>
             <MenuItem Header="Delete first row" Click="DeleteFirstRow_OnClick" />
             <MenuItem Header="Load progress:" x:Name="Progress" Click="LoadProgress_OnClick"/>
-            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="273" Padding="0,2,0,0" Text="{Binding (guideviewer:MainWindow.userName)}" />
+            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="273" Padding="0,2,0,0" />
         </Menu>
     </Grid>
 </Window>

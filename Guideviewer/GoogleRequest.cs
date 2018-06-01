@@ -9,16 +9,16 @@ using Google.Apis.Util.Store;
 
 namespace Guideviewer
 {
-    public class Class1
+    public class GoogleRequest
     {
         
         private const string ApplicationName = "GuideViewer";
         private static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
         private UserCredential credential;
 
-        public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequest() {
+        public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
 
-            String myUrl = URLReturner("[REDACTED]");
+            string myUrl = URLReturner("[REDACTED]");
 
             WebClient client = new WebClient();
             {
@@ -26,13 +26,13 @@ namespace Guideviewer
             }
             
             using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read)) {
+
                 string credPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 credPath = Path.Combine(credPath, ".credentials\\");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None,
                     new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credential);
             }
 
             // Create Google Sheets API service.
@@ -42,15 +42,15 @@ namespace Guideviewer
             });
 
             // Define request parameters.
-            String spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
-            String range = "TestSheet!A2:F";
+            const string spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
+            const string range = "TestSheet!A2:F";
 
             File.Delete("\\client_secret.json");
 
             return  service.Spreadsheets.Values.Get(spreadsheetId, range);
         }
 
-        private String URLReturner(string name) {
+        private string URLReturner(string name) {
             return $"https://api.myjson.com/bins/{name}.json";
         }
          
