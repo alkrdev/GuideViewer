@@ -5,6 +5,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using Microsoft.Win32;
 using System.Linq;
 
+
 namespace Guideviewer {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,29 +26,17 @@ namespace Guideviewer {
 
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
-        static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
 
         #region Initialize
 
         public string userName { get; set; }
 
-        static readonly string[] SkillNames = {
-            "Total", "Attack", "Defense",
-            "Strength", "Constitution", "Ranged",
-            "Prayer", "Magic", "Cooking",
-            "Woodcutting", "Fletching", "Fishing",
-            "Firemaking", "Crafting", "Smithing",
-            "Mining", "Herblore", "Agility",
-            "Thieving", "Slayer", "Farming",
-            "Runecrafting", "Hunter", "Construction",
-            "Summoning", "Dungeoneering", "Divination",
-            "Invention"
-        };
+        public List<string> SkillsList = new User().SkillNames;
+        
 
         public static int[] LoadedSkillLevels;
         public static int[] LoadedSkillExperiences;
 
-        private const string ApplicationName = "GuideViewer";
 
         private float widthDef = 1600 / 5;
         private float widthMed = 1600 / 5 / 5 * 3.7f;
@@ -114,53 +104,11 @@ namespace Guideviewer {
         public MainWindow() {
             InitializeComponent();
 
-            DataContext = this;
-
             StreamReader sr = new StreamReader("deletedrows.txt");
             _deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
 
-            
-            #region GoogleRequest
-
-            String myUrl = "https://api.myjson.com/bins/[REDACTED].json";
-
-            WebClient client = new WebClient();
-            {
-                client.DownloadFile(myUrl, "\\client_secret.json");
-            }
-
-            UserCredential credential;
-            using (var stream =
-                new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read)) {
-                string credPath = Environment.GetFolderPath(
-                    Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath,
-                    ".credentials/sheets.googleapis.com-dotnet-quickstart.json");
-
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    Scopes,
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credPath);
-            }
-
-            // Create Google Sheets API service.
-            var service = new SheetsService(new BaseClientService.Initializer {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-
-            // Define request parameters.
-            String spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
-            String range = "TestSheet!A2:F";
-            SpreadsheetsResource.ValuesResource.GetRequest request =
-                service.Spreadsheets.Values.Get(spreadsheetId, range);
-
-            File.Delete("\\client_secret.json");
-
-            #endregion
+            Class1 google = new Class1();
+            SpreadsheetsResource.ValuesResource.GetRequest request = google.GoogleRequest();
 
             ValueRange response = request.Execute();
             Response = request.Execute();
@@ -291,13 +239,15 @@ namespace Guideviewer {
         }
 
         private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
-            WebClient wc = new WebClient();
-            var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + userName);
+            try {
+                WebClient wc = new WebClient();
+                Console.WriteLine(userName);
+                var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + Box.Text);
             
-            for (int i = 0; i < SkillNames.Length; i++) {
-                var skills = s.Split('\n');
-                var categories = skills[i].Split(',');
-                var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
+                for (int i = 0; i < SkillsList.Count; i++) {
+                    var skills = s.Split('\n');
+                    var categories = skills[i].Split(',');
+                    var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
 
 
 //                var result = "The " + SkillNames[i] + " level of the user is: " + skill.Item1 + "." + Environment.NewLine +
@@ -309,14 +259,19 @@ namespace Guideviewer {
 //                        MessageBox.Show("CONTAINS");
 //                    }
 //                }
+                
+                    var RowOnGrid = MyDataGrid.Items.OfType<DataGridRow>();
+                    MyDataGrid.SelectAllCells();
 
-                var RowOnGrid = MyDataGrid.Items.OfType<DataGridRow>();
-                MyDataGrid.SelectAllCells();
-
-                TextBlock x = MyDataGrid.Columns[0].GetCellContent(MyDataGrid.Items[i]) as TextBlock;
-                if (x != null && x.Text.Contains("ALMOST"))
-                    MyDataGrid.Items.RemoveAt(1);
-                MessageBox.Show(x.Text);
+                    TextBlock x = MyDataGrid.Columns[0].GetCellContent(MyDataGrid.Items[i]) as TextBlock;
+                    if (x != null && x.Text.Contains("ALMOST"))
+                        MyDataGrid.Items.RemoveAt(1);
+                    MessageBox.Show(x.Text);
+                }
+            }
+            catch (Exception d) {
+                MessageBox.Show($"{d}");
+               
             }
         }
 
