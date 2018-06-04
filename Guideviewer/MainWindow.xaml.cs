@@ -24,10 +24,7 @@ namespace Guideviewer {
         public string userName { get; set; }
 
         public static List<string> SkillsList = new User().SkillNames;
-
-        public int[] LoadedSkillLevels = new int[SkillsList.Count];
-        public int[] LoadedSkillExperiences = new int[SkillsList.Count];
-
+        
         private const float WidthDef = 320;
         private const float WidthMed = 240;
         private const float Sm = 75;
@@ -236,38 +233,38 @@ namespace Guideviewer {
                     var categories = skills[i].Split(',');
                     var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
 
-                    LoadedSkillLevels[i] = skill.Item1;
-                    LoadedSkillExperiences[i] = skill.Item2;
+                    u.LoadedSkillLevels[i] = skill.Item1;
+                    u.LoadedSkillExperiences[i] = skill.Item2;
+
+                    u.SaveData();
 
                     for (var index = 1; index < ColumnA.Length; index++) {
                         if (ColumnA[index].Contains("[Train")) {
                             string combined = u.SkillNames[i] + " to ";
 
                             if (ColumnA[index].Contains(combined)) {
-                                string s = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3, StringComparison.Ordinal) + combined.Length, 3).Replace(" ", "");
+                                string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3, StringComparison.Ordinal) + combined.Length, 3).Replace(" ", "");
                                 //MessageBox.Show(s);
 
-                                if (s.EndsWith("]")) {
-                                    s = s.Remove(s.LastIndexOf(']'), 1);
+                                if (extract.EndsWith("]")) {
+                                    extract = extract.Remove(extract.LastIndexOf(']'), 1);
                                     //MessageBox.Show("S HAD A \"]\", WHICH WAS REMOVED: " + s);
-                                } else if (s.EndsWith(",")) {
-                                    s = s.Remove(s.LastIndexOf(','), 1);
+                                } else if (extract.EndsWith(",")) {
+                                    extract = extract.Remove(extract.LastIndexOf(','), 1);
                                     //MessageBox.Show("S HAD A \",\", WHICH WAS REMOVED: " + s);
-                                } else if (s.EndsWith(" ")) {
-                                    s = s.Remove(s.LastIndexOf(' '), 1);
+                                } else if (extract.EndsWith(" ")) {
+                                    extract = extract.Remove(extract.LastIndexOf(' '), 1);
                                     //MessageBox.Show("S HAD A \" \", WHICH WAS REMOVED: " + s);
+                                }                                    
+                                for (int j = 0; j < 10; j++) {
+                                    if (extract.EndsWith(j.ToString())) {
+                                        ColumnA[index] = ColumnA[index].Replace(extract + j, "");
+                                    } 
                                 }
 
                                 //MessageBox.Show(s.Substring(s.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length + 1).Replace(" ", ""));
-                                if (Convert.ToInt32(s.Substring(s.IndexOf(combined, 1, StringComparison.Ordinal) +
-                                                                combined.Length + 1).Replace(" ", "")) > skill.Item1) {
+                                if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length + 1).Replace(" ", "")) > u.Levels[i].Item2) {
 
-
-                                    for (int j = 0; j < 10; j++) {
-                                        if (s.EndsWith(j.ToString())) {
-                                            ColumnA[index] = ColumnA[index].Replace(s + j, "");
-                                        } 
-                                    }
                                 }
 
                                 //MessageBox.Show(s);

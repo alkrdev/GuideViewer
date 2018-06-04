@@ -12,12 +12,10 @@ namespace Guideviewer
     public class GoogleRequest
     {
         
-        private const string ApplicationName = "GuideViewer";
-        private static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
-        private UserCredential credential;
-        // Define request parameters.
-            public static string spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
-            public static string range = "TestSheet!A2:F";
+        private static readonly string[] Scopes = {
+            SheetsService.Scope.SpreadsheetsReadonly
+        };
+        private UserCredential _credential;
 
         public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
 
@@ -30,23 +28,18 @@ namespace Guideviewer
             
             using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read)) {
 
-                string credPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath, ".credentials\\");
-
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                _credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
+                    new FileDataStore(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".credentials\\"), true)).Result;
             }
-
-            // Create Google Sheets API service.
             var service = new SheetsService(new BaseClientService.Initializer {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
+                HttpClientInitializer = _credential,
+                ApplicationName = "GuideViewer"
             });
 
             File.Delete("\\client_secret.json");
 
-            return service.Spreadsheets.Values.Get(spreadsheetId, range);
+            return service.Spreadsheets.Values.Get("1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao", "TestSheet!A2:F");
         }
 
         private string URLReturner(string name) {

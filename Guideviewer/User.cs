@@ -1,14 +1,10 @@
-﻿
-    using System.Collections.Generic;
-    using System.Windows.Documents;
+﻿using System;
+using System.Collections.Generic;
 
-public class User {
-
-       
-
-       
-
-        public List<string> SkillNames = new List<string>() {
+namespace Guideviewer {
+    public class User {
+    
+        public List<string> SkillNames = new List<string> {
             "Total", "Attack", "Defense",
             "Strength", "Constitution", "Ranged",
             "Prayer", "Magic", "Cooking",
@@ -20,7 +16,18 @@ public class User {
             "Summoning", "Dungeoneering", "Divination",
             "Invention"
         };
+        public int[] LoadedSkillLevels = new int[MainWindow.SkillsList.Count];
+        public int[] LoadedSkillExperiences = new int[MainWindow.SkillsList.Count];
 
-        public int Attack;
+        public Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[MainWindow.SkillsList.Count];
+        public int i;
+
+        public void SaveData() {
+
+            foreach (var s in SkillNames) {
+                Levels[i] = new Tuple<string, int, int>(s,LoadedSkillLevels[i],LoadedSkillExperiences[i]);
+                i++;
+            }
+        }
     }
-
+}
