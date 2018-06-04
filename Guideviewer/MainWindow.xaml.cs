@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
-using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
 
@@ -31,21 +28,23 @@ namespace Guideviewer {
         public int[] LoadedSkillLevels = new int[SkillsList.Count];
         public int[] LoadedSkillExperiences = new int[SkillsList.Count];
 
-        private float widthDef = 320;
-        private float widthMed = 236.8F;
-        private float widthSm = 69.56522F;
+        private const float WidthDef = 320;
+        private const float WidthMed = 240;
+        private const float Sm = 75;
 
         private int _deletedFirstRows;
 
         public IList<IList<Object>> Values;
         public ValueRange Response;
 
-        public List<string> ColumnAList = new List<string>();
-        public List<string> ColumnBList = new List<string>();
-        public List<string> ColumnCList = new List<string>();
-        public List<string> ColumnDList = new List<string>();
-        public List<string> ColumnEList = new List<string>();
-        public List<string> ColumnFList = new List<string>();
+        public static int Limiter = new GoogleRequest().GoogleRequestInit().Execute().Values.Count;
+
+        public string[] ColumnA = new string[Limiter];
+        public string[] ColumnB = new string[Limiter];
+        public string[] ColumnC = new string[Limiter];
+        public string[] ColumnD = new string[Limiter];
+        public string[] ColumnE = new string[Limiter];
+        public string[] ColumnF = new string[Limiter];
 
         public SaveFileDialog Sfd = new SaveFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
@@ -53,34 +52,36 @@ namespace Guideviewer {
 
 
         public OpenFileDialog Ofd = new OpenFileDialog {
-            Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
-        };
-
-        public Binding[] Bind = {
-            new Binding("Qt"),
-            new Binding("L"),
-            new Binding("Mqc"),
-            new Binding("Cp"),
-            new Binding("Tcp"),
-            new Binding("Im")
-        };
-
-        public string[] Header = {
-            "Quest / Train to",
-            "Lamps",
-            "Master Quest Cape",
-            "Completionist Cape",
-            "Trimmed Completionist Cape",
-            "Ironman"
+            Filter = "txt files (*.txt)|*.txt|" +
+                     "All files (*.*)|*.*"
         };
 
         public DataGridTextColumn[] Colu = {
-            new DataGridTextColumn(),
-            new DataGridTextColumn(),
-            new DataGridTextColumn(),
-            new DataGridTextColumn(),
-            new DataGridTextColumn(),
-            new DataGridTextColumn()
+            new DataGridTextColumn {
+                Binding = new Binding("Qt"),
+                Header = "Quest / Train to"
+            },
+            new DataGridTextColumn {
+                Binding = new Binding("L"),
+                Header = "Lamps"
+            },
+            new DataGridTextColumn {
+                Binding = new Binding("Mqc"),
+                Header = "Master Quest Cape"
+            },
+            new DataGridTextColumn {
+                Binding = new Binding("Cp"),
+                Header = "Completionist Cape"
+            },
+            new DataGridTextColumn {
+                Binding = new Binding("Tcp"),
+                Header = "Trimmed Completionist Cape"
+            },
+            new DataGridTextColumn {
+                
+                Binding = new Binding("Im"),
+                Header = "Ironman"
+            }
         };
 
         public struct MyData {
@@ -96,18 +97,10 @@ namespace Guideviewer {
 
         public MainWindow() {
             InitializeComponent();
-
-            var sr = new StreamReader("deletedrows.txt");
-            _deletedFirstRows = Convert.ToInt32(sr.ReadToEnd());
-
-            var google = new GoogleRequest();
-            var request = google.GoogleRequestInit();
-
-            var response = request.Execute();
-            Response = request.Execute();
-            var values = response.Values;
-            Values = response.Values;
-
+            
+            _deletedFirstRows = Convert.ToInt32(new StreamReader("deletedrows.txt").ReadToEnd());
+            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
+            
             #region Create Columns
             #region Style
 
@@ -129,56 +122,57 @@ namespace Guideviewer {
 
             #endregion
 
-            if (values != null && values.Count > 0) {
-                foreach (var col in values) {
+            if (Values != null && Values.Count > 0) {
+                for (var index = 0; index < Values.Count; index++) {
+                    var col = Values[index];
                     if (col[0] != null) {
-                        ColumnAList.Add(col[0].ToString());
+                        ColumnA[index] = col[0].ToString();
                     }
 
                     if (col[1] != null) {
-                        ColumnBList.Add(col[1].ToString());
+                        ColumnB[index] = col[1].ToString();
                     }
 
                     if (col[2] != null) {
-                        ColumnCList.Add(col[2].ToString());
+                        ColumnC[index] = col[2].ToString();
                     }
 
                     if (col[3] != null) {
-                        ColumnDList.Add(col[3].ToString());
+                        ColumnD[index] = col[3].ToString();
                     }
 
                     if (col[4] != null) {
-                        ColumnEList.Add(col[4].ToString());
+                        ColumnE[index] = col[4].ToString();
                     }
 
                     if (col[5] != null) {
-                        ColumnFList.Add(col[5].ToString());
+                        ColumnF[index] = col[5].ToString();
                     }
                 }
             }
 
+
             for (var i = 0; i < 6; i++) {
 
-                Colu[i].Header = Header[i];
-                Colu[i].Binding = Bind[i];
                 Colu[i].ElementStyle = style;
                 Colu[i].HeaderStyle = headerstyle;
                 Colu[i].CellStyle = cell;
+
                 switch (i) {
                     case 0:
                         Colu[i].Foreground = Brushes.Aqua;
                         break;
                     case 1:
                         Colu[i].Foreground = Brushes.White;
-                        Colu[i].MinWidth = widthSm;
+                        Colu[i].MinWidth = Sm;
                         //Colu[i].Width = 1600 / 5 / 4.6;
-                        Colu[i].MaxWidth = widthSm;
+                        Colu[i].MaxWidth = Sm;
                         break;
                     case 2:
                         Colu[i].Foreground = Brushes.CornflowerBlue;
-                        Colu[i].MinWidth = widthMed;
+                        Colu[i].MinWidth = WidthMed;
                         //Colu[i].Width = 1600 / 5 / 5 * 3.7;
-                        Colu[i].MaxWidth = widthMed;
+                        Colu[i].MaxWidth = WidthMed;
                         break;
                     case 3:
                         Colu[i].Foreground = Brushes.Brown;
@@ -190,9 +184,9 @@ namespace Guideviewer {
                         Colu[i].Foreground = Brushes.DarkGray;
                         break;
                     default:
-                        Colu[i].MinWidth = widthDef;
+                        Colu[i].MinWidth = WidthDef;
                         //Colu[i].Width = 1600 / 5;
-                        Colu[i].MaxWidth = widthDef;
+                        Colu[i].MaxWidth = WidthDef;
                         break;
                 }
 
@@ -215,8 +209,7 @@ namespace Guideviewer {
         private void SaveToFile_OnClick(object sender, RoutedEventArgs e) {
             bool? result = Sfd.ShowDialog();
             if (result == true) {
-                string path = Sfd.FileName;
-                StreamWriter sw = new StreamWriter(File.Create(path));
+                StreamWriter sw = new StreamWriter(File.Create(Sfd.FileName));
                 sw.WriteAsync(_deletedFirstRows.ToString());
                 sw.Dispose();
             }
@@ -234,39 +227,93 @@ namespace Guideviewer {
         private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
             try {
                 WebClient wc = new WebClient();
-                Console.WriteLine(userName);
-                var s = wc.DownloadString(Environment.NewLine + "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + Box.Text);
+                User u = new User();
             
-                for (int i = 0; i < SkillsList.Count; i++) {
-                    var skills = s.Split('\n');
+                var skills = wc.DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + Box.Text.Replace(' ', '_')).Split('\n');
+
+                for (int i = 1; i < SkillsList.Count; i++) {
+
                     var categories = skills[i].Split(',');
                     var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
 
                     LoadedSkillLevels[i] = skill.Item1;
                     LoadedSkillExperiences[i] = skill.Item2;
 
-                    User u = new User();
+                    for (var index = 1; index < ColumnA.Length; index++) {
+                        if (ColumnA[index].Contains("[Train")) {
+                            string combined = u.SkillNames[i] + " to ";
 
-                    foreach (var t in ColumnAList) {
-                        if (t.Contains("[Train")) {
-                            for (int k = 1; k < 99; k++) {
-                                string combined = u.SkillNames[i] + " to ";
+                            if (ColumnA[index].Contains(combined)) {
+                                string s = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3, StringComparison.Ordinal) + combined.Length, 3).Replace(" ", "");
+                                //MessageBox.Show(s);
 
-                                if (t.Contains(k.ToString()) && t.Contains(combined)) {
-                                    int skillPrefix = t.IndexOf(combined, 2, StringComparison.Ordinal);
-
-                                    string number = t.Substring(skillPrefix + combined.Length, 2);
-                                    
-                                    MessageBox.Show("The " + u.SkillNames[i] + " level required is " + number + ", and the users " + u.SkillNames[i] + " level is " + skill.Item1);
-
-                                    string fullString = combined + number + ",";
-
-                                    ColumnAList[i] = ColumnAList[i].Replace(fullString, " ");
+                                if (s.EndsWith("]")) {
+                                    s = s.Remove(s.LastIndexOf(']'), 1);
+                                    //MessageBox.Show("S HAD A \"]\", WHICH WAS REMOVED: " + s);
+                                } else if (s.EndsWith(",")) {
+                                    s = s.Remove(s.LastIndexOf(','), 1);
+                                    //MessageBox.Show("S HAD A \",\", WHICH WAS REMOVED: " + s);
+                                } else if (s.EndsWith(" ")) {
+                                    s = s.Remove(s.LastIndexOf(' '), 1);
+                                    //MessageBox.Show("S HAD A \" \", WHICH WAS REMOVED: " + s);
                                 }
+
+                                //MessageBox.Show(s.Substring(s.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length + 1).Replace(" ", ""));
+                                if (Convert.ToInt32(s.Substring(s.IndexOf(combined, 1, StringComparison.Ordinal) +
+                                                                combined.Length + 1).Replace(" ", "")) > skill.Item1) {
+
+
+                                    for (int j = 0; j < 10; j++) {
+                                        if (s.EndsWith(j.ToString())) {
+                                            ColumnA[index] = ColumnA[index].Replace(s + j, "");
+                                        } 
+                                    }
+                                }
+
+                                //MessageBox.Show(s);
+                                //MessageBox.Show(ColumnA[index].Replace(s, ""));
+                            }
+
+                            if (ColumnA[index].Contains(" ,")) {
+                                ColumnA[index] = ColumnA[index].Replace(" ,", "");
+                            }
+
+                            switch (ColumnA[index])
+                            {
+                                case "[Train ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train ,  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train , ,  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train , , ,  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train , , , ,  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train , , , , ,  and ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train ,  and  [OPTIONAL]]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                     }
                 }
+
+                MyDataGrid.Items.Clear();
+                MessageBox.Show("ALL ITEMS WERE CLEARED");
+                FillAllColumns();
             }
             catch (Exception d) {
                 MessageBox.Show($"{d}");
@@ -278,12 +325,12 @@ namespace Guideviewer {
             if (Values != null) {
                 for (int a = 0; a < Values.Count; a++) {
                     MyDataGrid.Items.Add(new MyData {
-                        Qt = ColumnAList[a],
-                        L = ColumnBList[a],
-                        Mqc = ColumnCList[a],
-                        Cp = ColumnDList[a],
-                        Tcp = ColumnEList[a],
-                        Im = ColumnFList[a]
+                        Qt = ColumnA[a],
+                        L = ColumnB[a],
+                        Mqc = ColumnC[a],
+                        Cp = ColumnD[a],
+                        Tcp = ColumnE[a],
+                        Im = ColumnF[a]
                     });
                 }
             }

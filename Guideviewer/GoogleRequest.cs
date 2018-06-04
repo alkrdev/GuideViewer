@@ -15,10 +15,13 @@ namespace Guideviewer
         private const string ApplicationName = "GuideViewer";
         private static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
         private UserCredential credential;
+        // Define request parameters.
+            public static string spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
+            public static string range = "TestSheet!A2:F";
 
         public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
 
-            string myUrl = URLReturner("[REDACTED]");
+            string myUrl = URLReturner("ux702");
 
             WebClient client = new WebClient();
             {
@@ -41,13 +44,9 @@ namespace Guideviewer
                 ApplicationName = ApplicationName,
             });
 
-            // Define request parameters.
-            const string spreadsheetId = "1uLxm0jvmL1_FJNYUJp6YqIezzqrZdjPf2xQGOWYd6ao";
-            const string range = "TestSheet!A2:F";
-
             File.Delete("\\client_secret.json");
 
-            return  service.Spreadsheets.Values.Get(spreadsheetId, range);
+            return service.Spreadsheets.Values.Get(spreadsheetId, range);
         }
 
         private string URLReturner(string name) {
