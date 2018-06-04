@@ -21,7 +21,7 @@ namespace Guideviewer
 
         public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
 
-            string myUrl = URLReturner("ux702");
+            string myUrl = URLReturner("[REDACTED]");
 
             WebClient client = new WebClient();
             {
