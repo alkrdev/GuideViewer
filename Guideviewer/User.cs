@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace Guideviewer {
     public class User {
-    
-        public List<string> SkillNames = new List<string> {
+        
+        //List of all skillnames in the game
+        public static List<string> SkillNames = new List<string> {
             "Total", "Attack", "Defense",
             "Strength", "Constitution", "Ranged",
             "Prayer", "Magic", "Cooking",
@@ -16,18 +17,13 @@ namespace Guideviewer {
             "Summoning", "Dungeoneering", "Divination",
             "Invention"
         };
-        public int[] LoadedSkillLevels = new int[MainWindow.SkillsList.Count];
-        public int[] LoadedSkillExperiences = new int[MainWindow.SkillsList.Count];
 
-        public Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[MainWindow.SkillsList.Count];
-        public int i;
+        //Storage of  the users data
+        public int[] LoadedSkillLevels = new int[SkillNames.Count];
+        public int[] LoadedSkillExperiences = new int[SkillNames.Count];
 
-        public void SaveData() {
+        //Combination of the users data
+        public Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[SkillNames.Count];
 
-            foreach (var s in SkillNames) {
-                Levels[i] = new Tuple<string, int, int>(s,LoadedSkillLevels[i],LoadedSkillExperiences[i]);
-                i++;
-            }
-        }
     }
 }

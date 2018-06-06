@@ -1,46 +1,161 @@
 ﻿<Window x:Class="Guideviewer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:guideviewer="clr-namespace:Guideviewer"
-        mc:Ignorable="d"
         Title="MainWindow" 
-        Height="350" 
-        Width="1600" 
         ResizeMode="NoResize" 
-        SizeToContent="WidthAndHeight">
+        Width="1622"
+        Height="891">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1583*"/>
-            <ColumnDefinition Width="11*"/>
-        </Grid.ColumnDefinitions>
         <DataGrid Name="MyDataGrid" 
-                  Margin="0,25,0,0"  
-                  Padding="3"
-                  Background="#FF212121" 
-                  SelectionUnit="Cell" 
-                  VerticalGridLinesBrush="Black"
-                  VerticalScrollBarVisibility="Hidden" 
+                  AutoGenerateColumns="False"
+                  Background="#FF212121"
+                  VerticalScrollBarVisibility="Auto" 
                   GridLinesVisibility="None" 
-                  HeadersVisibility="Column" 
-                  MaxWidth="1600" 
-                  MaxHeight="900" 
-                  MaxColumnWidth="320" 
-                  CanUserReorderColumns="False" 
-                  CanUserSortColumns="False" 
-                  Grid.ColumnSpan="2"
-                  IsReadOnly="True"
-                  />
+                  HeadersVisibility="Column"
+                  CanUserSortColumns="False"
+                  IsReadOnly="True" 
+                  MaxColumnWidth="240" 
+                  MinColumnWidth="240" 
+                  Margin="0,25,0,0" 
+                  MinRowHeight="30">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Quest / Train To" Binding="{Binding Qt}" Foreground="Aqua">
+                    <DataGridTextColumn.MinWidth>262</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>262</DataGridTextColumn.MaxWidth>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Lamps" Binding="{Binding L}" Foreground="White">
+                    <DataGridTextColumn.MinWidth>89</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>89</DataGridTextColumn.MaxWidth>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Master Quest Cape" Binding="{Binding Mqc}" Foreground="CornflowerBlue">
+                    <DataGridTextColumn.MinWidth>490</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>490</DataGridTextColumn.MaxWidth>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Completionist Cape" Binding="{Binding Cc}" Foreground="Brown">
+                    <DataGridTextColumn.MinWidth>240</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>240</DataGridTextColumn.MaxWidth>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Trimmed Completionist Cape" Binding="{Binding Tcc}" Foreground="DarkOrange">
+                    <DataGridTextColumn.MinWidth>265</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>265</DataGridTextColumn.MaxWidth>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ironman" Binding="{Binding Im}" Foreground="DarkGray">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style>
+                            <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="DataGridCell.Background" Value="Black"/>
+                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1594" IsMainMenu="True" Grid.ColumnSpan="2">
-            <MenuItem Header="Options" x:Name="Options">
-                <MenuItem Header="Save" Click="SaveToFile_OnClick"></MenuItem>
-                <MenuItem Header="Load" Click="LoadFile_OnClick"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Delete first row" Click="DeleteFirstRow_OnClick" />
-            <MenuItem Header="Load progress:" x:Name="Progress" Click="LoadProgress_OnClick"/>
-            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="273" Padding="0,2,0,0" />
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1648" IsMainMenu="True">
+            <MenuItem Header="Load progress" x:Name="Progress" Click="LoadProgress_OnClick"/>
+            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Center"/>
         </Menu>
     </Grid>
 </Window>

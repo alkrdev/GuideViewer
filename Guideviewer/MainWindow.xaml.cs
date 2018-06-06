@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Media;
 using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 
 namespace Guideviewer {
     /// <summary>
@@ -20,22 +22,25 @@ namespace Guideviewer {
         // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
 
         #region Initialize
-
-        public string userName { get; set; }
-
-        public static List<string> SkillsList = new User().SkillNames;
         
-        private const float WidthDef = 320;
-        private const float WidthMed = 240;
-        private const float Sm = 75;
+        public static User u = new User();
 
-        private int _deletedFirstRows;
+        //???
+        public string Qt { get; set; }
+        
+        //Column measurements
+        private const float Def = 325;
+        private const float Med = 245;
+        private const float Sm = 80;
 
+        //Parameters to handle GoogleRequest
         public IList<IList<Object>> Values;
         public ValueRange Response;
 
+        //The maximum amount of rows in the datasource spreadsheet
         public static int Limiter = new GoogleRequest().GoogleRequestInit().Execute().Values.Count;
 
+        //Arrays to store the data
         public string[] ColumnA = new string[Limiter];
         public string[] ColumnB = new string[Limiter];
         public string[] ColumnC = new string[Limiter];
@@ -43,50 +48,24 @@ namespace Guideviewer {
         public string[] ColumnE = new string[Limiter];
         public string[] ColumnF = new string[Limiter];
 
+        //SaveFileDialog Class initialization - Save a file
         public SaveFileDialog Sfd = new SaveFileDialog {
             Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         };
 
-
+        //OpenFileDialog Class initialization - Open a file
         public OpenFileDialog Ofd = new OpenFileDialog {
             Filter = "txt files (*.txt)|*.txt|" +
                      "All files (*.*)|*.*"
         };
 
-        public DataGridTextColumn[] Colu = {
-            new DataGridTextColumn {
-                Binding = new Binding("Qt"),
-                Header = "Quest / Train to"
-            },
-            new DataGridTextColumn {
-                Binding = new Binding("L"),
-                Header = "Lamps"
-            },
-            new DataGridTextColumn {
-                Binding = new Binding("Mqc"),
-                Header = "Master Quest Cape"
-            },
-            new DataGridTextColumn {
-                Binding = new Binding("Cp"),
-                Header = "Completionist Cape"
-            },
-            new DataGridTextColumn {
-                Binding = new Binding("Tcp"),
-                Header = "Trimmed Completionist Cape"
-            },
-            new DataGridTextColumn {
-                
-                Binding = new Binding("Im"),
-                Header = "Ironman"
-            }
-        };
-
+        //Struct to insert data from datasource in correct columns
         public struct MyData {
             public string Qt { set; get; }
             public string L { set; get; }
             public string Mqc { set; get; }
-            public string Cp { set; get; }
-            public string Tcp { set; get; }
+            public string Cc { set; get; }
+            public string Tcc { set; get; }
             public string Im { set; get; }
         }
 
@@ -94,31 +73,11 @@ namespace Guideviewer {
 
         public MainWindow() {
             InitializeComponent();
-            
-            _deletedFirstRows = Convert.ToInt32(new StreamReader("deletedrows.txt").ReadToEnd());
+
+            //Google Request
             Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
-            
-            #region Create Columns
-            #region Style
 
-            var style = new Style(typeof(TextBlock));
-            var headerstyle = new Style(typeof(DataGridColumnHeader));
-            var cell = new Style(typeof(DataGridCell));
-
-            style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
-            style.Setters.Add(new Setter(TextBlock.TextAlignmentProperty, TextAlignment.Center));
-            style.Setters.Add(new Setter(VerticalAlignmentProperty, VerticalAlignment.Center));
-
-            headerstyle.Setters.Add(new Setter(HorizontalContentAlignmentProperty,
-                HorizontalAlignment.Center));
-
-            cell.Setters.Add(new Setter(BackgroundProperty, Brushes.Black));
-            cell.Setters.Add(new Setter(PaddingProperty, new Thickness(3)));
-
-            MyDataGrid.MinRowHeight = 30;
-
-            #endregion
-
+            //Insert the requested data into column arrays
             if (Values != null && Values.Count > 0) {
                 for (var index = 0; index < Values.Count; index++) {
                     var col = Values[index];
@@ -148,136 +107,98 @@ namespace Guideviewer {
                 }
             }
 
-
-            for (var i = 0; i < 6; i++) {
-
-                Colu[i].ElementStyle = style;
-                Colu[i].HeaderStyle = headerstyle;
-                Colu[i].CellStyle = cell;
-
-                switch (i) {
-                    case 0:
-                        Colu[i].Foreground = Brushes.Aqua;
-                        break;
-                    case 1:
-                        Colu[i].Foreground = Brushes.White;
-                        Colu[i].MinWidth = Sm;
-                        //Colu[i].Width = 1600 / 5 / 4.6;
-                        Colu[i].MaxWidth = Sm;
-                        break;
-                    case 2:
-                        Colu[i].Foreground = Brushes.CornflowerBlue;
-                        Colu[i].MinWidth = WidthMed;
-                        //Colu[i].Width = 1600 / 5 / 5 * 3.7;
-                        Colu[i].MaxWidth = WidthMed;
-                        break;
-                    case 3:
-                        Colu[i].Foreground = Brushes.Brown;
-                        break;
-                    case 4:
-                        Colu[i].Foreground = Brushes.DarkOrange;
-                        break;
-                    case 5:
-                        Colu[i].Foreground = Brushes.DarkGray;
-                        break;
-                    default:
-                        Colu[i].MinWidth = WidthDef;
-                        //Colu[i].Width = 1600 / 5;
-                        Colu[i].MaxWidth = WidthDef;
-                        break;
-                }
-
-                MyDataGrid.Columns.Add(Colu[i]);
-
-            }
-
+            //Use the filling method, read below
             FillAllColumns();
 
-            #endregion
         }
 
         #region Methods
 
-        private void DeleteFirstRow_OnClick(object sender, RoutedEventArgs e) {
-            MyDataGrid.Items.RemoveAt(1);
-            _deletedFirstRows++;
-        }
-
-        private void SaveToFile_OnClick(object sender, RoutedEventArgs e) {
-            bool? result = Sfd.ShowDialog();
-            if (result == true) {
-                StreamWriter sw = new StreamWriter(File.Create(Sfd.FileName));
-                sw.WriteAsync(_deletedFirstRows.ToString());
-                sw.Dispose();
-            }
-        }
-
-        private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
-            if (Ofd.ShowDialog() == true) {
-
-                MyDataGrid.Items.Clear();
-
-                FillAllColumns();
-            }
-        }
-
         private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
-            try {
-                WebClient wc = new WebClient();
-                User u = new User();
             
-                var skills = wc.DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + Box.Text.Replace(' ', '_')).Split('\n');
+            try {
+                IList<Quests> quests  = new List<Quests>();
+                JsonTextReader Jr = new JsonTextReader(new StringReader(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + Box.Text.Replace(' ', '_')))) {
+                    SupportMultipleContent = true
+                };
 
-                for (int i = 1; i < SkillsList.Count; i++) {
+                while (true) {
+                    if (!Jr.Read()) {
+                        break;
+                    }
 
+                    JsonSerializer s = new JsonSerializer();
+                    Quests quest = s.Deserialize<Quests>(Jr);
+
+                    quests.Add(quest);
+                }
+
+                foreach (Quests quest in quests) {
+                    MessageBox.Show(quest.Title);
+                }
+                
+                //Download Userdata
+                var skills = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + Box.Text.Replace(' ', '_')).Split('\n');
+
+                //Loop through the amount of skills
+                for (int i = 1; i < User.SkillNames.Count; i++) {
+
+                    //Extract Userdata and seperate by ","
                     var categories = skills[i].Split(',');
-                    var skill = new Tuple<int, int>(Convert.ToInt32(categories[1]), Convert.ToInt32(categories[2]));
 
-                    u.LoadedSkillLevels[i] = skill.Item1;
-                    u.LoadedSkillExperiences[i] = skill.Item2;
+                    //Insert Userdata into arrays for storage
+                    u.LoadedSkillLevels[i] = Convert.ToInt32(categories[1]);
+                    u.LoadedSkillExperiences[i] = Convert.ToInt32(categories[2]);
 
-                    u.SaveData();
+                    u.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i],u.LoadedSkillLevels[i],u.LoadedSkillExperiences[i]);
 
+                    //Loop through list of current data
                     for (var index = 1; index < ColumnA.Length; index++) {
+                        //If any of the looped through data contains "[Train" - Very specific
                         if (ColumnA[index].Contains("[Train")) {
-                            string combined = u.SkillNames[i] + " to ";
+                            //Creates a string that can look like: "Attack to " - With specification on spaces
+                            string combined = User.SkillNames[i] + " to ";
 
+                            //If the current data contains the previously created string
                             if (ColumnA[index].Contains(combined)) {
-                                string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3, StringComparison.Ordinal) + combined.Length, 3).Replace(" ", "");
-                                //MessageBox.Show(s);
+
+                                //Remove instances of example: "Attack to ," - Redundant
+                                if (ColumnA[index].Contains(" ,")) {
+                                    ColumnA[index] = ColumnA[index].Replace(" ,", "");
+                                }
+
+                                //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
+                                string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3, StringComparison.Ordinal) + combined.Length, 3);
 
                                 if (extract.EndsWith("]")) {
-                                    extract = extract.Remove(extract.LastIndexOf(']'), 1);
-                                    //MessageBox.Show("S HAD A \"]\", WHICH WAS REMOVED: " + s);
+                                    extract = extract.Remove(extract.LastIndexOf(']'), 1); //Remove the problematic symbol "]" - End of string
                                 } else if (extract.EndsWith(",")) {
-                                    extract = extract.Remove(extract.LastIndexOf(','), 1);
-                                    //MessageBox.Show("S HAD A \",\", WHICH WAS REMOVED: " + s);
+                                    extract = extract.Remove(extract.LastIndexOf(','), 1); //Remove the problematic symbol "," - Before comma
                                 } else if (extract.EndsWith(" ")) {
-                                    extract = extract.Remove(extract.LastIndexOf(' '), 1);
-                                    //MessageBox.Show("S HAD A \" \", WHICH WAS REMOVED: " + s);
-                                }                                    
-                                for (int j = 0; j < 10; j++) {
-                                    if (extract.EndsWith(j.ToString())) {
-                                        ColumnA[index] = ColumnA[index].Replace(extract + j, "");
-                                    } 
+                                    extract = extract.Remove(extract.LastIndexOf(' '), 1); //Remove the problematic symbol " " - Before space
+                                } else if (extract.EndsWith("a")) {
+                                    extract = extract.Remove(extract.LastIndexOf('a'), 1); //Remove the problematic symbol " " - Before space
                                 }
 
-                                //MessageBox.Show(s.Substring(s.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length + 1).Replace(" ", ""));
-                                if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length + 1).Replace(" ", "")) > u.Levels[i].Item2) {
-
+                                //MessageBox.Show("extract: " + extract);
+                                //MessageBox.Show("extract.Substring: " + extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", ""));
+                                //MessageBox.Show("userlevel: " + u.Levels[i].Item2);
+                                //If the userdatas level is bigger than what I am expecting, do the following:
+                                if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= u.Levels[i].Item2) {
+                                    //MessageBox.Show(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "") + " is less than the users level: " + u.Levels[i].Item2);
+                                    ColumnA[index] = ColumnA[index].Replace(extract, "");
+                                    //MessageBox.Show(ColumnA[index]);
                                 }
-
-                                //MessageBox.Show(s);
-                                //MessageBox.Show(ColumnA[index].Replace(s, ""));
                             }
 
-                            if (ColumnA[index].Contains(" ,")) {
-                                ColumnA[index] = ColumnA[index].Replace(" ,", "");
-                            }
 
-                            switch (ColumnA[index])
-                            {
+
+                            //Cleanup Switch-statement
+                            switch (ColumnA[index]) {
                                 case "[Train ]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                    break;
+                                case "[Train and ]":
                                     ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
                                     break;
                                 case "[Train  and ]":
@@ -301,15 +222,18 @@ namespace Guideviewer {
                                 case "[Train ,  and  [OPTIONAL]]":
                                     ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
                                     break;
-                                default:
+                                case "[Train  and  [OPTIONAL]]":
+                                    ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
                                     break;
                             }
                         }
                     }
                 }
 
+                //Clear everything in the DataGrid
                 MyDataGrid.Items.Clear();
                 MessageBox.Show("ALL ITEMS WERE CLEARED");
+                //Use the filling method, read below
                 FillAllColumns();
             }
             catch (Exception d) {
@@ -318,6 +242,7 @@ namespace Guideviewer {
             }
         }
 
+        //Fill all of the columns
         private void FillAllColumns() {
             if (Values != null) {
                 for (int a = 0; a < Values.Count; a++) {
@@ -325,8 +250,8 @@ namespace Guideviewer {
                         Qt = ColumnA[a],
                         L = ColumnB[a],
                         Mqc = ColumnC[a],
-                        Cp = ColumnD[a],
-                        Tcp = ColumnE[a],
+                        Cc = ColumnD[a],
+                        Tcc = ColumnE[a],
                         Im = ColumnF[a]
                     });
                 }
