@@ -1,7 +1,6 @@
 ﻿<Window x:Class="Guideviewer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:guideviewer="clr-namespace:Guideviewer"
         Title="MainWindow" 
         ResizeMode="NoResize" 
         Width="1622"
@@ -131,6 +130,8 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Ironman" Binding="{Binding Im}" Foreground="DarkGray">
+                    <DataGridTextColumn.MinWidth>237</DataGridTextColumn.MinWidth>
+                    <DataGridTextColumn.MaxWidth>230</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
                         <Style>
                             <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
@@ -154,8 +155,11 @@
         </DataGrid>
 
         <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1648" IsMainMenu="True">
-            <MenuItem Header="Load progress" x:Name="Progress" Click="LoadProgress_OnClick"/>
-            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Center"/>
+            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Bottom"/>
+            <MenuItem Header="Load progress" x:Name="P" Click="LoadProgress_OnClick"/>
+            <MenuItem Header="Reload" x:Name="R" Click="ReloadSpreadsheetData"/>
+            <MenuItem Header="Delete Empty Rows" x:Name="Der" Click="DeleteEmptyRows"/>
+            <MenuItem Header="Options" x:Name="Op" Click="Op_OnClick"/>
         </Menu>
     </Grid>
 </Window>
