@@ -19,7 +19,8 @@ namespace Guideviewer
 
         public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
 
-            string myUrl = URLReturner("xz36a");
+            //Everytime I mistakenly push the correct link, I revoke the access of the link.
+            string myUrl = URLReturner("[Redacted]");
 
             WebClient client = new WebClient();
             {
