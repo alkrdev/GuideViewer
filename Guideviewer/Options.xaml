@@ -14,56 +14,67 @@
                         <TabItem Header="Miniquests">
                             <Grid Background="#FFE5E5E5">
                                 <Label Content="Free-to-Play" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="79"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Ss" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Sheep Shearer" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Wp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Witch's Potion" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Sop" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Stronghold of Player Safety" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Soc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Stronghold of Security" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Pc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Purple Cat" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Bwt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Benedict's World Tour" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="Db" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric and Boric Tasks" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Name="D1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 1" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 2" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 3" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 4" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 5" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D6" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 6" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D7" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 7" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="D8" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 8" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="B1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 1" HorizontalAlignment="Left" Margin="103,170,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="B2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 2" HorizontalAlignment="Left" Margin="103,190,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                <CheckBox Name="B3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 3" HorizontalAlignment="Left" Margin="103,210,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                                 <Label Content="Pay-2-Play" HorizontalAlignment="Left" Margin="200,4,0,0" VerticalAlignment="Top" Width="79"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,30,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,70,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,90,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,110,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,130,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,170,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,190,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,230,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,290,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="200,310,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,30,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,70,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,90,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,110,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,130,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,170,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,190,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,230,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,290,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="200,310,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Pay-2-Play" HorizontalAlignment="Left" Margin="400,4,0,0" VerticalAlignment="Top" Width="79"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,30,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,70,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,90,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,130,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,170,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,190,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,210,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,230,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,270,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,290,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,30,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,70,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,90,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,130,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,170,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,190,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,210,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,230,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,270,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,290,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Tales Of The Arc" HorizontalAlignment="Left" Margin="600,4,0,0" VerticalAlignment="Top" Width="95"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,30,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,50,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,70,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,90,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,110,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,130,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,170,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,190,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="600,210,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,30,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,50,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,70,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,90,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,110,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,130,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,170,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,190,0,0" VerticalAlignment="Top"/>
+                                <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="CheckBox" HorizontalAlignment="Left" Margin="600,210,0,0" VerticalAlignment="Top"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Post-Quest">
