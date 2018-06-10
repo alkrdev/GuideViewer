@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
 
@@ -80,13 +84,14 @@ namespace Guideviewer {
                     var skills = new WebClient()
                         .DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" +
                                         Box.Text.Replace(' ', '_')).Split('\n');
-
+                    
                     //Loop through the amount of skills
                     for (int i = 1; i < User.SkillNames.Count; i++) {
 
                         //Extract Userdata and seperate by ","
                         var categories = skills[i].Split(',');
 
+                        
                         //Insert Userdata into arrays for storage
                         U.LoadedSkillLevels[i] = Convert.ToInt32(categories[1]);
                         U.LoadedSkillExperiences[i] = Convert.ToInt32(categories[2]);
@@ -100,64 +105,61 @@ namespace Guideviewer {
                             if (ColumnA[index].StartsWith("[Train")) {
                                 //Creates a string that can look like: "Attack to " - With specification on spaces
                                 string combined = User.SkillNames[i] + " to ";
+                                
+                                //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
+                                string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3,StringComparison.Ordinal) + combined.Length, 3);
 
-                                //If the current data contains the previously created string
-                                if (ColumnA[index].Contains(combined)) {
+                                if (extract.EndsWith("]")) {
+                                    extract = extract.Remove(extract.LastIndexOf(']'),
+                                        1); //Remove the problematic symbol "]" - End of string
+                                }
+                                else if (extract.EndsWith(",")) {
+                                    extract = extract.Remove(extract.LastIndexOf(','),
+                                        1); //Remove the problematic symbol "," - Before comma
+                                }
+                                else if (extract.EndsWith(" ")) {
+                                    extract = extract.Remove(extract.LastIndexOf(' '),
+                                        1); //Remove the problematic symbol " " - Before space
+                                }
+                                else if (extract.EndsWith("a")) {
+                                    extract = extract.Remove(extract.LastIndexOf('a'),
+                                        1); //Remove the problematic symbol "a" - Before and
+                                }
 
-                                    //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
-                                    string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3,StringComparison.Ordinal) + combined.Length, 3);
+                                //If the userdatas level is bigger than what I am expecting, do the following:
+                                if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
+                                    ColumnA[index] = ColumnA[index].Replace(extract, "");
+                                }
 
-                                    if (extract.EndsWith("]")) {
-                                        extract = extract.Remove(extract.LastIndexOf(']'),
-                                            1); //Remove the problematic symbol "]" - End of string
-                                    }
-                                    else if (extract.EndsWith(",")) {
-                                        extract = extract.Remove(extract.LastIndexOf(','),
-                                            1); //Remove the problematic symbol "," - Before comma
-                                    }
-                                    else if (extract.EndsWith(" ")) {
-                                        extract = extract.Remove(extract.LastIndexOf(' '),
-                                            1); //Remove the problematic symbol " " - Before space
-                                    }
-                                    else if (extract.EndsWith("a")) {
-                                        extract = extract.Remove(extract.LastIndexOf('a'),
-                                            1); //Remove the problematic symbol "a" - Before and
-                                    }
+                                foreach (var t in response.QuestsList) {
+                                    for (int j = 0; j < ColumnA.Length; j++) {
 
-                                    //If the userdatas level is bigger than what I am expecting, do the following:
-                                    if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
-                                        ColumnA[index] = ColumnA[index].Replace(extract, "");
-                                    }
+                                        if (t.Title == ColumnA[j] && t.Status == Status.Completed) {
 
-                                    foreach (var t in response.QuestsList) {
-                                        for (int j = 0; j < ColumnA.Length; j++) {
+                                            SpecificRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
+                                            SpecificRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
+                                            SpecificRemover("Children of Mah", "Koschei's Troubles miniquest", t);
+                                            SpecificRemover("While Guthix Sleeps",
+                                                "Chaos Tunnels: Hunt for Surok miniquest", t);
+                                            SpecificRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation",
+                                                t);
+                                            SpecificRemover("Our Man in the North",
+                                                "Tier 6 Menaphos City Reputation", t);
+                                            SpecificRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
 
-                                            if (t.Title == ColumnA[j] && t.Status == Status.Completed) {
-
-                                                SpecificRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                                                SpecificRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                                                SpecificRemover("Children of Mah", "Koschei's Troubles miniquest", t);
-                                                SpecificRemover("While Guthix Sleeps",
-                                                    "Chaos Tunnels: Hunt for Surok miniquest", t);
-                                                SpecificRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation",
-                                                    t);
-                                                SpecificRemover("Our Man in the North",
-                                                    "Tier 6 Menaphos City Reputation", t);
-                                                SpecificRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
-
-                                                ColumnA[j] = ColumnA[j].Remove(0);
-                                                if (ColumnB[j] != "") {
-                                                    ColumnB[j] = ColumnB[j].Remove(0);
-                                                }
+                                            ColumnA[j] = ColumnA[j].Remove(0);
+                                            if (ColumnB[j] != "") {
+                                                ColumnB[j] = ColumnB[j].Remove(0);
                                             }
                                         }
                                     }
-
-                                    //Remove instances of example: "Attack to ," - Redundant
-                                    if (ColumnA[index].Contains(" ,")) {
-                                        ColumnA[index] = ColumnA[index].Replace(" ,", "");
-                                    }
                                 }
+
+                                //Remove instances of example: "Attack to ," - Redundant
+                                if (ColumnA[index].Contains(" ,")) {
+                                    ColumnA[index] = ColumnA[index].Replace(" ,", "");
+                                }
+                                
 
                                 //Cleanup Switch-statement
                                 switch (ColumnA[index]) {
@@ -291,7 +293,7 @@ namespace Guideviewer {
                 }
             }
             FillAllColumns();
-        }
+            }
 
         private void SpecificRemover(string main, string second, Quest t) {
             if (t.Title == main && t.Status == Status.Completed) {
@@ -323,6 +325,39 @@ namespace Guideviewer {
         private void Op_OnClick(object sender, RoutedEventArgs e) {
             Options options = new Options();
             options.Show();
+        }
+        private void Grid_KeyDown(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Delete) {
+                DataGridCell cell = e.OriginalSource as DataGridCell;
+
+                if (cell == null) {
+                    return;
+                }
+
+                if (!cell.IsReadOnly && cell.IsEnabled) {
+                    TextBlock tb = cell.Content as TextBlock;
+
+                    if (tb != null) {
+                        Binding binding = BindingOperations.GetBinding(tb, TextBlock.TextProperty);
+
+                        if (binding == null) {
+                            return;
+                        }
+
+                        BindingExpression exp = BindingOperations.GetBindingExpression(tb, TextBlock.TextProperty);
+
+                        if (exp != null) {
+                            PropertyInfo info = exp.DataItem.GetType().GetProperty(binding.Path.Path);
+
+                            if (info == null) {
+                                return;
+                            }
+
+                            info.SetValue(exp.DataItem, null, null);
+                        }
+                    }
+                }
+            }
         }
     }
 }
