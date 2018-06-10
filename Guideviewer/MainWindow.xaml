@@ -10,16 +10,17 @@
                   AutoGenerateColumns="False"
                   Background="#FF212121"
                   VerticalScrollBarVisibility="Auto" 
-                  GridLinesVisibility="None" 
                   HeadersVisibility="Column"
                   CanUserSortColumns="False"
                   IsReadOnly="True" 
                   MaxColumnWidth="240" 
                   MinColumnWidth="240" 
                   Margin="0,25,0,0" 
-                  MinRowHeight="30">
+                  MinRowHeight="30"
+                  HorizontalGridLinesBrush="DarkGray"
+                  VerticalGridLinesBrush="DarkGray">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Quest / Train To" Binding="{Binding Qt}" Foreground="Aqua">
+                <DataGridTextColumn Header="Quest / Train To" Binding="{Binding Qt}" Foreground="#FF5191BB">
                     <DataGridTextColumn.MinWidth>262</DataGridTextColumn.MinWidth>
                     <DataGridTextColumn.MaxWidth>262</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
@@ -41,7 +42,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Lamps" Binding="{Binding L}" Foreground="White">
+                <DataGridTextColumn Header="Lamps" Binding="{Binding L}" Foreground="#FF815F36">
                     <DataGridTextColumn.MinWidth>89</DataGridTextColumn.MinWidth>
                     <DataGridTextColumn.MaxWidth>89</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
@@ -63,7 +64,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Master Quest Cape" Binding="{Binding Mqc}" Foreground="CornflowerBlue">
+                <DataGridTextColumn Header="Master Quest Cape" Binding="{Binding Mqc}" Foreground="#FF704AA8">
                     <DataGridTextColumn.MinWidth>490</DataGridTextColumn.MinWidth>
                     <DataGridTextColumn.MaxWidth>490</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
@@ -85,7 +86,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Completionist Cape" Binding="{Binding Cc}" Foreground="Brown">
+                <DataGridTextColumn Header="Completionist Cape" Binding="{Binding Cc}" Foreground="#FF86C232">
                     <DataGridTextColumn.MinWidth>240</DataGridTextColumn.MinWidth>
                     <DataGridTextColumn.MaxWidth>240</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
@@ -107,7 +108,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Trimmed Completionist Cape" Binding="{Binding Tcc}" Foreground="DarkOrange">
+                <DataGridTextColumn Header="Trimmed Completionist Cape" Binding="{Binding Tcc}" Foreground="#FF61892F">
                     <DataGridTextColumn.MinWidth>265</DataGridTextColumn.MinWidth>
                     <DataGridTextColumn.MaxWidth>265</DataGridTextColumn.MaxWidth>
                     <DataGridTextColumn.HeaderStyle>
@@ -154,7 +155,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1648" IsMainMenu="True">
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1616" IsMainMenu="True">
             <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Bottom"/>
             <MenuItem Header="Load progress" x:Name="P" Click="LoadProgress_OnClick"/>
             <MenuItem Header="Reload" x:Name="R" Click="ReloadSpreadsheetData"/>
