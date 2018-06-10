@@ -16,7 +16,7 @@ namespace Guideviewer {
 
         #region Initialize
 
-        public bool hasLoaded;
+        public bool HasLoaded;
 
         public static User U = new User();
 
@@ -68,8 +68,8 @@ namespace Guideviewer {
         #region Methods
 
         private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
-            if (!hasLoaded) {
-                hasLoaded = true;
+            if (!HasLoaded) {
+                HasLoaded = true;
                 try {
                     string data = new WebClient().DownloadString(
                         "https://apps.runescape.com/runemetrics/quests?user=" + Box.Text.Replace(' ', '_'));
@@ -97,7 +97,7 @@ namespace Guideviewer {
                         //Loop through list of current data
                         for (var index = 1; index < ColumnA.Length; index++) {
                             //If any of the looped through data contains "[Train" - Very specific
-                            if (ColumnA[index].Contains("[Train")) {
+                            if (ColumnA[index].StartsWith("[Train")) {
                                 //Creates a string that can look like: "Attack to " - With specification on spaces
                                 string combined = User.SkillNames[i] + " to ";
 
@@ -105,10 +105,7 @@ namespace Guideviewer {
                                 if (ColumnA[index].Contains(combined)) {
 
                                     //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
-                                    string extract = combined + ColumnA[index]
-                                                         .Substring(
-                                                             ColumnA[index].IndexOf(combined, 3,
-                                                                 StringComparison.Ordinal) + combined.Length, 3);
+                                    string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3,StringComparison.Ordinal) + combined.Length, 3);
 
                                     if (extract.EndsWith("]")) {
                                         extract = extract.Remove(extract.LastIndexOf(']'),
@@ -128,9 +125,7 @@ namespace Guideviewer {
                                     }
 
                                     //If the userdatas level is bigger than what I am expecting, do the following:
-                                    if (Convert.ToInt32(extract
-                                            .Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) +
-                                                       combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
+                                    if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
                                         ColumnA[index] = ColumnA[index].Replace(extract, "");
                                     }
 
@@ -234,7 +229,7 @@ namespace Guideviewer {
 
                 }
             }
-            else if (hasLoaded) {
+            else if (HasLoaded) {
                 MessageBox.Show("Please use the Reload function before loading an accounts progress again");
             }
         }
@@ -256,7 +251,7 @@ namespace Guideviewer {
         }
 
         private void ReloadSpreadsheetData(object sender, RoutedEventArgs routedEventArgs) {
-            hasLoaded = false;
+            HasLoaded = false;
             MyDataGrid.Items.Clear();
             MessageBox.Show("ALL ITEMS WERE CLEARED");
 
@@ -298,10 +293,10 @@ namespace Guideviewer {
             FillAllColumns();
         }
 
-        private void SpecificRemover(string Main, string Second, Quest t) {
-            if (t.Title == Main && t.Status == Status.Completed) {
+        private void SpecificRemover(string main, string second, Quest t) {
+            if (t.Title == main && t.Status == Status.Completed) {
                 for (int h = 0; h < ColumnA.Length; h++) {
-                    if (ColumnA[h] == Second) {
+                    if (ColumnA[h] == second) {
                         ColumnA[h] = ColumnA[h].Remove(0);
                         if (ColumnB[h] != "") {
                             ColumnB[h] = ColumnB[h].Remove(0);
