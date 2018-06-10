@@ -90,7 +90,6 @@ namespace Guideviewer {
 
                         //Extract Userdata and seperate by ","
                         var categories = skills[i].Split(',');
-
                         
                         //Insert Userdata into arrays for storage
                         U.LoadedSkillLevels[i] = Convert.ToInt32(categories[1]);
@@ -105,114 +104,122 @@ namespace Guideviewer {
                             if (ColumnA[index].StartsWith("[Train")) {
                                 //Creates a string that can look like: "Attack to " - With specification on spaces
                                 string combined = User.SkillNames[i] + " to ";
-                                
-                                //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
-                                string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3,StringComparison.Ordinal) + combined.Length, 3);
 
-                                if (extract.EndsWith("]")) {
-                                    extract = extract.Remove(extract.LastIndexOf(']'),
-                                        1); //Remove the problematic symbol "]" - End of string
-                                }
-                                else if (extract.EndsWith(",")) {
-                                    extract = extract.Remove(extract.LastIndexOf(','),
-                                        1); //Remove the problematic symbol "," - Before comma
-                                }
-                                else if (extract.EndsWith(" ")) {
-                                    extract = extract.Remove(extract.LastIndexOf(' '),
-                                        1); //Remove the problematic symbol " " - Before space
-                                }
-                                else if (extract.EndsWith("a")) {
-                                    extract = extract.Remove(extract.LastIndexOf('a'),
-                                        1); //Remove the problematic symbol "a" - Before and
-                                }
+                                if (ColumnA[index].Contains(combined)) {
 
-                                //If the userdatas level is bigger than what I am expecting, do the following:
-                                if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
-                                    ColumnA[index] = ColumnA[index].Replace(extract, "");
-                                }
+                                    //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
+                                    string extract = combined + ColumnA[index]
+                                                         .Substring(
+                                                             ColumnA[index].IndexOf(combined, 3,
+                                                                 StringComparison.Ordinal) + combined.Length, 3);
 
-                                foreach (var t in response.QuestsList) {
-                                    for (int j = 0; j < ColumnA.Length; j++) {
+                                    if (extract.EndsWith("]")) {
+                                        extract = extract.Remove(extract.LastIndexOf(']'),
+                                            1); //Remove the problematic symbol "]" - End of string
+                                    }
+                                    else if (extract.EndsWith(",")) {
+                                        extract = extract.Remove(extract.LastIndexOf(','),
+                                            1); //Remove the problematic symbol "," - Before comma
+                                    }
+                                    else if (extract.EndsWith(" ")) {
+                                        extract = extract.Remove(extract.LastIndexOf(' '),
+                                            1); //Remove the problematic symbol " " - Before space
+                                    }
+                                    else if (extract.EndsWith("a")) {
+                                        extract = extract.Remove(extract.LastIndexOf('a'),
+                                            1); //Remove the problematic symbol "a" - Before and
+                                    }
 
-                                        if (t.Title == ColumnA[j] && t.Status == Status.Completed) {
+                                    //If the userdatas level is bigger than what I am expecting, do the following:
+                                    if (Convert.ToInt32(extract
+                                            .Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) +
+                                                       combined.Length).Replace(" ", "")) <= U.Levels[i].Item2) {
+                                        ColumnA[index] = ColumnA[index].Replace(extract, "");
+                                    }
 
-                                            SpecificRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                                            SpecificRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                                            SpecificRemover("Children of Mah", "Koschei's Troubles miniquest", t);
-                                            SpecificRemover("While Guthix Sleeps",
-                                                "Chaos Tunnels: Hunt for Surok miniquest", t);
-                                            SpecificRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation",
-                                                t);
-                                            SpecificRemover("Our Man in the North",
-                                                "Tier 6 Menaphos City Reputation", t);
-                                            SpecificRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
+                                    foreach (var t in response.QuestsList) {
+                                        for (int j = 0; j < ColumnA.Length; j++) {
 
-                                            ColumnA[j] = ColumnA[j].Remove(0);
-                                            if (ColumnB[j] != "") {
-                                                ColumnB[j] = ColumnB[j].Remove(0);
+                                            if (t.Title == ColumnA[j] && t.Status == Status.Completed) {
+
+                                                SpecificRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
+                                                SpecificRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
+                                                SpecificRemover("Children of Mah", "Koschei's Troubles miniquest", t);
+                                                SpecificRemover("While Guthix Sleeps",
+                                                    "Chaos Tunnels: Hunt for Surok miniquest", t);
+                                                SpecificRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation",
+                                                    t);
+                                                SpecificRemover("Our Man in the North",
+                                                    "Tier 6 Menaphos City Reputation", t);
+                                                SpecificRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
+
+                                                ColumnA[j] = ColumnA[j].Remove(0);
+                                                if (ColumnB[j] != "") {
+                                                    ColumnB[j] = ColumnB[j].Remove(0);
+                                                }
                                             }
                                         }
                                     }
-                                }
 
-                                //Remove instances of example: "Attack to ," - Redundant
-                                if (ColumnA[index].Contains(" ,")) {
-                                    ColumnA[index] = ColumnA[index].Replace(" ,", "");
-                                }
-                                
-
-                                //Cleanup Switch-statement
-                                switch (ColumnA[index]) {
-                                    case "[Train ]":
-
-                                    case "[Train and ]":
-
-                                    case "[Train  and ]":
-
-                                    case "[Train ,  and ]":
-
-                                    case "[Train , ,  and ]":
-
-                                    case "[Train , , ,  and ]":
-
-                                    case "[Train , , , ,  and ]":
-
-                                    case "[Train , , , , ,  and ]":
-
-                                    case "[Train ,  and  [OPTIONAL]]":
-
-                                    case "[Train  and  [OPTIONAL]]":
-                                        ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
-                                        break;
-                                }
-
-                                if (ColumnA[index].EndsWith(" and ]")) {
-                                    ColumnA[index] = ColumnA[index].Replace(" and ]", "]");
-                                }
-
-                                for (var index1 = 0; index1 < ColumnA.Length; index1++) {
-                                    if (ColumnA[index1] == " " && ColumnA[index1] != "") {
-                                        ColumnA[index1] = ColumnA[index1].Remove(0);
+                                    //Remove instances of example: "Attack to ," - Redundant
+                                    if (ColumnA[index].Contains(" ,")) {
+                                        ColumnA[index] = ColumnA[index].Replace(" ,", "");
                                     }
 
-                                    if (ColumnB[index1] == " " && ColumnB[index1] != "") {
-                                        ColumnB[index1] = ColumnB[index1].Remove(0);
+
+                                    //Cleanup Switch-statement
+                                    switch (ColumnA[index]) {
+                                        case "[Train ]":
+
+                                        case "[Train and ]":
+
+                                        case "[Train  and ]":
+
+                                        case "[Train ,  and ]":
+
+                                        case "[Train , ,  and ]":
+
+                                        case "[Train , , ,  and ]":
+
+                                        case "[Train , , , ,  and ]":
+
+                                        case "[Train , , , , ,  and ]":
+
+                                        case "[Train ,  and  [OPTIONAL]]":
+
+                                        case "[Train  and  [OPTIONAL]]":
+                                            ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
+                                            break;
                                     }
 
-                                    if (ColumnC[index1] == " " && ColumnC[index1] != "") {
-                                        ColumnC[index1] = ColumnC[index1].Remove(0);
+                                    if (ColumnA[index].EndsWith(" and ]")) {
+                                        ColumnA[index] = ColumnA[index].Replace(" and ]", "]");
                                     }
 
-                                    if (ColumnD[index1] == " " && ColumnD[index1] != "") {
-                                        ColumnD[index1] = ColumnD[index1].Remove(0);
-                                    }
+                                    for (var index1 = 0; index1 < ColumnA.Length; index1++) {
+                                        if (ColumnA[index1] == " " && ColumnA[index1] != "") {
+                                            ColumnA[index1] = ColumnA[index1].Remove(0);
+                                        }
 
-                                    if (ColumnE[index1] == " " && ColumnE[index1] != "") {
-                                        ColumnE[index1] = ColumnE[index1].Remove(0);
-                                    }
+                                        if (ColumnB[index1] == " " && ColumnB[index1] != "") {
+                                            ColumnB[index1] = ColumnB[index1].Remove(0);
+                                        }
 
-                                    if (ColumnF[index1] == " " && ColumnF[index1] != "") {
-                                        ColumnF[index1] = ColumnF[index1].Remove(0);
+                                        if (ColumnC[index1] == " " && ColumnC[index1] != "") {
+                                            ColumnC[index1] = ColumnC[index1].Remove(0);
+                                        }
+
+                                        if (ColumnD[index1] == " " && ColumnD[index1] != "") {
+                                            ColumnD[index1] = ColumnD[index1].Remove(0);
+                                        }
+
+                                        if (ColumnE[index1] == " " && ColumnE[index1] != "") {
+                                            ColumnE[index1] = ColumnE[index1].Remove(0);
+                                        }
+
+                                        if (ColumnF[index1] == " " && ColumnF[index1] != "") {
+                                            ColumnF[index1] = ColumnF[index1].Remove(0);
+                                        }
                                     }
                                 }
                             }
@@ -221,13 +228,12 @@ namespace Guideviewer {
 
                     //Clear everything in the DataGrid
                     MyDataGrid.Items.Clear();
-                    MessageBox.Show("ALL ITEMS WERE CLEARED");
                     //Use the filling method, read below
                     FillAllColumns();
                 }
                 catch (Exception d) {
                     MessageBox.Show(
-                        $"The username is either wrong, or the user has set their profile to private.\nError Code:\n{d}");
+                        $"The username is either wrong, the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
 
                 }
             }
