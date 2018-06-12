@@ -28,17 +28,17 @@ namespace Guideviewer
 
         private void CheckboxHandler(object sender, RoutedEventArgs routedEventArgs) {
             if (Db.IsChecked == true) {
-                D1.IsChecked = true;
-                D2.IsChecked = true;
-                D3.IsChecked = true;
-                D4.IsChecked = true;
-                D5.IsChecked = true;
-                D6.IsChecked = true;
-                D7.IsChecked = true;
-                D8.IsChecked = true;
-                B1.IsChecked = true;
-                B2.IsChecked = true;
-                B3.IsChecked = true;
+                D1.IsEnabled = true;
+                D2.IsEnabled = true;
+                D3.IsEnabled = true;
+                D4.IsEnabled = true;
+                D5.IsEnabled = true;
+                D6.IsEnabled = true;
+                D7.IsEnabled = true;
+                D8.IsEnabled = true;
+                B1.IsEnabled = true;
+                B2.IsEnabled = true;
+                B3.IsEnabled = true;
             }
         }
     }
