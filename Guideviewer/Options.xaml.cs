@@ -12,19 +12,30 @@ namespace Guideviewer {
         }
 
         private void CheckHandler(object sender, RoutedEventArgs routedEventArgs) {
-            if (sender == Aby) {
-                Abyc.IsChecked = true;
-            } else if (sender == Abyc) {
-                Aby.IsChecked = true;
-            }
+            Switch(sender, true);
         }
 
         private void UnCheckHandler(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender, false);
+        }
 
-            if (sender == Aby) {
-                Abyc.IsChecked = false;
-            } else if (sender == Abyc) {
-                Aby.IsChecked = false;
+        private void Switch(object sender, bool boolean) {
+            switch ((string) sender) {
+                // The Abyss
+                case "Aby":
+                    Abyc.IsChecked = boolean;
+                    break;
+                case "Abyc":
+                    Aby.IsChecked = boolean;
+                    break;
+
+                // Annihilator Title
+                case "Ann":
+                    Annc.IsChecked = boolean;
+                    break;
+                case "Annc":
+                    Ann.IsChecked = boolean;
+                    break;
             }
         }
     }

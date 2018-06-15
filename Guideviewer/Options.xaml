@@ -415,6 +415,14 @@
                                 </ListView>
                             </Grid>
                         </TabItem>
+                        <TabItem Header="Combat">
+                            <Grid>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Label Content=" - Combat - "/>
+                                    <CheckBox Name="Annc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Annihilator Title"/>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
                         <TabItem Header="EMPTY">
                             <Grid>
 
