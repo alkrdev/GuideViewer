@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Guideviewer"
         mc:Ignorable="d"
         Title="Options" Height="581" Width="967" ResizeMode="NoResize">
     <Grid>
@@ -13,77 +12,77 @@
                     <TabControl>
                         <TabItem Header="Miniquests">
                             <Grid>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Label Content=" - Pay 2 Play - "/>
+                                        <CheckBox Name="Aby" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Abyss"/>
+                                        <CheckBox Name="Bts" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Balloon Transport System"/>
+                                        <CheckBox Name="Bat" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Barbarian Training"/>
+                                        <CheckBox Name="Bac" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Bar Crawl"/>
+                                        <CheckBox Name="Cap" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Capers"/>
+                                        <CheckBox Name="Tcz" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Curse of Zaros"/>
+                                        <CheckBox Name="Dsl" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Desert Slayer Dungeon"/>
+                                        <CheckBox Name="Ek" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Enchanted Key"/>
+                                        <CheckBox Name="Fsw" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fur 'n' Seek Wishlist"/>
+                                        <CheckBox Name="Tgs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The General's Shadow"/>
+                                        <CheckBox Name="Hsw" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Hopespear's Will"/>
+                                        <CheckBox Name="Hfs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Hunt for Surok"/>
+                                        <CheckBox Name="Imt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="In Memory of The Myreque"/>
+                                        <CheckBox Name="Kwt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Knight Waves Training Grounds"/>
+                                        <CheckBox Name="Kos" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Koschei's Troubles"/>
+                                </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,319,0,0">
                                     <Label Content=" - Free-to-Play - "/>
-                                    <CheckBox Name="Ss" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Sheep Shearer"/>
-                                    <CheckBox Name="Wp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Witch's Potion"/>
-                                    <CheckBox Name="Sop" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Stronghold of Player Safety"/>
-                                    <CheckBox Name="Soc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Stronghold of Security"/>
-                                    <CheckBox Name="Pc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Purple Cat"/>
-                                    <CheckBox Name="Bwt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Benedict's World Tour"/>
+                                    <CheckBox Name="Ss" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Sheep Shearer"/>
+                                    <CheckBox Name="Wp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Witch's Potion"/>
+                                    <CheckBox Name="Sop" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Stronghold of Player Safety"/>
+                                    <CheckBox Name="Soc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Stronghold of Security"/>
+                                    <CheckBox Name="Pc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Purple Cat"/>
+                                    <CheckBox Name="Bwt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Benedict's World Tour"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,0,0,0">
+                                    <Label Content=" - Pay 2 Play - "/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Lair of Tarn Razorlor"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Lost Toys"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mahjarrat Memories"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mogre"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rag and Bone Man Wishlist"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rebuilding Edgeville"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Returning Clarence"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rogue Trader"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Scabarites Notes"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tales of Nomad"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tales of the God Wars"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Thalassus"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Upgrading the Ivandis Flail"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Varrock Museum"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Wandering Ga'al"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,0,0,0">
                                     <Label Content=" - Doric and Boric tasks - "/>
-                                    <CheckBox Name="D1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 1"/>
-                                    <CheckBox Name="D2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 2"/>
-                                    <CheckBox Name="D3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 3"/>
-                                    <CheckBox Name="D4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 4"/>
-                                    <CheckBox Name="D5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 5"/>
-                                    <CheckBox Name="D6" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 6"/>
-                                    <CheckBox Name="D7" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 7"/>
-                                    <CheckBox Name="D8" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Doric 8"/>
-                                    <CheckBox Name="B1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 1"/>
-                                    <CheckBox Name="B2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 2"/>
-                                    <CheckBox Name="B3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Boric 3"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <Label Content=" - Pay-2-Play - "/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Abyss"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Balloon Transport System"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Barbarian Training"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Bar Crawl"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Capers"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Curse of Zaros"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Desert Slayer Dungeon"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Enchanted Key"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fur 'n' Seek Wishlist"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The General's Shadow"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Hopespear's Will"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Hunt for Surok"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="In Memory of The Myreque"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Knight Waves Training Grounds"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Koschei's Troubles"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,0,0,0">
-                                    <Label Content=" - Pay-2-Play - "/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Lair of Tarn Razorlor"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Lost Toys"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mahjarrat Memories"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mogre"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rag and Bone Man Wishlist"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rebuilding Edgeville"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Returning Clarence"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rogue Trader"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Scabarites Notes"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tales of Nomad"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tales of the God Wars"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Thalassus"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Upgrading the Ivandis Flail"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Varrock Museum"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Wandering Ga'al"/>
+                                    <CheckBox Name="D1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 1"/>
+                                    <CheckBox Name="D2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 2"/>
+                                    <CheckBox Name="D3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 3"/>
+                                    <CheckBox Name="D4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 4"/>
+                                    <CheckBox Name="D5" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 5"/>
+                                    <CheckBox Name="D6" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 6"/>
+                                    <CheckBox Name="D7" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 7"/>
+                                    <CheckBox Name="D8" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 8"/>
+                                    <CheckBox Name="B1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Boric 1"/>
+                                    <CheckBox Name="B2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Boric 2"/>
+                                    <CheckBox Name="B3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Boric 3"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="536,0,0,0">
                                     <Label Content=" - Tales Of The Arc - "/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Flag Fall"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Head of the Family"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Spiritual Enlightenment"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Jed Hunter"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Eye for an Eye"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Harbinger"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tuai Leit's Own"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ghost from the Past"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Damage Control"/>
-                                    <CheckBox Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Final Destination"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Flag Fall"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Head of the Family"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Spiritual Enlightenment"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Jed Hunter"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Eye for an Eye"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Harbinger"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tuai Leit's Own"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ghost from the Past"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Damage Control"/>
+                                    <CheckBox Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Final Destination"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -91,128 +90,128 @@
                             <Grid>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Rewards 1 - "/>
-                                        <CheckBox Name="Sab" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Swept Away - Broomstick"/>
-                                        <CheckBox Name="Trg" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Restless Ghost - Ancient Bones"/>
-                                        <CheckBox Name="Etc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ernest The Chicken - Feathers/Eggs"/>
-                                        <CheckBox Name="Rex" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rune Memories - Experience"/>
-                                        <CheckBox Name="Res" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rune Memories - Essence"/>
-                                        <CheckBox Name="Dve" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Defender of Varrock - Experience"/>
-                                        <CheckBox Name="Bce" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Buyers And Cellars - Experience"/>
-                                        <CheckBox Name="Dta" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Desert Treasure - Ancient Staff"/>
-                                        <CheckBox Name="Hse" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Heart of Stone - Experience"/>
-                                        <CheckBox Name="Crv" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Carnillean Rising - Varies"/>
-                                        <CheckBox Name="Cas" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Cook's Assistant - Sardines"/>
-                                        <CheckBox Name="Bre" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Blood Runs Deep - Experience"/>
-                                        <CheckBox Name="Fth" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fairy Tale III - Herbs"/>
-                                        <CheckBox Name="Ssc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Sheep Shearer - Coins"/>
-                                        <CheckBox Name="Mpv" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Missing, Presumed Death - Varies"/>
-                                        <CheckBox Name="Ilc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ichtlarin's Little Helper - Coins"/>
-                                        <CheckBox Name="Hsp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Heart of Stone - Pet"/>
+                                        <CheckBox Name="Sab" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Swept Away - Broomstick"/>
+                                        <CheckBox Name="Trg" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Restless Ghost - Ancient Bones"/>
+                                        <CheckBox Name="Etc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ernest The Chicken - Feathers/Eggs"/>
+                                        <CheckBox Name="Rex" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rune Memories - Experience"/>
+                                        <CheckBox Name="Res" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rune Memories - Essence"/>
+                                        <CheckBox Name="Dve" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Defender of Varrock - Experience"/>
+                                        <CheckBox Name="Bce" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Buyers And Cellars - Experience"/>
+                                        <CheckBox Name="Dta" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Desert Treasure - Ancient Staff"/>
+                                        <CheckBox Name="Hse" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Heart of Stone - Experience"/>
+                                        <CheckBox Name="Crv" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Carnillean Rising - Varies"/>
+                                        <CheckBox Name="Cas" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Cook's Assistant - Sardines"/>
+                                        <CheckBox Name="Bre" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Blood Runs Deep - Experience"/>
+                                        <CheckBox Name="Fth" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fairy Tale III - Herbs"/>
+                                        <CheckBox Name="Ssc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Sheep Shearer - Coins"/>
+                                        <CheckBox Name="Mpv" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Missing, Presumed Death - Varies"/>
+                                        <CheckBox Name="Ilc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ichtlarin's Little Helper - Coins"/>
+                                        <CheckBox Name="Hsp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Heart of Stone - Pet"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,0,0,0">
                                     <Label Content=" - Rewards 2 - "/>
-                                    <CheckBox Name="Ooe" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="One Of A Kind - Experience"/>
-                                    <CheckBox Name="Oos" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="One Of A Kind 2 - Statue Experience"/>
-                                    <CheckBox Name="Tte" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Tale of the Muspah - Experience"/>
-                                    <CheckBox Name="Rbh" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="River of Blood - Haemalchemy"/>
-                                    <CheckBox Name="Sde" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Song from the Depths - Experience"/>
-                                    <CheckBox Name="Asv" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="A Shadow over Ashdale - Varies"/>
-                                    <CheckBox Name="Mfc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mighty Fall - Coins"/>
-                                    <CheckBox Name="Dpe" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Death Plateau - Experience"/>
-                                    <CheckBox Name="Cfc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Cabin Fever - Coins"/>
-                                    <CheckBox Name="Yac" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="You Are It - Charos' Necklace"/>
-                                    <CheckBox Name="Tbe" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tai Bwo Wannai Trio - Experience"/>
-                                    <CheckBox Name="Tlm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Lost Tribe - Mining Helmet"/>
-                                    <CheckBox Name="Lsr" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Legacy of Seergaze - Runes"/>
-                                    <CheckBox Name="Tcs" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Chosen Commander - Shield"/>
-                                    <CheckBox Name="Mme" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Monkey Madness - Experience"/>
-                                    <CheckBox Name="Dne" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Do No Evil - Elite Clue Scroll"/>
-                                    <CheckBox Name="Roc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rocking Out - Coins"/>
+                                        <CheckBox Name="Ooe" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="One Of A Kind - Experience"/>
+                                        <CheckBox Name="Oos" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="One Of A Kind 2 - Statue Experience"/>
+                                        <CheckBox Name="Tte" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Tale of the Muspah - Experience"/>
+                                        <CheckBox Name="Rbh" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="River of Blood - Haemalchemy"/>
+                                        <CheckBox Name="Sde" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Song from the Depths - Experience"/>
+                                        <CheckBox Name="Asv" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="A Shadow over Ashdale - Varies"/>
+                                        <CheckBox Name="Mfc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mighty Fall - Coins"/>
+                                        <CheckBox Name="Dpe" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Death Plateau - Experience"/>
+                                        <CheckBox Name="Cfc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Cabin Fever - Coins"/>
+                                        <CheckBox Name="Yac" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="You Are It - Charos' Necklace"/>
+                                        <CheckBox Name="Tbe" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tai Bwo Wannai Trio - Experience"/>
+                                        <CheckBox Name="Tlm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Lost Tribe - Mining Helmet"/>
+                                        <CheckBox Name="Lsr" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Legacy of Seergaze - Runes"/>
+                                        <CheckBox Name="Tcs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Chosen Commander - Shield"/>
+                                        <CheckBox Name="Mme" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Monkey Madness - Experience"/>
+                                        <CheckBox Name="Dne" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Do No Evil - Elite Clue Scroll"/>
+                                        <CheckBox Name="Roc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rocking Out - Coins"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="446,0,0,0">
                                     <Label Content=" - Rewards 3 - "/>
-                                    <CheckBox Name="Wge" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="While Guthix Sleeps - Experience"/>
-                                    <CheckBox Name="Wgl" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="While Guthix Sleeps - Loot"/>
-                                    <CheckBox Name="Fge" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fate of the Gods - Experience"/>
-                                    <CheckBox Name="Fgg" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fate of the Gods - Gift/Upgrade"/>
-                                    <CheckBox Name="Tgg" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Golem - Gems"/>
-                                    <CheckBox Name="Opc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="One Piercing Note - Cithara Experience"/>
-                                    <CheckBox Name="Wwf" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="World Wakes - Firemaking"/>
-                                    <CheckBox Name="Wwp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="World Wakes - Prayer"/>
-                                    <CheckBox Name="Tda" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Dig Site - Abilities"/>
-                                    <CheckBox Name="Oqc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Observatory Quest - Craft"/>
+                                        <CheckBox Name="Wge" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="While Guthix Sleeps - Experience"/>
+                                        <CheckBox Name="Wgl" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="While Guthix Sleeps - Loot"/>
+                                        <CheckBox Name="Fge" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fate of the Gods - Experience"/>
+                                        <CheckBox Name="Fgg" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fate of the Gods - Gift/Upgrade"/>
+                                        <CheckBox Name="Tgg" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Golem - Gems"/>
+                                        <CheckBox Name="Opc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="One Piercing Note - Cithara Experience"/>
+                                        <CheckBox Name="Wwf" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="World Wakes - Firemaking"/>
+                                        <CheckBox Name="Wwp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="World Wakes - Prayer"/>
+                                        <CheckBox Name="Tda" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Dig Site - Abilities"/>
+                                        <CheckBox Name="Oqc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Observatory Quest - Craft"/>
                                 </ListView>
                             </Grid>
 
                         </TabItem>
                         <TabItem Header="Levels">
                             <Grid>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Label Content=" - Broken Home - "/>
+                                    <CheckBox Name="Bhc1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Challenge 1"/>
+                                    <CheckBox Name="Bhc2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Challenge 2"/>
+                                    <CheckBox Name="Bhc3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Challenge 3"/>
+                                    <CheckBox Name="Bh1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 1"/>
+                                    <CheckBox Name="Bh2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 2"/>
+                                    <CheckBox Name="Bh3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 3"/>
+                                    <CheckBox Name="Bh4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 4"/>
+                                    <CheckBox Name="Bh5" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 5"/>
+                                    <CheckBox Name="Bh6" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 6"/>
+                                    <CheckBox Name="Bh7" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 7"/>
+                                    <CheckBox Name="Bh8" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 8"/>
+                                    <CheckBox Name="Bh9" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tier 9"/>
+                                </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,0,0,0">
                                     <Label Content=" - Summer's End - "/>
-                                    <CheckBox Name="Se1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 1"/>
-                                    <CheckBox Name="Se2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 2"/>
-                                    <CheckBox Name="Se3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 3"/>
-                                    <CheckBox Name="Se4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 4"/>
-                                    <CheckBox Name="Se5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 5"/>
-                                    <CheckBox Name="Se6" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 6"/>
-                                    <CheckBox Name="Se7" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 7"/>
-                                    <CheckBox Name="Se8" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Portal 8"/>
+                                    <CheckBox Name="Se1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 1"/>
+                                    <CheckBox Name="Se2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 2"/>
+                                    <CheckBox Name="Se3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 3"/>
+                                    <CheckBox Name="Se4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 4"/>
+                                    <CheckBox Name="Se5" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 5"/>
+                                    <CheckBox Name="Se6" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 6"/>
+                                    <CheckBox Name="Se7" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 7"/>
+                                    <CheckBox Name="Se8" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Portal 8"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,186,0,0">
                                     <Label Content=" - Gunnar's Ground - "/>
-                                    <CheckBox Name="Gg1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Engrave 1"/>
-                                    <CheckBox Name="Gg2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Engrave 2"/>
-                                    <CheckBox Name="Gg3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Engrave 3"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <Label Content=" - Broken Home - "/>
-                                    <CheckBox Name="Bhc1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Challenge 1"/>
-                                    <CheckBox Name="Bhc2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Challenge 2"/>
-                                    <CheckBox Name="Bhc3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Challenge 3"/>
-                                    <CheckBox Name="Bh1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 1"/>
-                                    <CheckBox Name="Bh2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 2"/>
-                                    <CheckBox Name="Bh3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 3"/>
-                                    <CheckBox Name="Bh4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 4"/>
-                                    <CheckBox Name="Bh5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 5"/>
-                                    <CheckBox Name="Bh6" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 6"/>
-                                    <CheckBox Name="Bh7" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 7"/>
-                                    <CheckBox Name="Bh8" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 8"/>
-                                    <CheckBox Name="Bh9" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tier 9"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="539,0,0,0">
-                                    <Label Content=" - Myths of the White Lands - "/>
-                                    <CheckBox Name="Mww" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Woodcutting"/>
-                                    <CheckBox Name="Mwa" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Agility"/>
-                                    <CheckBox Name="Mwc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Crafting"/>
-                                    <CheckBox Name="Mwcc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Coins"/>
+                                    <CheckBox Name="Gg1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Engrave 1"/>
+                                    <CheckBox Name="Gg2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Engrave 2"/>
+                                    <CheckBox Name="Gg3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Engrave 3"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="241,0,0,0">
                                     <Label Content=" - Philipe Carnillean - "/>
-                                    <CheckBox Name="Pc50" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="50"/>
-                                    <CheckBox Name="Pc100" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="100"/>
-                                    <CheckBox Name="Pc150" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="150"/>
-                                    <CheckBox Name="Pc200" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="200"/>
-                                    <CheckBox Name="Pc250" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="250"/>
-                                    <CheckBox Name="Pc300" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="300"/>
-                                    <CheckBox Name="Pc350" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="350"/>
-                                    <CheckBox Name="Pc400" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="400"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="539,110,0,0">
-                                    <Label Content=" - Gower Quest - "/>
-                                    <CheckBox Name="Gqa" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Andrew"/>
-                                    <CheckBox Name="Gqp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Paul"/>
-                                    <CheckBox Name="Gqi" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ian"/>
-                                    <CheckBox Name="Gqpe" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Pets"/>
+                                    <CheckBox Name="Pc50" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="50"/>
+                                    <CheckBox Name="Pc100" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="100"/>
+                                    <CheckBox Name="Pc150" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="150"/>
+                                    <CheckBox Name="Pc200" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="200"/>
+                                    <CheckBox Name="Pc250" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="250"/>
+                                    <CheckBox Name="Pc300" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="300"/>
+                                    <CheckBox Name="Pc350" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="350"/>
+                                    <CheckBox Name="Pc400" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="400"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,0,0,0">
                                     <Label Content=" - The Death of Chivalry - "/>
-                                    <CheckBox Name="Tdce" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Experience"/>
-                                    <CheckBox Name="Tdca" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Armour"/>
-                                    <CheckBox Name="Tdcp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Patches"/>
-                                    <CheckBox Name="Tdcl" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Loot"/>
-                                    <CheckBox Name="Tdc1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="50"/>
-                                    <CheckBox Name="Tdc2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="70"/>
-                                    <CheckBox Name="Tdc3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="90"/>
+                                    <CheckBox Name="Tdce" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Experience"/>
+                                    <CheckBox Name="Tdca" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Armour"/>
+                                    <CheckBox Name="Tdcp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Patches"/>
+                                    <CheckBox Name="Tdcl" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Loot"/>
+                                    <CheckBox Name="Tdc1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="50"/>
+                                    <CheckBox Name="Tdc2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="70"/>
+                                    <CheckBox Name="Tdc3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="90"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="539,0,0,0">
+                                    <Label Content=" - Myths of the White Lands - "/>
+                                    <CheckBox Name="Mww" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Woodcutting"/>
+                                    <CheckBox Name="Mwa" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Agility"/>
+                                    <CheckBox Name="Mwc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Crafting"/>
+                                    <CheckBox Name="Mwcc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Coins"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="539,110,0,0">
+                                    <Label Content=" - Gower Quest - "/>
+                                    <CheckBox Name="Gqa" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Andrew"/>
+                                    <CheckBox Name="Gqp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Paul"/>
+                                    <CheckBox Name="Gqi" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ian"/>
+                                    <CheckBox Name="Gqpe" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Pets"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -220,26 +219,26 @@
                             <Grid>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Journals - "/>
-                                    <CheckBox Name="Hac" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Hefin Agility Course"/>
-                                    <CheckBox Name="Tm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Magister"/>
-                                    <CheckBox Name="Gw" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="God Wars"/>
-                                    <CheckBox Name="Dj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dominion"/>
-                                    <CheckBox Name="Mj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Jebediah Omnis"/>
-                                    <CheckBox Name="Dl" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dragonkin"/>
-                                    <CheckBox Name="Fj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Forcae"/>
-                                    <CheckBox Name="Kj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Kaigi"/>
-                                    <CheckBox Name="Uj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ughtanatos"/>
-                                    <CheckBox Name="Hj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Horror"/>
-                                    <CheckBox Name="Duj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dungeoneering"/>
-                                    <CheckBox Name="Qbd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Queen Black Dragon"/>
-                                    <CheckBox Name="Tj" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tarddian"/>
-                                    <CheckBox Name="Sn" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Stalker"/>
+                                    <CheckBox Name="Hac" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Hefin Agility Course"/>
+                                    <CheckBox Name="Tm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Magister"/>
+                                    <CheckBox Name="Gw" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="God Wars"/>
+                                    <CheckBox Name="Dj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dominion"/>
+                                    <CheckBox Name="Mj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Jebediah Omnis"/>
+                                    <CheckBox Name="Dl" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dragonkin"/>
+                                    <CheckBox Name="Fj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Forcae"/>
+                                    <CheckBox Name="Kj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Kaigi"/>
+                                    <CheckBox Name="Uj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ughtanatos"/>
+                                    <CheckBox Name="Hj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Horror"/>
+                                    <CheckBox Name="Duj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dungeoneering"/>
+                                    <CheckBox Name="Qbd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Queen Black Dragon"/>
+                                    <CheckBox Name="Tj" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tarddian"/>
+                                    <CheckBox Name="Sn" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Stalker"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="143,0,0,0">
                                     <Label Content=" - Books - "/>
-                                    <CheckBox Name="Kbd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Last Riders Book"/>
-                                    <CheckBox Name="Exn" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Explorer's Notes,"/>
-                                    <CheckBox Name="Nex" Checked="CheckboxHandler" Unchecked="CheckboxHandler"                           >
+                                    <CheckBox Name="Kbd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Last Riders Book"/>
+                                    <CheckBox Name="Exn" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Explorer's Notes,"/>
+                                    <CheckBox Name="Nex" Checked="CheckHandler" Unchecked="UnCheckHandler"                           >
                                         <StackPanel>
                                             <TextBlock>The Praesul</TextBlock>
                                             <TextBlock>The Promised Gift</TextBlock>
@@ -250,110 +249,110 @@
                         </TabItem>
                         <TabItem Header="Various">
                             <Grid>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,281,0,0">
-                                    <Label Content=" - Areas - "/>
-                                    <CheckBox Name="Fts" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fairy Tale III - Shortcut"/>
-                                    <CheckBox Name="Dnt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Do No Evil - Treasure Room"/>
-                                    <CheckBox Name="Wlt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Within the Light - Teleport"/>
-                                    <CheckBox Name="Dsd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dragon Slayer - Door"/>
-                                    <CheckBox Name="Drt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Diamond in the Rough - Treasure Room"/>
-                                    <CheckBox Name="Omt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Our Man in the North - Treasure Room"/>
-                                    <CheckBox Name="Ctt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Crocodile Tears - Treasure Room"/>
-                                    <CheckBox Name="Mms" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Missing My Mummy - Shortcut"/>
-                                </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Etc. - "/>
-                                    <CheckBox Name="Aew" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ancient Elven Wedding Ring"/>
-                                    <CheckBox Name="Ann" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Annihilator Title"/>
-                                    <CheckBox Name="Pho" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Phoenix"/>
-                                    <CheckBox Name="Tet" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Temple Trekking"/>
-                                    <CheckBox Name="Mar" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mad Ramblings"/>
-                                    <CheckBox Name="Vyr" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Vyrelord Title"/>
-                                    <CheckBox Name="Cle" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Cleansing Shadow Cores"/>
-                                    <CheckBox Name="Rob" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Rush of Blood"/>
-                                    <CheckBox Name="Cho" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="30 Chompy Birds"/>
-                                    <CheckBox Name="Tcp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tooth Creature Pet"/>
-                                    <CheckBox Name="Hto" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="History of the Order"/>
-                                    <CheckBox Name="Anc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ancient Cavern"/>
-                                    <CheckBox Name="Dod" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dimension of Disaster Rewards"/>
-                                    <CheckBox Name="Des" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Desert Slayer Dungeon"/>
-                                    <CheckBox Name="Efc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Enhanced Fire Cape"/>
-                                    <CheckBox Name="Mwk" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Master White Knight"/>
-                                    <CheckBox Name="Dst" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Demon Statuettes"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,0,0,0">
-                                    <Label Content=" - Skilling Activities - "/>
-                                    <CheckBox Name="Azd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Azdaran Document"/>
-                                    <CheckBox Name="Die" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Distorted Engrammeter"/>
-                                    <CheckBox Name="Drp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dragonkin Primer"/>
-                                    <CheckBox Name="Rst" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Reconnect Spirit Tree"/>
-                                    <CheckBox Name="Fac" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fairy Campfire"/>
-                                    <CheckBox Name="Cme" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Core Memories"/>
-                                    <CheckBox Name="Bnm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Beacon Network (Macaw)"/>
-                                    <CheckBox Name="Cts" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Char's Treasured Symbol"/>
-                                    <CheckBox Name="Jem" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Jewel Memories"/>
-                                    <CheckBox Name="Pcm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Pig Creation Machine (84)"/>
-                                    <CheckBox Name="Egc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Elder God Chronicles"/>
-                                    <CheckBox Name="Ovi" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Overgrown Idols"/>
-                                    <CheckBox Name="Mge" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Memorial to Guthix Engrams"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="742,0,0,0">
-                                    <Label Content=" - Skilling Activities 2 - "/>
-                                    <CheckBox x:Name="Acf" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ancient Cavern Fairy Ring"/>
-                                    <CheckBox x:Name="Kri" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="King Roald Inferno Adze"/>
-                                    <CheckBox x:Name="Orb" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ornate Bowl"/>
-                                    <CheckBox x:Name="Gio" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Giant Oyster"/>
-                                    <CheckBox x:Name="Spt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="3 Spirit Trees"/>
-                                    <CheckBox x:Name="Rkd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Re-Kindle Dragon Forge"/>
-                                    <CheckBox x:Name="Stm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Sunken Temple Murals"/>
-                                    <CheckBox x:Name="Sdl" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Senntisten Digsite Letters"/>
-                                    <CheckBox x:Name="Csr" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Crystal Singing Research"/>
-                                    <CheckBox x:Name="Rec" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Removing Corruption"/>
-                                    <CheckBox x:Name="Bgp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Bury Goblin Priests"/>
-                                    <CheckBox x:Name="Elc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Elder Chronicles"/>
+                                    <CheckBox Name="Aew" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ancient Elven Wedding Ring"/>
+                                    <CheckBox Name="Ann" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Annihilator Title"/>
+                                    <CheckBox Name="Pho" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Phoenix"/>
+                                    <CheckBox Name="Tet" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Temple Trekking"/>
+                                    <CheckBox Name="Mar" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mad Ramblings"/>
+                                    <CheckBox Name="Vyr" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Vyrelord Title"/>
+                                    <CheckBox Name="Cle" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Cleansing Shadow Cores"/>
+                                    <CheckBox Name="Rob" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rush of Blood"/>
+                                    <CheckBox Name="Cho" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="30 Chompy Birds"/>
+                                    <CheckBox Name="Tcp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tooth Creature Pet"/>
+                                    <CheckBox Name="Hto" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="History of the Order"/>
+                                    <CheckBox Name="Anc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ancient Cavern"/>
+                                    <CheckBox Name="Dod" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dimension of Disaster Rewards"/>
+                                    <CheckBox Name="Des" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Desert Slayer Dungeon"/>
+                                    <CheckBox Name="Efc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Enhanced Fire Cape"/>
+                                    <CheckBox Name="Mwk" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Master White Knight"/>
+                                    <CheckBox Name="Dst" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Demon Statuettes"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,357,0,0">
                                     <Label Content=" - Dungeoneering - "/>
-                                    <CheckBox Name="Frs" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fremennik Sagas"/>
-                                    <CheckBox Name="Por" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Potion Recipes"/>
-                                    <CheckBox Name="Vic" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Vicendithas' Scribblings"/>
-                                </ListView>
-                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,0,0,0">
-                                    <Label Content=" - Etc - "/>
-                                    <CheckBox Name="Cyp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Contraband Yak Produce"/>
-                                    <CheckBox Name="Bam" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Bandos's Memories"/>
-                                    <CheckBox Name="Tbo" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Tune Bane Ore"/>
-                                    <CheckBox Name="Mht" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Making History Treasures"/>
-                                    <CheckBox Name="Ugs" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Uglug's Stuffsies"/>
-                                    <CheckBox Name="Sic" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Sister Cecilia"/>
-                                    <CheckBox Name="Vor" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Vorago's Introduction"/>
-                                    <CheckBox Name="Par" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Put Arrav to rest"/>
-                                    <CheckBox Name="Cht" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Chip Teleport Tablets"/>
-                                    <CheckBox Name="Mcm" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Medium Clue Monkey"/>
-                                    <CheckBox Name="Frd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Free Droalak"/>
-                                    <CheckBox Name="Mad" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Malleus Daemoniorum"/>
-                                    <CheckBox Name="Mah" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mahjarrat Deathstones" />
-                                    <CheckBox Name="Etr" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Eagle Transport Routes"/>
-                                    <CheckBox Name="Rmr" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Return Mabel's Ring"/>
+                                    <CheckBox Name="Frs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fremennik Sagas"/>
+                                    <CheckBox Name="Por" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Potion Recipes"/>
+                                    <CheckBox Name="Vic" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Vicendithas' Scribblings"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,0,0,0">
                                     <Label Content=" - Etc 2 - "/>
-                                    <CheckBox Name="Msf" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Mazcab Stone Fragments"/>
-                                    <CheckBox Name="Tna" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Trade Noted Artifacts"/>
-                                    <CheckBox Name="Hfd" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Herbi Flax's Diary"/>
-                                    <CheckBox Name="Tdp" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="The Digsite Pendant"/>
-                                    <CheckBox Name="Pse" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Personal Stories Edgeville"/>
-                                    <CheckBox Name="Cid" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Chimp Ice Deliveries"/>
-                                    <CheckBox Name="Fko" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Full Kudos obtained"/>
-                                    <CheckBox Name="Ebs" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Epic of Bukalla seen"/>
-                                    <CheckBox Name="Dkf" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Dorgesh-kaan Food Trading"/>
-                                    <CheckBox Name="Ruc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Razmire and Ulsquire cured"/>
-                                    <CheckBox Name="Otu" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Ourania Teleport unlocked"/>
-                                    <CheckBox Name="Wrt" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Wilderness Rogue Trader"/>
-                                    <CheckBox Name="Smc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Seren Memoriam Crystals"/>
-                                    <CheckBox Name="Pmc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Prifddinas Memoriam Crystals"/>
-                                    <CheckBox Name="Zmc" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Zarosian Memoriam Crystals"/>
-                                    <CheckBox Name="Hot" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Helmet of Trials"/>
+                                    <CheckBox Name="Msf" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mazcab Stone Fragments"/>
+                                    <CheckBox Name="Tna" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Trade Noted Artifacts"/>
+                                    <CheckBox Name="Hfd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Herbi Flax's Diary"/>
+                                    <CheckBox Name="Tdp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Digsite Pendant"/>
+                                    <CheckBox Name="Pse" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Personal Stories Edgeville"/>
+                                    <CheckBox Name="Cid" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Chimp Ice Deliveries"/>
+                                    <CheckBox Name="Fko" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Full Kudos obtained"/>
+                                    <CheckBox Name="Ebs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Epic of Bukalla seen"/>
+                                    <CheckBox Name="Dkf" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dorgesh-kaan Food Trading"/>
+                                    <CheckBox Name="Ruc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Razmire and Ulsquire cured"/>
+                                    <CheckBox Name="Otu" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ourania Teleport unlocked"/>
+                                    <CheckBox Name="Wrt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Wilderness Rogue Trader"/>
+                                    <CheckBox Name="Smc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Seren Memoriam Crystals"/>
+                                    <CheckBox Name="Pmc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Prifddinas Memoriam Crystals"/>
+                                    <CheckBox Name="Zmc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Zarosian Memoriam Crystals"/>
+                                    <CheckBox Name="Hot" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Helmet of Trials"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,0,0,0">
+                                    <Label Content=" - Etc - "/>
+                                    <CheckBox Name="Cyp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Contraband Yak Produce"/>
+                                    <CheckBox Name="Bam" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Bandos's Memories"/>
+                                    <CheckBox Name="Tbo" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Tune Bane Ore"/>
+                                    <CheckBox Name="Mht" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Making History Treasures"/>
+                                    <CheckBox Name="Ugs" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Uglug's Stuffsies"/>
+                                    <CheckBox Name="Sic" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Sister Cecilia"/>
+                                    <CheckBox Name="Vor" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Vorago's Introduction"/>
+                                    <CheckBox Name="Par" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Put Arrav to rest"/>
+                                    <CheckBox Name="Cht" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Chip Teleport Tablets"/>
+                                    <CheckBox Name="Mcm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Medium Clue Monkey"/>
+                                    <CheckBox Name="Frd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Free Droalak"/>
+                                    <CheckBox Name="Mad" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Malleus Daemoniorum"/>
+                                    <CheckBox Name="Mah" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Mahjarrat Deathstones" />
+                                    <CheckBox Name="Etr" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Eagle Transport Routes"/>
+                                    <CheckBox Name="Rmr" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Return Mabel's Ring"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,0,0,0">
+                                    <Label Content=" - Skilling Activities - "/>
+                                    <CheckBox Name="Azd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Azdaran Document"/>
+                                    <CheckBox Name="Die" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Distorted Engrammeter"/>
+                                    <CheckBox Name="Drp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dragonkin Primer"/>
+                                    <CheckBox Name="Rst" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Reconnect Spirit Tree"/>
+                                    <CheckBox Name="Fac" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fairy Campfire"/>
+                                    <CheckBox Name="Cme" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Core Memories"/>
+                                    <CheckBox Name="Bnm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Beacon Network (Macaw)"/>
+                                    <CheckBox Name="Cts" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Char's Treasured Symbol"/>
+                                    <CheckBox Name="Jem" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Jewel Memories"/>
+                                    <CheckBox Name="Pcm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Pig Creation Machine (84)"/>
+                                    <CheckBox Name="Egc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Elder God Chronicles"/>
+                                    <CheckBox Name="Ovi" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Overgrown Idols"/>
+                                    <CheckBox Name="Mge" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Memorial to Guthix Engrams"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,281,0,0">
+                                    <Label Content=" - Areas - "/>
+                                    <CheckBox Name="Fts" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fairy Tale III - Shortcut"/>
+                                    <CheckBox Name="Dnt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Do No Evil - Treasure Room"/>
+                                    <CheckBox Name="Wlt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Within the Light - Teleport"/>
+                                    <CheckBox Name="Dsd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Dragon Slayer - Door"/>
+                                    <CheckBox Name="Drt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Diamond in the Rough - Treasure Room"/>
+                                    <CheckBox Name="Omt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Our Man in the North - Treasure Room"/>
+                                    <CheckBox Name="Ctt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Crocodile Tears - Treasure Room"/>
+                                    <CheckBox Name="Mms" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Missing My Mummy - Shortcut"/>
+                                </ListView>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="742,0,0,0">
+                                    <Label Content=" - Skilling Activities 2 - "/>
+                                    <CheckBox x:Name="Acf" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ancient Cavern Fairy Ring"/>
+                                    <CheckBox x:Name="Kri" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="King Roald Inferno Adze"/>
+                                    <CheckBox x:Name="Orb" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Ornate Bowl"/>
+                                    <CheckBox x:Name="Gio" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Giant Oyster"/>
+                                    <CheckBox x:Name="Spt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="3 Spirit Trees"/>
+                                    <CheckBox x:Name="Rkd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Re-Kindle Dragon Forge"/>
+                                    <CheckBox x:Name="Stm" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Sunken Temple Murals"/>
+                                    <CheckBox x:Name="Sdl" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Senntisten Digsite Letters"/>
+                                    <CheckBox x:Name="Csr" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Crystal Singing Research"/>
+                                    <CheckBox x:Name="Rec" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Removing Corruption"/>
+                                    <CheckBox x:Name="Bgp" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Bury Goblin Priests"/>
+                                    <CheckBox x:Name="Elc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Elder Chronicles"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -361,28 +360,27 @@
                             <Grid>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Combat Tasks - "/>
-                                        <CheckBox Name="C1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Goblins"/>
-                                        <CheckBox Name="C2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Knights"/>
-                                        <CheckBox Name="C3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Soldiers"/>
-                                        <CheckBox Name="C4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Kalphite"/>
-                                        <CheckBox Name="C5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Items"/>
-                                        <CheckBox Name="C6" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Artifact"/>
+                                        <CheckBox Name="C1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Goblins"/>
+                                        <CheckBox Name="C2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Knights"/>
+                                        <CheckBox Name="C3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Soldiers"/>
+                                        <CheckBox Name="C4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Kalphite"/>
+                                        <CheckBox Name="C5" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Items"/>
+                                        <CheckBox Name="C6" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Artifact"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,0,0,0">
                                     <Label Content=" - Skilling Tasks - "/>
-                                        <CheckBox Name="S1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Eggs/Swords"/>
-                                        <CheckBox Name="S2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fragments"/>
-                                        <CheckBox Name="S3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Logs/Cloth"/>
-                                        <CheckBox Name="S4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Thieve/Hunt"/>
-                                        <CheckBox Name="S5" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Artifact"/>
+                                        <CheckBox Name="S1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Eggs/Swords"/>
+                                        <CheckBox Name="S2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fragments"/>
+                                        <CheckBox Name="S3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Logs/Cloth"/>
+                                        <CheckBox Name="S4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Thieve/Hunt"/>
+                                        <CheckBox Name="S5" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Artifact"/>
                                 </ListView>
-
-                                <ListView HorizontalAlignment="Left" Width="140" Height="115" VerticalAlignment="Top" Margin="234,0,0,0">
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="234,0,0,0">
                                     <Label Content=" - Exploration Tasks - "/>
-                                        <CheckBox Name="E1" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Armour"/>
-                                        <CheckBox Name="E2" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Fragments"/>
-                                        <CheckBox Name="E3" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Altars"/>
-                                        <CheckBox Name="E4" Checked="CheckboxHandler" Unchecked="CheckboxHandler" Content="Artifact"/>
+                                        <CheckBox Name="E1" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Armour"/>
+                                        <CheckBox Name="E2" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Fragments"/>
+                                        <CheckBox Name="E3" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Altars"/>
+                                        <CheckBox Name="E4" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Artifact"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -392,6 +390,14 @@
             <TabItem Header="Completionist">
                 <Grid>
                     <TabControl>
+                        <TabItem Header="Miniquests">
+                            <Grid>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Label Content=" - Pay 2 Play - "/>
+                                        <CheckBox Name="Abyc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="The Abyss"/>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
                         <TabItem Header="Tasks">
                             <Grid/>
                         </TabItem>
@@ -400,6 +406,19 @@
                         </TabItem>
                         <TabItem Header="Mage Training Arena">
                             <Grid/>
+                        </TabItem>
+                        <TabItem Header="Skilling">
+                            <Grid>
+                                <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Label Content=" - Skilling - "/>
+                                        <CheckBox Name="App" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Aquarium Prawn Perks"/>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="EMPTY">
+                            <Grid>
+
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>
@@ -432,6 +451,5 @@
                 </Grid>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>

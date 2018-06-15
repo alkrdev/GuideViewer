@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
+using static Guideviewer.Progress;
 
 namespace Guideviewer {
     /// <summary>
@@ -27,11 +28,10 @@ namespace Guideviewer {
 
         public Progress Pr = new Progress();
         
-            public string UserName {
-                get { return Box.Text; }
-
-                set { Box.Text = value.Replace(' ', '_'); }
-            }
+        public string URLUserName {
+            get => Box.Text;
+            set => Box.Text = value.Replace(' ', '_');
+        }
         
 
         //Parameters to handle GoogleRequest
@@ -86,10 +86,10 @@ namespace Guideviewer {
                 HasLoaded = true;
                 try {
 
-                    string userQuestData = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UserName);
+                    string userQuestData = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + URLUserName);
 
                     //Download Userdata
-                    string[] userSkillData = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UserName).Split('\n');
+                    string[] userSkillData = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + URLUserName).Split('\n');
                     
                     
                     //Loop through the amount of skills
@@ -226,8 +226,8 @@ namespace Guideviewer {
                         $"The username is either wrong, the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
 
                 }
-                    StreamWriter sw = new StreamWriter($"{UserName}.txt");
-                    Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UserName), UserName, User, sw);
+                    StreamWriter sw = new StreamWriter($"{URLUserName}.txt");
+                    Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + URLUserName)/*.Replace("},{", "}\n{")*/, URLUserName, User, sw);
             }
             else if (HasLoaded) {
                 MessageBox.Show("Please use the Reload function before loading an accounts progress again");
@@ -356,6 +356,10 @@ namespace Guideviewer {
                     }
                 }
             }
+        }
+
+        private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
+            Load(User);
         }
     }
 }
