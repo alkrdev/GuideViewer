@@ -128,7 +128,6 @@
                                     <CheckBox Name="Oqc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Observatory Quest - Craft"/>
                             </ListView>
                         </Grid>
-
                     </TabItem>
                     <TabItem Header="Levels">
                         <Grid>
@@ -309,7 +308,6 @@
                                 <CheckBox Name="Ctt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Crocodile Tears - Treasure Room"/>
                                 <CheckBox Name="Mms" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Missing My Mummy - Shortcut"/>
                             </ListView>
-                            
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Label Content=" - Skilling Activities - "/>
                                 <CheckBox Name="Azd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Azdaran Document"/>
@@ -505,7 +503,6 @@
                                 <CheckBox Name="Fys" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Full Yaktwee Stick"/>
                                 <CheckBox Name="Popc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="POP Tutorial"/>
                             </ListView>
-
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="386,0,0,0">
                                 <Label Content=" - Doric and Boric tasks - "/>
                                 <CheckBox Name="D1C" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Doric 1"/>
@@ -520,7 +517,6 @@
                                 <CheckBox Name="B2C" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Boric 2"/>
                                 <CheckBox Name="B3C" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Boric 3"/>
                             </ListView>
-                                
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,0,0,0">
                                 <Label Content=" - Elven Titles - "/>
                                 <CheckBox Name="Otc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Of the Trahaearn"/>
@@ -548,7 +544,6 @@
                                 <CheckBox Name="Smtc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Slayer Master Title"/>
                                 <CheckBox Name="Rarc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Rapid Renewal"/>
                             </ListView>
-                                
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="164,0,0,0">
                                 <Label Content=" - Elven Titles - "/>
 
@@ -640,7 +635,6 @@
                                 <CheckBox Name="Surt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Survive ROTS"/>
                                 <CheckBox Name="Telt" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Telos 100%"/>
                             </ListView>
-                                
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,0,0,0">
                                 <Label Content=" - Slayer - "/>
                                 <CheckBox Name="Dest" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Death's Store Unlocks"/>
@@ -719,7 +713,6 @@
                                 <CheckBox Name="Dc" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Damage Control"/>
                                 <CheckBox Name="Fd" Checked="CheckHandler" Unchecked="UnCheckHandler" Content="Final Destination"/>
                             </ListView>
-
                             <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Label Content=" - Unlocks - "/>
 
