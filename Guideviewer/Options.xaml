@@ -216,7 +216,7 @@
                                     <CheckBox Name="Uj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ughtanatos"/>
                                     <CheckBox Name="Hj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Horror"/>
                                     <CheckBox Name="Duj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dungeoneering"/>
-                                    <CheckBox Name="Qbd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Queen Black Dragon"/>
+                                    <CheckBox Name="Qbd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Qbd Journals"/>
                                     <CheckBox Name="Tj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tarddian"/>
                                     <CheckBox Name="Sn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Stalker"/>
                                 </ListView>
@@ -238,7 +238,7 @@
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Etc. - "/>
                                     <CheckBox Name="Aew" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ancient Elven Wedding Ring"/>
-                                    <CheckBox Name="Ann" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Annihilator Title"/>
+                                    <CheckBox Name="Ann" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Annihilator Title" />
                                     <CheckBox Name="Pho" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Phoenix"/>
                                     <CheckBox Name="Mar" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mad Ramblings"/>
                                     <CheckBox Name="Vyr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vyrelord Title"/>
@@ -257,7 +257,7 @@
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,0,0,0">
                                     <Label Content=" - Dungeoneering - "/>
                                     <CheckBox Name="Frs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fremennik Sagas"/>
-                                    <CheckBox Name="Por" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Potion Recipes"/>
+                                    <CheckBox Name="Pre" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Potion Recipes"/>
                                     <CheckBox Name="Vis" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vicendithas' Scribblings"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,0,0,0">
@@ -272,7 +272,7 @@
                                     <CheckBox Name="Ebs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Epic of Bukalla seen"/>
                                     <CheckBox Name="Dkf" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dorgesh-kaan Food Trading"/>
                                     <CheckBox Name="Ruc" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Razmire and Ulsquire cured"/>
-                                    <CheckBox Name="Otu" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ourania Teleport unlocked"/>
+                                    <CheckBox Name="Our" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ourania Teleport unlocked"/>
                                     <CheckBox Name="Wro" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Wilderness Rogue Trader"/>
                                     <CheckBox Name="Sme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Seren Memoriam Crystals"/>
                                     <CheckBox Name="Pme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Prifddinas Memoriam Crystals"/>
@@ -284,7 +284,6 @@
                                     <CheckBox Name="Cyp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Contraband Yak Produce"/>
                                     <CheckBox Name="Bam" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Bandos's Memories"/>
                                     <CheckBox Name="Tbo" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tune Bane Ore"/>
-                                    <CheckBox Name="Mhi" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Making History Treasures"/>
                                     <CheckBox Name="Ugs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Uglug's Stuffsies"/>
                                     <CheckBox Name="Sce" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Sister Cecilia"/>
                                     <CheckBox Name="Vor" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vorago's Introduction"/>
@@ -339,7 +338,7 @@
                                     <CheckBox Name="Stm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Sunken Temple Murals"/>
                                     <CheckBox Name="Sdl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Senntisten Digsite Letters"/>
                                     <CheckBox Name="Csr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Crystal Singing Research"/>
-                                    <CheckBox Name="Rec" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Removing Corruption"/>
+                                    <CheckBox Name="Rco" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Removing Corruption"/>
                                     <CheckBox Name="Eld" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Elder Chronicles"/>
                                 </ListView>
                             </Grid>
@@ -500,15 +499,16 @@
                                     <CheckBox Name="Aimc" Checked="CompCheck" Unchecked="CompUnCheck" Content="All Implings"/>
                                     <CheckBox Name="Atbc" Checked="CompCheck" Unchecked="CompUnCheck" Content="All Technology Blueprints"/>
                                     <CheckBox Name="Fkoc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Full Kudos Obtained"/>
-                                    <CheckBox Name="Mtgc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Memorial To Guthix Prestige 1"/>
+                                    <CheckBox Name="Mgec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Memorial To Guthix Prestige 1"/>
                                     <CheckBox Name="Csrc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Crystal Singing Research"/>
-                                    <CheckBox Name="Recc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Removing Corruption"/>
+                                    <CheckBox Name="Rcoc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Removing Corruption"/>
                                     <CheckBox Name="Fysc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Full Yaktwee Stick"/>
                                     <CheckBox Name="Popc" Checked="CompCheck" Unchecked="CompUnCheck" Content="POP Tutorial"/>
                                     <CheckBox Name="Sorc" Checked="CompCheck" Unchecked="CompUnCheck" Content="First Statue of Rhiannon"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="386,0,0,0">
                                     <Label Content=" - Doric and Boric tasks - "/>
+                                    <!-- ReSharper disable InconsistentNaming -->
                                     <CheckBox Name="D1c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 1"/>
                                     <CheckBox Name="D2c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 2"/>
                                     <CheckBox Name="D3c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 3"/>
@@ -520,6 +520,7 @@
                                     <CheckBox Name="B1c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 1"/>
                                     <CheckBox Name="B2c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 2"/>
                                     <CheckBox Name="B3c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 3"/>
+                                    <!-- ReSharper restore InconsistentNaming -->
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,0,0,0">
                                     <Label Content=" - Elven Titles - "/>
@@ -542,7 +543,7 @@
                                     <CheckBox Name="Frsc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik Sagas"/>
                                     <CheckBox Name="Clec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Cleansing Shadow Cores"/>
                                     <CheckBox Name="Fkic" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fight Kiln"/>
-                                    <CheckBox Name="Qbdc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Queen Black Dragon"/>
+                                    <CheckBox Name="Qbdf" Checked="CompCheck" Unchecked="CompUnCheck" Content="Qbd First Journal"/>
                                     <CheckBox Name="Robc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Rush of Blood"/>
                                     <CheckBox Name="Prec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Potion Recipes"/>
                                     <CheckBox Name="Smtc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Slayer Master Title"/>
@@ -606,7 +607,7 @@
                                     <CheckBox Name="Btst" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Balloon Transport System"/>
                                     <CheckBox Name="Etrt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Eagle Transport System"/>
                                     <CheckBox Name="Ctst" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Char's Treasured Symbol"/>
-                                    <CheckBox Name="Aprt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Aquarium Prawn Perks"/>
+                                    <CheckBox Name="Aprt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="All Aquarium Prawn Perks"/>
                                     <CheckBox Name="Sdet" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Song From The Depths"/>
                                     <CheckBox Name="Elct" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Elder Chronicles"/>
                                     <CheckBox Name="Agtt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Agile Top"/>
@@ -635,7 +636,7 @@
                                     <CheckBox Name="Bcht" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Broken Home Challenges"/>
                                     <CheckBox Name="Hant" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Hardmode Nomad"/>
                                     <CheckBox Name="Pent" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Penance King"/>
-                                    <CheckBox Name="Qbdt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Queen Black Dragon"/>
+                                    <CheckBox Name="Qbdt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Qbd Journals"/>
                                     <CheckBox Name="Scnt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Scabarites Notes"/>
                                     <CheckBox Name="Dstt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Dungeoneering Scroll Traits"/>
                                     <CheckBox Name="Surt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Survive ROTS"/>
