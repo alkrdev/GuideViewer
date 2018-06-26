@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace Guideviewer {
     public partial class Options {
-<<<<<<< HEAD
+
         private readonly Dictionary<string, List<CheckBox>> _checkboxes = new Dictionary<string, List<CheckBox>>();
 
         public Options() {
@@ -22,16 +22,22 @@ namespace Guideviewer {
         }
 
         //Master Quest Cape on/off
-        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
-        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
-=======
-        
+        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, true);
+        }
+
+        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, false);
+        }
+
+
         private Dictionary<string, List<CheckBox>> _checkboxes = new Dictionary<string, List<CheckBox>>();
-        
+
         public Options() {
             InitializeComponent();
 
             #region Method 1
+
             List<List<CheckBox>> checkboxes = new List<List<CheckBox>> {
                 // Master Quest + Completionist 
                 new List<CheckBox> {Ann, Annc}, // Annihilator Title
@@ -83,19 +89,19 @@ namespace Guideviewer {
                 new List<CheckBox> {Sde, Sdet}, // Song from the Depths
                 new List<CheckBox> {Shs, Shst}, // Sheep Shearer
                 new List<CheckBox> {Mwk, Mwkt}, // Sheep Shearer
-            
+
                 // Doric Tasks
                 new List<CheckBox> {D1, D1c},
-                new List<CheckBox> {D2, D2c}, 
-                new List<CheckBox> {D3, D3c}, 
-                new List<CheckBox> {D4, D4c}, 
-                new List<CheckBox> {D5, D5c}, 
-                new List<CheckBox> {D6, D6c}, 
-                new List<CheckBox> {D7, D7c}, 
-                new List<CheckBox> {D8, D8c}, 
+                new List<CheckBox> {D2, D2c},
+                new List<CheckBox> {D3, D3c},
+                new List<CheckBox> {D4, D4c},
+                new List<CheckBox> {D5, D5c},
+                new List<CheckBox> {D6, D6c},
+                new List<CheckBox> {D7, D7c},
+                new List<CheckBox> {D8, D8c},
                 // Boric Tasks
-                new List<CheckBox> {B1, B1c}, 
-                new List<CheckBox> {B2, B2c}, 
+                new List<CheckBox> {B1, B1c},
+                new List<CheckBox> {B2, B2c},
                 new List<CheckBox> {B3, B3c}
 
             };
@@ -103,10 +109,12 @@ namespace Guideviewer {
             foreach (var list in checkboxes) {
                 _checkboxes.Add(list[0].Name, list);
             }
->>>>>>> 90b6ed63a844920053102a651d63f08d7007e4de
+
 
             #endregion
+
             #region Method 2
+
 //            // Master Quest + Completionist
 //            _checkboxes.Add("Ann", new List<CheckBox> {Ann, Annc}); // Annihilator Title
 //            _checkboxes.Add("Aby", new List<CheckBox> {Aby, Abyc}); // The Abyss
@@ -171,28 +179,36 @@ namespace Guideviewer {
 //            _checkboxes.Add("B1", new List<CheckBox> {B1, B1c}); 
 //            _checkboxes.Add("B2", new List<CheckBox> {B2, B2c}); 
 //            _checkboxes.Add("B3", new List<CheckBox> {B3, B3c});
-            #endregion
-    }
 
-<<<<<<< HEAD
+            #endregion
+        }
+
         //Completionist Cape on/off
-        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
-        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
+        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, true);
+        }
+
+        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, false);
+        }
 
 
         //Trimmed Completionist Cape on/off
-        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
-        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
+        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, true);
+        }
+
+        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+            Switch(sender as CheckBox, false);
+        }
 
 
         //Media Controls
         private void Media(object sender, RoutedEventArgs routedEventArgs) {
             if (!(sender is CheckBox senderBox)) return;
-            switch (senderBox.Name)
-            {
+            switch (senderBox.Name) {
                 case "CiControlPlay":
-                    switch (CiControlPlay.Content.ToString())
-                    {
+                    switch (CiControlPlay.Content.ToString()) {
                         case "Play":
                             ChimpIce.Play();
                             CiControlPlay.Content = "Pause";
@@ -212,63 +228,84 @@ namespace Guideviewer {
         }
 
         private void Switch(CheckBox sender, bool boolean) {
-            
+
             if (sender.Name.EndsWith("c")) {
                 NameCheck(boolean, sender.Name.Remove(sender.Name.LastIndexOf('c')));
-            } else if (sender.Name.EndsWith("t")) {
+            }
+            else if (sender.Name.EndsWith("t")) {
                 NameCheck(boolean, sender.Name.Remove(sender.Name.LastIndexOf('t')));
-            } else {
+            }
+            else {
                 NameCheck(boolean, sender.Name);
             }
-=======
-        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true);}
-        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false);}
-        
-        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true);}
-        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false);}
-        
-        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true);}
-        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false);}
 
-        private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false);}
-        
-        
-        private void Switch(CheckBox sender, bool boolean) {
->>>>>>> 90b6ed63a844920053102a651d63f08d7007e4de
-            
-            if (!_checkboxes.TryGetValue(sender.Name.EndsWith("c") ? sender.Name.Remove(sender.Name.LastIndexOf('c')) :
-                                         sender.Name.EndsWith("t") ? sender.Name.Remove(sender.Name.LastIndexOf('t')) : 
-                                         
-                                         sender.Name, out var value)) return;
-
-<<<<<<< HEAD
-        }
-
-        private void NameCheck(bool boolean, string senderName) {
-            if (!_checkboxes.TryGetValue(senderName, out var response)) return;
-            foreach (var checkBox in response)
-            {
-                checkBox.IsChecked = boolean;
-=======
-            foreach (var cb in value) {
-                cb.IsChecked = boolean;
+            private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, true);
             }
 
-            switch (sender.Name) {
-                // MediaControl
-                case "CiControlPlay" when CiControlPlay.Content.ToString() == "Play":
-                    ChimpIce.Play();
-                    CiControlPlay.Content = "Pause";
-                    break;
-                case "CiControlPlay" when CiControlPlay.Content.ToString() == "Pause":
-                    ChimpIce.Pause();
-                    CiControlPlay.Content = "Play";
-                    break;
-                case "CiControlReset":
-                    ChimpIce.Stop();
-                    CiControlPlay.Content = "Play";
-                    break;
->>>>>>> 90b6ed63a844920053102a651d63f08d7007e4de
+            private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, false);
+            }
+
+            private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, true);
+            }
+
+            private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, false);
+            }
+
+            private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, true);
+            }
+
+            private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, false);
+            }
+
+            private void Media(object sender, RoutedEventArgs routedEventArgs) {
+                Switch(sender as CheckBox, false);
+            }
+
+
+            private void Switch(CheckBox sender, bool boolean) {
+
+
+                if (!_checkboxes.TryGetValue(sender.Name.EndsWith("c")
+                    ? sender.Name.Remove(sender.Name.LastIndexOf('c'))
+                    : sender.Name.EndsWith("t")
+                        ? sender.Name.Remove(sender.Name.LastIndexOf('t'))
+                        : sender.Name, out var value)) return;
+
+
+            }
+
+            private void NameCheck(bool boolean, string senderName) {
+                if (!_checkboxes.TryGetValue(senderName, out var response)) return;
+                foreach (var checkBox in response) {
+                    checkBox.IsChecked = boolean;
+
+                    foreach (var cb in value) {
+                        cb.IsChecked = boolean;
+                    }
+
+                    switch (sender.Name) {
+                        // MediaControl
+                        case "CiControlPlay" when CiControlPlay.Content.ToString() == "Play":
+                            ChimpIce.Play();
+                            CiControlPlay.Content = "Pause";
+                            break;
+                        case "CiControlPlay" when CiControlPlay.Content.ToString() == "Pause":
+                            ChimpIce.Pause();
+                            CiControlPlay.Content = "Play";
+                            break;
+                        case "CiControlReset":
+                            ChimpIce.Stop();
+                            CiControlPlay.Content = "Play";
+                            break;
+
+                    }
+                }
             }
         }
     }
