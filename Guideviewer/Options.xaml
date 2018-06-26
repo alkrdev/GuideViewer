@@ -509,6 +509,7 @@
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="386,0,0,0">
                                     <Label Content=" - Doric and Boric tasks - "/>
+                                    <!-- ReSharper disable InconsistentNaming -->
                                     <CheckBox Name="D1c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 1"/>
                                     <CheckBox Name="D2c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 2"/>
                                     <CheckBox Name="D3c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 3"/>

@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
 using Google.Apis.Sheets.v4.Data;
 using Microsoft.Win32;
 using static Guideviewer.Progress;
@@ -28,7 +24,7 @@ namespace Guideviewer {
 
         public Progress Pr = new Progress();
         
-        public string URLUserName {
+        public string UrlUserName {
             get => Box.Text;
             set => Box.Text = value.Replace(' ', '_');
         }
@@ -86,10 +82,10 @@ namespace Guideviewer {
                 HasLoaded = true;
                 try {
 
-                    string userQuestData = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + URLUserName);
+                    string userQuestData = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
 
                     //Download Userdata
-                    string[] userSkillData = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + URLUserName).Split('\n');
+                    string[] userSkillData = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n');
                     
                     
                     //Loop through the amount of skills
@@ -226,8 +222,8 @@ namespace Guideviewer {
                         $"The username is either wrong, the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
 
                 }
-                    StreamWriter sw = new StreamWriter($"{URLUserName}.txt");
-                    Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + URLUserName)/*.Replace("},{", "}\n{")*/, URLUserName, User, sw);
+                    StreamWriter sw = new StreamWriter($"{UrlUserName}.txt");
+                    Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName)/*.Replace("},{", "}\n{")*/, UrlUserName, User, sw);
             }
             else if (HasLoaded) {
                 MessageBox.Show("Please use the Reload function before loading an accounts progress again");
@@ -324,39 +320,7 @@ namespace Guideviewer {
             new Options().Show();
         }
 
-        private void Grid_KeyDown(object sender, KeyEventArgs e) {
-            if (e.Key == Key.Delete) {
-                DataGridCell cell = e.OriginalSource as DataGridCell;
-
-                if (cell == null) {
-                    return;
-                }
-
-                if (!cell.IsReadOnly && cell.IsEnabled) {
-                    TextBlock tb = cell.Content as TextBlock;
-
-                    if (tb != null) {
-                        Binding binding = BindingOperations.GetBinding(tb, TextBlock.TextProperty);
-
-                        if (binding == null) {
-                            return;
-                        }
-
-                        BindingExpression exp = BindingOperations.GetBindingExpression(tb, TextBlock.TextProperty);
-
-                        if (exp != null) {
-                            PropertyInfo info = exp.DataItem.GetType().GetProperty(binding.Path.Path);
-
-                            if (info == null) {
-                                return;
-                            }
-
-                            info.SetValue(exp.DataItem, null, null);
-                        }
-                    }
-                }
-            }
-        }
+        
 
         private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
             Load(User);

@@ -4,175 +4,82 @@ using System.Windows.Controls;
 
 namespace Guideviewer {
     public partial class Options {
+        private readonly Dictionary<string, List<CheckBox>> _checkboxes = new Dictionary<string, List<CheckBox>>();
+
         public Options() {
             InitializeComponent();
+
+            _checkboxes.Add("Ann", new List<CheckBox> {Ann, Annc});
+            _checkboxes.Add("Aby", new List<CheckBox> {Aby, Abyc});
+            _checkboxes.Add("Bam", new List<CheckBox> {Bam, Bamc});
+            _checkboxes.Add("Aprc", new List<CheckBox> {Aprc, Aprt});
+            _checkboxes.Add("Bts", new List<CheckBox> {Bts, Btst});
+            _checkboxes.Add("Frs", new List<CheckBox> {Frs, Frsc});
+            _checkboxes.Add("Sab", new List<CheckBox> {Sab, Sabt});
+            _checkboxes.Add("Tbo", new List<CheckBox> {Tbo, Tboc});
+
         }
 
-        enum TitleOfNames {
-            Mqc,
-            Comp,
-            TrimComp,
-            Media
-        }
-        
-        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, true, TitleOfNames.Mqc);
-        }
-        
-        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, false, TitleOfNames.Mqc);
-        }
+        //Master Quest Cape on/off
+        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
+        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
 
 
-
-        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, true, TitleOfNames.Comp);
-        }
-        
-        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, false, TitleOfNames.Comp);
-        }
+        //Completionist Cape on/off
+        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
+        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
 
 
-
-        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, true, TitleOfNames.TrimComp);
-        }
-        
-        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, false, TitleOfNames.TrimComp);
-        }
+        //Trimmed Completionist Cape on/off
+        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, true); }
+        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender as CheckBox, false); }
 
 
-
+        //Media Controls
         private void Media(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender as CheckBox, false, TitleOfNames.Media);
+            if (!(sender is CheckBox senderBox)) return;
+            switch (senderBox.Name)
+            {
+                case "CiControlPlay":
+                    switch (CiControlPlay.Content.ToString())
+                    {
+                        case "Play":
+                            ChimpIce.Play();
+                            CiControlPlay.Content = "Pause";
+                            break;
+                        case "Pause":
+                            ChimpIce.Pause();
+                            CiControlPlay.Content = "Play";
+                            break;
+                    }
+
+                    break;
+                case "CiControlReset":
+                    ChimpIce.Stop();
+                    CiControlPlay.Content = "Play";
+                    break;
+            }
         }
 
-        private void Switch(CheckBox sender, bool boolean, TitleOfNames origin) {
+        private void Switch(CheckBox sender, bool boolean) {
             
-            sender.IsChecked = boolean;
-            
-            if (FindName(sender + "c") != null) {
-                sender + "c".IsChecked = boolean;
-            } else if (FindName(sender + "t") != null) {
-                sender + "t".IsChecked = boolean;
+            if (sender.Name.EndsWith("c")) {
+                NameCheck(boolean, sender.Name.Remove(sender.Name.LastIndexOf('c')));
+            } else if (sender.Name.EndsWith("t")) {
+                NameCheck(boolean, sender.Name.Remove(sender.Name.LastIndexOf('t')));
+            } else {
+                NameCheck(boolean, sender.Name);
             }
-
-        
             
 
-
-
-            if (origin == TitleOfNames.Mqc) {
-                switch (sender.Name) {
-                    case "Abyc":
-                        Abyc.IsChecked = boolean;
-                        break;
-
-                    case "Aby":
-                        Aby.IsChecked = boolean;
-                        break;
-
-                    case "Ann":
-                        Annc.IsChecked = boolean;
-                        break;
-                    case "Annc":
-                        Ann.IsChecked = boolean;
-                        break;
-
-
-                    case "Aprt":
-                        Aprc.IsChecked = boolean;
-                        break;
-                    case "Aprc":
-                        Aprt.IsChecked = boolean;
-                        break;
-
-
-                    case "Bam":
-                        Bamc.IsChecked = boolean;
-                        break;
-                    case "Bamc":
-                        Bam.IsChecked = boolean;
-                        break;
-
-
-                    case "Bts":
-                        Btst.IsChecked = boolean;
-                        break;
-                    case "Btst":
-                        Bts.IsChecked = boolean;
-                        break;
-
-
-                    case "Frs":
-                        Frsc.IsChecked = boolean;
-                        break;
-                    case "Frsc":
-                        Frs.IsChecked = boolean;
-                        break;
-
-
-                    case "Sab":
-                        Annc.IsChecked = boolean;
-                        break;
-                    case "Sabt":
-                        Ann.IsChecked = boolean;
-                        break;
-
-
-                    case "Tbo":
-                        Annc.IsChecked = boolean;
-                        break;
-                    case "Tboc":
-                        Ann.IsChecked = boolean;
-                        break;
-                }
-            }
-            else if (origin == TitleOfNames.Comp) {
-                switch (senderC.Name)
-                {
-                    default:
-                        break;
-                }
-            }
-            else if (origin == TitleOfNames.TrimComp) {
-                switch (senderT.Name)
-                {
-                    default:
-                        break;
-                }
-            }
-            else if (origin == TitleOfNames.Media) {
-                switch (sender.Name)
-                {
-                    // MediaControl
-                    case "System.Windows.Controls.Button: Play" when CiControlPlay.Content.ToString() == "Play":
-                        ChimpIce.Play();
-                        CiControlPlay.Content = "Pause";
-                        break;
-                    case "System.Windows.Controls.Button: Pause" when CiControlPlay.Content.ToString() == "Pause":
-                        ChimpIce.Pause();
-                        CiControlPlay.Content = "Play";
-                        break;
-                    case "System.Windows.Controls.Button: Reset":
-                        ChimpIce.Stop();
-                        CiControlPlay.Content = "Play";
-                        break;
-                    default:
-                        break;
-                }
-
-            }
-
-           
         }
 
-        class Personal {
-            public Dictionary<string, CheckBox> checkboxes = new Dictionary<string, CheckBox>() {
-                {"Ann", Options.Ann}
-            };
+        private void NameCheck(bool boolean, string senderName) {
+            if (!_checkboxes.TryGetValue(senderName, out var response)) return;
+            foreach (var checkBox in response)
+            {
+                checkBox.IsChecked = boolean;
+            }
         }
     }
 }
