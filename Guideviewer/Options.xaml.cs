@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,60 +8,57 @@ namespace Guideviewer {
     public partial class Options {
 
         private readonly Dictionary<string, List<CheckBox>> _checkboxesDictionary = new Dictionary<string, List<CheckBox>>();
-        private readonly List<Tuple<CheckBox, ListView>> _listViewSelectAlList = new List<Tuple<CheckBox, ListView>>();
+        private readonly List<Tuple<CheckBox, ListView>> _listViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
         private readonly List<CheckBox> _selectAllCheckBoxes = new List<CheckBox>();
         private readonly List<CheckBox> _allCheckBoxes = new List<CheckBox>();
         private readonly List<ListView> _listViews = new List<ListView>();
-
-
+        
         public Options() {
             InitializeComponent();
 
             _checkboxesDictionary.Clear();
-            _listViewSelectAlList.Clear();
+            _listViewSelectAllList.Clear();
             _selectAllCheckBoxes.Clear();
             _allCheckBoxes.Clear();
             _listViews.Clear();
 
             foreach (var tabcontrolItem in MainTabControl.Items) {
-                if (tabcontrolItem is TabItem tabitem) {
-
-                    foreach (var child in LogicalTreeHelper.GetChildren(tabitem)) {
-                    if (child is Grid grid) {
-
-                        foreach (var gridChild in grid.Children) {
-                        if (gridChild is TabControl tabcontrol) {
-
-                            foreach (var tabcontrolItem2 in tabcontrol.Items) {
-                            if (tabcontrolItem2 is TabItem tabitem2) {
-
-                                foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2)) {
-                                if (child2 is Grid grid2) {
-
-                                    foreach (var grid2Child in grid2.Children) {
-                                    if (grid2Child is ListView listview) {
-
-                                        if (listview.Name.StartsWith("Mq") ||
-                                            listview.Name.StartsWith("Sa") ||
-                                            listview.Name.StartsWith("Co") ||
-                                            listview.Name.StartsWith("Tri")) {
-                                            //MessageBox.Show("I just added " + listview.Name + " which is a ListView, to _listViews");
-                                            _listViews.Add(listview);
-                                        }
-
-                                        foreach (var checkbox in listview.Items) {
-                                        if (checkbox is CheckBox cb && cb.Name.StartsWith("Sa")) {
-                                            //MessageBox.Show("I just added " + cb.Name + " which is a SelectAll CheckBox, to _selectAllCheckBoxes");
-                                            _selectAllCheckBoxes.Add(cb);
-                                        } else if (checkbox is CheckBox cba) {
-                                            //MessageBox.Show("I just added " + cba.Name + " which is a CheckBox, to _allCheckBoxes");
-                                            _allCheckBoxes.Add(cba);
-                                        }
-                                        }
+            if (tabcontrolItem is TabItem tabitem) {
+                
+                foreach (var child in LogicalTreeHelper.GetChildren(tabitem)) {
+                if (child is Grid grid) {
+                
+                    foreach (var gridChild in grid.Children) {
+                    if (gridChild is TabControl tabcontrol) {
+                        
+                        foreach (var tabcontrolItem2 in tabcontrol.Items) {
+                        if (tabcontrolItem2 is TabItem tabitem2) {
+                            
+                            foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2)) {
+                            if (child2 is Grid grid2) {
+                                
+                                foreach (var grid2Child in grid2.Children) {
+                                if (grid2Child is ListView listview) {
+                                
+                                    if (listview.Name.StartsWith("Mq") ||
+                                        listview.Name.StartsWith("Sa") ||
+                                        listview.Name.StartsWith("Co") ||
+                                        listview.Name.StartsWith("Tri")) {
+                                        //MessageBox.Show("I just added " + listview.Name + " which is a ListView, to _listViews");
+                                        _listViews.Add(listview);
                                     }
-                                    } 
+
+                                    foreach (var checkbox in listview.Items) {
+                                    if (checkbox is CheckBox cb && cb.Name.StartsWith("Sa")) {
+                                        //MessageBox.Show("I just added " + cb.Name + " which is a SelectAll CheckBox, to _selectAllCheckBoxes");
+                                        _selectAllCheckBoxes.Add(cb);
+                                    } else if (checkbox is CheckBox cba) {
+                                        //MessageBox.Show("I just added " + cba.Name + " which is a CheckBox, to _allCheckBoxes");
+                                        _allCheckBoxes.Add(cba);
+                                    }
+                                    }
                                 }
-                                }
+                                } 
                             }
                             }
                         }
@@ -68,13 +66,13 @@ namespace Guideviewer {
                     }
                     }
                 }
+                }
+            }
             }
 
             for (int i = 0; i < _selectAllCheckBoxes.Count; i++) {
-                _listViewSelectAlList.Add(new Tuple<CheckBox, ListView>(_selectAllCheckBoxes[i], _listViews[i]));
-                //MessageBox.Show("Sa checkbox:" + _selectAllCheckBoxes[i].Name + " + Lv Listview: " + _listViews[i].Name);
+                _listViewSelectAllList.Add(new Tuple<CheckBox, ListView>(_selectAllCheckBoxes[i], _listViews[i]));
             }
-            
 
             foreach (var list in new List<List<CheckBox>> {
                 // Master Quest + Completionist 
@@ -127,8 +125,9 @@ namespace Guideviewer {
                 new List<CheckBox> {Sde, Sdet}, // Song from the Depths
                 new List<CheckBox> {Shs, Shst}, // Sheep Shearer
                 new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
+                
 
-                new List<CheckBox> {Sa03, Sa30}, //Select All D/B
+                new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
                 // Doric Tasks
                 new List<CheckBox> {D1, D1c},
                 new List<CheckBox> {D2, D2c},
@@ -145,6 +144,7 @@ namespace Guideviewer {
 
             }) {
                 _checkboxesDictionary.Add(list[0].Name, list);
+                _checkboxesDictionary.Add(list[1].Name, list);
             }
         }
         
@@ -161,31 +161,34 @@ namespace Guideviewer {
         private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false); }
 
         private void Switch(CheckBox sender, bool boolean) {
+            // Main Duplicate Control
+            if (_checkboxesDictionary.TryGetValue(sender.Name, out var value)) {
+                foreach (var cb in value) {
+                    cb.IsChecked = boolean;
+                }
+            }
+            
             // Select All Control
-            foreach (var tuple in _listViewSelectAlList) {
+            foreach (var tuple in _listViewSelectAllList) {
                 if (Equals(tuple.Item1, sender)) {
-                    foreach (var t in tuple.Item2.Items) {
-                        if (t is CheckBox checkbox) {
-                            checkbox.IsChecked = boolean;
+                    if (Equals(Sa03, sender)) {
+                        if (_checkboxesDictionary.TryGetValue(Sa03.Name, out var dbList)) {
+                            foreach (var cb in dbList) {
+                                cb.IsChecked = boolean;
+                                SelectAll(boolean, tuple);
+                            }   
+                        } else if (_checkboxesDictionary.TryGetValue(Sa30.Name, out var dbList2)) {
+                            foreach (var cb in dbList2) {
+                                cb.IsChecked = boolean;
+                                SelectAll(boolean, tuple);
+                            }
                         }
+                    } else {
+                        SelectAll(boolean, tuple);
                     }
                 }
             }
-
-            MessageBox.Show(sender.Name);
-            // Main Duplicate Control
-            if (!_checkboxesDictionary.TryGetValue(
-                sender.Name.EndsWith("c")
-                ? sender.Name.Remove(sender.Name.LastIndexOf('c'))
-                : sender.Name.EndsWith("t")
-                    ? sender.Name.Remove(sender.Name.LastIndexOf('t'))
-                    : sender.Name.StartsWith("Sa") ? sender.Name.Replace("03", "30")
-                    : sender.Name, out var value)) return;
-
-            foreach (var cb in value) {
-                cb.IsChecked = boolean;
-            }
-
+              
             // Main Media Control
             if (sender is CheckBox senderBox) {
                 switch (senderBox.Name) {
@@ -208,6 +211,26 @@ namespace Guideviewer {
                         break;
                 }
             }
-        }                
+        }
+
+        private static void SelectAll(bool boolean, Tuple<CheckBox, ListView> tuple)
+        {
+            foreach (var t in tuple.Item2.Items)
+            {
+                if (t is CheckBox checkbox)
+                {
+                    checkbox.IsChecked = boolean;
+                }
+            }
+        }
+
+        private void OnApplyOptions(object sender, RoutedEventArgs e) {
+            
+            foreach (var cb in _allCheckBoxes) {
+                if (cb.IsChecked == true) {
+                    
+                }
+            }
+        }
     }
 }

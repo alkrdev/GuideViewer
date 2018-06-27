@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Options" 
-        Height="491" 
-        Width="767" 
+        Height="550" 
+        Width="800" 
         ResizeMode="NoResize">
     <Grid>
         <TabControl Name="MainTabControl">
             <TabItem Header="Master Quest">
                 <Grid>
-                    <TabControl>
+                    <TabControl Margin="0,0,0,30">
                         <TabItem Header="Miniquests">
                             <Grid>
                                 <ListView Name="MqMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -403,7 +403,7 @@
             </TabItem>
             <TabItem Header="Completionist">
                 <Grid>
-                    <TabControl>
+                    <TabControl Margin="0,0,0,30">
                         <TabItem Header="Miniquests">
                             <Grid>
                                 <ListView Name="CoMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -610,7 +610,7 @@
             </TabItem>
             <TabItem Header="Trimmed Completionist">
                 <Grid>
-                    <TabControl>
+                    <TabControl Margin="0,0,0,30">
                         <TabItem Header="Miniquests">
                             <Grid>
                                 <ListView Name="TriMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -698,7 +698,7 @@
                                     <TextBox Name="Cidp" Width="218"/>
                                 </ListView>
 
-                                <MediaElement Source="http://videos3.sendvid.com/06/c4/f99w5yff.mp4" x:Name="ChimpIce" Margin="237,0,0,1" LoadedBehavior="Manual"/>
+                                <MediaElement Source="http://videos3.sendvid.com/06/c4/f99w5yff.mp4" x:Name="ChimpIce" Margin="237,0,0,0" LoadedBehavior="Manual"/>
                                 <Button Content="Play" x:Name="CiControlPlay" Click="Media" Margin="155,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72"/>
                                 <Button Content="Reset" x:Name="CiControlReset" Click="Media" Margin="155,335,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72"/>
                             </Grid>
@@ -708,7 +708,7 @@
             </TabItem>
             <TabItem Header="Distractions and Diversions">
                 <Grid>
-                    <TabControl>
+                    <TabControl Margin="0,0,0,30">
                         <TabItem Header="Fish Flingers">
                             <Grid>
 
@@ -749,7 +749,7 @@
             </TabItem>
             <TabItem Header="Salty Title">
                 <Grid>
-                    <TabControl>
+                    <TabControl Margin="0,0,0,30">
                         <TabItem Header="Requirements">
                             <Grid>
                                 <ListView Name="SaReUn" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -788,5 +788,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button Click="OnApplyOptions" Content="Apply" x:Name="Apply" Margin="361,489,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72"/>
     </Grid>
 </Window>

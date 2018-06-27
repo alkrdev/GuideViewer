@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Windows;
-using Google.Apis.Sheets.v4.Data;
-using Microsoft.Win32;
 using static Guideviewer.Progress;
 
 namespace Guideviewer {
@@ -28,34 +26,23 @@ namespace Guideviewer {
             get => Box.Text;
             set => Box.Text = value.Replace(' ', '_');
         }
-        
 
         //Parameters to handle GoogleRequest
         public IList<IList<object>> Values;
-        public ValueRange Response;
 
         //The maximum amount of rows in the datasource spreadsheet
         public static int Limiter = new GoogleRequest().GoogleRequestInit().Execute().Values.Count;
 
-        //Arrays to store the data
-        public string[] ColumnA = new string[Limiter];
-        public string[] ColumnB = new string[Limiter];
-        public string[] ColumnC = new string[Limiter];
-        public string[] ColumnD = new string[Limiter];
-        public string[] ColumnE = new string[Limiter];
-        public string[] ColumnF = new string[Limiter];
+        public static string[] ColumnA = new string[Limiter];
+        public static string[] ColumnB = new string[Limiter];
+        public static string[] ColumnC = new string[Limiter];
+        public static string[] ColumnD = new string[Limiter];
+        public static string[] ColumnE = new string[Limiter];
+        public static string[] ColumnF = new string[Limiter];
 
-        //SaveFileDialog Class initialization - Save a file
-        public SaveFileDialog Sfd = new SaveFileDialog {
-            Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
+        public static List<string[]> ColumnList = new List<string[]> {
+            ColumnA, ColumnB, ColumnC, ColumnD, ColumnE, ColumnF
         };
-
-        //OpenFileDialog Class initialization - Open a file
-        public OpenFileDialog Ofd = new OpenFileDialog {
-            Filter = "txt files (*.txt)|*.txt|" +
-                     "All files (*.*)|*.*"
-        };
-
         //Struct to insert data from datasource in correct columns
         public struct MyData {
             public string Qt { set; get; }
@@ -72,161 +59,36 @@ namespace Guideviewer {
             InitializeComponent();
 
             FirstLoad();
+            for (int i = 0; i < User.LoadedSkillLevels.Length; i++) {
+                User.LoadedSkillLevels[i] = 1;
+                User.LoadedSkillExperiences[i] = 0;
+            }
             
         }
 
         #region Methods
 
-        private void LoadProgress_OnClick (object sender, RoutedEventArgs e) {
+        private void LoadOnline_OnClick (object sender, RoutedEventArgs e) {
             if (!HasLoaded) {
                 HasLoaded = true;
                 try {
-
-                    string userQuestData = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
-
-                    //Download Userdata
-                    string[] userSkillData = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n');
-                    
-                    
-                    //Loop through the amount of skills
-                    for (int i = 1; i < User.SkillNames.Count; i++) {
-
-                        
-                        Pr.ExtractInsert(userSkillData, User, i);
-
-                        //Loop through list of current data
-                        for (var index = 1; index < ColumnA.Length; index++) {
-                            //If any of the looped through data contains "[Train" - Very specific
-                            if (ColumnA[index].StartsWith("[Train")) {
-                                //Creates a string that can look like: "Attack to " - With specification on spaces
-                                string combined = User.SkillNames[i] + " to ";
-
-                                if (ColumnA[index].Contains(combined)) {
-
-                                    //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
-                                    string extract = combined + ColumnA[index].Substring(ColumnA[index].IndexOf(combined, 3,StringComparison.Ordinal) + combined.Length, 3);
-
-                                    if (extract.EndsWith("]")) {
-                                        extract = extract.Remove(extract.LastIndexOf(']'), 1); //Remove the problematic symbol "]" - End of string
-                                    }
-                                    else if (extract.EndsWith(",")) {
-                                        extract = extract.Remove(extract.LastIndexOf(','), 1); //Remove the problematic symbol "," - Before comma
-                                    }
-                                    else if (extract.EndsWith(" ")) {
-                                        extract = extract.Remove(extract.LastIndexOf(' '), 1); //Remove the problematic symbol " " - Before space
-                                    }
-                                    else if (extract.EndsWith("a")) {
-                                        extract = extract.Remove(extract.LastIndexOf('a'), 1); //Remove the problematic symbol "a" - Before and
-                                    }
-
-                                    //If the userdatas level is bigger than what I am expecting, do the following:
-                                    if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal)
-                                                                          + combined.Length).Replace(" ", "")) <= User.Levels[i].Item2) {
-                                        ColumnA[index] = ColumnA[index].Replace(extract, "");
-                                    }
-
-                                    foreach (var t in Quests.FromJson(userQuestData).QuestsList) {
-                                        for (int j = 0; j < ColumnA.Length; j++) {
-
-                                            if (t.Title == ColumnA[j] && t.Status == Status.Completed) {
-
-                                                SpecificRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                                                SpecificRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                                                SpecificRemover("Children of Mah", "Koschei's Troubles miniquest", t);
-                                                SpecificRemover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
-                                                SpecificRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
-                                                SpecificRemover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
-                                                SpecificRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
-
-                                                ColumnA[j] = ColumnA[j].Remove(0);
-                                                if (ColumnB[j] != "") {
-                                                    ColumnB[j] = ColumnB[j].Remove(0);
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    //Remove instances of example: "Attack to ," - Redundant
-                                    if (ColumnA[index].Contains(" ,")) {
-                                        ColumnA[index] = ColumnA[index].Replace(" ,", "");
-                                    }
-
-
-                                    //Cleanup Switch-statement
-                                    switch (ColumnA[index]) {
-                                        case "[Train ]":
-
-                                        case "[Train and ]":
-
-                                        case "[Train  and ]":
-
-                                        case "[Train ,  and ]":
-
-                                        case "[Train , ,  and ]":
-
-                                        case "[Train , , ,  and ]":
-
-                                        case "[Train , , , ,  and ]":
-
-                                        case "[Train , , , , ,  and ]":
-
-                                        case "[Train ,  and  [OPTIONAL]]":
-
-                                        case "[Train  and  [OPTIONAL]]":
-                                            ColumnA[index] = ColumnA[index].Replace(ColumnA[index], "");
-                                            break;
-                                    }
-
-                                    if (ColumnA[index].EndsWith(" and ]")) {
-                                        ColumnA[index] = ColumnA[index].Replace(" and ]", "]");
-                                    }
-
-                                    for (var index1 = 0; index1 < ColumnA.Length; index1++) {
-                                        if (ColumnA[index1] == " " && ColumnA[index1] != "") {
-                                            ColumnA[index1] = ColumnA[index1].Remove(0);
-                                        }
-
-                                        if (ColumnB[index1] == " " && ColumnB[index1] != "") {
-                                            ColumnB[index1] = ColumnB[index1].Remove(0);
-                                        }
-
-                                        if (ColumnC[index1] == " " && ColumnC[index1] != "") {
-                                            ColumnC[index1] = ColumnC[index1].Remove(0);
-                                        }
-
-                                        if (ColumnD[index1] == " " && ColumnD[index1] != "") {
-                                            ColumnD[index1] = ColumnD[index1].Remove(0);
-                                        }
-
-                                        if (ColumnE[index1] == " " && ColumnE[index1] != "") {
-                                            ColumnE[index1] = ColumnE[index1].Remove(0);
-                                        }
-
-                                        if (ColumnF[index1] == " " && ColumnF[index1] != "") {
-                                            ColumnF[index1] = ColumnF[index1].Remove(0);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-
-                    //Clear everything in the DataGrid
-                    MyDataGrid.Items.Clear();
-                    //Use the filling method, read below
-                    FillAllColumns();
+                    User.Load(
+                        new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName), //UserQuestData
+                        new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
+                        User, true);
                 }
                 catch (Exception d) {
                     MessageBox.Show(
                         $"The username is either wrong, the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
-
+                }
+                finally {
+                    MessageBox.Show("User was successfully loaded, please \"Reload\"");
                 }
                     StreamWriter sw = new StreamWriter($"{UrlUserName}.txt");
                     Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName)/*.Replace("},{", "}\n{")*/, UrlUserName, User, sw);
             }
             else if (HasLoaded) {
-                MessageBox.Show("Please use the Reload function before loading an accounts progress again");
+                MessageBox.Show("Please use the Reset function before loading an accounts progress again");
             }
         }
 
@@ -235,23 +97,15 @@ namespace Guideviewer {
             if (Values != null) {
                 for (int a = 0; a < Values.Count; a++) {
                     MyDataGrid.Items.Add(new MyData {
-                        Qt = ColumnA[a],
-                        L = ColumnB[a],
-                        Mqc = ColumnC[a],
-                        Cc = ColumnD[a],
-                        Tcc = ColumnE[a],
-                        Im = ColumnF[a]
+                        Qt = ColumnList[0][a],
+                        L = ColumnList[1][a],
+                        Mqc = ColumnList[2][a],
+                        Cc = ColumnList[3][a],
+                        Tcc = ColumnList[4][a],
+                        Im = ColumnList[5][a]
                     });
                 }
             }
-        }
-
-        private void ReloadSpreadsheetData(object sender, RoutedEventArgs routedEventArgs) {
-            HasLoaded = false;
-            MyDataGrid.Items.Clear();
-            MessageBox.Show("ALL ITEMS WERE CLEARED");
-
-            FirstLoad();
         }
 
         private void FirstLoad() {
@@ -262,68 +116,79 @@ namespace Guideviewer {
             if (Values != null && Values.Count > 0) {
                 for (var index = 0; index < Values.Count; index++) {
                     if (Values[index][0] != null) {
-                        ColumnA[index] = Values[index][0].ToString();
+                        ColumnList[0][index] = Values[index][0].ToString();
                     }
 
                     if (Values[index][1] != null) {
-                        ColumnB[index] = Values[index][1].ToString();
+                        ColumnList[1][index] = Values[index][1].ToString();
                     }
 
                     if (Values[index][2] != null) {
-                        ColumnC[index] = Values[index][2].ToString();
+                        ColumnList[2][index] = Values[index][2].ToString();
                     }
 
                     if (Values[index][3] != null) {
-                        ColumnD[index] = Values[index][3].ToString();
+                        ColumnList[3][index] = Values[index][3].ToString();
                     }
 
                     if (Values[index][4] != null) {
-                        ColumnE[index] = Values[index][4].ToString();
+                        ColumnList[4][index] = Values[index][4].ToString();
                     }
 
                     if (Values[index][5] != null) {
-                        ColumnF[index] = Values[index][5].ToString();
+                        ColumnList[5][index] = Values[index][5].ToString();
                     }
                 }
             }
             FillAllColumns();
-            }
-
-        private void SpecificRemover(string main, string second, Quest t) {
-            if (t.Title == main && t.Status == Status.Completed) {
-                for (int h = 0; h < ColumnA.Length; h++) {
-                    if (ColumnA[h] == second) {
-                        ColumnA[h] = ColumnA[h].Remove(0);
-                        if (ColumnB[h] != "") {
-                            ColumnB[h] = ColumnB[h].Remove(0);
-                        }
-                        
-                    }
-                }
-            }
         }
 
         private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs) {
             
-            for (int m = ColumnA.Length - 1; m >= 0; m--) {
-                if (ColumnA[m] == ColumnB[m] && ColumnB[m] == ColumnC[m] && 
-                    ColumnC[m] == ColumnD[m] && ColumnD[m] == ColumnE[m] && 
-                    ColumnE[m] == ColumnF[m]) {
+            for (int m = ColumnList[0].Length - 1; m >= 0; m--) {
+                if (ColumnList[0][m] == ColumnList[1][m] && 
+                    ColumnList[1][m] == ColumnList[2][m] && 
+                    ColumnList[2][m] == ColumnList[3][m] && 
+                    ColumnList[3][m] == ColumnList[4][m] && 
+                    ColumnList[4][m] == ColumnList[5][m]) {
                                     
                     MyDataGrid.Items.RemoveAt(m);
                 }
             }
         }
-        #endregion
 
         private void Op_OnClick(object sender, RoutedEventArgs e) {
             new Options().Show();
         }
 
-        
-
         private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
-            Load(User);
+            try {
+                Load(User);
+                HasLoaded = false;
+
+            }
+            catch (Exception exception) {
+                MessageBox.Show("Loading user failed: \n" + exception);
+                throw;
+            }
+            finally {
+                MessageBox.Show("User was successfully loaded, please \"Reload\"");
+            }
         }
+
+        private void Reset(object sender, RoutedEventArgs routedEventArgs) {
+            HasLoaded = false;
+            MyDataGrid.Items.Clear();
+            MessageBox.Show("ALL ITEMS WERE CLEARED");
+
+            FirstLoad();
+        }
+
+        private void Reload(object sender, RoutedEventArgs e) {
+            MyDataGrid.Items.Clear();
+            FillAllColumns();
+        }
+
+        #endregion
     }
 }

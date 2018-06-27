@@ -113,6 +113,7 @@
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.cs" />
     <Compile Include="Progress.cs" />
+    <Compile Include="Specific.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="User.cs" />
     <ApplicationDefinition Include="App.xaml">
