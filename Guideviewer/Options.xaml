@@ -788,6 +788,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Click="OnApplyOptions" Content="Apply" x:Name="Apply" Margin="361,489,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72"/>
+        <Button Click="OnApplyOptions" Content="Apply" x:Name="Apply" Margin="294,488,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72" Height="33"/>
+        <TextBox Name="ApplyUsername" Text="Username" TextWrapping="Wrap" Width="120" Margin="370,488,304,0" TextAlignment="Center" MaxLines="1"/>
     </Grid>
 </Window>

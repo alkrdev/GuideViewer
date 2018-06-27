@@ -228,7 +228,7 @@ namespace Guideviewer {
             
             foreach (var cb in _allCheckBoxes) {
                 if (cb.IsChecked == true) {
-                    
+                    Progress.Save("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUsername.Text, ApplyUsername.Text, new User(), new StreamWriter($"{ApplyUsername.Text}"));
                 }
             }
         }
