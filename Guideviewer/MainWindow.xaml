@@ -156,7 +156,7 @@
         </DataGrid>
 
         <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1616" IsMainMenu="True">
-            <TextBox Name="Box" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Bottom"/>
+            <TextBox Name="UrlUsername" Height="23" TextWrapping="Wrap" Width="150" VerticalAlignment="Bottom"/>
             <MenuItem Header="Load Online" x:Name="P" Click="LoadOnline_OnClick"/>
             <MenuItem Header="Load File" x:Name="Lf" Click="LoadFile_OnClick"/>
             <MenuItem Header="Reload" x:Name="R" Click="Reload"/>

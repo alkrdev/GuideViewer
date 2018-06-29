@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using static Guideviewer.Progress;
+using static Guideviewer.User;
 
 namespace Guideviewer {
     /// <summary>
@@ -17,14 +18,10 @@ namespace Guideviewer {
         #region Initialize
 
         public bool HasLoaded;
-
-        public static User User = new User();
-
-        public Progress Pr = new Progress();
         
         public string UrlUserName {
-            get => Box.Text;
-            set => Box.Text = value.Replace(' ', '_');
+            get => UrlUsername.Text;
+            set => UrlUsername.Text = value.Replace(' ', '_');
         }
 
         //Parameters to handle GoogleRequest
@@ -59,9 +56,9 @@ namespace Guideviewer {
             InitializeComponent();
 
             FirstLoad();
-            for (int i = 0; i < User.LoadedSkillLevels.Length; i++) {
-                User.LoadedSkillLevels[i] = 1;
-                User.LoadedSkillExperiences[i] = 0;
+            for (int i = 0; i < LoadedSkillLevels.Length; i++) {
+                LoadedSkillLevels[i] = 1;
+                LoadedSkillExperiences[i] = 0;
             }
             
         }
@@ -72,10 +69,10 @@ namespace Guideviewer {
             if (!HasLoaded) {
                 HasLoaded = true;
                 try {
-                    User.Load(
+                    Load(
                         new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                       //UserQuestData
                         new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
-                        User, true);
+                        new User(), true);
                 }
                 catch (Exception d) {
                     MessageBox.Show(
@@ -85,7 +82,7 @@ namespace Guideviewer {
                     MessageBox.Show("User was successfully loaded, please \"Reload\"");
                 }
                     StreamWriter sw = new StreamWriter($"{UrlUserName}.txt");
-                    Pr.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName)/*.Replace("},{", "}\n{")*/, UrlUserName, User, sw);
+                    Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName), UrlUserName, new User(), sw);
             }
             else if (HasLoaded) {
                 MessageBox.Show("Please use the Reset function before loading an accounts progress again");
@@ -163,7 +160,7 @@ namespace Guideviewer {
 
         private void LoadFile_OnClick(object sender, RoutedEventArgs e) {
             try {
-                Load(User);
+                Load(new User());
                 HasLoaded = false;
 
             }
@@ -190,5 +187,7 @@ namespace Guideviewer {
         }
 
         #endregion
+
+
     }
 }

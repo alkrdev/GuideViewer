@@ -14,5 +14,9 @@ namespace Guideviewer {
                 }
             }
         }
+
+        public string MyClass1(int rating) {
+            return "rating: " + rating;
+        }
     }
 }

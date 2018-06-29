@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,11 @@ namespace Guideviewer {
         private readonly List<CheckBox> _selectAllCheckBoxes = new List<CheckBox>();
         private readonly List<CheckBox> _allCheckBoxes = new List<CheckBox>();
         private readonly List<ListView> _listViews = new List<ListView>();
+        
+        public string ApplyUserName {
+            get => ApplyUsername.Text;
+            set => ApplyUsername.Text = value.Replace(' ', '_');
+        }
         
         public Options() {
             InitializeComponent();
@@ -148,50 +154,54 @@ namespace Guideviewer {
             }
         }
         
-        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true); }
-        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false); }
+        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true); }
+        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false); }
 
-        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true); }
-        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false); }
+        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true); }
+        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false); }
 
-        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, true); }
-        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false); }
+        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true); }
+        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false); }
 
 
-        private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender as CheckBox, false); }
+        private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false); }
 
-        private void Switch(CheckBox sender, bool boolean) {
-            // Main Duplicate Control
-            if (_checkboxesDictionary.TryGetValue(sender.Name, out var value)) {
-                foreach (var cb in value) {
-                    cb.IsChecked = boolean;
+        private void Switch(object sender, bool boolean) {
+            if (sender is CheckBox senderBox) {
+                // Main Duplicate Control
+                if (_checkboxesDictionary.TryGetValue(senderBox.Name, out var value)) {
+                    foreach (var cb in value) {
+                        cb.IsChecked = boolean;
+                    }
                 }
-            }
-            
-            // Select All Control
-            foreach (var tuple in _listViewSelectAllList) {
-                if (Equals(tuple.Item1, sender)) {
-                    if (Equals(Sa03, sender)) {
-                        if (_checkboxesDictionary.TryGetValue(Sa03.Name, out var dbList)) {
-                            foreach (var cb in dbList) {
-                                cb.IsChecked = boolean;
-                                SelectAll(boolean, tuple);
-                            }   
-                        } else if (_checkboxesDictionary.TryGetValue(Sa30.Name, out var dbList2)) {
-                            foreach (var cb in dbList2) {
-                                cb.IsChecked = boolean;
-                                SelectAll(boolean, tuple);
+
+                // Select All Control
+                foreach (var tuple in _listViewSelectAllList) {
+                    if (Equals(tuple.Item1, sender)) {
+                        if (Equals(Sa03, sender)) {
+                            if (_checkboxesDictionary.TryGetValue(Sa03.Name, out var dbList)) {
+                                foreach (var cb in dbList) {
+                                    cb.IsChecked = boolean;
+                                    SelectAll(boolean, tuple);
+                                }
+                            }
+                            else if (_checkboxesDictionary.TryGetValue(Sa30.Name, out var dbList2)) {
+                                foreach (var cb in dbList2) {
+                                    cb.IsChecked = boolean;
+                                    SelectAll(boolean, tuple);
+                                }
                             }
                         }
-                    } else {
-                        SelectAll(boolean, tuple);
+                        else {
+                            SelectAll(boolean, tuple);
+                        }
                     }
                 }
             }
-              
+
+            if (sender is Button senderButton) {
             // Main Media Control
-            if (sender is CheckBox senderBox) {
-                switch (senderBox.Name) {
+                switch (senderButton.Name) {
                     case "CiControlPlay":
                         switch (CiControlPlay.Content.ToString()) {
                             case "Play":
@@ -203,7 +213,6 @@ namespace Guideviewer {
                                 CiControlPlay.Content = "Play";
                                 break;
                         }
-
                         break;
                     case "CiControlReset":
                         ChimpIce.Stop();
@@ -211,6 +220,7 @@ namespace Guideviewer {
                         break;
                 }
             }
+            
         }
 
         private static void SelectAll(bool boolean, Tuple<CheckBox, ListView> tuple)
@@ -225,10 +235,11 @@ namespace Guideviewer {
         }
 
         private void OnApplyOptions(object sender, RoutedEventArgs e) {
-            Progress.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + MainWindow.UrlUserName), UrlUserName, User, sw);
+            Progress.Save("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName,
+                ApplyUserName, new User(), new StreamWriter($"{ApplyUserName}"));
             foreach (var cb in _allCheckBoxes) {
                 if (cb.IsChecked == true) {
-                    Progress.Save("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUsername.Text, ApplyUsername.Text, new User(), new StreamWriter($"{ApplyUsername.Text}"));
+                    
                 }
             }
 
