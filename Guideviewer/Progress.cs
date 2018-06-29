@@ -33,7 +33,7 @@ namespace Guideviewer {
         }
 
 
-        public void Save(string userQuestData, string username, User user, StreamWriter sw) {
+        public static void Save(string userQuestData, string username, User user, StreamWriter sw) {
 
             sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
             sw.WriteLine(" ");

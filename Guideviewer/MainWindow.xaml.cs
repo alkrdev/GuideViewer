@@ -73,7 +73,7 @@ namespace Guideviewer {
                 HasLoaded = true;
                 try {
                     User.Load(
-                        new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName), //UserQuestData
+                        new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                       //UserQuestData
                         new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
                         User, true);
                 }

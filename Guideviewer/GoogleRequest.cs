@@ -42,6 +42,5 @@ namespace Guideviewer
         private string URLReturner(string name) {
             return $"https://api.myjson.com/bins/{name}.json";
         }
-         
     }
 }
