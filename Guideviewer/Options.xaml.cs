@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -225,12 +225,13 @@ namespace Guideviewer {
         }
 
         private void OnApplyOptions(object sender, RoutedEventArgs e) {
-            
+            Progress.Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + MainWindow.UrlUserName), UrlUserName, User, sw);
             foreach (var cb in _allCheckBoxes) {
                 if (cb.IsChecked == true) {
                     
                 }
             }
+
         }
     }
 }

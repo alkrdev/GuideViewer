@@ -21,14 +21,10 @@ namespace Guideviewer
 
             //Everytime I mistakenly push the correct link, I revoke the access of the link.
             string myUrl = URLReturner("[REDACTED]");
-
-            WebClient client = new WebClient();
-            {
-                client.DownloadFile(myUrl, "\\client_secret.json");
-            }
+            
+            new WebClient().DownloadFile(myUrl, "\\client_secret.json");
             
             using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read)) {
-
                 _credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None,
                     new FileDataStore(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".credentials\\"), true)).Result;
