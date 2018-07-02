@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Options" 
-        Height="550" 
+        Height="575" 
         Width="800" 
         ResizeMode="NoResize">
     <Grid>
@@ -788,7 +788,20 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Click="OnApplyOptions" Content="Apply" x:Name="Apply" Margin="294,488,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="17,6,17,6" Width="72" Height="33"/>
-        <TextBox x:Name="ApplyUsername" Text="Username" TextWrapping="Wrap" Width="120" Margin="370,488,304,0" TextAlignment="Center" MaxLines="1"/>
+        <TextBox x:Name="ApplyUsername" 
+                 Margin="308,508,338,0" 
+                 Height="32" 
+                 TextAlignment="Center"
+                 VerticalContentAlignment="Center" VerticalAlignment="Top"/>
+        <Button Click="OnApplyOptions" 
+                Content="Apply" x:Name="Apply" 
+                Margin="474,0,219,11" 
+                Height="32" 
+                VerticalAlignment="Bottom"/>
+        <Button Click="OnOpenLoad" 
+                Content="Load" x:Name="Load" 
+                Margin="189,0,504,11" 
+                Height="32" 
+                VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

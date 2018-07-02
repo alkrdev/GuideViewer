@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using static Guideviewer.MainWindow;
 
 namespace Guideviewer {
@@ -25,10 +26,14 @@ namespace Guideviewer {
         
         //Combination of the users data
         public static Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[SkillNames.Count];
-
+        
         public static Progress Pr = new Progress();
 
-        public static void Load(string userquestData, string[] userskillData, User user, bool online) {
+        public static int[] DefaultCbList = new int[512];
+        public static int[] DefaultIntArray = DefaultCbList.Select(i => 1).ToArray();
+        public static string DefaultIntString = DefaultIntArray.ToString();
+
+        public static void LoadUser(string userquestData, string[] userskillData, User user, bool online) {
             //Loop through the amount of skills
             for (int i = 1; i < SkillNames.Count; i++)
             {
@@ -99,8 +104,7 @@ namespace Guideviewer {
                             if (ColumnList[0][index].Contains(" ,")) {
                                 ColumnList[0][index] = ColumnList[0][index].Replace(" ,", "");
                             }
-
-
+                            
                             //Cleanup Switch-statement
                             switch (ColumnList[0][index]) {
                                 case "[Train ]":

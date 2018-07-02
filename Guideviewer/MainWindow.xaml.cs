@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows;
+using static Guideviewer.Options;
 using static Guideviewer.Progress;
 using static Guideviewer.User;
 
@@ -54,13 +56,19 @@ namespace Guideviewer {
 
         public MainWindow() {
             InitializeComponent();
-
+            
             FirstLoad();
             for (int i = 0; i < LoadedSkillLevels.Length; i++) {
-                LoadedSkillLevels[i] = 1;
-                LoadedSkillExperiences[i] = 0;
+                if (i == 4) {
+                    LoadedSkillLevels[i] = 10;
+                    LoadedSkillExperiences[i] = 1154;
+                }
+                else {
+                    LoadedSkillLevels[i] = 1;
+                    LoadedSkillExperiences[i] = 0;
+                }
+                Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
             }
-            
         }
 
         #region Methods
@@ -69,10 +77,14 @@ namespace Guideviewer {
             if (!HasLoaded) {
                 HasLoaded = true;
                 try {
-                    Load(
-                        new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                       //UserQuestData
-                        new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
-                        new User(), true);
+                    LoadUser(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                   //UserQuestData
+                         new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
+                         new User(), true);
+                    if (!File.Exists($"{UrlUserName}.txt")) {
+                        Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
+                            UrlUserName, new User(), new StreamWriter($"{UrlUserName}.txt"), DefaultIntString
+                        );
+                    }
                 }
                 catch (Exception d) {
                     MessageBox.Show(
@@ -81,8 +93,6 @@ namespace Guideviewer {
                 finally {
                     MessageBox.Show("User was successfully loaded, please \"Reload\"");
                 }
-                    StreamWriter sw = new StreamWriter($"{UrlUserName}.txt");
-                    Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName), UrlUserName, new User(), sw);
             }
             else if (HasLoaded) {
                 MessageBox.Show("Please use the Reset function before loading an accounts progress again");
@@ -106,6 +116,8 @@ namespace Guideviewer {
         }
 
         private void FirstLoad() {
+
+
             //Google Request
             Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
 
@@ -182,12 +194,27 @@ namespace Guideviewer {
         }
 
         private void Reload(object sender, RoutedEventArgs e) {
-            MyDataGrid.Items.Clear();
-            FillAllColumns();
+            if (!HasApplied) {
+                MyDataGrid.Items.Clear();
+                FillAllColumns();
+            }
+            else if (HasApplied) {
+                HasApplied = false;
+
+                foreach (var allCheckBox in AllCheckBoxes) {
+                    foreach (var column in ColumnList) {
+                        foreach (var s in column) {
+                            if (s.Contains("a")) {
+                            
+                            }
+                        }
+                    }
+                }
+
+                MyDataGrid.Items.Clear();
+                FillAllColumns();
+            }
         }
-
         #endregion
-
-
     }
 }
