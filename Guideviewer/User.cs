@@ -108,24 +108,15 @@ namespace Guideviewer {
                             //Cleanup Switch-statement
                             switch (ColumnList[0][index]) {
                                 case "[Train ]":
-
                                 case "[Train and ]":
-
                                 case "[Train  and ]":
-
                                 case "[Train ,  and ]":
-
                                 case "[Train , ,  and ]":
-
                                 case "[Train , , ,  and ]":
-
                                 case "[Train , , , ,  and ]":
-
                                 case "[Train , , , , ,  and ]":
-
-                                case "[Train ,  and  [OPTIONAL]]":
-
                                 case "[Train  and  [OPTIONAL]]":
+                                case "[Train ,  and  [OPTIONAL]]":
                                     ColumnList[0][index] = ColumnList[0][index].Replace(ColumnList[0][index], "");
                                     break;
                             }

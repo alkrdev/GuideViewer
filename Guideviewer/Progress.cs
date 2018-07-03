@@ -86,9 +86,8 @@ namespace Guideviewer {
                     LoadedSkillLevels[i] = ToInt32(File.ReadLines(ofd.FileName).Skip(i+2).Take(1).First().Substring(File.ReadLines(ofd.FileName).Skip(i+2).Take(1).First().IndexOf(": ", 3, StringComparison.Ordinal) + 2));
                     Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
                 }
-                
+
                 LoadUser(userquestdata, userskilldata, user, false);
-                
             }
         }
     }

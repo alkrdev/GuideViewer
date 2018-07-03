@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Windows;
 using static Guideviewer.Options;
@@ -32,16 +31,8 @@ namespace Guideviewer {
         //The maximum amount of rows in the datasource spreadsheet
         public static int Limiter = new GoogleRequest().GoogleRequestInit().Execute().Values.Count;
 
-        public static string[] ColumnA = new string[Limiter];
-        public static string[] ColumnB = new string[Limiter];
-        public static string[] ColumnC = new string[Limiter];
-        public static string[] ColumnD = new string[Limiter];
-        public static string[] ColumnE = new string[Limiter];
-        public static string[] ColumnF = new string[Limiter];
+        public static List<string[]> ColumnList = new List<string[]>();
 
-        public static List<string[]> ColumnList = new List<string[]> {
-            ColumnA, ColumnB, ColumnC, ColumnD, ColumnE, ColumnF
-        };
         //Struct to insert data from datasource in correct columns
         public struct MyData {
             public string Qt { set; get; }
@@ -56,7 +47,11 @@ namespace Guideviewer {
 
         public MainWindow() {
             InitializeComponent();
-            
+
+            for (int i = 0; i < 6; i++) {
+                ColumnList.Add(new string[Limiter]);
+            }
+
             FirstLoad();
             for (int i = 0; i < LoadedSkillLevels.Length; i++) {
                 if (i == 4) {
@@ -201,16 +196,29 @@ namespace Guideviewer {
             else if (HasApplied) {
                 HasApplied = false;
 
-                foreach (var allCheckBox in AllCheckBoxes) {
-                    foreach (var column in ColumnList) {
-                        foreach (var s in column) {
-                            if (s.Contains("a")) {
-                            
-                            }
-                        }
+                CheckboxesBoolDictionary.Clear();
+
+                foreach (var cb in AllCheckBoxes) {
+                    switch (cb.IsChecked) {
+                        case true:
+                            CheckboxesBoolDictionary.Add(cb.Name, true);
+                            break;
+                        case false:
+                            CheckboxesBoolDictionary.Add(cb.Name, false);
+                            break;
                     }
                 }
 
+                int p = 0;
+
+                foreach (var cb in AllCheckBoxes) {
+                    
+                    MessageBox.Show("First: " + cb.Name + Environment.NewLine +
+                                    "Second: " + cb.Content.ToString());
+
+                    Specific.CheckBoxRemover(CheckboxesBoolDictionary, cb, NameCompareTuples[p].Item1, NameCompareTuples[p].Item2);
+                    p++;
+                }
                 MyDataGrid.Items.Clear();
                 FillAllColumns();
             }

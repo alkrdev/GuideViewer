@@ -17,66 +17,63 @@
                             <Grid>
                                 <ListView Name="MqMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Pay 2 Play - "/>
-                                    <CheckBox Name="Sa01" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Aby" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Abyss"/>
-                                    <CheckBox Name="Bts" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Balloon Transport System"/>
-                                    <CheckBox Name="Bar" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Barbarian Training"/>
-                                    <CheckBox Name="Bal" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Bar Crawl"/>
-                                    <CheckBox Name="Tgu" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Thieves Guild Capers"/>
-                                    <CheckBox Name="Tcz" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Curse of Zaros"/>
-                                    <CheckBox Name="Dsl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Desert Slayer Dungeon"/>
-                                    <CheckBox Name="Ekm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Enchanted Key"/>
-                                    <CheckBox Name="Fsw" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fur 'n' Seek Wishlist"/>
-                                    <CheckBox Name="Tgs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The General's Shadow"/>
-                                    <CheckBox Name="Hsw" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Hopespear's Will"/>
-                                    <CheckBox Name="Hfs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Hunt for Surok"/>
-                                    <CheckBox Name="Imt" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="In Memory of The Myreque"/>
-                                    <CheckBox Name="Kwa" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Knight Waves Training Grounds"/>
-                                    <CheckBox Name="Kos" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Koschei's Troubles"/>
+                                    <CheckBox Name="Sa01" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Aby" Checked="Check" Unchecked="UnCheck" Content="The Abyss"/>
+                                    <CheckBox Name="Bal" Checked="Check" Unchecked="UnCheck" Content="Barcrawl"/>
+                                    <CheckBox Name="Tcz" Checked="Check" Unchecked="UnCheck" Content="The Curse of Zaros"/>
+                                    <CheckBox Name="Dsl" Checked="Check" Unchecked="UnCheck" Content="Desert Slayer Dungeon"/>
+                                    <CheckBox Name="Ekm" Checked="Check" Unchecked="UnCheck" Content="Enchanted Key"/>
+                                    <CheckBox Name="Fsw" Checked="Check" Unchecked="UnCheck" Content="Fur 'n' Seek Wishlist"/>
+                                    <CheckBox Name="Tgs" Checked="Check" Unchecked="UnCheck" Content="The General's Shadow"/>
+                                    <CheckBox Name="Hsw" Checked="Check" Unchecked="UnCheck" Content="Hopespear's Will"/>
+                                    <CheckBox Name="Hfs" Checked="Check" Unchecked="UnCheck" Content="Hunt for Surok"/>
+                                    <CheckBox Name="Imt" Checked="Check" Unchecked="UnCheck" Content="In Memory of The Myreque"/>
+                                    <CheckBox Name="Kwa" Checked="Check" Unchecked="UnCheck" Content="Knight Waves Training Grounds"/>
+                                    <CheckBox Name="Kos" Checked="Check" Unchecked="UnCheck" Content="Koschei's Troubles"/>
+                                    <CheckBox Name="Fta" Checked="Check" Unchecked="UnCheck" Content="From Tiny Acorns"/>
+                                    <CheckBox Name="Lhm" Checked="Check" Unchecked="UnCheck" Content="Lost Her Marbles"/>
+                                    <CheckBox Name="Ago" Checked="Check" Unchecked="UnCheck" Content="A Guild Of Our Own"/>
                                 </ListView>
                                 <ListView Name="MqMqP2P2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,0,0,0">
                                     <Label Content=" - Pay 2 Play - "/>
-                                    <CheckBox Name="Sa02" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Ttr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Lair of Tarn Razorlor"/>
-                                    <CheckBox Name="Lto" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Lost Toys"/>
-                                    <CheckBox Name="Mam" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mahjarrat Memories"/>
-                                    <CheckBox Name="Mog" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mogre"/>
-                                    <CheckBox Name="Rbm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rag and Bone Man Wishlist"/>
-                                    <CheckBox Name="Reb" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rebuilding Edgeville"/>
-                                    <CheckBox Name="Rcl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Returning Clarence"/>
-                                    <CheckBox Name="Rog" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rogue Trader"/>
-                                    <CheckBox Name="Scn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Scabarites Notes"/>
-                                    <CheckBox Name="Ton" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tales of Nomad"/>
-                                    <CheckBox Name="Tgw" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tales of the God Wars"/>
-                                    <CheckBox Name="Tha" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Thalassus"/>
-                                    <CheckBox Name="Uif" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ivandis Flail 500"/>
-                                    <CheckBox Name="Vam" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Varrock Museum"/>
-                                    <CheckBox Name="Wga" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Wandering Ga'al"/>
+                                    <CheckBox Name="Sa02" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Ttr" Checked="Check" Unchecked="UnCheck" Content="The Lair of Tarn Razorlor"/>
+                                    <CheckBox Name="Lto" Checked="Check" Unchecked="UnCheck" Content="The Lost Toys"/>
+                                    <CheckBox Name="Mam" Checked="Check" Unchecked="UnCheck" Content="Mahjarrat Memories"/>
+                                    <CheckBox Name="Mog" Checked="Check" Unchecked="UnCheck" Content="Mogre"/>
+                                    <CheckBox Name="Rbm" Checked="Check" Unchecked="UnCheck" Content="Rag and Bone Man Wishlist"/>
+                                    <CheckBox Name="Reb" Checked="Check" Unchecked="UnCheck" Content="Rebuilding Edgeville"/>
+                                    <CheckBox Name="Rcl" Checked="Check" Unchecked="UnCheck" Content="Returning Clarence"/>
+                                    <CheckBox Name="Rog" Checked="Check" Unchecked="UnCheck" Content="Rogue Trader"/>
+                                    <CheckBox Name="Scn" Checked="Check" Unchecked="UnCheck" Content="Scabarites Notes"/>
+                                    <CheckBox Name="Ton" Checked="Check" Unchecked="UnCheck" Content="Tales of Nomad"/>
+                                    <CheckBox Name="Tgw" Checked="Check" Unchecked="UnCheck" Content="Tales of the God Wars"/>
+                                    <CheckBox Name="Wga" Checked="Check" Unchecked="UnCheck" Content="Encountering TzHaar-Ga'al-Kot"/>
                                 </ListView>
-                                <ListView Name="MqMqDb" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,0,0,0">
+                                <ListView Name="MqMqDb" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="397,0,0,0">
                                     <Label Content=" - Doric and Boric tasks - "/>
-                                    <CheckBox Name="Sa03" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="D1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 1"/>
-                                    <CheckBox Name="D2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 2"/>
-                                    <CheckBox Name="D3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 3"/>
-                                    <CheckBox Name="D4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 4"/>
-                                    <CheckBox Name="D5" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 5"/>
-                                    <CheckBox Name="D6" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 6"/>
-                                    <CheckBox Name="D7" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 7"/>
-                                    <CheckBox Name="D8" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Doric 8"/>
-                                    <CheckBox Name="B1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Boric 1"/>
-                                    <CheckBox Name="B2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Boric 2"/>
-                                    <CheckBox Name="B3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Boric 3"/>
+                                    <CheckBox Name="Sa03" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="D1" Checked="Check" Unchecked="UnCheck" Content="Doric's first"/>
+                                    <CheckBox Name="D2" Checked="Check" Unchecked="UnCheck" Content="Doric's second"/>
+                                    <CheckBox Name="D3" Checked="Check" Unchecked="UnCheck" Content="Doric's third"/>
+                                    <CheckBox Name="D4" Checked="Check" Unchecked="UnCheck" Content="Doric's fourth"/>
+                                    <CheckBox Name="D5" Checked="Check" Unchecked="UnCheck" Content="Doric's fifth"/>
+                                    <CheckBox Name="D6" Checked="Check" Unchecked="UnCheck" Content="Doric's sixth"/>
+                                    <CheckBox Name="D7" Checked="Check" Unchecked="UnCheck" Content="Doric's seventh"/>
+                                    <CheckBox Name="D8" Checked="Check" Unchecked="UnCheck" Content="Doric's eighth"/>
+                                    <CheckBox Name="B1" Checked="Check" Unchecked="UnCheck" Content="Boric's first"/>
+                                    <CheckBox Name="B2" Checked="Check" Unchecked="UnCheck" Content="Boric's second"/>
+                                    <CheckBox Name="B3" Checked="Check" Unchecked="UnCheck" Content="Boric's third"/>
                                 </ListView>
-                                <ListView Name="MqMqF2P"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="536,0,0,0">
+                                <ListView Name="MqMqF2P"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,0,0,0">
                                     <Label Content=" - Free-to-Play - "/>
-                                    <CheckBox Name="Sa04" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Shs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Sheep Shearer"/>
-                                    <CheckBox Name="Wip" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Witch's Potion"/>
-                                    <CheckBox Name="Sop" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Stronghold of Player Safety"/>
-                                    <CheckBox Name="Sos" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Stronghold of Security"/>
-                                    <CheckBox Name="Pur" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Purple Cat"/>
-                                    <CheckBox Name="Bwo" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Benedict's World Tour"/>
+                                    <CheckBox Name="Sa04" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Shs" Checked="Check" Unchecked="UnCheck" Content="Sheep Shearer"/>
+                                    <CheckBox Name="Wip" Checked="Check" Unchecked="UnCheck" Content="Witch's Potion"/>
+                                    <CheckBox Name="Sop" Checked="Check" Unchecked="UnCheck" Content="Stronghold of Player Safety"/>
+                                    <CheckBox Name="Sos" Checked="Check" Unchecked="UnCheck" Content="Stronghold of Security"/>
+                                    <CheckBox Name="Pur" Checked="Check" Unchecked="UnCheck" Content="Purple Cat"/>
+                                    <CheckBox Name="Bwo" Checked="Check" Unchecked="UnCheck" Content="Benedict's World Tour"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -84,58 +81,63 @@
                             <Grid>
                                 <ListView Name="MqPqRe" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Rewards 1 - "/>
-                                    <CheckBox Name="Sa05" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Swb" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Swept Away - Broomstick"/>
-                                    <CheckBox Name="Trg" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Restless Ghost - Ancient Bones"/>
-                                    <CheckBox Name="Ech" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ernest The Chicken - Feathers/Eggs"/>
-                                    <CheckBox Name="Rex" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rune Memories - Experience"/>
-                                    <CheckBox Name="Res" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rune Memories - Essence"/>
-                                    <CheckBox Name="Dve" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Defender of Varrock - Experience"/>
-                                    <CheckBox Name="Bce" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Buyers And Cellars - Experience"/>
-                                    <CheckBox Name="Dta" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Desert Treasure - Ancient Staff"/>
-                                    <CheckBox Name="Hse" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Heart of Stone - Experience"/>
-                                    <CheckBox Name="Crv" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Carnillean Rising - Varies"/>
-                                    <CheckBox Name="Cas" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Cook's Assistant - Sardines"/>
-                                    <CheckBox Name="Bre" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Blood Runs Deep - Experience"/>
-                                    <CheckBox Name="Fth" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fairy Tale III - Herbs"/>
-                                    <CheckBox Name="Mpv" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Missing, Presumed Death - Varies"/>
-                                    <CheckBox Name="Ilh" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ichtlarin's Little Helper - Coins"/>
-                                    <CheckBox Name="Ooe" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="One Of A Kind - Experience"/>
-                                    <CheckBox Name="Oos" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="One Of A Kind 2 - Statue Experience"/>
+                                    <CheckBox Name="Sa05" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Swb" Checked="Check" Unchecked="UnCheck" Content="Swept Away first"/>
+                                    <CheckBox Name="Swb2" Checked="Check" Unchecked="UnCheck" Content="Swept Away second"/>
+                                    <CheckBox Name="Swb3" Checked="Check" Unchecked="UnCheck" Content="Swept Away third"/>
+                                    <CheckBox Name="Swb4" Checked="Check" Unchecked="UnCheck" Content="Swept Away fourth"/>
+                                    <CheckBox Name="Trg" Checked="Check" Unchecked="UnCheck" Content="The Restless Ghost - Ancient Bones"/>
+                                    <CheckBox Name="Ech" Checked="Check" Unchecked="UnCheck" Content="Ernest The Chicken - Feathers/Eggs"/>
+                                    <CheckBox Name="Rex" Checked="Check" Unchecked="UnCheck" Content="Rune Memories - Experience"/>
+                                    <CheckBox Name="Res" Checked="Check" Unchecked="UnCheck" Content="Rune Memories - Essence"/>
+                                    <CheckBox Name="Dve" Checked="Check" Unchecked="UnCheck" Content="Defender of Varrock - Experience"/>
+                                    <CheckBox Name="Bce" Checked="Check" Unchecked="UnCheck" Content="Buyers And Cellars - Experience"/>
+                                    <CheckBox Name="Dta" Checked="Check" Unchecked="UnCheck" Content="Desert Treasure - Ancient Staff"/>
+                                    <CheckBox Name="Hse" Checked="Check" Unchecked="UnCheck" Content="Heart of Stone - Experience"/>
+                                    <CheckBox Name="Crv" Checked="Check" Unchecked="UnCheck" Content="Carnillean Rising - Varies"/>
+                                    <CheckBox Name="Cas" Checked="Check" Unchecked="UnCheck" Content="Cook's Assistant - Sardines"/>
+                                    <CheckBox Name="Bre" Checked="Check" Unchecked="UnCheck" Content="Blood Runs Deep - Experience"/>
+                                    <CheckBox Name="Fth" Checked="Check" Unchecked="UnCheck" Content="Fairy Tale III - Herbs"/>
+                                    <CheckBox Name="Mpv" Checked="Check" Unchecked="UnCheck" Content="Missing, Presumed Death - Varies"/>
+                                    <CheckBox Name="Ilh" Checked="Check" Unchecked="UnCheck" Content="Ichtlarin's Little Helper - Coins"/>
+                                    <CheckBox Name="Ooe" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind - Experience"/>
+                                    <CheckBox Name="Oos" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind 2 - Statue Experience"/>
                                 </ListView>
                                 <ListView Name="MqPqRe2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,0,0,0">
                                     <Label Content=" - Rewards 2 - "/>
-                                    <CheckBox Name="Sa06" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Hsp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Heart of Stone - Pet"/>
-                                    <CheckBox Name="Tte" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Tale of the Muspah - Experience"/>
-                                    <CheckBox Name="Rbh" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="River of Blood - Haemalchemy"/>
-                                    <CheckBox Name="Sde" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Song from the Depths - Experience"/>
-                                    <CheckBox Name="Asv" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="A Shadow over Ashdale - Varies"/>
-                                    <CheckBox Name="Mfa" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mighty Fall - Coins"/>
-                                    <CheckBox Name="Dpe" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Death Plateau - Experience"/>
-                                    <CheckBox Name="Cfe" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Cabin Fever - Coins"/>
-                                    <CheckBox Name="Yai" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="You Are It - Charos' Necklace"/>
-                                    <CheckBox Name="Tbe" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tai Bwo Wannai Trio - Experience"/>
-                                    <CheckBox Name="Tlm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Lost Tribe - Mining Helmet"/>
-                                    <CheckBox Name="Lsr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Legacy of Seergaze - Runes"/>
-                                    <CheckBox Name="Tcs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Chosen Commander - Shield"/>
-                                    <CheckBox Name="Mme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Monkey Madness - Experience"/>
-                                    <CheckBox Name="Dne" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Do No Evil - Elite Clue Scroll"/>
-                                    <CheckBox Name="Roo" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rocking Out - Coins"/>
+                                    <CheckBox Name="Sa06" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Hsp" Checked="Check" Unchecked="UnCheck" Content="Heart of Stone - Pet"/>
+                                    <CheckBox Name="Tte" Checked="Check" Unchecked="UnCheck" Content="The Tale of the Muspah - Experience"/>
+                                    <CheckBox Name="Rbh" Checked="Check" Unchecked="UnCheck" Content="River of Blood - Haemalchemy"/>
+                                    <CheckBox Name="Sde" Checked="Check" Unchecked="UnCheck" Content="Song from the Depths - Experience"/>
+                                    <CheckBox Name="Asv" Checked="Check" Unchecked="UnCheck" Content="A Shadow over Ashdale - Varies"/>
+                                    <CheckBox Name="Mfa" Checked="Check" Unchecked="UnCheck" Content="Mighty Fall - Coins"/>
+                                    <CheckBox Name="Dpe" Checked="Check" Unchecked="UnCheck" Content="Death Plateau - Experience"/>
+                                    <CheckBox Name="Cfe" Checked="Check" Unchecked="UnCheck" Content="Cabin Fever - Coins"/>
+                                    <CheckBox Name="Yai" Checked="Check" Unchecked="UnCheck" Content="You Are It - Charos' Necklace"/>
+                                    <CheckBox Name="Tbe" Checked="Check" Unchecked="UnCheck" Content="Tai Bwo Wannai Trio - Experience"/>
+                                    <CheckBox Name="Tlm" Checked="Check" Unchecked="UnCheck" Content="The Lost Tribe - Mining Helmet"/>
+                                    <CheckBox Name="Lsr" Checked="Check" Unchecked="UnCheck" Content="Legacy of Seergaze - Runes"/>
+                                    <CheckBox Name="Tcs" Checked="Check" Unchecked="UnCheck" Content="The Chosen Commander - Shield"/>
+                                    <CheckBox Name="Mme" Checked="Check" Unchecked="UnCheck" Content="Monkey Madness - Experience"/>
+                                    <CheckBox Name="Dne" Checked="Check" Unchecked="UnCheck" Content="Do No Evil - Elite Clue Scroll"/>
+                                    <CheckBox Name="Roo" Checked="Check" Unchecked="UnCheck" Content="Rocking Out - Coins"/>
+                                    <CheckBox Name="Bts" Checked="Check" Unchecked="UnCheck" Content="Enlightened Journey - Transport"/>
                                 </ListView>
                                 <ListView Name="MqPqRe3"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="451,0,0,0">
                                     <Label Content=" - Rewards 3 - "/>
-                                    <CheckBox Name="Sa07" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Wge" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="While Guthix Sleeps - Experience"/>
-                                    <CheckBox Name="Wgl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="While Guthix Sleeps - Loot"/>
-                                    <CheckBox Name="Fge" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fate of the Gods - Experience"/>
-                                    <CheckBox Name="Fgg" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fate of the Gods - Gift/Upgrade"/>
-                                    <CheckBox Name="Tgg" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Golem - Gems"/>
-                                    <CheckBox Name="Opn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="One Piercing Note - Cithara Experience"/>
-                                    <CheckBox Name="Wwf" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="World Wakes - Firemaking"/>
-                                    <CheckBox Name="Wwp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="World Wakes - Prayer"/>
-                                    <CheckBox Name="Tda" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Dig Site - Abilities"/>
-                                    <CheckBox Name="Oqu" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Observatory Quest - Craft"/>
+                                    <CheckBox Name="Sa07" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Wge" Checked="Check" Unchecked="UnCheck" Content="While Guthix Sleeps - Experience"/>
+                                    <CheckBox Name="Wgl" Checked="Check" Unchecked="UnCheck" Content="While Guthix Sleeps - Loot"/>
+                                    <CheckBox Name="Fge" Checked="Check" Unchecked="UnCheck" Content="Fate of the Gods - Experience"/>
+                                    <CheckBox Name="Fgg" Checked="Check" Unchecked="UnCheck" Content="Fate of the Gods - Gift/Upgrade"/>
+                                    <CheckBox Name="Tgg" Checked="Check" Unchecked="UnCheck" Content="The Golem - Gems"/>
+                                    <CheckBox Name="Opn" Checked="Check" Unchecked="UnCheck" Content="One Piercing Note - Cithara Experience"/>
+                                    <CheckBox Name="Wwf" Checked="Check" Unchecked="UnCheck" Content="World Wakes - Firemaking"/>
+                                    <CheckBox Name="Wwp" Checked="Check" Unchecked="UnCheck" Content="World Wakes - Prayer"/>
+                                    <CheckBox Name="Tda" Checked="Check" Unchecked="UnCheck" Content="The Dig Site - Abilities"/>
+                                    <CheckBox Name="Oqu" Checked="Check" Unchecked="UnCheck" Content="Observatory Quest - Craft"/>
+                                    <CheckBox Name="Tha" Checked="Check" Unchecked="UnCheck" Content="Thalassus - Experience"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -143,76 +145,76 @@
                             <Grid>
                                 <ListView Name="MqLvBh" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Broken Home - "/>
-                                    <CheckBox Name="Sa08" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Bch" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Challenges"/>
-                                    <CheckBox Name="Bh1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 1"/>
-                                    <CheckBox Name="Bh2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 2"/>
-                                    <CheckBox Name="Bh3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 3"/>
-                                    <CheckBox Name="Bh4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 4"/>
-                                    <CheckBox Name="Bh5" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 5"/>
-                                    <CheckBox Name="Bh6" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 6"/>
-                                    <CheckBox Name="Bh7" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 7"/>
-                                    <CheckBox Name="Bh8" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 8"/>
-                                    <CheckBox Name="Bh9" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tier 9"/>
+                                    <CheckBox Name="Sa08" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Bch" Checked="Check" Unchecked="UnCheck" Content="Challenges"/>
+                                    <CheckBox Name="Bh1" Checked="Check" Unchecked="UnCheck" Content="Tier 1"/>
+                                    <CheckBox Name="Bh2" Checked="Check" Unchecked="UnCheck" Content="Tier 2"/>
+                                    <CheckBox Name="Bh3" Checked="Check" Unchecked="UnCheck" Content="Tier 3"/>
+                                    <CheckBox Name="Bh4" Checked="Check" Unchecked="UnCheck" Content="Tier 4"/>
+                                    <CheckBox Name="Bh5" Checked="Check" Unchecked="UnCheck" Content="Tier 5"/>
+                                    <CheckBox Name="Bh6" Checked="Check" Unchecked="UnCheck" Content="Tier 6"/>
+                                    <CheckBox Name="Bh7" Checked="Check" Unchecked="UnCheck" Content="Tier 7"/>
+                                    <CheckBox Name="Bh8" Checked="Check" Unchecked="UnCheck" Content="Tier 8"/>
+                                    <CheckBox Name="Bh9" Checked="Check" Unchecked="UnCheck" Content="Tier 9"/>
                                 </ListView>
                                 <ListView Name="MqLvGg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,243,0,0">
                                     <Label Content=" - Gunnar's Ground - "/>
-                                    <CheckBox Name="Sa09" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Gg1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Engrave 1"/>
-                                    <CheckBox Name="Gg2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Engrave 2"/>
-                                    <CheckBox Name="Gg3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Engrave 3"/>
+                                    <CheckBox Name="Sa09" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Gg1" Checked="Check" Unchecked="UnCheck" Content="Engrave 1"/>
+                                    <CheckBox Name="Gg2" Checked="Check" Unchecked="UnCheck" Content="Engrave 2"/>
+                                    <CheckBox Name="Gg3" Checked="Check" Unchecked="UnCheck" Content="Engrave 3"/>
                                 </ListView>
                                 <ListView Name="MqLvSe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,0,0,0">
                                     <Label Content=" - Summer's End Strong - "/>
-                                    <CheckBox Name="Sa10" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Se1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50 Farming"/>
-                                    <CheckBox Name="Se2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50 Attack"/>
-                                    <CheckBox Name="Se3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50 Prayer"/>
+                                    <CheckBox Name="Sa10" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Se1" Checked="Check" Unchecked="UnCheck" Content="50 Farming"/>
+                                    <CheckBox Name="Se2" Checked="Check" Unchecked="UnCheck" Content="50 Attack"/>
+                                    <CheckBox Name="Se3" Checked="Check" Unchecked="UnCheck" Content="50 Prayer"/>
                                     <Label Content=" - Summer's End Weak - "/>
-                                    <CheckBox Name="Se4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="46 Farming"/>
-                                    <CheckBox Name="Se5" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="80 Defence"/>
-                                    <CheckBox Name="Se6" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50 Prayer"/>
-                                    <CheckBox Name="Se7" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="60 Thieving"/>
-                                    <CheckBox Name="Se8" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50 Smithing"/>
+                                    <CheckBox Name="Se4" Checked="Check" Unchecked="UnCheck" Content="46 Farming"/>
+                                    <CheckBox Name="Se5" Checked="Check" Unchecked="UnCheck" Content="80 Defence"/>
+                                    <CheckBox Name="Se6" Checked="Check" Unchecked="UnCheck" Content="50 Prayer"/>
+                                    <CheckBox Name="Se7" Checked="Check" Unchecked="UnCheck" Content="60 Thieving"/>
+                                    <CheckBox Name="Se8" Checked="Check" Unchecked="UnCheck" Content="50 Smithing"/>
                                 </ListView>
                                 <ListView Name="MqLvPc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="279,0,0,0">
                                     <Label Content=" - Philipe Carnillean - "/>
-                                    <CheckBox Name="Sa11" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Pc50" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50"/>
-                                    <CheckBox Name="Pc100" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="100"/>
-                                    <CheckBox Name="Pc150" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="150"/>
-                                    <CheckBox Name="Pc200" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="200"/>
-                                    <CheckBox Name="Pc250" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="250"/>
-                                    <CheckBox Name="Pc300" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="300"/>
-                                    <CheckBox Name="Pc350" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="350"/>
-                                    <CheckBox Name="Pc400" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="400"/>
+                                    <CheckBox Name="Sa11" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Pc50" Checked="Check" Unchecked="UnCheck" Content="50"/>
+                                    <CheckBox Name="Pc100" Checked="Check" Unchecked="UnCheck" Content="100"/>
+                                    <CheckBox Name="Pc150" Checked="Check" Unchecked="UnCheck" Content="150"/>
+                                    <CheckBox Name="Pc200" Checked="Check" Unchecked="UnCheck" Content="200"/>
+                                    <CheckBox Name="Pc250" Checked="Check" Unchecked="UnCheck" Content="250"/>
+                                    <CheckBox Name="Pc300" Checked="Check" Unchecked="UnCheck" Content="300"/>
+                                    <CheckBox Name="Pc350" Checked="Check" Unchecked="UnCheck" Content="350"/>
+                                    <CheckBox Name="Pc400" Checked="Check" Unchecked="UnCheck" Content="400"/>
                                 </ListView>
                                 <ListView Name="MqLvMy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="279,186,0,0">
                                     <Label Content=" - Myths of the White Lands - "/>
-                                    <CheckBox Name="Sa12" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Mwo" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Woodcutting"/>
-                                    <CheckBox Name="Mag" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Agility"/>
-                                    <CheckBox Name="Mcr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Crafting"/>
-                                    <CheckBox Name="Mco" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Coins"/>
+                                    <CheckBox Name="Sa12" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Mwo" Checked="Check" Unchecked="UnCheck" Content="Woodcutting"/>
+                                    <CheckBox Name="Mag" Checked="Check" Unchecked="UnCheck" Content="Agility"/>
+                                    <CheckBox Name="Mcr" Checked="Check" Unchecked="UnCheck" Content="Crafting"/>
+                                    <CheckBox Name="Mco" Checked="Check" Unchecked="UnCheck" Content="Coins"/>
                                 </ListView>
                                 <ListView Name="MqLvDc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="417,0,0,0">
                                     <Label Content=" - The Death of Chivalry - "/>
-                                    <CheckBox Name="Sa13" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Tdce" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Experience"/>
-                                    <CheckBox Name="Tdca" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Armour"/>
-                                    <CheckBox Name="Tdcp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Patches"/>
-                                    <CheckBox Name="Tdcl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Loot"/>
-                                    <CheckBox Name="Tdc1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="50"/>
-                                    <CheckBox Name="Tdc2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="70"/>
-                                    <CheckBox Name="Tdc3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="90"/>
+                                    <CheckBox Name="Sa13" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Tdce" Checked="Check" Unchecked="UnCheck" Content="Experience"/>
+                                    <CheckBox Name="Tdca" Checked="Check" Unchecked="UnCheck" Content="Armour"/>
+                                    <CheckBox Name="Tdcp" Checked="Check" Unchecked="UnCheck" Content="Patches"/>
+                                    <CheckBox Name="Tdcl" Checked="Check" Unchecked="UnCheck" Content="Loot"/>
+                                    <CheckBox Name="Tdc1" Checked="Check" Unchecked="UnCheck" Content="50"/>
+                                    <CheckBox Name="Tdc2" Checked="Check" Unchecked="UnCheck" Content="70"/>
+                                    <CheckBox Name="Tdc3" Checked="Check" Unchecked="UnCheck" Content="90"/>
                                 </ListView>
                                 <ListView Name="MqLvGq"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="577,0,0,0">
                                     <Label Content=" - Gower Quest - "/>
-                                    <CheckBox Name="Sa14" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Gqa" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Andrew"/>
-                                    <CheckBox Name="Gqp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Paul"/>
-                                    <CheckBox Name="Gqi" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ian"/>
-                                    <CheckBox Name="Gqpe" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Pets"/>
+                                    <CheckBox Name="Sa14" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Gqa" Checked="Check" Unchecked="UnCheck" Content="Andrew"/>
+                                    <CheckBox Name="Gqp" Checked="Check" Unchecked="UnCheck" Content="Paul"/>
+                                    <CheckBox Name="Gqi" Checked="Check" Unchecked="UnCheck" Content="Ian"/>
+                                    <CheckBox Name="Gqpe" Checked="Check" Unchecked="UnCheck" Content="Pets"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -220,28 +222,28 @@
                             <Grid>
                                 <ListView Name="MqTeJo" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Journals - "/>
-                                    <CheckBox Name="Sa15" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Hag" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Hefin Agility Course"/>
-                                    <CheckBox Name="Tm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Magister"/>
-                                    <CheckBox Name="Gw" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="God Wars"/>
-                                    <CheckBox Name="Dj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dominion"/>
-                                    <CheckBox Name="Mj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Jebediah Omnis"/>
-                                    <CheckBox Name="Dl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dragonkin"/>
-                                    <CheckBox Name="Fj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Forcae"/>
-                                    <CheckBox Name="Kj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Kaigi"/>
-                                    <CheckBox Name="Uj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ughtanatos"/>
-                                    <CheckBox Name="Hj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Horror"/>
-                                    <CheckBox Name="Duj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dungeoneering"/>
-                                    <CheckBox Name="Qbd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Qbd Journals"/>
-                                    <CheckBox Name="Tj" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tarddian"/>
-                                    <CheckBox Name="Sn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Stalker"/>
+                                    <CheckBox Name="Sa15" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Hag" Checked="Check" Unchecked="UnCheck" Content="Hefin Agility Course"/>
+                                    <CheckBox Name="Tm" Checked="Check" Unchecked="UnCheck" Content="The Magister"/>
+                                    <CheckBox Name="Gw" Checked="Check" Unchecked="UnCheck" Content="God Wars"/>
+                                    <CheckBox Name="Dj" Checked="Check" Unchecked="UnCheck" Content="Dominion"/>
+                                    <CheckBox Name="Mj" Checked="Check" Unchecked="UnCheck" Content="Jebediah Omnis"/>
+                                    <CheckBox Name="Dl" Checked="Check" Unchecked="UnCheck" Content="Dragonkin"/>
+                                    <CheckBox Name="Fj" Checked="Check" Unchecked="UnCheck" Content="Forcae"/>
+                                    <CheckBox Name="Kj" Checked="Check" Unchecked="UnCheck" Content="Kaigi"/>
+                                    <CheckBox Name="Uj" Checked="Check" Unchecked="UnCheck" Content="Ughtanatos"/>
+                                    <CheckBox Name="Hj" Checked="Check" Unchecked="UnCheck" Content="Horror"/>
+                                    <CheckBox Name="Duj" Checked="Check" Unchecked="UnCheck" Content="Dungeoneering"/>
+                                    <CheckBox Name="Qbd" Checked="Check" Unchecked="UnCheck" Content="Qbd Journals"/>
+                                    <CheckBox Name="Tj" Checked="Check" Unchecked="UnCheck" Content="Tarddian"/>
+                                    <CheckBox Name="Sn" Checked="Check" Unchecked="UnCheck" Content="Stalker"/>
                                 </ListView>
                                 <ListView Name="MqTeBo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,0,0,0">
                                     <Label Content=" - Books - "/>
-                                    <CheckBox Name="Sa16" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Kbd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Last Riders Book"/>
-                                    <CheckBox Name="Exn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Explorer's Notes,"/>
-                                    <CheckBox Name="Nex" Checked="MqcCheck" Unchecked="MqcUnCheck"                           >
+                                    <CheckBox Name="Sa16" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Kbd" Checked="Check" Unchecked="UnCheck" Content="Last Riders Book"/>
+                                    <CheckBox Name="Exn" Checked="Check" Unchecked="UnCheck" Content="Explorer's Notes,"/>
+                                    <CheckBox Name="Nex" Checked="Check" Unchecked="UnCheck"                           >
                                         <StackPanel>
                                             <TextBlock>The Praesul</TextBlock>
                                             <TextBlock>The Promised Gift</TextBlock>
@@ -254,67 +256,68 @@
                             <Grid>
                                 <ListView Name="MqVaEt" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Etc. - "/>
-                                    <CheckBox Name="Sa17" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Aew" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ancient Elven Wedding Ring"/>
-                                    <CheckBox Name="Ann" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Annihilator Title"/>
-                                    <CheckBox Name="Pho" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Phoenix"/>
-                                    <CheckBox Name="Mar" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mad Ramblings"/>
-                                    <CheckBox Name="Vyr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vyrelord Title"/>
-                                    <CheckBox Name="Ter" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Temple Trekking"/>
-                                    <CheckBox Name="Cle" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Cleansing Shadow Cores"/>
-                                    <CheckBox Name="Rob" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Rush of Blood"/>
-                                    <CheckBox Name="Cho" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="30 Chompy Birds"/>
-                                    <CheckBox Name="Tcp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tooth Creature Pet"/>
-                                    <CheckBox Name="Hto" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="History of the Order"/>
-                                    <CheckBox Name="Aca" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ancient Cavern"/>
-                                    <CheckBox Name="Dod" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dimension of Disaster Rewards"/>
-                                    <CheckBox Name="Enh" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Enhanced Fire Cape"/>
-                                    <CheckBox Name="Mwk" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Master White Knight"/>
-                                    <CheckBox Name="Des" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Demon Statuettes"/>
+                                    <CheckBox Name="Sa17" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Aew" Checked="Check" Unchecked="UnCheck" Content="Ancient Elven Wedding Ring"/>
+                                    <CheckBox Name="Ann" Checked="Check" Unchecked="UnCheck" Content="Annihilator Title"/>
+                                    <CheckBox Name="Pho" Checked="Check" Unchecked="UnCheck" Content="Phoenix"/>
+                                    <CheckBox Name="Mar" Checked="Check" Unchecked="UnCheck" Content="Mad Ramblings"/>
+                                    <CheckBox Name="Vyr" Checked="Check" Unchecked="UnCheck" Content="Vyrelord Title"/>
+                                    <CheckBox Name="Ter" Checked="Check" Unchecked="UnCheck" Content="Temple Trekking"/>
+                                    <CheckBox Name="Cle" Checked="Check" Unchecked="UnCheck" Content="Cleansing Shadow Cores"/>
+                                    <CheckBox Name="Rob" Checked="Check" Unchecked="UnCheck" Content="Rush of Blood"/>
+                                    <CheckBox Name="Cho" Checked="Check" Unchecked="UnCheck" Content="30 Chompy Birds"/>
+                                    <CheckBox Name="Tcp" Checked="Check" Unchecked="UnCheck" Content="Tooth Creature Pet"/>
+                                    <CheckBox Name="Hto" Checked="Check" Unchecked="UnCheck" Content="History of the Order"/>
+                                    <CheckBox Name="Aca" Checked="Check" Unchecked="UnCheck" Content="Ancient Cavern"/>
+                                    <CheckBox Name="Dod" Checked="Check" Unchecked="UnCheck" Content="Dimension of Disaster Rewards"/>
+                                    <CheckBox Name="Enh" Checked="Check" Unchecked="UnCheck" Content="Enhanced Fire Cape"/>
+                                    <CheckBox Name="Mwk" Checked="Check" Unchecked="UnCheck" Content="Master White Knight"/>
+                                    <CheckBox Name="Des" Checked="Check" Unchecked="UnCheck" Content="Demon Statuettes"/>
                                 </ListView>
                                 <ListView Name="MqVaEt2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,0,0,0">
                                     <Label Content=" - Etc 2 - "/>
-                                    <CheckBox Name="Sa18" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Msf" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mazcab Stone Fragments"/>
-                                    <CheckBox Name="Tna" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Trade Noted Artifacts"/>
-                                    <CheckBox Name="Hfd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Herbi Flax's Diary"/>
-                                    <CheckBox Name="Tdp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="The Digsite Pendant"/>
-                                    <CheckBox Name="Pse" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Personal Stories Edgeville"/>
-                                    <CheckBox Name="Cid" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Chimp Ice Deliveries"/>
-                                    <CheckBox Name="Fko" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Full Kudos obtained"/>
-                                    <CheckBox Name="Ebs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Epic of Bukalla seen"/>
-                                    <CheckBox Name="Dkf" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dorgesh-kaan Food Trading"/>
-                                    <CheckBox Name="Ruc" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Razmire and Ulsquire cured"/>
-                                    <CheckBox Name="Our" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ourania Teleport unlocked"/>
-                                    <CheckBox Name="Wro" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Wilderness Rogue Trader"/>
-                                    <CheckBox Name="Sme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Seren Memoriam Crystals"/>
-                                    <CheckBox Name="Pme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Prifddinas Memoriam Crystals"/>
-                                    <CheckBox Name="Zme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Zarosian Memoriam Crystals"/>
-                                    <CheckBox Name="Hot" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Helmet of Trials"/>
+                                    <CheckBox Name="Sa18" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Msf" Checked="Check" Unchecked="UnCheck" Content="Mazcab Stone Fragments"/>
+                                    <CheckBox Name="Tna" Checked="Check" Unchecked="UnCheck" Content="Trade Noted Artifacts"/>
+                                    <CheckBox Name="Hfd" Checked="Check" Unchecked="UnCheck" Content="Herbi Flax's Diary"/>
+                                    <CheckBox Name="Tdp" Checked="Check" Unchecked="UnCheck" Content="The Digsite Pendant"/>
+                                    <CheckBox Name="Pse" Checked="Check" Unchecked="UnCheck" Content="Personal Stories Edgeville"/>
+                                    <CheckBox Name="Cid" Checked="Check" Unchecked="UnCheck" Content="Chimp Ice Deliveries"/>
+                                    <CheckBox Name="Fko" Checked="Check" Unchecked="UnCheck" Content="Full Kudos obtained"/>
+                                    <CheckBox Name="Ebs" Checked="Check" Unchecked="UnCheck" Content="Epic of Bukalla seen"/>
+                                    <CheckBox Name="Dkf" Checked="Check" Unchecked="UnCheck" Content="Dorgesh-kaan Food Trading"/>
+                                    <CheckBox Name="Ruc" Checked="Check" Unchecked="UnCheck" Content="Razmire and Ulsquire cured"/>
+                                    <CheckBox Name="Our" Checked="Check" Unchecked="UnCheck" Content="Ourania Teleport unlocked"/>
+                                    <CheckBox Name="Wro" Checked="Check" Unchecked="UnCheck" Content="Wilderness Rogue Trader"/>
+                                    <CheckBox Name="Sme" Checked="Check" Unchecked="UnCheck" Content="Seren Memoriam Crystals"/>
+                                    <CheckBox Name="Pme" Checked="Check" Unchecked="UnCheck" Content="Prifddinas Memoriam Crystals"/>
+                                    <CheckBox Name="Zme" Checked="Check" Unchecked="UnCheck" Content="Zarosian Memoriam Crystals"/>
+                                    <CheckBox Name="Hot" Checked="Check" Unchecked="UnCheck" Content="Helmet of Trials"/>
                                 </ListView>
                                 <ListView Name="MqVaEt3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,0,0,0">
                                     <Label Content=" - Etc 3 - "/>
-                                    <CheckBox Name="Sa19" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Cyp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Contraband Yak Produce"/>
-                                    <CheckBox Name="Bam" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Bandos's Memories"/>
-                                    <CheckBox Name="Tbo" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Tune Bane Ore"/>
-                                    <CheckBox Name="Ugs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Uglug's Stuffsies"/>
-                                    <CheckBox Name="Sce" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Sister Cecilia"/>
-                                    <CheckBox Name="Vor" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vorago's Introduction"/>
-                                    <CheckBox Name="Par" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Put Arrav to rest"/>
-                                    <CheckBox Name="Cte" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Chip Teleport Tablets"/>
-                                    <CheckBox Name="Mcm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Medium Clue Monkey"/>
-                                    <CheckBox Name="Frd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Free Droalak"/>
-                                    <CheckBox Name="Mad" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Malleus Daemoniorum"/>
-                                    <CheckBox Name="Mah" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Mahjarrat Deathstones" />
-                                    <CheckBox Name="Rmr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Return Mabel's Ring"/>
+                                    <CheckBox Name="Sa19" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Cyp" Checked="Check" Unchecked="UnCheck" Content="Contraband Yak Produce"/>
+                                    <CheckBox Name="Bam" Checked="Check" Unchecked="UnCheck" Content="Bandos's Memories"/>
+                                    <CheckBox Name="Tbo" Checked="Check" Unchecked="UnCheck" Content="Tune Bane Ore"/>
+                                    <CheckBox Name="Ugs" Checked="Check" Unchecked="UnCheck" Content="Uglug's Stuffsies"/>
+                                    <CheckBox Name="Sce" Checked="Check" Unchecked="UnCheck" Content="Sister Cecilia"/>
+                                    <CheckBox Name="Vor" Checked="Check" Unchecked="UnCheck" Content="Vorago's Introduction"/>
+                                    <CheckBox Name="Par" Checked="Check" Unchecked="UnCheck" Content="Put Arrav to rest"/>
+                                    <CheckBox Name="Cte" Checked="Check" Unchecked="UnCheck" Content="Chip Teleport Tablets"/>
+                                    <CheckBox Name="Mcm" Checked="Check" Unchecked="UnCheck" Content="Medium Clue Monkey"/>
+                                    <CheckBox Name="Frd" Checked="Check" Unchecked="UnCheck" Content="Free Droalak"/>
+                                    <CheckBox Name="Mad" Checked="Check" Unchecked="UnCheck" Content="Malleus Daemoniorum"/>
+                                    <CheckBox Name="Mah" Checked="Check" Unchecked="UnCheck" Content="Mahjarrat Deathstones" />
+                                    <CheckBox Name="Rmr" Checked="Check" Unchecked="UnCheck" Content="Return Mabel's Ring"/>
+                                    <CheckBox Name="Uif" Checked="Check" Unchecked="UnCheck" Content="Ivandis Flail 500"/>
                                 </ListView>
                                 <ListView Name="MqVaDu"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,0,0,0">
                                     <Label Content=" - Dungeoneering - "/>
-                                    <CheckBox Name="Sa20" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Frs" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fremennik Sagas"/>
-                                    <CheckBox Name="Pre" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Potion Recipes"/>
-                                    <CheckBox Name="Vis" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Vicendithas' Scribblings"/>
+                                    <CheckBox Name="Sa20" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Frs" Checked="Check" Unchecked="UnCheck" Content="Fremennik Sagas"/>
+                                    <CheckBox Name="Pre" Checked="Check" Unchecked="UnCheck" Content="Potion Recipes"/>
+                                    <CheckBox Name="Vis" Checked="Check" Unchecked="UnCheck" Content="Vicendithas' Scribblings"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -322,48 +325,50 @@
                             <Grid>
                                 <ListView Name="MqArSk" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Skilling Activities - "/>
-                                    <CheckBox Name="Sa21" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Azd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Azdaran Document"/>
-                                    <CheckBox Name="Die" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Distorted Engrammeter"/>
-                                    <CheckBox Name="Drp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dragonkin Primer"/>
-                                    <CheckBox Name="Rsp" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Reconnect Spirit Tree"/>
-                                    <CheckBox Name="Fai" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fairy Campfire"/>
-                                    <CheckBox Name="Cme" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Core Memories"/>
-                                    <CheckBox Name="Bnm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Beacon Network (Macaw)"/>
-                                    <CheckBox Name="Cts" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Char's Treasured Symbol"/>
-                                    <CheckBox Name="Jem" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Jewel Memories"/>
-                                    <CheckBox Name="Pcm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Pig Creation Machine (84)"/>
-                                    <CheckBox Name="Ego" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Elder God Chronicles"/>
-                                    <CheckBox Name="Ovi" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Overgrown Idols"/>
-                                    <CheckBox Name="Mge" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Memorial to Guthix Engrams"/>
-                                    <CheckBox Name="Etr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Eagle Transport Routes"/>
+                                    <CheckBox Name="Sa21" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Azd" Checked="Check" Unchecked="UnCheck" Content="Azdaran Document"/>
+                                    <CheckBox Name="Die" Checked="Check" Unchecked="UnCheck" Content="Distorted Engrammeter"/>
+                                    <CheckBox Name="Drp" Checked="Check" Unchecked="UnCheck" Content="Dragonkin Primer"/>
+                                    <CheckBox Name="Rsp" Checked="Check" Unchecked="UnCheck" Content="Reconnect Spirit Tree"/>
+                                    <CheckBox Name="Fai" Checked="Check" Unchecked="UnCheck" Content="Fairy Campfire"/>
+                                    <CheckBox Name="Cme" Checked="Check" Unchecked="UnCheck" Content="Core Memories"/>
+                                    <CheckBox Name="Bnm" Checked="Check" Unchecked="UnCheck" Content="Beacon Network (Macaw)"/>
+                                    <CheckBox Name="Cts" Checked="Check" Unchecked="UnCheck" Content="Char's Treasured Symbol"/>
+                                    <CheckBox Name="Jem" Checked="Check" Unchecked="UnCheck" Content="Jewel Memories"/>
+                                    <CheckBox Name="Pcm" Checked="Check" Unchecked="UnCheck" Content="Pig Creation Machine (84)"/>
+                                    <CheckBox Name="Ego" Checked="Check" Unchecked="UnCheck" Content="Elder God Chronicles"/>
+                                    <CheckBox Name="Ovi" Checked="Check" Unchecked="UnCheck" Content="Overgrown Idols"/>
+                                    <CheckBox Name="Mge" Checked="Check" Unchecked="UnCheck" Content="Memorial to Guthix Engrams"/>
+                                    <CheckBox Name="Etr" Checked="Check" Unchecked="UnCheck" Content="Eagle Transport Routes"/>
                                 </ListView>
                                 <ListView Name="MqArSk2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,0,0,0">
                                     <Label Content=" - Skilling Activities 2 - "/>
-                                    <CheckBox Name="Sa22" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Acf" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ancient Cavern Fairy Ring"/>
-                                    <CheckBox Name="Kri" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="King Roald Inferno Adze"/>
-                                    <CheckBox Name="Orb" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Ornate Bowl"/>
-                                    <CheckBox Name="Gio" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Giant Oyster"/>
-                                    <CheckBox Name="Spt" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="3 Spirit Trees"/>
-                                    <CheckBox Name="Rkd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Re-Kindle Dragon Forge"/>
-                                    <CheckBox Name="Stm" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Sunken Temple Murals"/>
-                                    <CheckBox Name="Sdl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Senntisten Digsite Letters"/>
-                                    <CheckBox Name="Csr" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Crystal Singing Research"/>
-                                    <CheckBox Name="Rco" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Removing Corruption"/>
-                                    <CheckBox Name="Eld" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Elder Chronicles"/>
+                                    <CheckBox Name="Sa22" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Acf" Checked="Check" Unchecked="UnCheck" Content="Ancient Cavern Fairy Ring"/>
+                                    <CheckBox Name="Kri" Checked="Check" Unchecked="UnCheck" Content="King Roald Inferno Adze"/>
+                                    <CheckBox Name="Orb" Checked="Check" Unchecked="UnCheck" Content="Ornate Bowl"/>
+                                    <CheckBox Name="Gio" Checked="Check" Unchecked="UnCheck" Content="Giant Oyster"/>
+                                    <CheckBox Name="Spt" Checked="Check" Unchecked="UnCheck" Content="3 Spirit Trees"/>
+                                    <CheckBox Name="Rkd" Checked="Check" Unchecked="UnCheck" Content="Re-Kindle Dragon Forge"/>
+                                    <CheckBox Name="Stm" Checked="Check" Unchecked="UnCheck" Content="Sunken Temple Murals"/>
+                                    <CheckBox Name="Sdl" Checked="Check" Unchecked="UnCheck" Content="Senntisten Digsite Letters"/>
+                                    <CheckBox Name="Csr" Checked="Check" Unchecked="UnCheck" Content="Crystal Singing Research"/>
+                                    <CheckBox Name="Rco" Checked="Check" Unchecked="UnCheck" Content="Removing Corruption"/>
+                                    <CheckBox Name="Eld" Checked="Check" Unchecked="UnCheck" Content="Elder Chronicles"/>
+                                    <CheckBox Name="Bar" Checked="Check" Unchecked="UnCheck" Content="Barbarian Training"/>
                                 </ListView>
                                 <ListView Name="MqArAr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="354,0,0,0">
                                     <Label Content=" - Areas - "/>
-                                    <CheckBox Name="Sa23" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Fts" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fairy Tale III - Shortcut"/>
-                                    <CheckBox Name="Dno" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Do No Evil - Treasure Room"/>
-                                    <CheckBox Name="Wtl" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Within the Light - Teleport"/>
-                                    <CheckBox Name="Dsd" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Dragon Slayer - Door"/>
-                                    <CheckBox Name="Dir" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Diamond in the Rough - Treasure Room"/>
-                                    <CheckBox Name="Omn" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Our Man in the North - Treasure Room"/>
-                                    <CheckBox Name="Cro" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Crocodile Tears - Treasure Room"/>
-                                    <CheckBox Name="Mms" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Missing My Mummy - Shortcut"/>
+                                    <CheckBox Name="Sa23" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Fts" Checked="Check" Unchecked="UnCheck" Content="Fairy Tale III - Shortcut"/>
+                                    <CheckBox Name="Dno" Checked="Check" Unchecked="UnCheck" Content="Do No Evil - Treasure Room"/>
+                                    <CheckBox Name="Wtl" Checked="Check" Unchecked="UnCheck" Content="Within the Light - Teleport"/>
+                                    <CheckBox Name="Dsd" Checked="Check" Unchecked="UnCheck" Content="Dragon Slayer - Door"/>
+                                    <CheckBox Name="Dir" Checked="Check" Unchecked="UnCheck" Content="Diamond in the Rough - Treasure Room"/>
+                                    <CheckBox Name="Omn" Checked="Check" Unchecked="UnCheck" Content="Our Man in the North - Treasure Room"/>
+                                    <CheckBox Name="Cro" Checked="Check" Unchecked="UnCheck" Content="Crocodile Tears - Treasure Room"/>
+                                    <CheckBox Name="Mms" Checked="Check" Unchecked="UnCheck" Content="Missing My Mummy - Shortcut"/>
+                                    <CheckBox Name="Vam" Checked="Check" Unchecked="UnCheck" Content="Varrock Museum - Kudos"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -371,30 +376,30 @@
                             <Grid>
                                 <ListView Name="MqGeCo" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Combat Tasks - "/>
-                                    <CheckBox Name="Sa24" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="C1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Goblins"/>
-                                    <CheckBox Name="C2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Knights"/>
-                                    <CheckBox Name="C3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Soldiers"/>
-                                    <CheckBox Name="C4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Kalphite"/>
-                                    <CheckBox Name="C5" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Items"/>
-                                    <CheckBox Name="C6" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Artifact"/>
+                                    <CheckBox Name="Sa24" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="C1" Checked="Check" Unchecked="UnCheck" Content="Goblins"/>
+                                    <CheckBox Name="C2" Checked="Check" Unchecked="UnCheck" Content="Knights"/>
+                                    <CheckBox Name="C3" Checked="Check" Unchecked="UnCheck" Content="Soldiers"/>
+                                    <CheckBox Name="C4" Checked="Check" Unchecked="UnCheck" Content="Kalphite"/>
+                                    <CheckBox Name="C5" Checked="Check" Unchecked="UnCheck" Content="Items"/>
+                                    <CheckBox Name="C6" Checked="Check" Unchecked="UnCheck" Content="Artifact"/>
                                 </ListView>
                                 <ListView Name="MqGeSk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,0,0,0">
                                     <Label Content=" - Skilling Tasks - "/>
-                                    <CheckBox Name="Sa25" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="S1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Eggs/Swords"/>
-                                    <CheckBox Name="S2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fragments"/>
-                                    <CheckBox Name="S3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Logs/Cloth"/>
-                                    <CheckBox Name="S4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Thieve/Hunt"/>
-                                    <CheckBox Name="S5" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Artifact"/>
+                                    <CheckBox Name="Sa25" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="S1" Checked="Check" Unchecked="UnCheck" Content="Eggs/Swords"/>
+                                    <CheckBox Name="S2" Checked="Check" Unchecked="UnCheck" Content="Fragments"/>
+                                    <CheckBox Name="S3" Checked="Check" Unchecked="UnCheck" Content="Logs/Cloth"/>
+                                    <CheckBox Name="S4" Checked="Check" Unchecked="UnCheck" Content="Thieve/Hunt"/>
+                                    <CheckBox Name="S5" Checked="Check" Unchecked="UnCheck" Content="Artifact"/>
                                 </ListView>
                                 <ListView Name="MqGeEx" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="234,0,0,0">
                                     <Label Content=" - Exploration Tasks - "/>
-                                    <CheckBox Name="Sa26" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="E1" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Armour"/>
-                                    <CheckBox Name="E2" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Fragments"/>
-                                    <CheckBox Name="E3" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Altars"/>
-                                    <CheckBox Name="E4" Checked="MqcCheck" Unchecked="MqcUnCheck" Content="Artifact"/>
+                                    <CheckBox Name="Sa26" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="E1" Checked="Check" Unchecked="UnCheck" Content="Armour"/>
+                                    <CheckBox Name="E2" Checked="Check" Unchecked="UnCheck" Content="Fragments"/>
+                                    <CheckBox Name="E3" Checked="Check" Unchecked="UnCheck" Content="Altars"/>
+                                    <CheckBox Name="E4" Checked="Check" Unchecked="UnCheck" Content="Artifact"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -408,18 +413,18 @@
                             <Grid>
                                 <ListView Name="CoMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Pay 2 Play - "/>
-                                    <CheckBox Name="Sa27" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Abyc" Checked="CompCheck" Unchecked="CompUnCheck" Content="The Abyss"/>
-                                    <CheckBox Name="Mamc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Mahjarrat Memories"/>
-                                    <CheckBox Name="Ltoc" Checked="CompCheck" Unchecked="CompUnCheck" Content="The Lost Toys"/>
-                                    <CheckBox Name="Imtc" Checked="CompCheck" Unchecked="CompUnCheck" Content="In Memory of the Myreque"/>
-                                    <CheckBox Name="Hswc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Hopespear's Will"/>
-                                    <CheckBox Name="Rclc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Returning Clarence"/>
-                                    <CheckBox Name="Kwac" Checked="CompCheck" Unchecked="CompUnCheck" Content="Knight Waves Training Grounds"/>
-                                    <CheckBox Name="Ttrc" Checked="CompCheck" Unchecked="CompUnCheck" Content="The Lair of Tarn Razorlor"/>
-                                    <CheckBox Name="Tczc" Checked="CompCheck" Unchecked="CompUnCheck" Content="The Curse of Zaros"/>
-                                    <CheckBox Name="Sopc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Stronghold of Player Safety"/>
-                                    <CheckBox Name="Sosc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Stronghold of Security"/>
+                                    <CheckBox Name="Sa27" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Abyc" Checked="Check" Unchecked="UnCheck" Content="The Abyss"/>
+                                    <CheckBox Name="Mamc" Checked="Check" Unchecked="UnCheck" Content="Mahjarrat Memories"/>
+                                    <CheckBox Name="Ltoc" Checked="Check" Unchecked="UnCheck" Content="The Lost Toys"/>
+                                    <CheckBox Name="Imtc" Checked="Check" Unchecked="UnCheck" Content="In Memory of the Myreque"/>
+                                    <CheckBox Name="Hswc" Checked="Check" Unchecked="UnCheck" Content="Hopespear's Will"/>
+                                    <CheckBox Name="Rclc" Checked="Check" Unchecked="UnCheck" Content="Returning Clarence"/>
+                                    <CheckBox Name="Kwac" Checked="Check" Unchecked="UnCheck" Content="Knight Waves Training Grounds"/>
+                                    <CheckBox Name="Ttrc" Checked="Check" Unchecked="UnCheck" Content="The Lair of Tarn Razorlor"/>
+                                    <CheckBox Name="Tczc" Checked="Check" Unchecked="UnCheck" Content="The Curse of Zaros"/>
+                                    <CheckBox Name="Sopc" Checked="Check" Unchecked="UnCheck" Content="Stronghold of Player Safety"/>
+                                    <CheckBox Name="Sosc" Checked="Check" Unchecked="UnCheck" Content="Stronghold of Security"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -427,72 +432,72 @@
                             <Grid>
                                 <ListView Name="CoSaE" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Easy - "/>
-                                    <CheckBox Name="Sae" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All"/>
-                                    <CheckBox Name="Are" Checked="CompCheck" Unchecked="CompUnCheck" Content="Ardougne"/>
-                                    <CheckBox Name="Dee" Checked="CompCheck" Unchecked="CompUnCheck" Content="Desert"/>
-                                    <CheckBox Name="Dae" Checked="CompCheck" Unchecked="CompUnCheck" Content="Daemonheim"/>
-                                    <CheckBox Name="Fae" Checked="CompCheck" Unchecked="CompUnCheck" Content="Falador"/>
-                                    <CheckBox Name="Fre" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik"/>
-                                    <CheckBox Name="Kae" Checked="CompCheck" Unchecked="CompUnCheck" Content="Karamja"/>
-                                    <CheckBox Name="Lue" Checked="CompCheck" Unchecked="CompUnCheck" Content="Lumbridge"/>
-                                    <CheckBox Name="Moe" Checked="CompCheck" Unchecked="CompUnCheck" Content="Morytania"/>
-                                    <CheckBox Name="See" Checked="CompCheck" Unchecked="CompUnCheck" Content="Seers' village"/>
-                                    <CheckBox Name="Tie" Checked="CompCheck" Unchecked="CompUnCheck" Content="Tirannwn"/>
-                                    <CheckBox Name="Vre" Checked="CompCheck" Unchecked="CompUnCheck" Content="Varrock"/>
-                                    <CheckBox Name="Wie" Checked="CompCheck" Unchecked="CompUnCheck" Content="Wilderness"/>
+                                    <CheckBox Name="Sae" Checked="Check" Unchecked="UnCheck" Content="Select All"/>
+                                    <CheckBox Name="Are" Checked="Check" Unchecked="UnCheck" Content="Ardougne"/>
+                                    <CheckBox Name="Dee" Checked="Check" Unchecked="UnCheck" Content="Desert"/>
+                                    <CheckBox Name="Dae" Checked="Check" Unchecked="UnCheck" Content="Daemonheim"/>
+                                    <CheckBox Name="Fae" Checked="Check" Unchecked="UnCheck" Content="Falador"/>
+                                    <CheckBox Name="Fre" Checked="Check" Unchecked="UnCheck" Content="Fremennik"/>
+                                    <CheckBox Name="Kae" Checked="Check" Unchecked="UnCheck" Content="Karamja"/>
+                                    <CheckBox Name="Lue" Checked="Check" Unchecked="UnCheck" Content="Lumbridge"/>
+                                    <CheckBox Name="Moe" Checked="Check" Unchecked="UnCheck" Content="Morytania"/>
+                                    <CheckBox Name="See" Checked="Check" Unchecked="UnCheck" Content="Seers' village"/>
+                                    <CheckBox Name="Tie" Checked="Check" Unchecked="UnCheck" Content="Tirannwn"/>
+                                    <CheckBox Name="Vre" Checked="Check" Unchecked="UnCheck" Content="Varrock"/>
+                                    <CheckBox Name="Wie" Checked="Check" Unchecked="UnCheck" Content="Wilderness"/>
                                 </ListView>
                                 <ListView Name="CoSaM" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="105,0,0,0">
                                     <Label Content=" - Medium - "/>
-                                    <CheckBox Name="Sam" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All"/>
-                                    <CheckBox Name="Arm" Checked="CompCheck" Unchecked="CompUnCheck" Content="Ardougne"/>
-                                    <CheckBox Name="Dem" Checked="CompCheck" Unchecked="CompUnCheck" Content="Desert"/>
-                                    <CheckBox Name="Dam" Checked="CompCheck" Unchecked="CompUnCheck" Content="Daemonheim"/>
-                                    <CheckBox Name="Fam" Checked="CompCheck" Unchecked="CompUnCheck" Content="Falador"/>
-                                    <CheckBox Name="Frm" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik"/>
-                                    <CheckBox Name="Kam" Checked="CompCheck" Unchecked="CompUnCheck" Content="Karamja"/>
-                                    <CheckBox Name="Lum" Checked="CompCheck" Unchecked="CompUnCheck" Content="Lumbridge"/>
-                                    <CheckBox Name="Mom" Checked="CompCheck" Unchecked="CompUnCheck" Content="Morytania"/>
-                                    <CheckBox Name="Sem" Checked="CompCheck" Unchecked="CompUnCheck" Content="Seers' village"/>
-                                    <CheckBox Name="Tim" Checked="CompCheck" Unchecked="CompUnCheck" Content="Tirannwn"/>
-                                    <CheckBox Name="Vrm" Checked="CompCheck" Unchecked="CompUnCheck" Content="Varrock"/>
-                                    <CheckBox Name="Wim" Checked="CompCheck" Unchecked="CompUnCheck" Content="Wilderness"/>
+                                    <CheckBox Name="Sam" Checked="Check" Unchecked="UnCheck" Content="Select All"/>
+                                    <CheckBox Name="Arm" Checked="Check" Unchecked="UnCheck" Content="Ardougne"/>
+                                    <CheckBox Name="Dem" Checked="Check" Unchecked="UnCheck" Content="Desert"/>
+                                    <CheckBox Name="Dam" Checked="Check" Unchecked="UnCheck" Content="Daemonheim"/>
+                                    <CheckBox Name="Fam" Checked="Check" Unchecked="UnCheck" Content="Falador"/>
+                                    <CheckBox Name="Frm" Checked="Check" Unchecked="UnCheck" Content="Fremennik"/>
+                                    <CheckBox Name="Kam" Checked="Check" Unchecked="UnCheck" Content="Karamja"/>
+                                    <CheckBox Name="Lum" Checked="Check" Unchecked="UnCheck" Content="Lumbridge"/>
+                                    <CheckBox Name="Mom" Checked="Check" Unchecked="UnCheck" Content="Morytania"/>
+                                    <CheckBox Name="Sem" Checked="Check" Unchecked="UnCheck" Content="Seers' village"/>
+                                    <CheckBox Name="Tim" Checked="Check" Unchecked="UnCheck" Content="Tirannwn"/>
+                                    <CheckBox Name="Vrm" Checked="Check" Unchecked="UnCheck" Content="Varrock"/>
+                                    <CheckBox Name="Wim" Checked="Check" Unchecked="UnCheck" Content="Wilderness"/>
                                 </ListView>
                                 <ListView Name="CoSaH" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,0,0,0">
                                     <Label Content=" - Hard - "/>
-                                    <CheckBox Name="Sah" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All"/>
-                                    <CheckBox Name="Arh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Ardougne"/>
-                                    <CheckBox Name="Deh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Desert"/>
-                                    <CheckBox Name="Dah" Checked="CompCheck" Unchecked="CompUnCheck" Content="Daemonheim"/>
-                                    <CheckBox Name="Fah" Checked="CompCheck" Unchecked="CompUnCheck" Content="Falador"/>
-                                    <CheckBox Name="Frh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik"/>
-                                    <CheckBox Name="Kah" Checked="CompCheck" Unchecked="CompUnCheck" Content="Karamja"/>
-                                    <CheckBox Name="Luh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Lumbridge"/>
-                                    <CheckBox Name="Moh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Morytania"/>
-                                    <CheckBox Name="Seh" Checked="CompCheck" Unchecked="CompUnCheck" Content="Seers' village"/>
-                                    <CheckBox Name="Tih" Checked="CompCheck" Unchecked="CompUnCheck" Content="Tirannwn"/>
-                                    <CheckBox Name="Vah" Checked="CompCheck" Unchecked="CompUnCheck" Content="Varrock"/>
-                                    <CheckBox Name="Wih" Checked="CompCheck" Unchecked="CompUnCheck" Content="Wilderness"/>
+                                    <CheckBox Name="Sah" Checked="Check" Unchecked="UnCheck" Content="Select All"/>
+                                    <CheckBox Name="Arh" Checked="Check" Unchecked="UnCheck" Content="Ardougne"/>
+                                    <CheckBox Name="Deh" Checked="Check" Unchecked="UnCheck" Content="Desert"/>
+                                    <CheckBox Name="Dah" Checked="Check" Unchecked="UnCheck" Content="Daemonheim"/>
+                                    <CheckBox Name="Fah" Checked="Check" Unchecked="UnCheck" Content="Falador"/>
+                                    <CheckBox Name="Frh" Checked="Check" Unchecked="UnCheck" Content="Fremennik"/>
+                                    <CheckBox Name="Kah" Checked="Check" Unchecked="UnCheck" Content="Karamja"/>
+                                    <CheckBox Name="Luh" Checked="Check" Unchecked="UnCheck" Content="Lumbridge"/>
+                                    <CheckBox Name="Moh" Checked="Check" Unchecked="UnCheck" Content="Morytania"/>
+                                    <CheckBox Name="Seh" Checked="Check" Unchecked="UnCheck" Content="Seers' village"/>
+                                    <CheckBox Name="Tih" Checked="Check" Unchecked="UnCheck" Content="Tirannwn"/>
+                                    <CheckBox Name="Vah" Checked="Check" Unchecked="UnCheck" Content="Varrock"/>
+                                    <CheckBox Name="Wih" Checked="Check" Unchecked="UnCheck" Content="Wilderness"/>
                                 </ListView>
                                 <ListView Name="CoSaEl" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="315,0,0,0">
                                     <Label Content=" - Elite - "/>
-                                    <CheckBox Name="Sael" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All"/>
-                                    <CheckBox Name="Arel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Ardougne"/>
-                                    <CheckBox Name="Deel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Desert"/>
-                                    <CheckBox Name="Dael" Checked="CompCheck" Unchecked="CompUnCheck" Content="Daemonheim"/>
-                                    <CheckBox Name="Fael" Checked="CompCheck" Unchecked="CompUnCheck" Content="Falador"/>
-                                    <CheckBox Name="Frel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik"/>
-                                    <CheckBox Name="Kael" Checked="CompCheck" Unchecked="CompUnCheck" Content="Karamja"/>
-                                    <CheckBox Name="Moel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Morytania"/>
-                                    <CheckBox Name="Seel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Seers' village"/>
-                                    <CheckBox Name="Tiel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Tirannwn"/>
-                                    <CheckBox Name="Vael" Checked="CompCheck" Unchecked="CompUnCheck" Content="Varrock"/>
-                                    <CheckBox Name="Wiel" Checked="CompCheck" Unchecked="CompUnCheck" Content="Wilderness"/>
+                                    <CheckBox Name="Sael" Checked="Check" Unchecked="UnCheck" Content="Select All"/>
+                                    <CheckBox Name="Arel" Checked="Check" Unchecked="UnCheck" Content="Ardougne"/>
+                                    <CheckBox Name="Deel" Checked="Check" Unchecked="UnCheck" Content="Desert"/>
+                                    <CheckBox Name="Dael" Checked="Check" Unchecked="UnCheck" Content="Daemonheim"/>
+                                    <CheckBox Name="Fael" Checked="Check" Unchecked="UnCheck" Content="Falador"/>
+                                    <CheckBox Name="Frel" Checked="Check" Unchecked="UnCheck" Content="Fremennik"/>
+                                    <CheckBox Name="Kael" Checked="Check" Unchecked="UnCheck" Content="Karamja"/>
+                                    <CheckBox Name="Moel" Checked="Check" Unchecked="UnCheck" Content="Morytania"/>
+                                    <CheckBox Name="Seel" Checked="Check" Unchecked="UnCheck" Content="Seers' village"/>
+                                    <CheckBox Name="Tiel" Checked="Check" Unchecked="UnCheck" Content="Tirannwn"/>
+                                    <CheckBox Name="Vael" Checked="Check" Unchecked="UnCheck" Content="Varrock"/>
+                                    <CheckBox Name="Wiel" Checked="Check" Unchecked="UnCheck" Content="Wilderness"/>
                                 </ListView>
                                 <ListView Name="CoSaP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,0,0,0">
                                     <Label Content=" - Etc - "/>
-                                    <CheckBox Name="Sa28" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Ps" Checked="CompCheck" Unchecked="CompUnCheck" Content="Pyramid Scheme"/>
-                                    <CheckBox Name="Lb" Checked="CompCheck" Unchecked="CompUnCheck" Content="Lumbridge Beginner"/>
+                                    <CheckBox Name="Sa28" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Ps" Checked="Check" Unchecked="UnCheck" Content="Pyramid Scheme"/>
+                                    <CheckBox Name="Lb" Checked="Check" Unchecked="UnCheck" Content="Lumbridge Beginner"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -500,22 +505,22 @@
                             <Grid>
                                 <ListView Name="CoSkSk" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Skilling - "/>
-                                    <CheckBox Name="Sa29" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Aprc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Aquarium Prawn Perks"/>
-                                    <CheckBox Name="Bcpc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Big Chin 1111 Points"/>
-                                    <CheckBox Name="Thac" Checked="CompCheck" Unchecked="CompUnCheck" Content="Thalassus"/>
-                                    <CheckBox Name="Hagc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Hefin Agility Course"/>
-                                    <CheckBox Name="Rspc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Reconnect Spirit Tree"/>
-                                    <CheckBox Name="Cmec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Core Memories"/>
-                                    <CheckBox Name="Aimc" Checked="CompCheck" Unchecked="CompUnCheck" Content="All Implings"/>
-                                    <CheckBox Name="Atbc" Checked="CompCheck" Unchecked="CompUnCheck" Content="All Technology Blueprints"/>
-                                    <CheckBox Name="Fkoc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Full Kudos Obtained"/>
-                                    <CheckBox Name="Mgec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Memorial To Guthix Prestige 1"/>
-                                    <CheckBox Name="Csrc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Crystal Singing Research"/>
-                                    <CheckBox Name="Rcoc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Removing Corruption"/>
-                                    <CheckBox Name="Fysc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Full Yaktwee Stick"/>
-                                    <CheckBox Name="Popc" Checked="CompCheck" Unchecked="CompUnCheck" Content="POP Tutorial"/>
-                                    <CheckBox Name="Sorc" Checked="CompCheck" Unchecked="CompUnCheck" Content="First Statue of Rhiannon"/>
+                                    <CheckBox Name="Sa29" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Aprc" Checked="Check" Unchecked="UnCheck" Content="Aquarium Prawn Perks"/>
+                                    <CheckBox Name="Bcpc" Checked="Check" Unchecked="UnCheck" Content="Big Chin 1111 Points"/>
+                                    <CheckBox Name="Thac" Checked="Check" Unchecked="UnCheck" Content="Thalassus"/>
+                                    <CheckBox Name="Hagc" Checked="Check" Unchecked="UnCheck" Content="Hefin Agility Course"/>
+                                    <CheckBox Name="Rspc" Checked="Check" Unchecked="UnCheck" Content="Reconnect Spirit Tree"/>
+                                    <CheckBox Name="Cmec" Checked="Check" Unchecked="UnCheck" Content="Core Memories"/>
+                                    <CheckBox Name="Aimc" Checked="Check" Unchecked="UnCheck" Content="All Implings"/>
+                                    <CheckBox Name="Atbc" Checked="Check" Unchecked="UnCheck" Content="All Technology Blueprints"/>
+                                    <CheckBox Name="Fkoc" Checked="Check" Unchecked="UnCheck" Content="Full Kudos Obtained"/>
+                                    <CheckBox Name="Mgec" Checked="Check" Unchecked="UnCheck" Content="Memorial To Guthix Prestige 1"/>
+                                    <CheckBox Name="Csrc" Checked="Check" Unchecked="UnCheck" Content="Crystal Singing Research"/>
+                                    <CheckBox Name="Rcoc" Checked="Check" Unchecked="UnCheck" Content="Removing Corruption"/>
+                                    <CheckBox Name="Fysc" Checked="Check" Unchecked="UnCheck" Content="Full Yaktwee Stick"/>
+                                    <CheckBox Name="Popc" Checked="Check" Unchecked="UnCheck" Content="POP Tutorial"/>
+                                    <CheckBox Name="Sorc" Checked="Check" Unchecked="UnCheck" Content="First Statue of Rhiannon"/>
                                 </ListView>
                                 <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,0,0,0">
                                     <Label Content=" - Progression - "/>
@@ -539,29 +544,29 @@
                                 <ListView Name="CoSkDb" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="386,0,0,0">
                                     <Label Content=" - Doric and Boric tasks - "/>
                                     <!-- ReSharper disable InconsistentNaming -->
-                                    <CheckBox Name="Sa30" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="D1c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 1"/>
-                                    <CheckBox Name="D2c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 2"/>
-                                    <CheckBox Name="D3c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 3"/>
-                                    <CheckBox Name="D4c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 4"/>
-                                    <CheckBox Name="D5c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 5"/>
-                                    <CheckBox Name="D6c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 6"/>
-                                    <CheckBox Name="D7c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 7"/>
-                                    <CheckBox Name="D8c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Doric 8"/>
-                                    <CheckBox Name="B1c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 1"/>
-                                    <CheckBox Name="B2c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 2"/>
-                                    <CheckBox Name="B3c" Checked="CompCheck" Unchecked="CompUnCheck" Content="Boric 3"/>
+                                    <CheckBox Name="Sa30" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="D1c" Checked="Check" Unchecked="UnCheck" Content="Doric 1"/>
+                                    <CheckBox Name="D2c" Checked="Check" Unchecked="UnCheck" Content="Doric 2"/>
+                                    <CheckBox Name="D3c" Checked="Check" Unchecked="UnCheck" Content="Doric 3"/>
+                                    <CheckBox Name="D4c" Checked="Check" Unchecked="UnCheck" Content="Doric 4"/>
+                                    <CheckBox Name="D5c" Checked="Check" Unchecked="UnCheck" Content="Doric 5"/>
+                                    <CheckBox Name="D6c" Checked="Check" Unchecked="UnCheck" Content="Doric 6"/>
+                                    <CheckBox Name="D7c" Checked="Check" Unchecked="UnCheck" Content="Doric 7"/>
+                                    <CheckBox Name="D8c" Checked="Check" Unchecked="UnCheck" Content="Doric 8"/>
+                                    <CheckBox Name="B1c" Checked="Check" Unchecked="UnCheck" Content="Boric 1"/>
+                                    <CheckBox Name="B2c" Checked="Check" Unchecked="UnCheck" Content="Boric 2"/>
+                                    <CheckBox Name="B3c" Checked="Check" Unchecked="UnCheck" Content="Boric 3"/>
                                     <!-- ReSharper restore InconsistentNaming -->
                                 </ListView>
                                 <ListView Name="CoSkEt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,0,0,0">
                                     <Label Content=" - Elven Titles - "/>
-                                    <CheckBox Name="Sa31" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Otc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Trahaearn"/>
-                                    <CheckBox Name="Occ" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Crwys"/>
-                                    <CheckBox Name="Oac" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Amlodd"/>
-                                    <CheckBox Name="Oic" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Ithell"/>
-                                    <CheckBox Name="Ohc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Hefin"/>
-                                    <CheckBox Name="Omc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Meilyr"/>
+                                    <CheckBox Name="Sa31" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Otc" Checked="Check" Unchecked="UnCheck" Content="Of the Trahaearn"/>
+                                    <CheckBox Name="Occ" Checked="Check" Unchecked="UnCheck" Content="Of the Crwys"/>
+                                    <CheckBox Name="Oac" Checked="Check" Unchecked="UnCheck" Content="Of the Amlodd"/>
+                                    <CheckBox Name="Oic" Checked="Check" Unchecked="UnCheck" Content="Of the Ithell"/>
+                                    <CheckBox Name="Ohc" Checked="Check" Unchecked="UnCheck" Content="Of the Hefin"/>
+                                    <CheckBox Name="Omc" Checked="Check" Unchecked="UnCheck" Content="Of the Meilyr"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -569,24 +574,24 @@
                             <Grid>
                                 <ListView Name="CoCoCo"  HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Combat - "/>
-                                    <CheckBox Name="Sa32" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Annc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Annihilator Title"/>
-                                    <CheckBox Name="Ftmc" Checked="CompCheck" Unchecked="CompUnCheck" Content="First Tuska Mask"/>
-                                    <CheckBox Name="Frsc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fremennik Sagas"/>
-                                    <CheckBox Name="Clec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Cleansing Shadow Cores"/>
-                                    <CheckBox Name="Fkic" Checked="CompCheck" Unchecked="CompUnCheck" Content="Fight Kiln"/>
-                                    <CheckBox Name="Qbdc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Queen Black Dragon"/>
-                                    <CheckBox Name="Qbdf" Checked="CompCheck" Unchecked="CompUnCheck" Content="Qbd First Journal"/>
-                                    <CheckBox Name="Robc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Rush of Blood"/>
-                                    <CheckBox Name="Prec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Potion Recipes"/>
-                                    <CheckBox Name="Smtc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Slayer Master Title"/>
-                                    <CheckBox Name="Rarc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Rapid Renewal"/>
+                                    <CheckBox Name="Sa32" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Annc" Checked="Check" Unchecked="UnCheck" Content="Annihilator Title"/>
+                                    <CheckBox Name="Ftmc" Checked="Check" Unchecked="UnCheck" Content="First Tuska Mask"/>
+                                    <CheckBox Name="Frsc" Checked="Check" Unchecked="UnCheck" Content="Fremennik Sagas"/>
+                                    <CheckBox Name="Clec" Checked="Check" Unchecked="UnCheck" Content="Cleansing Shadow Cores"/>
+                                    <CheckBox Name="Fkic" Checked="Check" Unchecked="UnCheck" Content="Fight Kiln"/>
+                                    <CheckBox Name="Qbdc" Checked="Check" Unchecked="UnCheck" Content="Queen Black Dragon"/>
+                                    <CheckBox Name="Qbdf" Checked="Check" Unchecked="UnCheck" Content="Qbd First Journal"/>
+                                    <CheckBox Name="Robc" Checked="Check" Unchecked="UnCheck" Content="Rush of Blood"/>
+                                    <CheckBox Name="Prec" Checked="Check" Unchecked="UnCheck" Content="Potion Recipes"/>
+                                    <CheckBox Name="Smtc" Checked="Check" Unchecked="UnCheck" Content="Slayer Master Title"/>
+                                    <CheckBox Name="Rarc" Checked="Check" Unchecked="UnCheck" Content="Rapid Renewal"/>
                                 </ListView>
                                 <ListView Name="CoCoEt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="164,0,0,0">
                                     <Label Content=" - Elven Titles - "/>
-                                    <CheckBox Name="Sa33" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Oioc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Iorwerth"/>
-                                    <CheckBox Name="Ocac" Checked="CompCheck" Unchecked="CompUnCheck" Content="Of the Cadarn"/>
+                                    <CheckBox Name="Sa33" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Oioc" Checked="Check" Unchecked="UnCheck" Content="Of the Iorwerth"/>
+                                    <CheckBox Name="Ocac" Checked="Check" Unchecked="UnCheck" Content="Of the Cadarn"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -594,14 +599,14 @@
                             <Grid>
                                 <ListView Name="CoEtEt" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Etc. - "/>
-                                    <CheckBox Name="Sa34" Checked="CompCheck" Unchecked="CompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Bamc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Bandos's Memories"/>
-                                    <CheckBox Name="Tboc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Tune Bane Ore"/>
-                                    <CheckBox Name="Crvc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Carnillean Rising"/>
-                                    <CheckBox Name="Ourc" Checked="CompCheck" Unchecked="CompUnCheck" Content="Ourania Teleport"/>
-                                    <CheckBox Name="Smec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Seren Memoriam Crystals"/>
-                                    <CheckBox Name="Pmec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Prifddinas Memoriam Crystals"/>
-                                    <CheckBox Name="Zmec" Checked="CompCheck" Unchecked="CompUnCheck" Content="Zarosian Memoriam Crystals"/>
+                                    <CheckBox Name="Sa34" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Bamc" Checked="Check" Unchecked="UnCheck" Content="Bandos's Memories"/>
+                                    <CheckBox Name="Tboc" Checked="Check" Unchecked="UnCheck" Content="Tune Bane Ore"/>
+                                    <CheckBox Name="Crvc" Checked="Check" Unchecked="UnCheck" Content="Carnillean Rising"/>
+                                    <CheckBox Name="Ourc" Checked="Check" Unchecked="UnCheck" Content="Ourania Teleport"/>
+                                    <CheckBox Name="Smec" Checked="Check" Unchecked="UnCheck" Content="Seren Memoriam Crystals"/>
+                                    <CheckBox Name="Pmec" Checked="Check" Unchecked="UnCheck" Content="Prifddinas Memoriam Crystals"/>
+                                    <CheckBox Name="Zmec" Checked="Check" Unchecked="UnCheck" Content="Zarosian Memoriam Crystals"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -615,15 +620,17 @@
                             <Grid>
                                 <ListView Name="TriMqP2P" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Pay-2-Play - "/>
-                                    <CheckBox Name="Sa35" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Tgut" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Thieves Guild Capers"/>
-                                    <CheckBox Name="Bart" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Barbarian Training"/>
-                                    <CheckBox Name="Ekmt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Enchanted Key"/>
-                                    <CheckBox Name="Tont" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tales of Nomad"/>
-                                    <CheckBox Name="Rogt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Rogue Trader Rune Shop"/>
-                                    <CheckBox Name="Shst" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Sheep Shearer"/>
-                                    <CheckBox Name="Tgwt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tales of the God Wars"/>
-                                    <CheckBox Name="Wipt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Witch's Potion"/>
+                                    <CheckBox Name="Sa35" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Bart" Checked="Check" Unchecked="UnCheck" Content="Barbarian Training"/>
+                                    <CheckBox Name="Ekmt" Checked="Check" Unchecked="UnCheck" Content="Enchanted Key"/>
+                                    <CheckBox Name="Tont" Checked="Check" Unchecked="UnCheck" Content="Tales of Nomad"/>
+                                    <CheckBox Name="Rogt" Checked="Check" Unchecked="UnCheck" Content="Rogue Trader Rune Shop"/>
+                                    <CheckBox Name="Shst" Checked="Check" Unchecked="UnCheck" Content="Sheep Shearer"/>
+                                    <CheckBox Name="Tgwt" Checked="Check" Unchecked="UnCheck" Content="Tales of the God Wars"/>
+                                    <CheckBox Name="Wipt" Checked="Check" Unchecked="UnCheck" Content="Witch's Potion"/>
+                                    <CheckBox Name="Ftat" Checked="Check" Unchecked="UnCheck" Content="From Tiny Acorns"/>
+                                    <CheckBox Name="Lhmt" Checked="Check" Unchecked="UnCheck" Content="Lost Her Marbles"/>
+                                    <CheckBox Name="Agot" Checked="Check" Unchecked="UnCheck" Content="A Guild Of Our Own"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -631,22 +638,25 @@
                             <Grid>
                                 <ListView Name="TriSkSk" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Skilling - "/>
-                                    <CheckBox Name="Sa36" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Btst" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Balloon Transport System"/>
-                                    <CheckBox Name="Etrt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Eagle Transport System"/>
-                                    <CheckBox Name="Ctst" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Char's Treasured Symbol"/>
-                                    <CheckBox Name="Aprt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="All Aquarium Prawn Perks"/>
-                                    <CheckBox Name="Sdet" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Song From The Depths"/>
-                                    <CheckBox Name="Elct" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Elder Chronicles"/>
-                                    <CheckBox Name="Agtt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Agile Top"/>
-                                    <CheckBox Name="Aglt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Agile Legs"/>
-                                    <CheckBox Name="Swbt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Broomstick"/>
-                                    <CheckBox Name="Sobt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Sober Up Skippy"/>
-                                    <CheckBox Name="Memt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Memorial To Guthix 4"/>
-                                    <CheckBox Name="Tptt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tier 10 Ports"/>
-                                    <CheckBox Name="Titt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tier 10 Imperial"/>
-                                    <CheckBox Name="Tmtt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tier 10 Merchant"/>
-                                    <CheckBox Name="Twtt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tier 10 Worker"/>
+                                    <CheckBox Name="Sa36" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Btst" Checked="Check" Unchecked="UnCheck" Content="Balloon Transport System"/>
+                                    <CheckBox Name="Etrt" Checked="Check" Unchecked="UnCheck" Content="Eagle Transport System"/>
+                                    <CheckBox Name="Ctst" Checked="Check" Unchecked="UnCheck" Content="Char's Treasured Symbol"/>
+                                    <CheckBox Name="Aprt" Checked="Check" Unchecked="UnCheck" Content="All Aquarium Prawn Perks"/>
+                                    <CheckBox Name="Sdet" Checked="Check" Unchecked="UnCheck" Content="Song From The Depths"/>
+                                    <CheckBox Name="Elct" Checked="Check" Unchecked="UnCheck" Content="Elder Chronicles"/>
+                                    <CheckBox Name="Agtt" Checked="Check" Unchecked="UnCheck" Content="Agile Top"/>
+                                    <CheckBox Name="Aglt" Checked="Check" Unchecked="UnCheck" Content="Agile Legs"/>
+                                    <CheckBox Name="Swbt" Checked="Check" Unchecked="UnCheck" Content="Swept Away first"/>
+                                    <CheckBox Name="Swb2t" Checked="Check" Unchecked="UnCheck" Content="Swept Away second"/>
+                                    <CheckBox Name="Swb3t" Checked="Check" Unchecked="UnCheck" Content="Swept Away third"/>
+                                    <CheckBox Name="Swb4t" Checked="Check" Unchecked="UnCheck" Content="Swept Away fourth"/>
+                                    <CheckBox Name="Sobt" Checked="Check" Unchecked="UnCheck" Content="Sober Up Skippy"/>
+                                    <CheckBox Name="Memt" Checked="Check" Unchecked="UnCheck" Content="Memorial To Guthix 4"/>
+                                    <CheckBox Name="Tptt" Checked="Check" Unchecked="UnCheck" Content="Tier 10 Ports"/>
+                                    <CheckBox Name="Titt" Checked="Check" Unchecked="UnCheck" Content="Tier 10 Imperial"/>
+                                    <CheckBox Name="Tmtt" Checked="Check" Unchecked="UnCheck" Content="Tier 10 Merchant"/>
+                                    <CheckBox Name="Twtt" Checked="Check" Unchecked="UnCheck" Content="Tier 10 Worker"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -654,33 +664,33 @@
                             <Grid>
                                 <ListView Name="TriCoCo" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Combat - "/>
-                                    <CheckBox Name="Sa37" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Acat" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Ancient Cavern"/>
-                                    <CheckBox Name="Tert" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Temple Trekking"/>
-                                    <CheckBox Name="Mwkt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Master White Knight"/>
-                                    <CheckBox Name="Moot" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Maul of Omens"/>
-                                    <CheckBox Name="Odtt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Of Daemonheim Title"/>
-                                    <CheckBox Name="Uift" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Ivandis Flail 500"/>
-                                    <CheckBox Name="Bact" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Battle Commendations"/>
-                                    <CheckBox Name="Bcht" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Broken Home Challenges"/>
-                                    <CheckBox Name="Hant" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Hardmode Nomad"/>
-                                    <CheckBox Name="Pent" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Penance King"/>
-                                    <CheckBox Name="Qbdt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Qbd Journals"/>
-                                    <CheckBox Name="Scnt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Scabarites Notes"/>
-                                    <CheckBox Name="Dstt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Dungeoneering Scroll Traits"/>
-                                    <CheckBox Name="Surt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Survive ROTS"/>
-                                    <CheckBox Name="Telt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Telos 100%"/>
-                                    <CheckBox Name="Mazt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Mazcab Teleport Spell"/>
-                                    <CheckBox Name="Cont" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="1250+ Conquest"/>
+                                    <CheckBox Name="Sa37" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Acat" Checked="Check" Unchecked="UnCheck" Content="Ancient Cavern"/>
+                                    <CheckBox Name="Tert" Checked="Check" Unchecked="UnCheck" Content="Temple Trekking"/>
+                                    <CheckBox Name="Mwkt" Checked="Check" Unchecked="UnCheck" Content="Master White Knight"/>
+                                    <CheckBox Name="Moot" Checked="Check" Unchecked="UnCheck" Content="Maul of Omens"/>
+                                    <CheckBox Name="Odtt" Checked="Check" Unchecked="UnCheck" Content="Of Daemonheim Title"/>
+                                    <CheckBox Name="Uift" Checked="Check" Unchecked="UnCheck" Content="Ivandis Flail 500"/>
+                                    <CheckBox Name="Bact" Checked="Check" Unchecked="UnCheck" Content="Battle Commendations"/>
+                                    <CheckBox Name="Bcht" Checked="Check" Unchecked="UnCheck" Content="Broken Home Challenges"/>
+                                    <CheckBox Name="Hant" Checked="Check" Unchecked="UnCheck" Content="Hardmode Nomad"/>
+                                    <CheckBox Name="Pent" Checked="Check" Unchecked="UnCheck" Content="Penance King"/>
+                                    <CheckBox Name="Qbdt" Checked="Check" Unchecked="UnCheck" Content="Qbd Journals"/>
+                                    <CheckBox Name="Scnt" Checked="Check" Unchecked="UnCheck" Content="Scabarites Notes"/>
+                                    <CheckBox Name="Dstt" Checked="Check" Unchecked="UnCheck" Content="Dungeoneering Scroll Traits"/>
+                                    <CheckBox Name="Surt" Checked="Check" Unchecked="UnCheck" Content="Survive ROTS"/>
+                                    <CheckBox Name="Telt" Checked="Check" Unchecked="UnCheck" Content="Telos 100%"/>
+                                    <CheckBox Name="Mazt" Checked="Check" Unchecked="UnCheck" Content="Mazcab Teleport Spell"/>
+                                    <CheckBox Name="Cont" Checked="Check" Unchecked="UnCheck" Content="1250+ Conquest"/>
                                 </ListView>
                                 <ListView Name="TriCoSl" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,0,0,0">
                                     <Label Content=" - Slayer - "/>
-                                    <CheckBox Name="Sa38" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Dest" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Death's Store Unlocks"/>
-                                    <CheckBox Name="Dslt" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Desert Slayer Dungeon"/>
-                                    <CheckBox Name="Asit" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="All Slayer Items"/>
-                                    <CheckBox Name="Slct" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Slayer Codex"/>
-                                    <CheckBox Name="Fert" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Ferocious Upgrade"/>
+                                    <CheckBox Name="Sa38" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Dest" Checked="Check" Unchecked="UnCheck" Content="Death's Store Unlocks"/>
+                                    <CheckBox Name="Dslt" Checked="Check" Unchecked="UnCheck" Content="Desert Slayer Dungeon"/>
+                                    <CheckBox Name="Asit" Checked="Check" Unchecked="UnCheck" Content="All Slayer Items"/>
+                                    <CheckBox Name="Slct" Checked="Check" Unchecked="UnCheck" Content="Slayer Codex"/>
+                                    <CheckBox Name="Fert" Checked="Check" Unchecked="UnCheck" Content="Ferocious Upgrade"/>
                                 </ListView>
                             </Grid>
                         </TabItem>
@@ -754,33 +764,33 @@
                             <Grid>
                                 <ListView Name="SaReUn" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Unlocks - "/>
-                                    <CheckBox Name="Sa39" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Afi" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="First Tier"/>
-                                    <CheckBox Name="Afu" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Functions"/>
-                                    <CheckBox Name="Atp" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tortle Portals"/>
-                                    <CheckBox Name="Eng" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Energy-Gathering"/>
-                                    <CheckBox Name="Meg" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Memory-Crushing"/>
-                                    <CheckBox Name="Bcu" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Bonecrusher Upgrade"/>
-                                    <CheckBox Name="Dlo" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Death Lotus"/>
-                                    <CheckBox Name="Dloo" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Death Lotus Outfit"/>
-                                    <CheckBox Name="Sea" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Seasinger"/>
-                                    <CheckBox Name="Seao" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Seasinger Outfit"/>
-                                    <CheckBox Name="Tes" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tetsu"/>
-                                    <CheckBox Name="Teso" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tetsu Outfit"/>
+                                    <CheckBox Name="Sa39" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Afi" Checked="Check" Unchecked="UnCheck" Content="First Tier"/>
+                                    <CheckBox Name="Afu" Checked="Check" Unchecked="UnCheck" Content="Functions"/>
+                                    <CheckBox Name="Atp" Checked="Check" Unchecked="UnCheck" Content="Tortle Portals"/>
+                                    <CheckBox Name="Eng" Checked="Check" Unchecked="UnCheck" Content="Energy-Gathering"/>
+                                    <CheckBox Name="Meg" Checked="Check" Unchecked="UnCheck" Content="Memory-Crushing"/>
+                                    <CheckBox Name="Bcu" Checked="Check" Unchecked="UnCheck" Content="Bonecrusher Upgrade"/>
+                                    <CheckBox Name="Dlo" Checked="Check" Unchecked="UnCheck" Content="Death Lotus"/>
+                                    <CheckBox Name="Dloo" Checked="Check" Unchecked="UnCheck" Content="Death Lotus Outfit"/>
+                                    <CheckBox Name="Sea" Checked="Check" Unchecked="UnCheck" Content="Seasinger"/>
+                                    <CheckBox Name="Seao" Checked="Check" Unchecked="UnCheck" Content="Seasinger Outfit"/>
+                                    <CheckBox Name="Tes" Checked="Check" Unchecked="UnCheck" Content="Tetsu"/>
+                                    <CheckBox Name="Teso" Checked="Check" Unchecked="UnCheck" Content="Tetsu Outfit"/>
                                 </ListView>
                                 <ListView Name="SaReTa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="149,0,0,0">
                                     <Label Content=" - Tales Of The Arc - "/>
-                                    <CheckBox Name="Sa40" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Ff" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Flag Fall"/>
-                                    <CheckBox Name="Hf" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Head of the Family"/>
-                                    <CheckBox Name="Se" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Spiritual Enlightenment"/>
-                                    <CheckBox Name="Jh" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Jed Hunter"/>
-                                    <CheckBox Name="Ee" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Eye for an Eye"/>
-                                    <CheckBox Name="Hr" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Harbinger"/>
-                                    <CheckBox Name="Tl" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Tuai Leit's Own"/>
-                                    <CheckBox Name="Gp" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Ghost from the Past"/>
-                                    <CheckBox Name="Dc" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Damage Control"/>
-                                    <CheckBox Name="Fd" Checked="TrimCompCheck" Unchecked="TrimCompUnCheck" Content="Final Destination"/>
+                                    <CheckBox Name="Sa40" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox Name="Ff" Checked="Check" Unchecked="UnCheck" Content="Flag Fall"/>
+                                    <CheckBox Name="Hf" Checked="Check" Unchecked="UnCheck" Content="Head of the Family"/>
+                                    <CheckBox Name="Se" Checked="Check" Unchecked="UnCheck" Content="Spiritual Enlightenment"/>
+                                    <CheckBox Name="Jh" Checked="Check" Unchecked="UnCheck" Content="Jed Hunter"/>
+                                    <CheckBox Name="Ee" Checked="Check" Unchecked="UnCheck" Content="Eye for an Eye"/>
+                                    <CheckBox Name="Hr" Checked="Check" Unchecked="UnCheck" Content="Harbinger"/>
+                                    <CheckBox Name="Tl" Checked="Check" Unchecked="UnCheck" Content="Tuai Leit's Own"/>
+                                    <CheckBox Name="Gp" Checked="Check" Unchecked="UnCheck" Content="Ghost from the Past"/>
+                                    <CheckBox Name="Dc" Checked="Check" Unchecked="UnCheck" Content="Damage Control"/>
+                                    <CheckBox Name="Fd" Checked="Check" Unchecked="UnCheck" Content="Final Destination"/>
                                 </ListView>
                             </Grid>
                         </TabItem>

@@ -13,11 +13,15 @@ namespace Guideviewer {
         public static readonly Dictionary<string, List<CheckBox>> CheckboxesDictionary =
             new Dictionary<string, List<CheckBox>>();
 
+        public static readonly Dictionary<string, bool> CheckboxesBoolDictionary = new Dictionary<string, bool>();
+
         public static readonly List<Tuple<CheckBox, ListView>> ListViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
+        public static readonly List<Tuple<string, string>> NameCompareTuples = new List<Tuple<string, string>>();
         public static readonly List<CheckBox> SelectAllCheckBoxes = new List<CheckBox>();
         public static readonly List<CheckBox> AllCheckBoxes = new List<CheckBox>();
         public static readonly List<ListView> ListViews = new List<ListView>();
 
+        // ReSharper disable once RedundantDefaultMemberInitializer
         public static bool HasApplied = false;
 
         public string ApplyUserName {
@@ -38,22 +42,16 @@ namespace Guideviewer {
 
             foreach (var tabcontrolItem in MainTabControl.Items) {
             if (tabcontrolItem is TabItem tabitem) {
-
                 foreach (var child in LogicalTreeHelper.GetChildren(tabitem)) {
                 if (child is Grid grid) {
-
                     foreach (var gridChild in grid.Children) {
                     if (gridChild is TabControl tabcontrol) {
-
                         foreach (var tabcontrolItem2 in tabcontrol.Items) {
                         if (tabcontrolItem2 is TabItem tabitem2) {
-
                             foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2)) {
                             if (child2 is Grid grid2) {
-
                                 foreach (var grid2Child in grid2.Children) {
                                 if (grid2Child is ListView listview) {
-
                                     if (listview.Name.StartsWith("Mq") ||
                                         listview.Name.StartsWith("Sa") ||
                                         listview.Name.StartsWith("Co") ||
@@ -61,7 +59,6 @@ namespace Guideviewer {
                                         //MessageBox.Show("I just added " + listview.Name + " which is a ListView, to _listViews");
                                         ListViews.Add(listview);
                                     }
-
                                     foreach (var checkbox in listview.Items) {
                                         if (checkbox is CheckBox cb && cb.Name.StartsWith("Sa")) {
                                             //MessageBox.Show("I just added " + cb.Name + " which is a SelectAll CheckBox, to _selectAllCheckBoxes");
@@ -107,28 +104,7 @@ namespace Guideviewer {
                 new List<CheckBox> {Ttr, Ttrc}, // The Lair of Tarn Razorlor
                 new List<CheckBox> {Rco, Rcoc}, // Removing Corruption
                 new List<CheckBox> {Hsw, Hswc}, // Hopespear's Will
-
-                // Master Quest + Trimmed Completionist
-                new List<CheckBox> {Bts, Btst}, // Balloon Transport System
-                new List<CheckBox> {Swb, Swbt}, // Swept Away - Broomstick
-                new List<CheckBox> {Ekm, Ekmt}, // Enchanted Key
-                new List<CheckBox> {Aca, Acat}, // Ancient Cavern
-                new List<CheckBox> {Ter, Tert}, // Temple Trekking
-                new List<CheckBox> {Tgu, Tgut}, // Thieves Guild Capers
-                new List<CheckBox> {Etr, Etrt}, // Eagle Transport Route
-                new List<CheckBox> {Qbd, Qbdt}, // Queen Black Dragon Journals
-                new List<CheckBox> {Bch, Bcht}, // Broken Home Challenges
-                new List<CheckBox> {Cts, Ctst}, // Char's Treasured Symbol
-                new List<CheckBox> {Uif, Uift}, // Upgrade Ivandis Flail
-                new List<CheckBox> {Wip, Wipt}, // Witch's Potion
-                new List<CheckBox> {Ton, Tont}, // Tales of Nomad
-                new List<CheckBox> {Tgw, Tgwt}, // Tales of the God Wars
-                new List<CheckBox> {Dsl, Dslt}, // Desert Slayer Dungeon
-                new List<CheckBox> {Scn, Scnt}, // Scabarite Notes
-                new List<CheckBox> {Sde, Sdet}, // Song from the Depths
-                new List<CheckBox> {Shs, Shst}, // Sheep Shearer
-                new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
-
+                                                
 
                 new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
                 // Doric Tasks
@@ -143,42 +119,49 @@ namespace Guideviewer {
                 // Boric Tasks
                 new List<CheckBox> {B1, B1c},
                 new List<CheckBox> {B2, B2c},
-                new List<CheckBox> {B3, B3c}
+                new List<CheckBox> {B3, B3c},
+
+
+                // Master Quest + Trimmed Completionist
+                new List<CheckBox> {Bts, Btst}, // Balloon Transport System
+                new List<CheckBox> {Swb, Swbt}, // Swept Away - Broomstick
+                new List<CheckBox> {Ekm, Ekmt}, // Enchanted Key
+                new List<CheckBox> {Aca, Acat}, // Ancient Cavern
+                new List<CheckBox> {Ter, Tert}, // Temple Trekking
+                new List<CheckBox> {Etr, Etrt}, // Eagle Transport Route
+                new List<CheckBox> {Qbd, Qbdt}, // Queen Black Dragon Journals
+                new List<CheckBox> {Bch, Bcht}, // Broken Home Challenges
+                new List<CheckBox> {Cts, Ctst}, // Char's Treasured Symbol
+                new List<CheckBox> {Uif, Uift}, // Upgrade Ivandis Flail
+                new List<CheckBox> {Wip, Wipt}, // Witch's Potion
+                new List<CheckBox> {Ton, Tont}, // Tales of Nomad
+                new List<CheckBox> {Tgw, Tgwt}, // Tales of the God Wars
+                new List<CheckBox> {Dsl, Dslt}, // Desert Slayer Dungeon
+                new List<CheckBox> {Scn, Scnt}, // Scabarite Notes
+                new List<CheckBox> {Sde, Sdet}, // Song from the Depths
+                new List<CheckBox> {Shs, Shst}, // Sheep Shearer
+                new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
+                new List<CheckBox> {Fta, Ftat}, // From Tiny Acorns
+                new List<CheckBox> {Lhm, Lhmt}, // Lost Her Marbles
+                new List<CheckBox> {Ago, Agot}, // A Guild of Our Own
+
+
+                
 
             }) {
                 CheckboxesDictionary.Add(list[0].Name, list);
                 CheckboxesDictionary.Add(list[1].Name, list);
             }
+
+            foreach (var cb in AllCheckBoxes) {
+                NameCompareTuples.Add(new Tuple<string, string>(cb.Name, cb.Content.ToString()));
+            }
         }
 
-        private void MqcCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, true);
-        }
-
-        private void MqcUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, false);
-        }
-
-        private void CompCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, true);
-        }
-
-        private void CompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, false);
-        }
-
-        private void TrimCompCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, true);
-        }
-
-        private void TrimCompUnCheck(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, false);
-        }
-
-
-        private void Media(object sender, RoutedEventArgs routedEventArgs) {
-            Switch(sender, false);
-        }
+        private void Check(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true);}
+        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
+        
+        private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
 
         private void Switch(object sender, bool boolean) {
             if (sender is CheckBox senderBox) {
@@ -248,21 +231,23 @@ namespace Guideviewer {
         }
 
         private void OnApplyOptions(object sender, RoutedEventArgs e) {
-
             HasApplied = true;
-
             CheckboxStringSave = "";
+            CheckboxesBoolDictionary.Clear();
 
             foreach (var cb in AllCheckBoxes) {
                 switch (cb.IsChecked) {
                     case true:
+                        CheckboxesBoolDictionary.Add(cb.Name, true);
                         CheckboxStringSave += "1,";
                         break;
                     case false:
+                        CheckboxesBoolDictionary.Add(cb.Name, false);
                         CheckboxStringSave += "0,";
                         break;
                 }
             }
+
             Progress.Save(
                 new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName),
                 ApplyUserName, new User(), new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave);
@@ -280,42 +265,29 @@ namespace Guideviewer {
 
                 int[] checkBoxIntArray = Array.ConvertAll(checkBoxStringSaveArray, int.Parse);
 
-                for (var index = 0; index < AllCheckBoxes.Count; index++) {
-                    if (checkBoxIntArray[index] == 1) {
-                        AllCheckBoxes[index].IsChecked = true;
-                    }
-                    else {
-                        AllCheckBoxes[index].IsChecked = false;
-
-                    }
+                for (var index = 0; index < checkBoxIntArray.Length; index++) {
+                    AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
                 }
             }
 
             foreach (var tabcontrolItem in MainTabControl.Items) {
                 if (tabcontrolItem is TabItem tabitem) {
-
                     foreach (var child in LogicalTreeHelper.GetChildren(tabitem)) {
                         if (child is Grid grid) {
-
                             foreach (var gridChild in grid.Children) {
                                 if (gridChild is TabControl tabcontrol) {
-
                                     foreach (var tabcontrolItem2 in tabcontrol.Items) {
                                         if (tabcontrolItem2 is TabItem tabitem2) {
-
                                             foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2)) {
                                                 if (child2 is Grid grid2) {
-
                                                     foreach (var grid2Child in grid2.Children) {
                                                         if (grid2Child is ListView listview) {
-
                                                             List<CheckBox> availableCheckBoxes = new List<CheckBox>();
                                                             foreach (var checkbox in listview.Items) {
                                                                 if (checkbox is CheckBox cb && !cb.Name.StartsWith("Sa")) {
                                                                     availableCheckBoxes.Add(cb);
                                                                 }
                                                             }
-
                                                             foreach (var listviewItem in listview.Items) {
                                                                 if (listviewItem is CheckBox cb && cb.Name.StartsWith("Sa")) {
                                                                     if (availableCheckBoxes.All(box => box.IsChecked == true)) {
@@ -323,10 +295,7 @@ namespace Guideviewer {
                                                                     } else if (availableCheckBoxes.All(box => box.IsChecked == false)) {
                                                                         cb.IsChecked = false;
                                                                     } 
-                                                                }
-                                                            }
-            }   }   }   }   }   }   }   }   }   }   }   }
-
+            }   }   }   }   }   }   }   }   }   }   }   }   }   }
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
     }

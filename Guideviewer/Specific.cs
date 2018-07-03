@@ -1,4 +1,7 @@
-﻿using static Guideviewer.MainWindow;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Controls;
+using static Guideviewer.MainWindow;
 
 namespace Guideviewer {
     class Specific {
@@ -15,8 +18,16 @@ namespace Guideviewer {
             }
         }
 
-        public static void CheckBoxRemover() {
-
+        public static void CheckBoxRemover(Dictionary<string, bool> checkboxesBoolDictionary, CheckBox cb, string shortString, string longString) {
+            if (checkboxesBoolDictionary.TryGetValue(cb.Name, out bool isTrue)) {
+                for (int i = ColumnList.Count - 1; i >= 2; i--) {
+                    for (int j = ColumnList[0].Length - 1; j >= 0; j--) {
+                        if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[i][j].Contains(longString)) {
+                            ColumnList[i][j] = ColumnList[i][j].Replace(ColumnList[i][j], "");
+                        }
+                    }
+                }
+            }
         }
     }
 }

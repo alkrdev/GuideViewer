@@ -8,7 +8,6 @@
     <Grid>
         <DataGrid Name="MyDataGrid" 
                   AutoGenerateColumns="False"
-                  Background="#FF212121"
                   VerticalScrollBarVisibility="Auto" 
                   HeadersVisibility="Column"
                   CanUserSortColumns="False"
@@ -17,8 +16,7 @@
                   MinColumnWidth="240" 
                   Margin="0,25,0,0" 
                   MinRowHeight="30"
-                  HorizontalGridLinesBrush="DarkGray"
-                  VerticalGridLinesBrush="DarkGray">
+                  GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Quest / Train To" Binding="{Binding Qt}" Foreground="#FF5191BB">
                     <DataGridTextColumn.MinWidth>262</DataGridTextColumn.MinWidth>
@@ -38,7 +36,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
@@ -60,7 +58,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
@@ -82,7 +80,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
@@ -104,7 +102,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
@@ -126,7 +124,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
@@ -148,7 +146,7 @@
                     <DataGridTextColumn.CellStyle>
                         <Style>
                             <Setter Property="DataGridCell.Background" Value="Black"/>
-                            <Setter Property="DataGridCell.Padding" Value="3"/>
+                            <Setter Property="DataGridCell.BorderBrush" Value="Gray"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
