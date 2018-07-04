@@ -23,7 +23,7 @@ namespace Guideviewer {
                 for (int i = ColumnList.Count - 1; i >= 2; i--) {
                     for (int j = ColumnList[0].Length - 1; j >= 0; j--) {
                         if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[i][j].Contains(longString)) {
-                            ColumnList[i][j] = ColumnList[i][j].Replace(ColumnList[i][j], "");
+                            ColumnList[i][j] = ColumnList[i][j].Remove(ColumnList[i][j].IndexOf(ColumnList[i][j], ColumnList[i][j].Length, StringComparison.Ordinal));
                         }
                     }
                 }

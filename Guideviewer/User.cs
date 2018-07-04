@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Media;
 using static Guideviewer.MainWindow;
 
 namespace Guideviewer {
@@ -51,6 +53,10 @@ namespace Guideviewer {
                     string combined = SkillNames[b] + " to ";
 
                         if (ColumnList[0][index].Contains(combined)) {
+
+                            if (combined.Contains("Fletching")) {
+                                MessageBox.Show("Contains Fletching");
+                            }
 
                             //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
                             string extract = combined + ColumnList[0][index].Substring(

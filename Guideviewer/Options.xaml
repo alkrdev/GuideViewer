@@ -86,14 +86,14 @@
                                     <CheckBox Name="Swb2" Checked="Check" Unchecked="UnCheck" Content="Swept Away second"/>
                                     <CheckBox Name="Swb3" Checked="Check" Unchecked="UnCheck" Content="Swept Away third"/>
                                     <CheckBox Name="Swb4" Checked="Check" Unchecked="UnCheck" Content="Swept Away fourth"/>
-                                    <CheckBox Name="Trg" Checked="Check" Unchecked="UnCheck" Content="The Restless Ghost - Ancient Bones"/>
-                                    <CheckBox Name="Ech" Checked="Check" Unchecked="UnCheck" Content="Ernest The Chicken - Feathers/Eggs"/>
-                                    <CheckBox Name="Rex" Checked="Check" Unchecked="UnCheck" Content="Rune Memories - Experience"/>
-                                    <CheckBox Name="Res" Checked="Check" Unchecked="UnCheck" Content="Rune Memories - Essence"/>
-                                    <CheckBox Name="Dve" Checked="Check" Unchecked="UnCheck" Content="Defender of Varrock - Experience"/>
-                                    <CheckBox Name="Bce" Checked="Check" Unchecked="UnCheck" Content="Buyers And Cellars - Experience"/>
-                                    <CheckBox Name="Dta" Checked="Check" Unchecked="UnCheck" Content="Desert Treasure - Ancient Staff"/>
-                                    <CheckBox Name="Hse" Checked="Check" Unchecked="UnCheck" Content="Heart of Stone - Experience"/>
+                                    <CheckBox Name="Trg" Checked="Check" Unchecked="UnCheck" Content="Ancient Bones"/>
+                                    <CheckBox Name="Ech" Checked="Check" Unchecked="UnCheck" Content="Professor Oddenstein"/>
+                                    <CheckBox Name="Rex" Checked="Check" Unchecked="UnCheck" Content="Rune Memories - 10k Prayer"/>
+                                    <CheckBox Name="Res" Checked="Check" Unchecked="UnCheck" Content="Archmage Sedridors Chest"/>
+                                    <CheckBox Name="Dve" Checked="Check" Unchecked="UnCheck" Content="Ramarno - Redberry pie"/>
+                                    <CheckBox Name="Bce" Checked="Check" Unchecked="UnCheck" Content="Thieving Guild Dummy"/>
+                                    <CheckBox Name="Dta" Checked="Check" Unchecked="UnCheck" Content="Ancient Staff"/>
+                                    <CheckBox Name="Hse" Checked="Check" Unchecked="UnCheck" Content="Heart of Stone - Medium Experience Lamp"/>
                                     <CheckBox Name="Crv" Checked="Check" Unchecked="UnCheck" Content="Carnillean Rising - Varies"/>
                                     <CheckBox Name="Cas" Checked="Check" Unchecked="UnCheck" Content="Cook's Assistant - Sardines"/>
                                     <CheckBox Name="Bre" Checked="Check" Unchecked="UnCheck" Content="Blood Runs Deep - Experience"/>
@@ -103,7 +103,7 @@
                                     <CheckBox Name="Ooe" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind - Experience"/>
                                     <CheckBox Name="Oos" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind 2 - Statue Experience"/>
                                 </ListView>
-                                <ListView Name="MqPqRe2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,0,0,0">
+                                <ListView Name="MqPqRe2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="259,0,0,0">
                                     <Label Content=" - Rewards 2 - "/>
                                     <CheckBox Name="Sa06" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox Name="Hsp" Checked="Check" Unchecked="UnCheck" Content="Heart of Stone - Pet"/>
@@ -124,7 +124,7 @@
                                     <CheckBox Name="Roo" Checked="Check" Unchecked="UnCheck" Content="Rocking Out - Coins"/>
                                     <CheckBox Name="Bts" Checked="Check" Unchecked="UnCheck" Content="Enlightened Journey - Transport"/>
                                 </ListView>
-                                <ListView Name="MqPqRe3"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="451,0,0,0">
+                                <ListView Name="MqPqRe3"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,0,0,0">
                                     <Label Content=" - Rewards 3 - "/>
                                     <CheckBox Name="Sa07" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox Name="Wge" Checked="Check" Unchecked="UnCheck" Content="While Guthix Sleeps - Experience"/>
@@ -360,7 +360,7 @@
                                 <ListView Name="MqArAr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="354,0,0,0">
                                     <Label Content=" - Areas - "/>
                                     <CheckBox Name="Sa23" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="Fts" Checked="Check" Unchecked="UnCheck" Content="Fairy Tale III - Shortcut"/>
+                                    <CheckBox Name="Fts" Checked="Check" Unchecked="UnCheck" Content="Fairy Tale III - Shortcuts"/>
                                     <CheckBox Name="Dno" Checked="Check" Unchecked="UnCheck" Content="Do No Evil - Treasure Room"/>
                                     <CheckBox Name="Wtl" Checked="Check" Unchecked="UnCheck" Content="Within the Light - Teleport"/>
                                     <CheckBox Name="Dsd" Checked="Check" Unchecked="UnCheck" Content="Dragon Slayer - Door"/>
@@ -545,17 +545,17 @@
                                     <Label Content=" - Doric and Boric tasks - "/>
                                     <!-- ReSharper disable InconsistentNaming -->
                                     <CheckBox Name="Sa30" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox Name="D1c" Checked="Check" Unchecked="UnCheck" Content="Doric 1"/>
-                                    <CheckBox Name="D2c" Checked="Check" Unchecked="UnCheck" Content="Doric 2"/>
-                                    <CheckBox Name="D3c" Checked="Check" Unchecked="UnCheck" Content="Doric 3"/>
-                                    <CheckBox Name="D4c" Checked="Check" Unchecked="UnCheck" Content="Doric 4"/>
-                                    <CheckBox Name="D5c" Checked="Check" Unchecked="UnCheck" Content="Doric 5"/>
-                                    <CheckBox Name="D6c" Checked="Check" Unchecked="UnCheck" Content="Doric 6"/>
-                                    <CheckBox Name="D7c" Checked="Check" Unchecked="UnCheck" Content="Doric 7"/>
-                                    <CheckBox Name="D8c" Checked="Check" Unchecked="UnCheck" Content="Doric 8"/>
-                                    <CheckBox Name="B1c" Checked="Check" Unchecked="UnCheck" Content="Boric 1"/>
-                                    <CheckBox Name="B2c" Checked="Check" Unchecked="UnCheck" Content="Boric 2"/>
-                                    <CheckBox Name="B3c" Checked="Check" Unchecked="UnCheck" Content="Boric 3"/>
+                                    <CheckBox Name="D1c" Checked="Check" Unchecked="UnCheck" Content="Doric's first"/>
+                                    <CheckBox Name="D2c" Checked="Check" Unchecked="UnCheck" Content="Doric's second"/>
+                                    <CheckBox Name="D3c" Checked="Check" Unchecked="UnCheck" Content="Doric's third"/>
+                                    <CheckBox Name="D4c" Checked="Check" Unchecked="UnCheck" Content="Doric's fourth"/>
+                                    <CheckBox Name="D5c" Checked="Check" Unchecked="UnCheck" Content="Doric's fifth"/>
+                                    <CheckBox Name="D6c" Checked="Check" Unchecked="UnCheck" Content="Doric's sixth"/>
+                                    <CheckBox Name="D7c" Checked="Check" Unchecked="UnCheck" Content="Doric's seventh"/>
+                                    <CheckBox Name="D8c" Checked="Check" Unchecked="UnCheck" Content="Doric's eighth"/>
+                                    <CheckBox Name="B1c" Checked="Check" Unchecked="UnCheck" Content="Boric's first"/>
+                                    <CheckBox Name="B2c" Checked="Check" Unchecked="UnCheck" Content="Boric's second"/>
+                                    <CheckBox Name="B3c" Checked="Check" Unchecked="UnCheck" Content="Boric's third"/>
                                     <!-- ReSharper restore InconsistentNaming -->
                                 </ListView>
                                 <ListView Name="CoSkEt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,0,0,0">
