@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Media;
 using static Guideviewer.MainWindow;
 
 namespace Guideviewer {
@@ -53,36 +52,18 @@ namespace Guideviewer {
                     string combined = SkillNames[b] + " to ";
 
                         if (ColumnList[0][index].Contains(combined)) {
-
-                            if (combined.Contains("Fletching")) {
-                                MessageBox.Show("Contains Fletching");
-                            }
-
+                            
                             //Create a new string that starts with "Attack to ", and has a problematic number added to it - Example: "Attack to 96]"
                             string extract = combined + ColumnList[0][index].Substring(
                                                  ColumnList[0][index].IndexOf(combined, 3, StringComparison.Ordinal) +
                                                  combined.Length, 3);
 
                             if (extract.EndsWith("]")) {
-                                extract = extract.Remove(extract.LastIndexOf(']'),
-                                    1); //Remove the problematic symbol "]" - End of string
-                            }
-                            else if (extract.EndsWith(",")) {
-                                extract = extract.Remove(extract.LastIndexOf(','),
-                                    1); //Remove the problematic symbol "," - Before comma
-                            }
-                            else if (extract.EndsWith(" ")) {
-                                extract = extract.Remove(extract.LastIndexOf(' '),
-                                    1); //Remove the problematic symbol " " - Before space
-                            }
-                            else if (extract.EndsWith("a")) {
-                                extract = extract.Remove(extract.LastIndexOf('a'),
-                                    1); //Remove the problematic symbol "a" - Before and
+                                extract = extract.Remove(extract.LastIndexOf(']'), 1); //Remove the problematic symbol "]" - End of string
                             }
 
                             //If the userdatas level is bigger than what I am expecting, do the following:
-                            int extracted = Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", ""));
-                            if (extracted <= Levels[b].Item2) {
+                            if (Convert.ToInt32(extract.Substring(extract.IndexOf(combined, 1, StringComparison.Ordinal) + combined.Length).Replace(" ", "")) <= Levels[b].Item2) {
                                 ColumnList[0][index] = ColumnList[0][index].Replace(extract, "");
                             }
 
@@ -93,7 +74,7 @@ namespace Guideviewer {
                                         Specific.Remover("Scorpion Catcher", "Barcrawl Miniquest", t);
                                         Specific.Remover("Nomad's Requiem", "Soul Wars Tutorial", t);
                                         Specific.Remover("Children of Mah", "Koschei's Troubles miniquest", t);
-                                        Specific.Remover("While Guthix Sleeps","Chaos Tunnels: Hunt for Surok miniquest", t);
+                                        Specific.Remover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
                                         Specific.Remover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
                                         Specific.Remover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
                                         Specific.Remover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
@@ -101,47 +82,17 @@ namespace Guideviewer {
                                         ColumnList[0][j] = ColumnList[0][j].Remove(0);
                                         if (ColumnList[1][j] != "") {
                                             ColumnList[1][j] = ColumnList[1][j].Remove(0);
-                                        }
-                                    }
-                                }
-                            }
-
-                            //Remove instances of example: "Attack to ," - Redundant
-                            if (ColumnList[0][index].Contains(" ,")) {
-                                ColumnList[0][index] = ColumnList[0][index].Replace(" ,", "");
-                            }
+                            }}}}
                             
                             //Cleanup Switch-statement
-                            switch (ColumnList[0][index]) {
-                                case "[Train ]":
-                                case "[Train and ]":
-                                case "[Train  and ]":
-                                case "[Train ,  and ]":
-                                case "[Train , ,  and ]":
-                                case "[Train , , ,  and ]":
-                                case "[Train , , , ,  and ]":
-                                case "[Train , , , , ,  and ]":
-                                case "[Train  and  [OPTIONAL]]":
-                                case "[Train ,  and  [OPTIONAL]]":
-                                    ColumnList[0][index] = ColumnList[0][index].Replace(ColumnList[0][index], "");
-                                    break;
+                            if (ColumnList[0][index] == "[Train ]") {
+                                ColumnList[0][index] = ColumnList[0][index].Replace(ColumnList[0][index], "");
                             }
 
-                            if (ColumnList[0][index].EndsWith(" and ]")) {
-                                ColumnList[0][index] = ColumnList[0][index].Replace(" and ]", "]");
-                            }
 
                             foreach (var col in ColumnList) {
                                 for (var index1 = 0; index1 < ColumnList[0].Length; index1++) {
                                     if (col[index1] == " " && col[index1] != "") {
                                         col[index1] = col[index1].Remove(0);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+        }}}}}}}}}
 }
