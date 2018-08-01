@@ -18,16 +18,19 @@ namespace Guideviewer
 
         private UserCredential _credential;
 
-        public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit() {
+        public SpreadsheetsResource.ValuesResource.GetRequest GoogleRequestInit()
+        {
 
             SheetsService service;
 
             //Everytime I mistakenly push the correct link, I revoke the access of the link.
-            using (WebClient wc = new WebClient()) {
+            using (WebClient wc = new WebClient())
+            {
                 wc.DownloadFile(URLReturner("[REDACTED]"), "\\client_secret.json");
 
                 using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read,
-                    FileShare.Delete, Int16.MaxValue, FileOptions.DeleteOnClose)) {
+                    FileShare.Delete, Int16.MaxValue, FileOptions.DeleteOnClose))
+                {
                     _credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None,
                         new FileDataStore(
@@ -35,7 +38,8 @@ namespace Guideviewer
                                 ".credentials\\"), true)).Result;
                 }
 
-                service = new SheetsService(new BaseClientService.Initializer {
+                service = new SheetsService(new BaseClientService.Initializer
+                {
                     HttpClientInitializer = _credential,
                     ApplicationName = "GuideViewer"
                 });
