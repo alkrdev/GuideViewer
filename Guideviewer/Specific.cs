@@ -32,9 +32,11 @@ namespace Guideviewer {
                 {
                     for (int j = ColumnList[0].Length - 1; j >= 0; j--)
                     {
-                        if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[i][j].Contains(longString))
+                        string v = ColumnList[i][j];
+                        if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && v.Contains(longString))
                         {
-                            ColumnList[i][j] = ColumnList[i][j].Remove(ColumnList[i][j].IndexOf(ColumnList[i][j], ColumnList[i][j].Length, StringComparison.Ordinal));
+                            
+                            v = v.Remove(v.IndexOf(v, v.Length, StringComparison.Ordinal));
                         }
                     }
                 }

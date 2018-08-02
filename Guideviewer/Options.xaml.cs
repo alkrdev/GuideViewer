@@ -6,6 +6,8 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using System.Windows.Navigation;
+using System.Diagnostics;
 
 namespace Guideviewer {
     public partial class Options
@@ -116,6 +118,12 @@ namespace Guideviewer {
             for (int i = 0; i < SelectAllCheckBoxes.Count; i++)
             {
                 ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(SelectAllCheckBoxes[i], ListViews[i]));
+
+                //MessageBox.Show(SelectAllCheckBoxes[i].Name);
+
+                //MessageBox.Show("ListViewSelectAllList Count: " + ListViewSelectAllList.Count + " - ListViewSelectAllList Capacity: " + ListViewSelectAllList.Capacity + Environment.NewLine +
+                //                "SelectAllCheckBoxes Count: " + SelectAllCheckBoxes.Count + " - SelectAllCheckBoxes Capacity: " + SelectAllCheckBoxes.Capacity + Environment.NewLine +
+                //                "ListViews Count: " + ListViews.Count + " - ListViews Capacity: " + ListViews.Capacity);
             }
 
             foreach (var list in new List<List<CheckBox>>
@@ -229,73 +237,64 @@ namespace Guideviewer {
                 }
 
                 // Select All Control
-                foreach (var tuple in ListViewSelectAllList)
+                if (!senderBox.Name.StartsWith("Sa")) return;
+                foreach (var listViewChild in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(senderBox)))
                 {
-                    if (Equals(Sa03, sender) && Equals(tuple.Item1, sender))
+                    if (listViewChild is CheckBox cb)
                     {
-                        if (CheckboxesDictionary.TryGetValue(Sa03.Name, out var dbList))
+                        if (Equals(Sa03, senderBox))
                         {
-                            foreach (var cb in dbList)
+                            foreach (var listViewChild2 in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(Sa30)))
                             {
                                 cb.IsChecked = boolean;
-                                SelectAll(boolean, tuple);
                             }
+                            cb.IsChecked = boolean;
                         }
-                        else if (CheckboxesDictionary.TryGetValue(Sa30.Name, out var dbList2))
+                        else if (Equals(Sa30, senderBox))
                         {
-                            foreach (var cb in dbList2)
+                            foreach (var listViewChild3 in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(Sa03)))
                             {
                                 cb.IsChecked = boolean;
-                                SelectAll(boolean, tuple);
                             }
+                            cb.IsChecked = boolean;
                         }
-                    }
-                    else
-                    {
-                        SelectAll(boolean, tuple);
-                    }
-                }
-            }
-
-
-            if (sender is Button senderButton)
-            {
-                // Main Media Control
-                switch (senderButton.Name)
-                {
-                    case "CiControlPlay":
-                        switch (CiControlPlay.Content.ToString())
+                        else
                         {
-                            case "Play":
-                                ChimpIce.Play();
-                                CiControlPlay.Content = "Pause";
-                                break;
-                            case "Pause":
-                                ChimpIce.Pause();
-                                CiControlPlay.Content = "Play";
-                                break;
+                            cb.IsChecked = boolean;
                         }
-
-                        break;
-                    case "CiControlReset":
-                        ChimpIce.Stop();
-                        CiControlPlay.Content = "Play";
-                        break;
+                    }
+                    
                 }
             }
-        }
 
-        private static void SelectAll(bool boolean, Tuple<CheckBox, ListView> tuple)
-        {
-            foreach (var t in tuple.Item2.Items)
-            {
-                if (t is CheckBox checkbox)
-                {
-                    checkbox.IsChecked = boolean;
-                }
-            }
-        }
 
+            //if (sender is Button senderButton)
+            //{
+            //    // Main Media Control
+            //    switch (senderButton.Name)
+            //    {
+            //        case "CiControlPlay":
+            //            switch (CiControlPlay.Content.ToString())
+            //            {
+            //                case "Play":
+            //                    ChimpIce.Play();
+            //                    CiControlPlay.Content = "Pause";
+            //                    break;
+            //                case "Pause":
+            //                    ChimpIce.Pause();
+            //                    CiControlPlay.Content = "Play";
+            //                    break;
+            //            }
+
+            //            break;
+            //        case "CiControlReset":
+            //            ChimpIce.Stop();
+            //            CiControlPlay.Content = "Play";
+            //            break;
+            //    }
+            //}
+        }
+        
         private void OnApplyOptions(object sender, RoutedEventArgs e)
         {
             HasApplied = true;
@@ -403,9 +402,10 @@ namespace Guideviewer {
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
 
-        private void Reb_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

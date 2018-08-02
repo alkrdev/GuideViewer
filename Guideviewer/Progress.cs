@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using Microsoft.Win32;
 using static System.Convert;
 using static Guideviewer.User;
@@ -10,20 +11,21 @@ namespace Guideviewer {
 
         public static string FileUserName;
 
-        public string[] Categories = { "", "", "" };
+        public string[] Categories;
 
         public void ExtractInsert(string[] userSkillData, User user, int i, bool online)
         {
-            if (i < 27)
+            user.SkillsDictionary.Clear();
+            for (int j = 0; j < SkillNames.Count; j++)
             {
                 if (online)
                 {
-                    Categories = userSkillData[i].Split(',');
+                    Categories = userSkillData[j].Split(',');
                 }
-                else if (!online)
+                else
                 {
-                    userSkillData[27] = "";
-                    Categories[1] = userSkillData[i].Substring(userSkillData[i].IndexOf(':') + 2);
+                    userSkillData[SkillNames.Count] = "";
+                    Categories[1] = userSkillData[j].Substring(userSkillData[i].IndexOf(':') + 2);
                 }
             }
 
@@ -32,7 +34,9 @@ namespace Guideviewer {
             {
                 LoadedSkillLevels[i] = ToInt32(Categories[1]);
             }
-            Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
+            
+            user.SkillsDictionary.Add(SkillNames[i], LoadedSkillLevels[i]);
+            //Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
         }
 
         public static void Save(string userQuestData, string username, User user, StreamWriter sw, string checkboxStringSave)
@@ -82,7 +86,7 @@ namespace Guideviewer {
                     Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
                 }
 
-                LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, user, false);
+                Loading.LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, user, false);
             }
         }
     }
