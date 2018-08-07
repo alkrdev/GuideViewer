@@ -6,13 +6,12 @@ namespace Guideviewer
 {
     public class Loading
     {
-        protected static Progress Pr = new Progress();
    
 
         public static void LoadUser(string userquestData, string[] userskillData, bool online)
         {
             //Loop through the amount of skills
-            Pr.ExtractInsert(userskillData, online);
+            Progress.ExtractInsert(userskillData, online);
             
             for (int i = 1; i < ColumnList[0].Length; i++)
             {

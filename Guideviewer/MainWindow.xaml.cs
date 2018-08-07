@@ -248,9 +248,6 @@ namespace Guideviewer
 
                 foreach (var cb in AllCheckBoxes)
                 {
-                    MessageBox.Show("First: " + cb.Name + Environment.NewLine +
-                                    "Second: " + cb.Content);
-
                     Specific.CheckBoxRemover(CheckboxesBoolDictionary, cb, NameCompareTuples[p].Item1, NameCompareTuples[p].Item2);
                     p++;
                 }

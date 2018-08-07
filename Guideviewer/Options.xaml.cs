@@ -115,13 +115,9 @@ namespace Guideviewer {
             for (int i = 0; i < SelectAllCheckBoxes.Count; i++)
             {
                 ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(SelectAllCheckBoxes[i], ListViews[i]));
-
-                //MessageBox.Show(SelectAllCheckBoxes[i].Name);
-
-                //MessageBox.Show("ListViewSelectAllList Count: " + ListViewSelectAllList.Count + " - ListViewSelectAllList Capacity: " + ListViewSelectAllList.Capacity + Environment.NewLine +
-                //                "SelectAllCheckBoxes Count: " + SelectAllCheckBoxes.Count + " - SelectAllCheckBoxes Capacity: " + SelectAllCheckBoxes.Capacity + Environment.NewLine +
-                //                "ListViews Count: " + ListViews.Count + " - ListViews Capacity: " + ListViews.Capacity);
             }
+
+
 
             foreach (var list in new List<List<CheckBox>>
             {
@@ -215,11 +211,8 @@ namespace Guideviewer {
             }
         }
 
-        private void Check(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true);}
-        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
         
-        //private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
-
+        
         private void Switch(object sender, bool boolean)
         {
             if (sender is CheckBox senderBox)
@@ -291,16 +284,6 @@ namespace Guideviewer {
             //    }
             //}
         }
-        
-        private void OnApplyOptions(object sender, RoutedEventArgs e)
-        {
-            HasApplied = true;
-            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
-            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
-
-            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
-        }
-
         public static string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary) {
             CheckboxesBoolDictionary.Clear();
             string str = "";
@@ -322,6 +305,16 @@ namespace Guideviewer {
             return str;
         }
 
+        private void OnApplyOptions(object sender, RoutedEventArgs e)
+        {
+            HasApplied = true;
+            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
+            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
+
+            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
+        }
+        private void Check(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true);}
+        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
         private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -406,11 +399,14 @@ namespace Guideviewer {
             }
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
-
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+        
+        
+        
+        
     }
 }
