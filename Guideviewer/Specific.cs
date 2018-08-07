@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using static Guideviewer.MainWindow;
 
@@ -32,11 +33,9 @@ namespace Guideviewer {
                 {
                     for (int j = ColumnList[0].Length - 1; j >= 0; j--)
                     {
-                        string v = ColumnList[i][j];
-                        if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && v.Contains(longString))
-                        {
+                        if (string.Equals(cb.Name.ToLower(), shortString.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[i][j].Contains(longString)) {
                             
-                            v = v.Remove(v.IndexOf(v, v.Length, StringComparison.Ordinal));
+                            ColumnList[i][j] = ColumnList[i][j].Remove(0);
                         }
                     }
                 }

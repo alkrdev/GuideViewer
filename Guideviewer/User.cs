@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
-using static Guideviewer.MainWindow;
 
 namespace Guideviewer
 {
     public class User
     {
-
         //List of all skillnames in the game
         public static List<string> SkillNames = new List<string>
         {
@@ -43,9 +40,8 @@ namespace Guideviewer
         };
 
 
-        public Dictionary<string, int> SkillsDictionary = new Dictionary<string, int>();
-
-
+        public static Dictionary<string, int> SkillsDictionary = new Dictionary<string, int>();
+        
         //Storage of  the users data
         public static int[] LoadedSkillLevels = new int[SkillNames.Count];
         public static int[] LoadedSkillExperiences = new int[SkillNames.Count];
@@ -53,12 +49,8 @@ namespace Guideviewer
         //Combination of the users data
         public static Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[SkillNames.Count];
 
-        public static Progress Pr = new Progress();
-
         public static int[] DefaultCbList = new int[512];
-        public static int[] DefaultIntArray = DefaultCbList.Select(i => 1).ToArray();
-        public static string DefaultIntString = DefaultIntArray.ToString();
-
-  
+        public static int[] DefaultIntArray = DefaultCbList.Select(i => 0).ToArray();
+        public static string DefaultIntArrayString = string.Join(",", DefaultIntArray);
     }
 }

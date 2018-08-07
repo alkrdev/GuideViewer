@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using static Guideviewer.MainWindow;
+using static Guideviewer.User;
 
 namespace Guideviewer
 {
@@ -13,41 +9,36 @@ namespace Guideviewer
         protected static Progress Pr = new Progress();
    
 
-        public static void LoadUser(string userquestData, string[] userskillData, User user, bool online)
+        public static void LoadUser(string userquestData, string[] userskillData, bool online)
         {
-
             //Loop through the amount of skills
-            for (int i = 1; i < User.SkillNames.Count; i++)
-            {
-                Pr.ExtractInsert(userskillData, user, i, online);
-            }
-
+            Pr.ExtractInsert(userskillData, online);
+            
             for (int i = 1; i < ColumnList[0].Length; i++)
             {
-                string rowData = ColumnList[0][i];
-                if (rowData.StartsWith("[Train"))
+                if (ColumnList[0][i].StartsWith("[Train"))
                 {
-                    foreach (var skill in User.SkillNames)
+                    foreach (var skill in SkillNames)
                     {
                         if (skill == "Total")
                         {
                             continue;
                         }
-                        if (rowData.Contains(skill))
+                        if (ColumnList[0][i].Contains(skill))
                         {
                             var focusSkill = skill;
                             string distance = "[Train " + focusSkill + " to ";
-                            var substring = rowData.Substring(distance.Length);
+                            var substring = ColumnList[0][i].Substring(distance.Length);
                             var replace = substring.Replace("]", "");
                             var replaceA = replace.Replace("[OPTIONAL", "");
                             var focusLevel = Convert.ToInt32(replaceA);
 
                             //If the userdatas level is bigger than what I am expecting, do the following:
-                            if (user.SkillsDictionary.TryGetValue(focusSkill, out int value))
+                            if (SkillsDictionary.TryGetValue(focusSkill, out int value))
                             {
                                 if (focusLevel <= value)
                                 {
-                                    rowData = rowData.Remove(0);
+                                    ColumnList[0][i] = ColumnList[0][i].Remove(0);
                                 }
                             }
                         }
@@ -61,15 +52,8 @@ namespace Guideviewer
                 {
                     if (t.Title == ColumnList[0][j] && t.Status == Status.Completed)
                     {
-                        Specific.Remover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                        Specific.Remover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                        Specific.Remover("Children of Mah", "Koschei's Troubles miniquest", t);
-                        Specific.Remover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
-                        Specific.Remover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
-                        Specific.Remover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
-                        Specific.Remover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
-
                         ColumnList[0][j] = ColumnList[0][j].Remove(0);
+
                         if (ColumnList[1][j] != "")
                         {
                             ColumnList[1][j] = ColumnList[1][j].Remove(0);
@@ -78,14 +62,23 @@ namespace Guideviewer
 
                         foreach (var col in ColumnList)
                         {
-                            for (var index1 = 0; index1 < ColumnList[0].Length; index1++)
+                            for (var i = 0; i < ColumnList[0].Length; i++)
                             {
-                                if (col[index1] == " " && col[index1] != "")
+                                if (col[i] == " " && col[i] != "")
                                 {
-                                    col[index1] = col[index1].Remove(0);
+                                    col[i] = col[i].Remove(0);
                                 }
                             }
                         }
+
+                        Specific.Remover("Scorpion Catcher", "Barcrawl Miniquest", t);
+                        Specific.Remover("Nomad's Requiem", "Soul Wars Tutorial", t);
+                        Specific.Remover("Children of Mah", "Koschei's Troubles miniquest", t);
+                        Specific.Remover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
+                        Specific.Remover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
+                        Specific.Remover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
+                        Specific.Remover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
+
                     }
                 }
             }

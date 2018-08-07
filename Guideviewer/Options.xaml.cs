@@ -31,10 +31,7 @@ namespace Guideviewer {
         // ReSharper disable once RedundantDefaultMemberInitializer
         // Has the user clicked Apply?
         public static bool HasApplied = false;
-
-        // The boolean string for checkboxes, used in save/load
-        public string CheckboxStringSave;
-
+        
         // The username, captured when the user clicks "Apply"
         public string ApplyUserName
         {
@@ -221,7 +218,7 @@ namespace Guideviewer {
         private void Check(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true);}
         private void UnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
         
-        private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
+        //private void Media(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
 
         private void Switch(object sender, bool boolean)
         {
@@ -298,8 +295,15 @@ namespace Guideviewer {
         private void OnApplyOptions(object sender, RoutedEventArgs e)
         {
             HasApplied = true;
-            CheckboxStringSave = "";
+            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
+            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
+
+            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
+        }
+
+        public static string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary) {
             CheckboxesBoolDictionary.Clear();
+            string str = "";
 
             foreach (var cb in AllCheckBoxes)
             {
@@ -307,37 +311,38 @@ namespace Guideviewer {
                 {
                     case true:
                         CheckboxesBoolDictionary.Add(cb.Name, true);
-                        CheckboxStringSave += "1,";
+                        str += "1,";
                         break;
                     case false:
                         CheckboxesBoolDictionary.Add(cb.Name, false);
-                        CheckboxStringSave += "0,";
+                        str += "0,";
                         break;
                 }
             }
-
-            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
-
-            Progress.Save(v, ApplyUserName, new User(), new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave);
+            return str;
         }
 
         private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
+            string checkboxString = null;
+
             if (ofd.ShowDialog() == true)
             {
                 string v = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
                 if (v.EndsWith(","))
                 {
-                    CheckboxStringSave = v.Remove(v.LastIndexOf(','));
+                    checkboxString = v.Remove(v.LastIndexOf(','));
                 }
 
-                int[] checkBoxIntArray = Array.ConvertAll(CheckboxStringSave.Split(','), int.Parse);
+                if (checkboxString != null) {
+                    int[] checkBoxIntArray = Array.ConvertAll(checkboxString.Split(','), int.Parse);
 
-                for (var index = 0; index < checkBoxIntArray.Length; index++)
-                {
-                    AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
+                    for (var index = 0; index < checkBoxIntArray.Length; index++)
+                    {
+                        AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
+                    }
                 }
             }
 

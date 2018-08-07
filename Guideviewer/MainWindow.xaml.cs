@@ -65,28 +65,24 @@ namespace Guideviewer
             if (!HasLoaded)
             {
                 HasLoaded = true;
-                //try
-                //{
+                try
+                {
                     Loading.LoadUser(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                   //UserQuestData
                          new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
-                         new User(), true);
-
-                    if (!File.Exists($"{UrlUserName}.txt"))
-                    {
-                        Save(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
-                            UrlUserName, new User(), new StreamWriter($"{UrlUserName}.txt"), DefaultIntString
-                        );
-                    }
-                //}
-                //catch (Exception d)
-                //{
-                //    MessageBox.Show(
-                //        $"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
-                //}
-                //finally
-                //{
-                //    MessageBox.Show("User was successfully loaded, please \"Reload\"");
-                //}
+                         true);
+                    SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
+                        UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString
+                    );
+                }
+                catch (Exception d)
+                {
+                    MessageBox.Show(
+                        $"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
+                }
+                finally
+                {
+                    MessageBox.Show("User was successfully loaded, please \"Reload\"");
+                }
             }
             else if (HasLoaded)
             {
@@ -199,7 +195,7 @@ namespace Guideviewer
         {
             try
             {
-                Load(new User());
+                Load();
                 HasLoaded = false;
             }
             catch (Exception exception)
