@@ -8,25 +8,13 @@ using System.Windows.Controls;
 using Microsoft.Win32;
 using System.Windows.Navigation;
 using System.Diagnostics;
+using static Guideviewer.Data;
 
 namespace Guideviewer {
     public partial class Options
     {
-        // Dictionary to keep track of all CheckBoxes
-        public static readonly Dictionary<string, List<CheckBox>> CheckboxesDictionary = new Dictionary<string, List<CheckBox>>();
-        // Dictionary to keep track of all bool values of CheckBoxes
-        public static readonly Dictionary<string, bool> CheckboxesBoolDictionary = new Dictionary<string, bool>();
+        
 
-        // List of all "Select All" Checkboxes
-        public static readonly List<Tuple<CheckBox, ListView>> ListViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
-        // List of tuples that contain almost identical names
-        public static readonly List<Tuple<string, string>> NameCompareTuples = new List<Tuple<string, string>>();
-        // List of all "Select All" Checkboxes
-        public static readonly List<CheckBox> SelectAllCheckBoxes = new List<CheckBox>();
-        // List of all Checkboxes
-        public static readonly List<CheckBox> AllCheckBoxes = new List<CheckBox>();
-        // List of all Listviews
-        public static readonly List<ListView> ListViews = new List<ListView>();
 
         // ReSharper disable once RedundantDefaultMemberInitializer
         // Has the user clicked Apply?
@@ -114,10 +102,8 @@ namespace Guideviewer {
 
             for (int i = 0; i < SelectAllCheckBoxes.Count; i++)
             {
-                ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(SelectAllCheckBoxes[i], ListViews[i]));
+               ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(SelectAllCheckBoxes[i], ListViews[i]));
             }
-
-
 
             foreach (var list in new List<List<CheckBox>>
             {
@@ -150,7 +136,7 @@ namespace Guideviewer {
                 new List<CheckBox> {Ttr, Ttrc}, // The Lair of Tarn Razorlor
                 new List<CheckBox> {Rco, Rcoc}, // Removing Corruption
                 new List<CheckBox> {Hsw, Hswc}, // Hopespear's Will
-                                                
+
 
                 new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
                 new List<CheckBox> {D1, D1c}, // Doric Tasks
@@ -160,8 +146,8 @@ namespace Guideviewer {
                 new List<CheckBox> {D5, D5c},
                 new List<CheckBox> {D6, D6c},
                 new List<CheckBox> {D7, D7c},
-                new List<CheckBox> {D8, D8c},                
-                new List<CheckBox> {B1, B1c},// Boric Tasks
+                new List<CheckBox> {D8, D8c},
+                new List<CheckBox> {B1, B1c}, // Boric Tasks
                 new List<CheckBox> {B2, B2c},
                 new List<CheckBox> {B3, B3c},
 
@@ -186,20 +172,19 @@ namespace Guideviewer {
                 new List<CheckBox> {Fta, Ftat}, // From Tiny Acorns
                 new List<CheckBox> {Lhm, Lhmt}, // Lost Her Marbles
                 new List<CheckBox> {Ago, Agot}, // A Guild of Our Own
-                
+
                 new List<CheckBox> {Swb, Swbt}, // Advanced Sweeping
                 new List<CheckBox> {Swb2, Swb2t},
-                new List<CheckBox> {Swb3, Swb3t}, 
-                new List<CheckBox> {Swb4, Swb4t}, 
+                new List<CheckBox> {Swb3, Swb3t},
+                new List<CheckBox> {Swb4, Swb4t},
                 new List<CheckBox> {Swb5, Swb5t},
 
                 new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
                 new List<CheckBox> {Bts2, Bts2t},
                 new List<CheckBox> {Bts3, Bts3t},
-                new List<CheckBox> {Bts4, Bts4t},
-
-
+                new List<CheckBox> {Bts4, Bts4t}
             })
+
             {
                 CheckboxesDictionary.Add(list[0].Name, list);
                 CheckboxesDictionary.Add(list[1].Name, list);
@@ -209,10 +194,15 @@ namespace Guideviewer {
             {
                 NameCompareTuples.Add(new Tuple<string, string>(cb.Name, cb.Content.ToString()));
             }
+
+
         }
 
-        
-        
+
+        private void Check(object sender, RoutedEventArgs routedEventArgs) { Switch(sender, true); }
+        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender, false); }
+
+
         private void Switch(object sender, bool boolean)
         {
             if (sender is CheckBox senderBox)
@@ -232,113 +222,15 @@ namespace Guideviewer {
                 {
                     if (listViewChild is CheckBox cb)
                     {
-                        if (Equals(Sa03, senderBox))
-                        {
-                            foreach (var listViewChild2 in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(Sa30)))
-                            {
-                                cb.IsChecked = boolean;
-                            }
-                            cb.IsChecked = boolean;
-                        }
-                        else if (Equals(Sa30, senderBox))
-                        {
-                            foreach (var listViewChild3 in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(Sa03)))
-                            {
-                                cb.IsChecked = boolean;
-                            }
-                            cb.IsChecked = boolean;
-                        }
-                        else
-                        {
-                            cb.IsChecked = boolean;
-                        }
+                        cb.IsChecked = boolean;
                     }
-                    
+
                 }
             }
-
-
-            //if (sender is Button senderButton)
-            //{
-            //    // Main Media Control
-            //    switch (senderButton.Name)
-            //    {
-            //        case "CiControlPlay":
-            //            switch (CiControlPlay.Content.ToString())
-            //            {
-            //                case "Play":
-            //                    ChimpIce.Play();
-            //                    CiControlPlay.Content = "Pause";
-            //                    break;
-            //                case "Pause":
-            //                    ChimpIce.Pause();
-            //                    CiControlPlay.Content = "Play";
-            //                    break;
-            //            }
-
-            //            break;
-            //        case "CiControlReset":
-            //            ChimpIce.Stop();
-            //            CiControlPlay.Content = "Play";
-            //            break;
-            //    }
-            //}
         }
-        public static string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary) {
-            CheckboxesBoolDictionary.Clear();
-            string str = "";
-
-            foreach (var cb in AllCheckBoxes)
-            {
-                switch (cb.IsChecked)
-                {
-                    case true:
-                        CheckboxesBoolDictionary.Add(cb.Name, true);
-                        str += "1,";
-                        break;
-                    case false:
-                        CheckboxesBoolDictionary.Add(cb.Name, false);
-                        str += "0,";
-                        break;
-                }
-            }
-            return str;
-        }
-
-        private void OnApplyOptions(object sender, RoutedEventArgs e)
+        
+        public void HandleSelectAll()
         {
-            HasApplied = true;
-            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
-            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
-
-            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
-        }
-        private void Check(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, true);}
-        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) {Switch(sender, false);}
-        private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            string checkboxString = null;
-
-            if (ofd.ShowDialog() == true)
-            {
-                string v = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
-                if (v.EndsWith(","))
-                {
-                    checkboxString = v.Remove(v.LastIndexOf(','));
-                }
-
-                if (checkboxString != null) {
-                    int[] checkBoxIntArray = Array.ConvertAll(checkboxString.Split(','), int.Parse);
-
-                    for (var index = 0; index < checkBoxIntArray.Length; index++)
-                    {
-                        AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
-                    }
-                }
-            }
-
             foreach (var tabcontrolItem in MainTabControl.Items)
             {
                 if (tabcontrolItem is TabItem tabitem)
@@ -397,8 +289,69 @@ namespace Guideviewer {
                     }
                 }
             }
+        }
+
+
+        public static string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary) {
+            CheckboxesBoolDictionary.Clear();
+            string str = "";
+
+            foreach (var cb in AllCheckBoxes)
+            {
+                switch (cb.IsChecked)
+                {
+                    case true:
+                        CheckboxesBoolDictionary.Add(cb.Name, true);
+                        str += "1,";
+                        break;
+                    case false:
+                        CheckboxesBoolDictionary.Add(cb.Name, false);
+                        str += "0,";
+                        break;
+                }
+            }
+            return str;
+        }
+
+        private void OnApplyOptions(object sender, RoutedEventArgs e)
+        {
+            HasApplied = true;
+            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
+            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
+
+            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
+        }
+
+        private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            string checkboxString = null;
+
+            if (ofd.ShowDialog() == true)
+            {
+                string v = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
+                if (v.EndsWith(","))
+                {
+                    checkboxString = v.Remove(v.LastIndexOf(','));
+                }
+
+                if (checkboxString != null)
+                {
+                    int[] checkBoxIntArray = Array.ConvertAll(checkboxString.Split(','), int.Parse);
+
+                    for (var index = 0; index < checkBoxIntArray.Length; index++)
+                    {
+                        AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
+                    }
+                }
+            }
+
+            HandleSelectAll();
+
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
+
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));

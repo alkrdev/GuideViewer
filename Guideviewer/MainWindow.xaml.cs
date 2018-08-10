@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows;
 using static Guideviewer.Options;
 using static Guideviewer.Progress;
 using static Guideviewer.User;
+using static Guideviewer.Data;
 
 namespace Guideviewer
 {
@@ -14,12 +16,6 @@ namespace Guideviewer
     /// </summary>
     public partial class MainWindow
     {
-
-        // If modifying these scopes, delete your previously saved credentials
-        // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
-
-        #region Initialize
-
         public bool HasLoaded;
         
         public string UrlUserName
@@ -34,7 +30,7 @@ namespace Guideviewer
         public static List<string[]> ColumnList = new List<string[]>();
 
         //Struct to insert data from datasource in correct columns
-        public struct MyData
+        public struct Data
         {
             public string Qt { set; get; }
             public string L { set; get; }
@@ -44,7 +40,7 @@ namespace Guideviewer
             public string Im { set; get; }
         }
 
-        #endregion
+
 
         public MainWindow()
         {
@@ -62,29 +58,25 @@ namespace Guideviewer
 
         private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
         {
-            if (!HasLoaded)
+            HasLoaded = true;
+
+            try
             {
-                HasLoaded = true;
-                try
-                {
-                    Loading.LoadUser(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                   //UserQuestData
-                         new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), //UserSkillData
-                         true);
-                    SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
-                        UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString
-                    );
-                }
-                catch (Exception d)
-                {
-                    MessageBox.Show(
-                        $"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
-                }
-                finally
-                {
-                    MessageBox.Show("User was successfully loaded, please \"Reload\"");
-                }
+                Loading.LoadUser(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                   //UserQuestData
+                     new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), true);  //UserSkillData
+                SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
+                    UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
             }
-            else if (HasLoaded)
+            catch (Exception d)
+            {
+                MessageBox.Show($"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
+            }
+            finally
+            {
+                MessageBox.Show("User was successfully loaded, please \"Reload\"");
+            }
+
+            if (HasLoaded)
             {
                 MessageBox.Show("Please use the Reset function before loading an accounts progress again");
             }
@@ -97,7 +89,7 @@ namespace Guideviewer
             {
                 for (int a = 0; a < Values.Count; a++)
                 {
-                    MyDataGrid.Items.Add(new MyData
+                    MyDataGrid.Items.Add(new Data
                     {
                         Qt = ColumnList[0][a],
                         L = ColumnList[1][a],
@@ -119,40 +111,15 @@ namespace Guideviewer
             //Insert the requested data into column arrays
             if (Values != null && Values.Count > 0)
             {
-                for (var index = 0; index < Values.Count; index++)
+                for (var j = 0; j < Values.Count; j++)
                 {
-                    if (Values[index][0] != null)
+                    for (int i = 0; i < 5; i++)
                     {
-                        ColumnList[0][index] = Values[index][0].ToString();
-                    }
-
-                    if (Values[index][1] != null)
-                    {
-                        ColumnList[1][index] = Values[index][1].ToString();
-                    }
-
-                    if (Values[index][2] != null)
-                    {
-                        ColumnList[2][index] = Values[index][2].ToString();
-                    }
-
-                    if (Values[index][3] != null)
-                    {
-                        ColumnList[3][index] = Values[index][3].ToString();
-                    }
-
-                    if (Values[index][4] != null)
-                    {
-                        ColumnList[4][index] = Values[index][4].ToString();
-                    }
-
-                    if (Values[index][5] != null)
-                    {
-                        ColumnList[5][index] = Values[index][5].ToString();
+                        ColumnList[i][j] = Values[j][i].ToString();
                     }
                 }
             }
-
+            
             FillAllColumns();
 
             for (int i = 0; i < LoadedSkillLevels.Length; i++)
@@ -173,16 +140,17 @@ namespace Guideviewer
 
         private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
         {            
-            for (int m = ColumnList[0].Length - 1; m >= 0; m--)
+            for (int i = ColumnList[0].Length - 1; i >= 0; i--)
             {
-                if (ColumnList[0][m] == ColumnList[1][m] && 
-                    ColumnList[1][m] == ColumnList[2][m] && 
-                    ColumnList[2][m] == ColumnList[3][m] && 
-                    ColumnList[3][m] == ColumnList[4][m] && 
-                    ColumnList[4][m] == ColumnList[5][m])
-                {                                    
-                    MyDataGrid.Items.RemoveAt(m);
+                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i],
+                                                ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
+                
+                if (strings.All(x => x == strings.First()))
+                {
+                    MyDataGrid.Items.RemoveAt(i);
                 }
+
+
             }
         }
 
@@ -193,20 +161,8 @@ namespace Guideviewer
 
         private void LoadFile_OnClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Load();
-                HasLoaded = false;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Loading user failed: \n" + exception);
-                throw;
-            }
-            finally
-            {
-                MessageBox.Show("User was successfully loaded, please \"Reload\"");
-            }
+            Load();
+            HasLoaded = false;
         }
 
         private void Reset(object sender, RoutedEventArgs routedEventArgs)
@@ -220,40 +176,29 @@ namespace Guideviewer
 
         private void Reload(object sender, RoutedEventArgs e)
         {
-            if (!HasApplied)
-            {
-                MyDataGrid.Items.Clear();
-                FillAllColumns();
-            }
-            else if (HasApplied)
+            if (HasApplied)
             {
                 HasApplied = false;
-
                 CheckboxesBoolDictionary.Clear();
-
-                foreach (var cb in AllCheckBoxes)
+                
+                for (int i = 0; i < AllCheckBoxes.Count; i++)
                 {
-                    switch (cb.IsChecked)
+                    switch (AllCheckBoxes[i].IsChecked)
                     {
                         case true:
-                            CheckboxesBoolDictionary.Add(cb.Name, true);
+                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, true);
                             break;
                         case false:
-                            CheckboxesBoolDictionary.Add(cb.Name, false);
+                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, false);
                             break;
                     }
-                }
 
-                int p = 0;
-
-                foreach (var cb in AllCheckBoxes)
-                {
-                    Specific.CheckBoxRemover(CheckboxesBoolDictionary, cb, NameCompareTuples[p].Item1, NameCompareTuples[p].Item2);
-                    p++;
+                    Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
                 }
-                MyDataGrid.Items.Clear();
-                FillAllColumns();
             }
+
+            MyDataGrid.Items.Clear();
+            FillAllColumns();
         }
         #endregion
     }

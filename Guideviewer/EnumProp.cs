@@ -2,6 +2,9 @@
 
 namespace Guideviewer
 {
+    //Reference to decide if a quest has been completed or not
+    public enum Status { Completed, NotStarted, Started };
+
     public class Quest
     {
         [JsonProperty("title")]
@@ -22,4 +25,5 @@ namespace Guideviewer
         [JsonProperty("userEligible")]
         public bool UserEligible { get; set; }
     }
+
 }
