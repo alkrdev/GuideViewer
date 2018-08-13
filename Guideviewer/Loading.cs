@@ -95,13 +95,13 @@ namespace Guideviewer
                             }
                         }
 
-                        Specific.Remover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                        Specific.Remover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                        Specific.Remover("Children of Mah", "Koschei's Troubles miniquest", t);
-                        Specific.Remover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
-                        Specific.Remover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
-                        Specific.Remover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
-                        Specific.Remover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
+                        Specific.PrerequisiteRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
+                        Specific.PrerequisiteRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
+                        Specific.PrerequisiteRemover("Children of Mah", "Koschei's Troubles miniquest", t);
+                        Specific.PrerequisiteRemover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
+                        Specific.PrerequisiteRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
+                        Specific.PrerequisiteRemover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
+                        Specific.PrerequisiteRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
 
                     }
                 }

@@ -6,7 +6,7 @@ using static Guideviewer.MainWindow;
 
 namespace Guideviewer {
     class Specific {
-        public static void Remover(string main, string second, Quest t)
+        public static void PrerequisiteRemover(string main, string second, Quest t)
         {
             if (t.Title == main && t.Status == Status.Completed)
             {

@@ -30,8 +30,6 @@ namespace Guideviewer {
 
         public static void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
         {
-            string def = File.Exists($"{username}.txt") ? checkboxStringSave : DefaultIntArrayString;
-
             using (sw)
             {
                 sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
@@ -43,7 +41,7 @@ namespace Guideviewer {
                 }
 
                 sw.WriteLine(" ");
-                sw.WriteLine(def);
+                sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : DefaultIntArrayString);
 
                 sw.WriteLine(" ");
                 sw.WriteLine(userQuestData);
