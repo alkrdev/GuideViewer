@@ -6,8 +6,6 @@ namespace Guideviewer
 {
     public class Loading
     {
-   
-
         public static void LoadUser(string userquestData, string[] userskillData, bool online)
         {
             // Loop through the amount of skills

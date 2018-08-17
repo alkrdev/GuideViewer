@@ -13,9 +13,6 @@ using static Guideviewer.Data;
 namespace Guideviewer {
     public partial class Options
     {
-        
-
-
         // ReSharper disable once RedundantDefaultMemberInitializer
         // Has the user clicked Apply?
         public static bool HasApplied = false;
@@ -357,9 +354,5 @@ namespace Guideviewer {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
-        
-        
-        
-        
     }
 }

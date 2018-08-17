@@ -9,7 +9,7 @@
         Width="900" 
         ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False">
     <Grid>
-        <TabControl x:Key="Tca" Name="MainTabControl" x:FieldModifier="public">
+        <TabControl Name="MainTabControl" x:FieldModifier="public">
             <TabItem Header="Master Quest">
                 <Grid>
                     <TabControl Margin="0,0,0,30">
@@ -20,7 +20,7 @@
                                     <CheckBox x:Name="Sa01" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Aby" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Abyssal_Reach">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Abyssal_Reach">
                                                 The Abyss
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -30,7 +30,7 @@
                                     <CheckBox x:Name="Dsl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Desert Slayer Dungeon"/>
                                     <CheckBox x:Name="Ekm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Banking_History">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Banking_History">
                                                 Banking History
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -56,7 +56,7 @@
                                     <CheckBox x:Name="Rbm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Rag and Bone Man Wishlist"/>
                                     <CheckBox x:Name="Reb" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/About_%27Kin_Time">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/About_%27Kin_Time">
                                                 Rebuilding Edgeville
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -64,7 +64,7 @@
                                     <CheckBox x:Name="Rcl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Returning Clarence"/>
                                     <CheckBox x:Name="Rog" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Ali_The_Trader">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Ali_The_Trader">
                                                 Ali the Trader
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -89,7 +89,7 @@
                                     <CheckBox x:Name="B2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Boric's second"/>
                                     <CheckBox x:Name="B3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Boric's third"/>
                                 </ListView>
-                                <ListView x:Name="MqMqF2P"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,0,0,0">
+                                <ListView x:Name="MqMqF2P" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,0,0,0">
                                     <Label Content=" - Free-to-Play - "/>
                                     <CheckBox x:Name="Sa04" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Shs" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Sheep Shearer"/>
@@ -108,14 +108,14 @@
                                     <CheckBox x:Name="Sa05" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Trg" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Aereck%27s_Old_Bones">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Aereck%27s_Old_Bones">
                                                 Aereck's Old Bones
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Ech" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Any_Odd_Chicken">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Any_Odd_Chicken">
                                                 Any Odd Chicken
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -127,7 +127,7 @@
                                     <CheckBox x:Name="Asv" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="A Shadow over Ashdale - Varies"/>
                                     <CheckBox x:Name="Rex" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azacorax%27s_Rewards">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azacorax%27s_Rewards">
                                                 Azacorax's Rewards
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -135,49 +135,49 @@
                                     <CheckBox x:Name="Res" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Archmage Sedridors Chest"/>
                                     <CheckBox x:Name="Dve" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Blinded_by_Ramarno%27s_Teaching">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Blinded_by_Ramarno%27s_Teaching">
                                                 Blinded by Ramarno's Teaching
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bce" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Buy_and_Sell_Some_XP">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Buy_and_Sell_Some_XP">
                                                 Buy and Sell Some XP
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Dta" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Buying_Up_Ancient_Artefacts">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Buying_Up_Ancient_Artefacts">
                                                 Buying Up Ancient Artefacts
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Hse" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Claiming_Azzanadra%27s_Heart">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Claiming_Azzanadra%27s_Heart">
                                                 Claiming Azzanadra's Heart
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Crv" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Claus_Is_Rising">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Claus_Is_Rising">
                                                 Claus Is Rising
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cas" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Cook%27s_Delights">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Cook%27s_Delights">
                                                 Cook's Delights
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bre" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Deep_and_Bloody_Experience">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Deep_and_Bloody_Experience">
                                                 Deep and Bloody Experience
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -185,7 +185,7 @@
                                     <CheckBox x:Name="Fth" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Fairy Tale III - Herbs"/>
                                     <CheckBox x:Name="Chi" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chippy_Transport">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chippy_Transport">
                                                 Chipppy Transport
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -196,63 +196,63 @@
                                     <CheckBox x:Name="Sa06" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Swb" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - The Apprentice
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Swb2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Ali the Hag
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Swb3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Old Crone
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Swb4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Baba Yaga
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Swb5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Kardia
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bts" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Crafting Guild
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bts2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Lumber Yard
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bts3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Castle Wars
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bts4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Grand Tree
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -265,34 +265,42 @@
                                     <CheckBox x:Name="Tlm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="The Lost Tribe - Mining Helmet"/>
                                     <CheckBox x:Name="Lsr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bloodstained_Treasure">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bloodstained_Treasure">
                                                 Bloodstained Treasure
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tcs" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Cower_Behind_the_Chosen_Commander">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Cower_Behind_the_Chosen_Commander">
                                                 Cower Behind the Chosen Commander
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mme" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Daero_Take_This_Experience%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Daero_Take_This_Experience%3F">
                                                 Daero Take This Experience?
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Dne" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Do No Evil - Elite Clue Scroll"/>
+                                    <CheckBox x:Name="Dne" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Do_No_Elite">
+                                                Do No Elite
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Kne" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
-                                        <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Claiming_the_Knight%27s_Experience">
-                                            Claiming the Knight's Experience"
-                                        </Hyperlink>
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Claiming_the_Knight%27s_Experience">
+                                                Claiming the Knight's Experience
+                                            </Hyperlink>
+                                        </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Roo" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Rocking Out - Coins"/>
                                 </ListView>
-                                <ListView x:Name="MqPqRe3"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="502,0,0,0">
+                                <ListView x:Name="MqPqRe3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="502,0,0,0">
                                     <Label Content=" - Rewards 3 - "/>
                                     <CheckBox x:Name="Sa07" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Wge" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="While Guthix Sleeps - Experience"/>
@@ -307,7 +315,7 @@
                                     <CheckBox x:Name="Oqu" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Observatory Quest - Craft"/>
                                     <CheckBox x:Name="Tha" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Deadlier_Catch">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Deadlier_Catch">
                                                 Deadler Catch
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -316,23 +324,23 @@
                                     <CheckBox x:Name="Ilh" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Ichtlarin's Little Helper - Coins"/>
                                     <CheckBox x:Name="Ooe" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind - Experience"/>
                                     <CheckBox x:Name="Oos" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind 2 - Statue Experience"/>
-                                    <CheckBox x:Name="Bch"  Checked="Check" Unchecked="UnCheck">
+                                    <CheckBox x:Name="Bch" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Challenge_Maria">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Challenge_Maria">
                                                 Challenge Maria - Challenges
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Bch2"  Checked="Check" Unchecked="UnCheck">
+                                    <CheckBox x:Name="Bch2" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Challenge_Maria">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Challenge_Maria">
                                                 Challenge Maria - Lamps
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Cof"  Checked="Check" Unchecked="UnCheck">
+                                    <CheckBox x:Name="Cof" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Circus_of_Fire">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Circus_of_Fire">
                                                 Circus of Fire
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -379,28 +387,28 @@
                                     <CheckBox x:Name="Sa11" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Mwo" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
                                                 Caving Into the Gains - Woodcutting
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mag" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
                                                 Caving Into the Gains - Agility
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mcr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
                                                 Caving Into the Gains - Crafting
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mco" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Caving_Into_the_Gains">
                                                 Caving Into the Gains - Coins
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -411,74 +419,74 @@
                                     <CheckBox x:Name="Sa12" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Cis" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
                                                 Chivalry is Dead - Runes
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cis2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
                                                 Chivalry is Dead - Ancient Combat Lamp
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cis3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
                                                 Chivalry is Dead - Gilded Cabbage
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cis4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_is_Dead">
                                                 Chivalry is Dead - Ancient Prayer Lamp
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cif" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_Is_Fed">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_Is_Fed">
                                                 Chivalry is Fed
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cit" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chivalry_Is_Threads">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chivalry_Is_Threads">
                                                 Chivalry is Threads
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                 </ListView>
-                                <ListView x:Name="MqLvGq"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="546,0,0,0">
+                                <ListView x:Name="MqLvGq" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="546,0,0,0">
                                     <Label Content=" - Gower Quest - "/>
                                     <CheckBox x:Name="Sa13" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Gqi" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
                                                 Brothers Gower - Ian
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
                                                 Brothers Gower - Paul
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqa" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
                                                 Brothers Gower - Andrew
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqpe" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
                                                 Gower Pets
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -493,28 +501,46 @@
                                     <CheckBox x:Name="Sa14" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Hag" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Diaries_of_the_Clans">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Diaries_of_the_Clans">
                                                 Diaries of the Clans
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Diary_of_Oreb">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Diary_of_Oreb">
                                                 Diary of Oreb
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gw" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Diary_of_the_Gods">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Diary_of_the_Gods">
                                                 Diary of the Gods
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Dj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Dominion"/>
-                                    <CheckBox x:Name="Mj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Jebediah Omnis"/>
-                                    <CheckBox x:Name="Dl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Dragonkin"/>
+                                    <CheckBox x:Name="Dj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Do_a_Minion,_Take_Notes">
+                                                Do a Minion, Take Notes
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Mj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Don%27t_Fear_the_Ripper">
+                                                Don't Fear the Ripper
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Dl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dragonkin_Logs">
+                                                Dragonkin Logs
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Fj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Forcae"/>
                                     <CheckBox x:Name="Kj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Kaigi"/>
                                     <CheckBox x:Name="Uj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Ughtanatos"/>
@@ -523,7 +549,7 @@
                                     <CheckBox x:Name="Tj" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Tarddian"/>
                                     <CheckBox x:Name="Sn" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Stalker"/>
                                 </ListView>
-                                <ListView x:Name="MqTeBo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,0,0,0">
+                                <ListView x:Name="MqTeBo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,0,0,0">
                                     <Label Content=" - Books - "/>
                                     <CheckBox x:Name="Sa15" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Kbd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Last Riders Book"/>
@@ -535,13 +561,24 @@
                                         </StackPanel>
                                     </CheckBox>
                                 </ListView>
-                                <ListView x:Name="MqTeDu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,0,0,0">
+                                <ListView x:Name="MqTeDu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,0,0,0">
                                     <Label Content=" - Dungeoneering - "/>
                                     <CheckBox x:Name="Sa16" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Ben" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
                                                 Behemoth Notes
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                                <ListView x:Name="MqTeEd" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,72,0,0">
+                                    <Label Content=" - Elite Dungeons - "/>
+                                    <CheckBox x:Name="Sa46" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox x:Name="Di" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dragon_Ink">
+                                                Dragon Ink
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -555,14 +592,14 @@
                                     <CheckBox x:Name="Sa17" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Aew" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Angs_off_my_Ring">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Angs_off_my_Ring">
                                                 Angs off my Ring
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Ann" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" AutomationProperties.Name="Ann">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Annihilator">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Annihilator">
                                                 Annihilator
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -572,7 +609,7 @@
                                     <CheckBox x:Name="Vyr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Vyrelord Title"/>
                                     <CheckBox x:Name="Ter" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Complete_Trekky">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Complete_Trekky">
                                                 Complete Trekky
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -584,7 +621,7 @@
                                     <CheckBox x:Name="Hto" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="History of the Order"/>
                                     <CheckBox x:Name="Aca" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Otto_the_Ancient">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Otto_the_Ancient">
                                                 Otto the Ancient
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -619,77 +656,77 @@
                                     <CheckBox x:Name="Sa19" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Cyp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/As_Taxed_as_a_Yak">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/As_Taxed_as_a_Yak">
                                                 As Taxed as a Yak
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bam" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bandos%27s_Memories_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bandos%27s_Memories_(achievement)">
                                                 Bandos's Memoreis
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tbo" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bane_Tuner">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bane_Tuner">
                                                 Bane Tuner
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Ugs" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Brutal_Stuffsies">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Brutal_Stuffsies">
                                                 Brutal Stuffsies
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Sce" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Cecilia,_I%27m_Begging_You,_Please...">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Cecilia,_I%27m_Begging_You,_Please...">
                                                 Cecilia, I'm Begging you, Please
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Vor" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Challenging_Chat">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Challenging_Chat">
                                                 Challenging Chat
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Par" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chilling_with_Arrav">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chilling_with_Arrav">
                                                 Chilling with Arrav
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mcm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Clue%27s_in_the_Monkey_Drool">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Clue%27s_in_the_Monkey_Drool">
                                                 Clue's in the Monkey Drool
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Frd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Complete_History_of_Droalak">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Complete_History_of_Droalak">
                                                 Complete History of Droalak
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mad" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Daemonology_of_Celerity">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Daemonology_of_Celerity">
                                                 Daemonology of Celerity
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Mah" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Death_to_the_Mahjarrat">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Death_to_the_Mahjarrat">
                                                 Death to the Mahjarrat
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -697,12 +734,12 @@
                                     <CheckBox x:Name="Rmr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Return Mabel's Ring"/>
                                     <CheckBox x:Name="Uif" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Ivandis Flail 500"/>
                                 </ListView>
-                                <ListView x:Name="MqVaDu"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="590,0,0,0">
+                                <ListView x:Name="MqVaDu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="590,129,0,0">
                                     <Label Content=" - Dungeoneering - "/>
                                     <CheckBox x:Name="Sa20" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Frs" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bridge_over_Fremmy_Waters">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bridge_over_Fremmy_Waters">
                                                 Bridge over Fremmy Waters
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -710,34 +747,66 @@
                                     <CheckBox x:Name="Pre" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Potion Recipes"/>
                                     <CheckBox x:Name="Vis" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Vicendithas' Scribblings"/>
                                 </ListView>
-                                <ListView x:Name="MqVaCc"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="590,110,0,0">
+                                <ListView x:Name="MqVaCc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="590,239,0,0">
                                     <Label Content=" - Court Cases - "/>
                                     <CheckBox x:Name="Sa21" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Cc1" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 4 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cc2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 8 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cc3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 12 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cc4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 16 Court Cases
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                                <ListView x:Name="MqVaDi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="590,0,0,0">
+                                    <Label Content=" - Dishonour Among Thieves - "/>
+                                    <CheckBox x:Name="Sa45" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox x:Name="Dhg" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dishonourable_Gains">
+                                                Dishonourable Gains - 50
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Dhg2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dishonourable_Gains">
+                                                Dishonourable Gains - 70
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Dhg3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dishonourable_Gains">
+                                                Dishonourable Gains - 90
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Dhl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Dishonourable_Loot">
+                                                Dishonourable Loot
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -749,41 +818,47 @@
                                 <ListView x:Name="MqArSk" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Skilling Activities - "/>
                                     <CheckBox x:Name="Sa22" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
-                                    <CheckBox x:Name="Die" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Distorted Engrammeter"/>
+                                    <CheckBox x:Name="Die" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Distorted_Div">
+                                                Distorted Div
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Drp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Dragonkin Primer"/>
                                     <CheckBox x:Name="Rsp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Reconnect Spirit Tree"/>
                                     <CheckBox x:Name="Fai" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Fairy Campfire"/>
                                     <CheckBox x:Name="Cme" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Aagi
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Seren
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Juna
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Edicts
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Cres
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -805,70 +880,70 @@
                                     <CheckBox x:Name="Sa23" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Azd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 1
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 2
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 3
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 4
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 5
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd6" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 6
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd7" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 7
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd8" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 8
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd9" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 9
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Azd10" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Azdaran_Birthright">
                                                 Azdaran Birthright - Statue 10
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -888,28 +963,28 @@
                                     <CheckBox x:Name="Sa24" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Fts" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Ape_A%27hollow">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Ape_A%27hollow">
                                                 Ape A'hollow
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Dno" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Are_You_Needing_Access%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Are_You_Needing_Access%3F">
                                                 Are You Needing Access?
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Wtl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/As_clear_as_a_Crystal_Seed">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/As_clear_as_a_Crystal_Seed">
                                                 As clear as a Crystal Seed
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Dsd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Cran_Door%27s_Secret">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Cran_Door%27s_Secret">
                                                 Cran Door's Secret
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -966,7 +1041,7 @@
                                     <CheckBox x:Name="Sa28" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Abyc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Abyssal_Reach">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Abyssal_Reach">
                                                 The Abyss
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -980,7 +1055,7 @@
                                     <CheckBox x:Name="Ttrc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="The Lair of Tarn Razorlor"/>
                                     <CheckBox x:Name="Tczc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Desert-ed_Ghosts">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Desert-ed_Ghosts">
                                                 The Curse of Zaros
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1070,28 +1145,28 @@
                                     <CheckBox x:Name="Sa29" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Aprc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Almost_as_Perky_as_a_Prawn">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Almost_as_Perky_as_a_Prawn">
                                                 Almost as Perky as a Prawn
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bcpc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Big_Chinchompa_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Big_Chinchompa_(achievement)">
                                                 Big Chinchompa
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Thac" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Deadlier_Catch">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Deadlier_Catch">
                                                 Deadler Catch
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Hagc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Diaries_of_the_Clans">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Diaries_of_the_Clans">
                                                 Diaries of the Clans
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1099,35 +1174,39 @@
                                     <CheckBox x:Name="Rspc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Reconnect Spirit Tree"/>
                                     <CheckBox x:Name="Cmec" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Aagi
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cme2c" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Seren
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cme3c" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Juna
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cme4c" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Edicts
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cme5c" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
                                                 Data Recovery - Cres
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1173,20 +1252,20 @@
                         </TabItem>
                         <TabItem Header="Combat">
                             <Grid>
-                                <ListView x:Name="CoCoCo"  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <ListView x:Name="CoCoCo" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Label Content=" - Combat - "/>
                                     <CheckBox x:Name="Sa32" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Annc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Annihilator"/>
                                     <CheckBox x:Name="Ftmc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/http://runescape.wikia.com/wiki/Bipedal_Mask">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/http://runescape.wikia.com/wiki/Bipedal_Mask">
                                                 Bipedal Mask
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Frsc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bridge_over_Fremmy_Waters">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bridge_over_Fremmy_Waters">
                                                 Bridge over Fremmy Waters
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1215,21 +1294,21 @@
                                     <CheckBox x:Name="Sa34" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Bamc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bandos%27s_Memories_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bandos%27s_Memories_(achievement)">
                                                 Bandos's Memoreis
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tboc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Bane_Tuner">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Bane_Tuner">
                                                 Bane Tuner
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Crvc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Claus_Is_Rising">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Claus_Is_Rising">
                                                 Claus Is Rising
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1255,7 +1334,7 @@
                                     <CheckBox x:Name="Bart" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Barbarian Training"/>
                                     <CheckBox x:Name="Ekmt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Banking_History">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Banking_History">
                                                 Banking History
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1280,7 +1359,7 @@
                                     <CheckBox x:Name="Ctst" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Char's Treasured Symbol"/>
                                     <CheckBox x:Name="Aprt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Perky_like_a_Prawn">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Perky_like_a_Prawn">
                                                 Perky like a Prawn
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1291,28 +1370,28 @@
                                     <CheckBox x:Name="Memt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Memorial To Guthix 4"/>
                                     <CheckBox x:Name="Tptt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Seagullible">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Seagullible">
                                                 Seagullible
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Titt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Class_Crown">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Class_Crown">
                                                 Class Crown
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tmtt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Lock,_Stock_and_Barrel">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Lock,_Stock_and_Barrel">
                                                 Lock, Stock and Barrel
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Twtt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/To_The_Bone">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/To_The_Bone">
                                                 To The Bone
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1323,77 +1402,84 @@
                                     <CheckBox x:Name="Sa37" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Agtt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Agile_from_Head_to_Toe">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Agile_from_Head_to_Toe">
                                                 Agile from Head to Toe - Top
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Aglt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Agile_from_Head_to_Toe">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Agile_from_Head_to_Toe">
                                                 Agile from Head to Toe - Legs
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Swbt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - The Apprentice
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Swb2t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Ali the Hag
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Swb3t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Old Crone
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Swb4t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Baba Yaga
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Swb5t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Advanced_Sweeping">
                                                 Advanced Sweeping - Kardia
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Btst" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Crafting Guild
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Bts2t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Lumber Yard
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Bts3t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Castle Wars
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Bts4t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Around_the_World_in_Six_Ways">
                                                 Around the World in Six Ways - Grand Tree
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1408,14 +1494,14 @@
                                     <CheckBox x:Name="Sa38" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Acat" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Barbarian_Scavenger">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Barbarian_Scavenger">
                                                 Barbarian Scavenger
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tert" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Complete_Trekky">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Complete_Trekky">
                                                 Complete Trekky
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1427,7 +1513,7 @@
                                     <CheckBox x:Name="Bact" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Battle Commendations"/>
                                     <CheckBox x:Name="Bcht" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Maria,_You_Gotta_See_Her">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Maria,_You_Gotta_See_Her">
                                                 Maria, You Gotta See Her
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1442,7 +1528,7 @@
                                     <CheckBox x:Name="Mazt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Mazcab Teleport Spell"/>
                                     <CheckBox x:Name="Cont" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Conquest_Adore">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Conquest_Adore">
                                                 Conquest Adore
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1453,7 +1539,7 @@
                                     <CheckBox x:Name="Sa39" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Dest" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Death_Effect">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Death_Effect">
                                                 Death Effect
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1470,30 +1556,34 @@
                                 <ListView x:Name="TriProCh" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,0,0,0">
                                     <Label Content=" - Court Cases - "/>
                                     <CheckBox x:Name="Sa40" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cc1t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 4 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cc2t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 8 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cc3t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 12 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
+                                    <!-- ReSharper disable once InconsistentNaming -->
                                     <CheckBox x:Name="Cc4t" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/All_Rise">
                                                 All Rise - 16 Court Cases
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1504,35 +1594,35 @@
                                     <CheckBox x:Name="Sa41" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Csc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
                                                 Champions, What Champions? - 3 Scrolls
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Csc2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
                                                 Champions, What Champions? - 6 Scrolls
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Csc3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
                                                 Champions, What Champions? - 9 Scrolls
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Csc4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
                                                 Champions, What Champions? - 12 Scrolls
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Csc5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Champions,_What_Champions%3F">
                                                 Champions, What Champions? - 15 Scrolls
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1543,70 +1633,70 @@
                                     <CheckBox x:Name="Sa42" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Cm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 30
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 130
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 300
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 500
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 700
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm6" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 1000
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm7" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 1500
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm8" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 2250
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm9" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 3250
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cm10" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Chompy_Massacre">
                                                 Chompy Massacre - 4000
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1627,49 +1717,49 @@
                                     <CheckBox x:Name="Sa43" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Afi" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Upgrading_Waiko">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Upgrading_Waiko">
                                                 Upgrading Waiko
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Afu" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Unlocking_Waiko">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Unlocking_Waiko">
                                                 Unlocking Waiko
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Atp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Ancient_Eastern_Tortle_Portals">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Ancient_Eastern_Tortle_Portals">
                                                 Ancient Eastern Tortle Portals
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Eng" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_All_Your_Energies">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_All_Your_Energies">
                                                 All Your Energies
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Meg" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Don%27t_Crush_my_Memories">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Don%27t_Crush_my_Memories">
                                                 Don't Crush my Memories
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Bcu" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Bone_To_Pick_With_You">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Bone_To_Pick_With_You">
                                                 Bone To Pick With You
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Dlo" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Death_Lotus">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Death_Lotus">
                                                 Mitts and Waders - Death Lotus
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1677,7 +1767,7 @@
                                     <CheckBox x:Name="Dloo" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Death Lotus Outfit"/>
                                     <CheckBox x:Name="Sea" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Seasinger">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Seasinger">
                                                 Mitts and Waders - Seasinger
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1685,7 +1775,7 @@
                                     <CheckBox x:Name="Seao" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Seasinger Outfit"/>
                                     <CheckBox x:Name="Tes" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Tetsu">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_-_Mitts_and_Waders_-_Tetsu">
                                                 Mitts and Waders - Tetsu
                                             </Hyperlink>
                                         </CheckBox.Content>
@@ -1697,70 +1787,70 @@
                                     <CheckBox x:Name="Sa44" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Ff" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_I_-_Flag_Fall">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_I_-_Flag_Fall">
                                                 Flag Fall
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Hf" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_II_-_Head_of_the_Family">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_II_-_Head_of_the_Family">
                                                 Head of the Family
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Se" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_III_-_Spiritual_Enlightenment">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_III_-_Spiritual_Enlightenment">
                                                 Spiritual Enlightenment
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Jh" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_IV_-_Jed_Hunter">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_IV_-_Jed_Hunter">
                                                 Jed Hunter
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Ee" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_V_-_Eye_for_an_Eye">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_V_-_Eye_for_an_Eye">
                                                 Eye for an Eye
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Hr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_VI_-_Harbinger_of_Doom">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_VI_-_Harbinger_of_Doom">
                                                 Harbinger of Doom
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Tl" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_VII_-_Tuai_Leit%27s_Own">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_VII_-_Tuai_Leit%27s_Own">
                                                 Tuai Leit's Own
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_VIII_-_Ghosts_from_the_Past">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_VIII_-_Ghosts_from_the_Past">
                                                 Ghosts from the Past
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Dc" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_IX_-_Damage_Control">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_IX_-_Damage_Control">
                                                 Damage Control
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Fd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink NavigateUri="http://runescape.wikia.com/wiki/Arc_X_-_Final_Destination">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arc_X_-_Final_Destination">
                                                 Final Destination
                                             </Hyperlink>
                                         </CheckBox.Content>

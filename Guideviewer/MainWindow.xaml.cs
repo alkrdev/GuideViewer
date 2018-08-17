@@ -54,8 +54,6 @@ namespace Guideviewer
             FirstLoad();
         }
 
-        #region Methods
-
         private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
         {
             HasLoaded = true;
@@ -200,6 +198,5 @@ namespace Guideviewer
             MyDataGrid.Items.Clear();
             FillAllColumns();
         }
-        #endregion
     }
 }
