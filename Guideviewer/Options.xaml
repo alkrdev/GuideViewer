@@ -42,9 +42,27 @@
                                     <CheckBox x:Name="Imt" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="In Memory of The Myreque"/>
                                     <CheckBox x:Name="Kwa" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Knight Waves Training Grounds"/>
                                     <CheckBox x:Name="Kos" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Koschei's Troubles"/>
-                                    <CheckBox x:Name="Fta" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="From Tiny Acorns"/>
-                                    <CheckBox x:Name="Lhm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Lost Her Marbles"/>
-                                    <CheckBox x:Name="Ago" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="A Guild Of Our Own"/>
+                                    <CheckBox x:Name="Fta" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/From_Tiny_Acorns">
+                                                From Tiny Acorns
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Lhm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Lost_Her_Marbles">
+                                                Lost Her Marbles
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Ago" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/A_Guild_of_Our_Own">
+                                                A Guild of Our Own
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                 </ListView>
                                 <ListView x:Name="MqMqP2P2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,0,0,0">
                                     <Label Content=" - Pay 2 Play - "/>
@@ -57,7 +75,7 @@
                                     <CheckBox x:Name="Reb" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
                                             <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/About_%27Kin_Time">
-                                                Rebuilding Edgeville
+                                                About 'Kin Time
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -465,29 +483,29 @@
                                     <CheckBox x:Name="Sa13" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Gqi" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Brothers_Gower">
                                                 Brothers Gower - Ian
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqp" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Brothers_Gower">
                                                 Brothers Gower - Paul
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqa" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Brothers_Gower">
                                                 Brothers Gower - Andrew
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Gqpe" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Behemoth_Notes_(achievement)">
-                                                Gower Pets
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Tasty_Bobbles">
+                                                Tasty Bobbles
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -597,14 +615,20 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Ann" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" AutomationProperties.Name="Ann">
+                                    <CheckBox x:Name="Ann" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
                                             <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Annihilator">
                                                 Annihilator
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Pho" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Phoenix"/>
+                                    <CheckBox x:Name="Pho" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Arise_from_the_Ash">
+                                                Arise from the Ash
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Mar" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Mad Ramblings"/>
                                     <CheckBox x:Name="Vyr" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Vyrelord Title"/>
                                     <CheckBox x:Name="Ter" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
@@ -830,36 +854,36 @@
                                     <CheckBox x:Name="Fai" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Fairy Campfire"/>
                                     <CheckBox x:Name="Cme" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
-                                                Data Recovery - Aagi
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Guthix_and_the_Chamber_of_Secrets">
+                                                Guthix and the Chamber of Secrets - Aagi
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme2" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
-                                                Data Recovery - Seren
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Guthix_and_the_Chamber_of_Secrets">
+                                                Guthix and the Chamber of Secrets - Seren
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme3" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
-                                                Data Recovery - Juna
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Guthix_and_the_Chamber_of_Secrets">
+                                                Guthix and the Chamber of Secrets - Aagi
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme4" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
-                                                Data Recovery - Edicts
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Guthix_and_the_Chamber_of_Secrets">
+                                                Guthix and the Chamber of Secrets - Edicts
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
                                     <CheckBox x:Name="Cme5" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
                                         <CheckBox.Content>
-                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Data_Recovery">
-                                                Data Recovery - Cres
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://runescape.wikia.com/wiki/Guthix_and_the_Chamber_of_Secrets">
+                                                Guthix and the Chamber of Secrets - Cres
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -875,7 +899,7 @@
                                     <CheckBox x:Name="Rco" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Removing Corruption"/>
                                     <CheckBox x:Name="Bar" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Barbarian Training"/>
                                 </ListView>
-                                <ListView x:Name="MqArSk2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,0,0,0">
+                                <ListView x:Name="MqArSk2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,0,0,0">
                                     <Label Content=" - Skilling Activities 2 - "/>
                                     <CheckBox x:Name="Sa23" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Azd" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
@@ -958,7 +982,7 @@
                                     <CheckBox x:Name="Eld" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Elder Chronicles"/>
                                     <CheckBox x:Name="Stm" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Sunken Temple Murals"/>
                                 </ListView>
-                                <ListView x:Name="MqArAr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,0,0,0">
+                                <ListView x:Name="MqArAr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="452,0,0,0">
                                     <Label Content=" - Areas - "/>
                                     <CheckBox x:Name="Sa24" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Fts" x:FieldModifier="public" Checked="Check" Unchecked="UnCheck">
@@ -1864,18 +1888,18 @@
         </TabControl>
 
         <TextBox x:Name="ApplyUsername" 
-                 Margin="308,554,0,0" 
+                 Margin="368,554,0,0" 
                  Height="32" 
                  TextAlignment="Center"
                  VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
         <Button Click="OnApplyOptions" 
                 Content="Apply" x:Name="Apply" 
-                Margin="473,554,0,0" 
+                Margin="533,554,0,0" 
                 Height="32" 
                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"/>
         <Button Click="OnOpenLoad" 
                 Content="Load" x:Name="Load" 
-                Margin="188,554,0,0" 
+                Margin="248,554,0,0" 
                 Height="32" 
                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"/>
     </Grid>
