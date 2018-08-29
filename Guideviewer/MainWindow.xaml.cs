@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows;
+using System.Windows.Controls;
 using static Guideviewer.Options;
 using static Guideviewer.Progress;
 using static Guideviewer.User;
@@ -56,14 +58,11 @@ namespace Guideviewer
 
         private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
         {
-            HasLoaded = true;
-
             try
             {
-                Loading.LoadUser(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),                   //UserQuestData
-                     new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), true);  //UserSkillData
-                SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName),
-                    UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
+                string downloadString = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
+                Loading.LoadUser(downloadString, new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), true);  //UserSkillData
+                        SaveText(downloadString, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
             }
             catch (Exception d)
             {
@@ -78,6 +77,8 @@ namespace Guideviewer
             {
                 MessageBox.Show("Please use the Reset function before loading an accounts progress again");
             }
+
+            HasLoaded = true;
         }
 
         //Fill all of the columns
