@@ -93,14 +93,11 @@ namespace Guideviewer
                             }
                         }
 
-                        Specific.PrerequisiteRemover("Scorpion Catcher", "Barcrawl Miniquest", t);
-                        Specific.PrerequisiteRemover("Nomad's Requiem", "Soul Wars Tutorial", t);
-                        Specific.PrerequisiteRemover("Children of Mah", "Koschei's Troubles miniquest", t);
-                        Specific.PrerequisiteRemover("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest", t);
-                        Specific.PrerequisiteRemover("Crocodile Tears", "Tier 3 Menaphos City Reputation", t);
-                        Specific.PrerequisiteRemover("Our Man in the North", "Tier 6 Menaphos City Reputation", t);
-                        Specific.PrerequisiteRemover("'Phite Club", "Tier 9 Menaphos City Reputation", t);
-
+                        // For each prerequisite combination
+                        foreach (var t1 in PrerequisiteTuples)
+                        {
+                            Specific.PrerequisiteRemover(t1.Item1, t1.Item2, t);
+                        }
                     }
                 }
             }

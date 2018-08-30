@@ -57,7 +57,7 @@ namespace Guideviewer
             "Divination",
             "Invention"
         };
-        
+
         public static Dictionary<string, int> SkillsDictionary = new Dictionary<string, int>();
 
         //Storage of  the users data
@@ -67,6 +67,19 @@ namespace Guideviewer
         //Combination of the users data
         public static Tuple<string, int, int>[] Levels = new Tuple<string, int, int>[SkillNames.Count];
 
+        //Prerequisites
+        public static Tuple<string, string>[] PrerequisiteTuples =
+        {
+            new Tuple<string, string>("Scorpion Catcher", "Barcrawl Miniquest"),
+            new Tuple<string, string>("Nomad's Requiem", "Soul Wars Tutorial"),
+            new Tuple<string, string>("Children of Mah", "Koschei's Troubles miniquest"),
+            new Tuple<string, string>("While Guthix Sleeps", "Chaos Tunnels: Hunt for Surok miniquest"),
+            new Tuple<string, string>("Crocodile Tears", "Tier 3 Menaphos City Reputation"),
+            new Tuple<string, string>("Our Man in the North", "Tier 6 Menaphos City Reputation"),
+            new Tuple<string, string>("'Phite Club", "Tier 9 Menaphos City Reputation")
+        };
+        
+        //Defaults
         public static int[] DefaultCbList = new int[512];
         public static int[] DefaultIntArray = DefaultCbList.Select(i => 0).ToArray();
         public static string DefaultIntArrayString = string.Join(",", DefaultIntArray);

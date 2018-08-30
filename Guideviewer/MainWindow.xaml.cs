@@ -60,9 +60,10 @@ namespace Guideviewer
         {
             try
             {
-                string downloadString = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
-                Loading.LoadUser(downloadString, new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName).Split('\n'), true);  //UserSkillData
-                        SaveText(downloadString, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
+                string runemetrics = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
+                string hiscore = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName);
+                Loading.LoadUser(runemetrics, hiscore.Split('\n'), true);
+                        SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
             }
             catch (Exception d)
             {
