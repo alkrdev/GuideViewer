@@ -97,7 +97,7 @@
                                             <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
                                                        NavigateUri="http://runescape.wikia.com/wiki/
                                                        Ali_The_Trader">
-                                                Ali the Trader
+                                                Rogue Trader
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -452,7 +452,15 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Mpv" Checked="Check" Unchecked="UnCheck" Content="Missing, Presumed Death - Varies"/>
+                                    <CheckBox x:Name="Mpv" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_Presume_These_Rewards_Are_Mine,_Death%3F">
+                                                I Presume These Rewards Are Mine, Death?
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Ilh" Checked="Check" Unchecked="UnCheck" Content="Ichtlarin's Little Helper - Coins"/>
                                     <CheckBox x:Name="Ooe" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind - Experience"/>
                                     <CheckBox x:Name="Oos" Checked="Check" Unchecked="UnCheck" Content="One Of A Kind 2 - Statue Experience"/>
@@ -883,7 +891,15 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Cle" Checked="Check" Unchecked="UnCheck" Content="Cleansing Shadow Cores"/>
+                                    <CheckBox x:Name="Cle" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I%27m_Forever_Washing_Shadows">
+                                                I'm Forever Washing Shadows
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Rob" Checked="Check" Unchecked="UnCheck" Content="Rush of Blood"/>
                                     <CheckBox x:Name="Cho" Checked="Check" Unchecked="UnCheck" Content="30 Chompy Birds"/>
                                     <CheckBox x:Name="Tcp" Checked="Check" Unchecked="UnCheck" Content="Tooth Creature Pet"/>
@@ -932,9 +948,33 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Tdp" Checked="Check" Unchecked="UnCheck" Content="The Digsite Pendant"/>
-                                    <CheckBox x:Name="Pse" Checked="Check" Unchecked="UnCheck" Content="Personal Stories Edgeville"/>
-                                    <CheckBox x:Name="Cid" Checked="Check" Unchecked="UnCheck" Content="Chimp Ice Deliveries"/>
+                                    <CheckBox x:Name="Tdp" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_Dig_This_Transportation">
+                                                I Dig This Transportation
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Pse" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_know,_I_was_there...">
+                                                I know, I was there...
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Cid" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       Ice_Ice_Chimpy">
+                                                Ice Ice Chimpy
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Fko" Checked="Check" Unchecked="UnCheck" Content="Full Kudos obtained"/>
                                     <CheckBox x:Name="Ebs" Checked="Check" Unchecked="UnCheck" Content="Epic of Bukalla seen"/>
                                     <CheckBox x:Name="Dkf" Checked="Check" Unchecked="UnCheck" Content="Dorgesh-kaan Food Trading"/>
@@ -1242,7 +1282,33 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Bnm" Checked="Check" Unchecked="UnCheck" Content="Beacon Network (Macaw)"/>
+                                    <CheckBox x:Name="Bnm" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_Can_See_For_Miles_and_Miles">
+                                                I Can See For Miles and Miles - 1 -> 6
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Bnm2" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_Can_See_For_Miles_and_Miles">
+                                                I Can See For Miles and Miles - 7 -> 10
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Bnm3" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I_Can_See_For_Miles_and_Miles">
+                                                I Can See For Miles and Miles - 11 -> 14
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Cts" Checked="Check" Unchecked="UnCheck" Content="Char's Treasured Symbol"/>
                                     <CheckBox x:Name="Jem" Checked="Check" Unchecked="UnCheck" Content="Jewel Memories"/>
                                     <CheckBox x:Name="Pcm" Checked="Check" Unchecked="UnCheck" Content="Pig Creation Machine (84)"/>
@@ -1775,7 +1841,15 @@
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
-                                    <CheckBox x:Name="Clec" Checked="Check" Unchecked="UnCheck" Content="Cleansing Shadow Cores"/>
+                                    <CheckBox x:Name="Clec" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       I%27m_Forever_Washing_Shadows">
+                                                I'm Forever Washing Shadows
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
                                     <CheckBox x:Name="Fkic" Checked="Check" Unchecked="UnCheck" Content="Fight Kiln"/>
                                     <CheckBox x:Name="Qbdc" Checked="Check" Unchecked="UnCheck" Content="Queen Black Dragon"/>
                                     <CheckBox x:Name="Qbdf" Checked="Check" Unchecked="UnCheck" Content="Qbd First Journal"/>
@@ -1809,7 +1883,7 @@
                                         </CheckBox.Content>
                                     </CheckBox>>
                                 </ListView>
-                                <ListView x:Name="CoCoEt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="181,0,0,0">
+                                <ListView x:Name="CoCoEt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="192,0,0,0">
                                     <Label Content=" - Elven Titles - "/>
                                     <CheckBox x:Name="Sa33" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
                                     <CheckBox x:Name="Oioc" Checked="Check" Unchecked="UnCheck">
@@ -1997,6 +2071,15 @@
                                                        NavigateUri="http://runescape.wikia.com/wiki/
                                                        To_The_Bone">
                                                 To The Bone
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Cidt" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       Ice_Ice_Chimpy">
+                                                Ice Ice Chimpy
                                             </Hyperlink>
                                         </CheckBox.Content>
                                     </CheckBox>
@@ -2257,6 +2340,7 @@
                                         </CheckBox.Content>
                                     </CheckBox>
                                 </ListView>
+
                                 <ListView x:Name="TriProCa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,0,0,0">
                                     <Label Content=" - Champion Scrolls - "/>
                                     <CheckBox x:Name="Sa41" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
@@ -2402,6 +2486,728 @@
                                 </ListView>
                             </Grid>
                         </TabItem>
+                        <TabItem Header="Castle Wars">
+                            <Grid>
+                                <ListView x:Name="TriProPr" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <CheckBox x:Name="Sa47" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <!-- ReSharper disable InconsistentNaming -->
+                                    <CheckBox x:Name="Hmg1t" Checked="Check" Unchecked="UnCheck">
+                                        
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 50
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg2t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 100
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg3t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 150
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg4t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 200
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg5t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 250
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg6t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 300
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg7t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 350
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg8t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 400
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg9t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 450
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg10t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 500
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg11t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 550
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg12t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 600
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg13t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 650
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg14t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 700
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg15t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 750
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg16t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 800
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg17t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 850
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg18t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 900
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg19t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 950
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg20t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1000
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg21t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1050
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg22t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1100
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg23t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1150
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                                <ListView x:Name="TriProPr2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="173,0,0,0">
+                                    
+                                    <CheckBox x:Name="Sa48" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox x:Name="Hmg24t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1200
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg25t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1250
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg26t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1300
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg27t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1350
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg28t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1400
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg29t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1450
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg30t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1500
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg31t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1550
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg32t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1600
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg33t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1650
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg34t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1700
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg35t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1750
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg36t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1800
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg37t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1850
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg38t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1900
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg39t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 1950
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg40t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2000
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg41t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2050
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg42t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2100
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg43t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2150
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg44t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2200
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg45t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2250
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg46t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2300
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                                <ListView x:Name="TriProPr3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,0,0,0">
+                                    <CheckBox x:Name="Sa49" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox x:Name="Hmg47t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2350
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg48t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2400
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg49t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2450
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg50t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2500
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg51t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2550
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg52t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2600
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg53t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2650
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg54t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2700
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg55t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2750
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg56t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2800
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg57t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2850
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg58t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2900
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg59t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 2950
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg60t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3000
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg61t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3050
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg62t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3100
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg63t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3150
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg64t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3200
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg65t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3250
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg66t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3300
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg67t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3350
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg68t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3400
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg69t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3450
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                                <ListView x:Name="TriProPr4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="519,0,0,0">
+                                    <CheckBox x:Name="Sa50" Checked="Check" Unchecked="UnCheck" Content="Select All" FontWeight="Bold"/>
+                                    <CheckBox x:Name="Hmg70t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3500
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg71t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3550
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg72t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3600
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg73t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3650
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg74t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3700
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg75t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3750
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg76t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 3800
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg77t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games? - 4000
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                    <CheckBox x:Name="Hmg78t" Checked="Check" Unchecked="UnCheck">
+                                        <CheckBox.Content>
+                                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                                                       NavigateUri="http://runescape.wikia.com/wiki/
+                                                       How_Many_Games%3F">
+                                                How Many Games?
+                                            </Hyperlink>
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <!-- ReSharper restore InconsistentNaming -->
                     </TabControl>
                 </Grid>
             </TabItem>
