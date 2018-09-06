@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Navigation;
 using Microsoft.Win32;
 using static Guideviewer.Progress;
@@ -219,7 +220,13 @@ namespace Guideviewer
 
             foreach (var cb in AllCheckBoxes)
             {
-                 NameCompareTuples.Add(new Tuple<string, string>(cb.Name, cb.Content.ToString()));
+                if (cb.Content is TextBlock textB)
+                {
+                    foreach (Hyperlink hyperlink in LogicalTreeHelper.GetChildren(textB))
+                    {
+                        NameCompareTuples.Add(new Tuple<string, string>(cb.Name, hyperlink.ToString()));
+                    }
+                }
             }
 
             for (int i = 0; i < 6; i++)
@@ -278,7 +285,6 @@ namespace Guideviewer
 
         private void FirstLoad()
         {
-            
             //Google Request
             Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
 
@@ -361,6 +367,14 @@ namespace Guideviewer
                             CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, false);
                             break;
                     }
+
+                    MessageBox.Show(CheckboxesBoolDictionary.Count.ToString());
+
+                    MessageBox.Show(AllCheckBoxes.Count.ToString());
+
+                    MessageBox.Show(NameCompareTuples.Count.ToString());
+
+                    
 
                     Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1,
                         NameCompareTuples[i].Item2);
