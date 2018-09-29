@@ -526,7 +526,7 @@ namespace Guideviewer
             string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
             string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
 
-            Progress.SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
+			SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
         }
 
         private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)

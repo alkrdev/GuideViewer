@@ -32,7 +32,7 @@ namespace Guideviewer
 
                 // Using the .Json file that contains my "Client Secret" - This allows access to data from spreadsheet
                 using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read,
-                    FileShare.Delete, Int16.MaxValue, FileOptions.DeleteOnClose))
+                    FileShare.Delete, short.MaxValue, FileOptions.DeleteOnClose))
                 {
                     // Use initialized Credential - Creates file at given location for future reference, so no further logging in is needed
                     _credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
