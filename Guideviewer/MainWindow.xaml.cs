@@ -322,15 +322,14 @@ namespace Guideviewer
         {            
             for (int i = ColumnList[0].Length - 1; i >= 0; i--)
             {
-                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i],
-                                                ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
-                
-                if (strings.All(x => x == strings.First()))
+                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
+
+                bool allAreSame = strings.Skip(1).All(c => c.Equals(strings[0]));
+
+				if (allAreSame)
                 {
                     MyDataGrid.Items.RemoveAt(i);
                 }
-
-
             }
         }
         
@@ -398,7 +397,7 @@ namespace Guideviewer
                             break;
                     }
 
-                    Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
+                    // Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
                 }
             }
 
