@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Guideviewer
+namespace Library
 {
     //Reference to decide if a quest has been completed or not
     public enum Status { Completed, NotStarted, Started };

@@ -9,9 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Navigation;
 using Microsoft.Win32;
-using static Guideviewer.Progress;
-using static Guideviewer.User;
-using static Guideviewer.Data;
+using Library;
 
 namespace Guideviewer
 {
@@ -21,16 +19,33 @@ namespace Guideviewer
     public partial class MainWindow
     {
         public bool HasLoaded;
-        
+        public static bool HasApplied = false;
+
         public string UrlUserName
         {
             get => UrlUsername.Text;
             set => UrlUsername.Text = value.Replace(' ', '_');
-        }                
+        }
+        public string ApplyUserName
+        {
+            get => ApplyUsername.Text;
+            set => ApplyUsername.Text = value.Replace(' ', '_');
+        }
         public static List<string[]> ColumnList = new List<string[]>();
 
+        public enum SearchCriteria
+        {
+            ListView,
+            CheckBox
+        }
+
+        //Parameters to handle GoogleRequest
+        public IList<IList<object>> Values;
+
+        public Data data;
+
         //Struct to insert data from datasource in correct columns
-        struct Data
+        struct DataGridInfo
         {
             public string Qt { set; get; }
             public string L { set; get; }
@@ -39,94 +54,17 @@ namespace Guideviewer
             public string Tcc { set; get; }
             public string Im { set; get; }
         }
-        
-        // ReSharper disable once RedundantDefaultMemberInitializer
-        // Has the user clicked Apply?
-        public static bool HasApplied = false;
-
-        // The username, captured when the user clicks "Apply"
-        public string ApplyUserName
-        {
-            get => ApplyUsername.Text;
-            set => ApplyUsername.Text = value.Replace(' ', '_');
-        }
-
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Clear everything
-            CheckboxesDictionary.Clear();
-            ListViewSelectAllList.Clear();
-            SelectAllCheckBoxes.Clear();
-            AllCheckBoxes.Clear();
-            ListViews.Clear();
+            data = new Data();
+            HandleNesting(SearchCriteria.ListView);
 
-            foreach (var tabcontrolItem in MainTabControl.Items)
+            for (int i = 0; i < data.SelectAllCheckBoxes.Count; i++)
             {
-                if (tabcontrolItem is TabItem tabitem)
-                {
-                    foreach (var child in LogicalTreeHelper.GetChildren(tabitem))
-                    {
-                        if (child is Grid grid)
-                        {
-                            foreach (var gridChild in grid.Children)
-                            {
-                                if (gridChild is TabControl tabcontrol)
-                                {
-                                    foreach (var tabcontrolItem2 in tabcontrol.Items)
-                                    {
-                                        if (tabcontrolItem2 is TabItem tabitem2)
-                                        {
-                                            foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2))
-                                            {
-                                                if (child2 is Grid grid2)
-                                                {
-                                                    foreach (var grid2Child in grid2.Children)
-                                                    {
-                                                        if (grid2Child is ListView listview)
-                                                        {
-                                                            if (listview.Name.StartsWith("Mq") ||
-                                                                listview.Name.StartsWith("Sa") ||
-                                                                listview.Name.StartsWith("Co") ||
-                                                                listview.Name.StartsWith("Tri"))
-                                                            {
-                                                                //MessageBox.Show("I just added " + listview.Name + " which is a ListView, to _listViews");
-                                                                ListViews.Add(listview);
-                                                            }
-                                                            foreach (var checkbox in listview.Items)
-                                                            {
-                                                                if (checkbox is CheckBox cb)
-                                                                {
-                                                                    if (cb.Name.StartsWith("Sa"))
-                                                                    {
-                                                                        //MessageBox.Show("I just added " + cb.Name + " which is a SelectAll CheckBox, to _selectAllCheckBoxes");
-                                                                        SelectAllCheckBoxes.Add(cb);
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        //MessageBox.Show("I just added " + cba.Name + " which is a CheckBox, to _allCheckBoxes");
-                                                                        AllCheckBoxes.Add(cb);
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            for (int i = 0; i < SelectAllCheckBoxes.Count; i++)
-            {
-                ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(SelectAllCheckBoxes[i], ListViews[i]));
+                data.ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(data.SelectAllCheckBoxes[i], data.ListViews[i]));
             }
 
             foreach (var list in new List<List<CheckBox>>
@@ -208,185 +146,59 @@ namespace Guideviewer
                 new List<CheckBox> {Bts3, Bts3t},
                 new List<CheckBox> {Bts4, Bts4t}
             })
-
             {
-                CheckboxesDictionary.Add(list[0].Name, list);
-                CheckboxesDictionary.Add(list[1].Name, list);
+                data.CheckboxesDictionary.Add(list[0].Name, list);
+                data.CheckboxesDictionary.Add(list[1].Name, list);
             }
 
-            foreach (var cb in AllCheckBoxes)
+            foreach (var cb in data.AllCheckBoxes)
             {
                 if (cb.Content is TextBlock textB)
                 {
                     foreach (Hyperlink hyperlink in LogicalTreeHelper.GetChildren(textB))
                     {
-                        NameCompareTuples.Add(new Tuple<string, string>(cb.Name, hyperlink.ToString()));
+                        data.NameCompareTuples.Add(new Tuple<string, string>(cb.Name, hyperlink.ToString()));
                     }
                 }
             }
-
             for (int i = 0; i < 6; i++)
             {
                 ColumnList.Add(new string[new GoogleRequest().GoogleRequestInit().Execute().Values.Count]);
             }
+            //Google Request
+            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
 
-            new Loading().FirstLoad();
-        }
-
-        private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
-        {
-            try
+            //Insert the requested data into column arrays
+            if (Values != null && Values.Count > 0)
             {
-                string runemetrics = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
-                string hiscore = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName);
-                new Loading().LoadUser(runemetrics, hiscore.Split('\n'), true);
-                new Progress().SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
-            }
-            catch (Exception d)
-            {
-                MessageBox.Show($"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
-            }
-            finally
-            {
-                MessageBox.Show("User was successfully loaded, please \"Reload\"");
-            }
-
-            if (HasLoaded)
-            {
-                MessageBox.Show("Please use the Reset function before loading an accounts progress again");
-            }
-
-            HasLoaded = true;
-        }
-
-		//Fill all of the columns
-		public void FillAllColumns()
-		{
-			if (Loading.Values != null)
-			{
-				for (int a = 0; a < Loading.Values.Count; a++)
-				{
-					MyDataGrid.Items.Add(new Data
-					{
-						Qt = ColumnList[0][a],
-						L = ColumnList[1][a],
-						Mqc = ColumnList[2][a],
-						Cc = ColumnList[3][a],
-						Tcc = ColumnList[4][a],
-						Im = ColumnList[5][a]
-					});
-				}
-			}
-		}
-
-
-
-		private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
-        {            
-            for (int i = ColumnList[0].Length - 1; i >= 0; i--)
-            {
-                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
-				
-				if (strings.All(c => c.Equals(strings[0])))
+                for (var j = 0; j < Values.Count; j++)
                 {
-                    MyDataGrid.Items.RemoveAt(i);
-                }
-            }
-        }
-        
-        private void LoadFile_OnClick(object sender, RoutedEventArgs e)
-        {
-            Load();
-            HasLoaded = false;
-        }
-
-        private void Reset(object sender, RoutedEventArgs routedEventArgs)
-        {
-            HasLoaded = false;
-            MyDataGrid.Items.Clear();
-            MessageBox.Show("ALL ITEMS WERE CLEARED");
-
-			new Loading().FirstLoad();
-        }
-
-        private void Reload(object sender, RoutedEventArgs e)
-        {
-            if (HasApplied)
-            {
-                HasApplied = false;
-                CheckboxesBoolDictionary.Clear();
-
-                for (int i = 0; i < AllCheckBoxes.Count; i++)
-                {
-                    switch (AllCheckBoxes[i].IsChecked)
+                    for (int i = 0; i < 5; i++)
                     {
-                        case true:
-                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, true);
-                            break;
-                        case false:
-                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, false);
-                            break;
+                        MainWindow.ColumnList[i][j] = Values[j][i].ToString();
                     }
-                    new Specific().CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1,
-                        NameCompareTuples[i].Item2);
-                }
-            } else if (HasLoaded)
-            {
-                HasLoaded = false;
-                CheckboxesBoolDictionary.Clear();
-
-                for (int i = 0; i < AllCheckBoxes.Count; i++)
-                {
-                    switch (AllCheckBoxes[i].IsChecked)
-                    {
-                        case true:
-                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, true);
-                            break;
-                        case false:
-                            CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, false);
-                            break;
-                        default:
-                            break;
-                    }
-
-                    //new Specific().CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
                 }
             }
 
-            MyDataGrid.Items.Clear();
             FillAllColumns();
-        }
-        private void Check(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, true); 
-        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, false); 
 
-
-        private void Switch(object sender, bool boolean)
-        {
-            if (sender is CheckBox senderBox)
+            for (int i = 0; i < User.LoadedSkillLevels.Length; i++)
             {
-                // Main Duplicate Control
-                if (CheckboxesDictionary.TryGetValue(senderBox.Name, out var value))
+                if (i == 4)
                 {
-                    foreach (var cb in value)
-                    {
-                        cb.IsChecked = boolean;
-                    }
+                    User.LoadedSkillLevels[i] = 10;
+                    User.LoadedSkillExperiences[i] = 1154;
                 }
-
-                // Select All Control
-                if (!senderBox.Name.StartsWith("Sa")) return;
-                foreach (var listViewChild in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(senderBox)))
+                else
                 {
-                    if (listViewChild is CheckBox cb)
-                    {
-                        cb.IsChecked = boolean;
-                    }
-
+                    User.LoadedSkillLevels[i] = 1;
+                    User.LoadedSkillExperiences[i] = 0;
                 }
+                User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
             }
         }
 
-        public void HandleSelectAll()
+        private void HandleNesting(SearchCriteria crit)
         {
             foreach (var tabcontrolItem in MainTabControl.Items)
             {
@@ -412,26 +224,50 @@ namespace Guideviewer
                                                     {
                                                         if (grid2Child is ListView listview)
                                                         {
-                                                            List<CheckBox> availableCheckBoxes = new List<CheckBox>();
-                                                            foreach (var checkbox in listview.Items)
+                                                            if (crit != SearchCriteria.CheckBox)
                                                             {
-                                                                if (checkbox is CheckBox cb && !cb.Name.StartsWith("Sa"))
+                                                                if (new string[] { "Mq", "Sa", "Co", "Tri" }.Any(p => listview.Name.StartsWith(p)))
                                                                 {
-                                                                    availableCheckBoxes.Add(cb);
+                                                                    data.ListViews.Add(listview);
+                                                                }
+                                                                foreach (var checkbox in listview.Items)
+                                                                {
+                                                                    if (checkbox is CheckBox cb)
+                                                                    {
+                                                                        if (cb.Name.StartsWith("Sa"))
+                                                                        {
+                                                                            data.SelectAllCheckBoxes.Add(cb);
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            data.AllCheckBoxes.Add(cb);
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
-                                                            foreach (var listviewItem in listview.Items)
+                                                            else
                                                             {
-                                                                if (listviewItem is CheckBox cb && cb.Name.StartsWith("Sa"))
+                                                                List<CheckBox> availableCheckBoxes = new List<CheckBox>();
+                                                                foreach (var checkbox in listview.Items)
                                                                 {
-                                                                    if (availableCheckBoxes.All(box => box.IsChecked == true))
+                                                                    if (checkbox is CheckBox cb && !cb.Name.StartsWith("Sa"))
                                                                     {
-                                                                        cb.IsChecked = true;
+                                                                        availableCheckBoxes.Add(cb);
                                                                     }
-                                                                    else if (availableCheckBoxes.All(box => box.IsChecked == false))
+                                                                }
+                                                                foreach (var listviewItem in listview.Items)
+                                                                {
+                                                                    if (listviewItem is CheckBox cb && cb.Name.StartsWith("Sa"))
                                                                     {
-                                                                        cb.IsChecked = false;
-                                                                    }
+                                                                        if (availableCheckBoxes.All(box => box.IsChecked == true))
+                                                                        {
+                                                                            cb.IsChecked = true;
+                                                                        }
+                                                                        else if (availableCheckBoxes.All(box => box.IsChecked == false))
+                                                                        {
+                                                                            cb.IsChecked = false;
+                                                                        }
+                                                                    }                                                                
                                                                 }
                                                             }
                                                         }
@@ -444,26 +280,230 @@ namespace Guideviewer
                             }
                         }
                     }
+                } 
+            } 
+        }
+
+        private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string runemetrics = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
+                string hiscore = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName);
+                new Loading().LoadUser(runemetrics, hiscore.Split('\n'), true);
+                new Progress().SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), User.DefaultIntArrayString);
+            }
+            catch (Exception d)
+            {
+                MessageBox.Show($"The username is either wrong or the user has set their profile to private. If the username is correct, contact a developer. \n\n Error: {d}");
+            }
+            finally
+            {
+                MessageBox.Show("User was successfully loaded, please \"Reload\"");
+            }
+
+            if (HasLoaded)
+            {
+                MessageBox.Show("Please use the Reset function before loading an accounts progress again");
+            }
+
+            HasLoaded = true;
+        }
+
+		//Fill all of the columns
+		public void FillAllColumns()
+		{
+			if (Values != null)
+			{
+				for (int a = 0; a < Values.Count; a++)
+				{
+					MyDataGrid.Items.Add(new DataGridInfo
+					{
+						Qt = ColumnList[0][a],
+						L = ColumnList[1][a],
+						Mqc = ColumnList[2][a],
+						Cc = ColumnList[3][a],
+						Tcc = ColumnList[4][a],
+						Im = ColumnList[5][a]
+					});
+				}
+			}
+		}
+
+		private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
+        {            
+            for (int i = ColumnList[0].Length - 1; i >= 0; i--)
+            {
+                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
+				
+				if (strings.Skip(1).All(c => string.IsNullOrWhiteSpace(c)))
+                {
+                    MyDataGrid.Items.RemoveAt(i);
+                }
+            }
+        }
+        
+        private void LoadFile_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+
+                string[] userskilldata = new string[User.SkillNames.Count];
+
+                for (int i = 1; i < User.SkillNames.Count - 1; i++)
+                {
+                    userskilldata[i] = File.ReadLines(ofd.FileName).Skip(2 + i).Take(1).First();
+                }
+
+                for (int i = 1; i < User.Levels.Length; i++)
+                {
+                    string v = File.ReadLines(ofd.FileName).Skip(i + 2).Take(1).First();
+                    User.LoadedSkillLevels[i] = Convert.ToInt32(v.Substring(v.IndexOf(": ", 3, StringComparison.Ordinal) + 2));
+                    User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
+                }
+
+                new Loading().LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, false);
+            }
+            HasLoaded = false;
+        }
+
+        private void Reset(object sender, RoutedEventArgs routedEventArgs)
+        {
+            HasLoaded = false;
+            MyDataGrid.Items.Clear();
+            MessageBox.Show("ALL ITEMS WERE CLEARED");
+            FirstLoad();
+        }
+
+        private void FirstLoad()
+        {
+            //Google Request
+            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
+
+            //Insert the requested data into column arrays
+            if (Values != null && Values.Count > 0)
+            {
+                for (var j = 0; j < Values.Count; j++)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        ColumnList[i][j] = Values[j][i].ToString();
+                    }
+                }
+            }
+
+            FillAllColumns();
+
+            for (int i = 0; i < User.LoadedSkillLevels.Length; i++)
+            {
+                if (i == 4)
+                {
+                    User.LoadedSkillLevels[i] = 10;
+                    User.LoadedSkillExperiences[i] = 1154;
+                }
+                else
+                {
+                    User.LoadedSkillLevels[i] = 1;
+                    User.LoadedSkillExperiences[i] = 0;
+                }
+                User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
+            }
+        }
+
+        private void Reload(object sender, RoutedEventArgs e)
+        {
+            if (HasApplied)
+            {
+                HasApplied = false;
+
+                RemoveCheckboxes();
+            }
+            else if (HasLoaded)
+            {
+                HasLoaded = false;
+
+                RemoveCheckboxes();
+            }
+
+            MyDataGrid.Items.Clear();
+            FillAllColumns();
+        }
+
+        private void RemoveCheckboxes()
+        {
+            data.CheckboxesBoolDictionary.Clear();
+
+            for (int i = 0; i < data.AllCheckBoxes.Count; i++)
+            {
+                switch (data.AllCheckBoxes[i].IsChecked)
+                {
+                    case true:
+                        data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, true);
+                        break;
+                    case false:
+                        data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, false);
+                        break;
+                }
+                if (data.CheckboxesBoolDictionary.TryGetValue(data.AllCheckBoxes[i].Name, out bool isTrue))
+                {
+                    for (int j = ColumnList.Count - 1; j >= 2; j--)
+                    {
+                        for (int k = ColumnList[0].Length - 1; k >= 0; k--)
+                        {
+                            if (string.Equals(data.AllCheckBoxes[j].Name.ToLower(), data.NameCompareTuples[j].Item1.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[j][k].Contains(data.NameCompareTuples[j].Item2))
+                            {
+                                ColumnList[j][k] = ColumnList[j][k].Remove(0);
+                            }
+                        }
+                    }
                 }
             }
         }
 
+        private void Check(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, true); 
+        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, false); 
 
-        public static string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary)
+        private void Switch(object sender, bool boolean)
         {
-            CheckboxesBoolDictionary.Clear();
+            if (sender is CheckBox senderBox)
+            {
+                // Main Duplicate Control
+                if (data.CheckboxesDictionary.TryGetValue(senderBox.Name, out var value))
+                {
+                    foreach (var cb in value)
+                    {
+                        cb.IsChecked = boolean;
+                    }
+                }
+
+                // Select All Control
+                if (!senderBox.Name.StartsWith("Sa")) return;
+                foreach (var listViewChild in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(senderBox)))
+                {
+                    if (listViewChild is CheckBox cb)
+                    {
+                        cb.IsChecked = boolean;
+                    }
+                }
+            }
+        }
+
+        public string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary)
+        {
+            data.CheckboxesBoolDictionary.Clear();
             string str = "";
 
-            foreach (var cb in AllCheckBoxes)
+            foreach (var cb in data.AllCheckBoxes)
             {
                 switch (cb.IsChecked)
                 {
                     case true:
-                        CheckboxesBoolDictionary.Add(cb.Name, true);
+                        data.CheckboxesBoolDictionary.Add(cb.Name, true);
                         str += "1,";
                         break;
                     case false:
-                        CheckboxesBoolDictionary.Add(cb.Name, false);
+                        data.CheckboxesBoolDictionary.Add(cb.Name, false);
                         str += "0,";
                         break;
                 }
@@ -475,7 +515,7 @@ namespace Guideviewer
         {
             HasApplied = true;
 
-			new Progress().SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName), ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave(sender, CheckboxesBoolDictionary));
+			new Progress().SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName), ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave(sender, data.CheckboxesBoolDictionary));
         }
 
         private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
@@ -498,11 +538,11 @@ namespace Guideviewer
 
                     for (var index = 0; index < checkBoxIntArray.Length; index++)
                     {
-                        AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
+                        data.AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
                     }
                 }
             }
-            HandleSelectAll();
+            HandleNesting(SearchCriteria.CheckBox);
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
 
@@ -510,6 +550,116 @@ namespace Guideviewer
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+    }
+
+    public class Loading
+    {
+        public void LoadUser(string userquestData, string[] userskillData, bool online)
+        {
+            User.SkillsDictionary.Clear();
+            for (int i = 1; i < User.SkillNames.Count; i++)
+            {
+                User.LoadedSkillLevels[i] = Convert.ToInt32(userskillData[i].Split(',')[1]);
+
+                User.SkillsDictionary.Add(User.SkillNames[i], User.LoadedSkillLevels[i]);
+            }
+
+            MainWindow.ColumnList[0].ToList().ForEach(text =>
+            {
+                // If the current value starts with "[Train"
+                if (text.StartsWith("[Train"))
+                {
+                    // Then loop through all known skills in the game
+                    User.SkillNames.ForEach(skill =>
+                    {
+                        // If the users level is higher than our focuslevel
+                        if (skill != "Total" && text.Contains(skill) && User.SkillsDictionary.TryGetValue(skill, out int value) && Convert.ToInt32(
+                                text.Substring(("[Train " + skill + " to ").Length)
+                                    .Replace("]", "").Replace("[OPTIONAL", "")) <= value)
+                        {
+                            // Remove the value from the Datagrid
+                            text = text.Remove(0);
+                        }
+                    });
+                }
+            });
+
+            Quests.FromJson(userquestData).QuestsList.ForEach(quest => {
+                // Loop through the length of our first column
+                for (int j = 0; j < MainWindow.ColumnList[0].Length; j++)
+                {
+                    // If the title of the current quest, and the current value are the same - And the quest has been completed
+                    if (quest.Title == MainWindow.ColumnList[0][j] && quest.Status == Status.Completed)
+                    {
+                        // Remove the value from the Datagrid
+                        MainWindow.ColumnList[0][j] = MainWindow.ColumnList[0][j].Remove(0);
+
+                        // If there is a value in the column to the right
+                        if (MainWindow.ColumnList[1][j] != "")
+                        {
+                            // Remove the value from the Datagrid
+                            MainWindow.ColumnList[1][j] = MainWindow.ColumnList[1][j].Remove(0);
+                        }
+
+                        MainWindow.ColumnList.ForEach(col =>
+                        {
+                            // Loop through the length of our Column
+                            for (var i = 0; i < col.Length; i++)
+                            {
+                                // If the value is a space, and the value is not nothing
+                                if (col[i] == " " && col[i] != "")
+                                {
+                                    // Remove the value from the Datagrid
+                                    col[i] = col[i].Remove(0);
+                                }
+                            }
+                        });
+
+                        User.PrerequisiteTuples.ToList().ForEach(pre => 
+                        {
+                            if (quest.Title == pre.Item1 && quest.Status == Status.Completed)
+                            {
+                                for (int h = 0; h < MainWindow.ColumnList[0].Length; h++)
+                                {
+                                    if (MainWindow.ColumnList[0][h] == pre.Item2)
+                                    {
+                                        MainWindow.ColumnList[0][h] = MainWindow.ColumnList[0][h].Remove(0);
+
+                                        if (MainWindow.ColumnList[1][h] != "")
+                                        {
+                                            MainWindow.ColumnList[1][h] = MainWindow.ColumnList[1][h].Remove(0);
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    public class Progress
+    {        
+        public void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
+        {
+            using (sw)
+            {
+                sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
+                sw.WriteLine(" ");
+
+                for (var index = 1; index < User.Levels.Length; index++)
+                {
+                    sw.WriteLine(User.Levels[index].Item1 + " level: " + User.Levels[index].Item2);
+                }
+
+                sw.WriteLine(" ");
+                sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : User.DefaultIntArrayString);
+
+                sw.WriteLine(" ");
+                sw.WriteLine(userQuestData);
+            }
         }
     }
 }

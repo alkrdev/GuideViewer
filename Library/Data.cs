@@ -3,26 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace Guideviewer
+namespace Library
 {
-    class Data
+    public class Data
     {
         // Dictionary to keep track of all CheckBoxes
-        public static Dictionary<string, List<CheckBox>>CheckboxesDictionary = new Dictionary<string, List<CheckBox>>();
+        public Dictionary<string, List<CheckBox>>CheckboxesDictionary { get; set; }
         // Dictionary to keep track of all bool values of CheckBoxes
-        public static Dictionary<string, bool> CheckboxesBoolDictionary = new Dictionary<string, bool>();
+        public Dictionary<string, bool> CheckboxesBoolDictionary { get; set; }
         // List of all "Select All" Checkboxes
-        public static List<Tuple<CheckBox, ListView>> ListViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
+        public List<Tuple<CheckBox, ListView>> ListViewSelectAllList { get; set; }
         // List of tuples that contain almost identical names
-        public static List<Tuple<string, string>> NameCompareTuples = new List<Tuple<string, string>>();
+        public List<Tuple<string, string>> NameCompareTuples { get; set; }
         // List of all "Select All" Checkboxes
-        public static List<CheckBox> SelectAllCheckBoxes = new List<CheckBox>();
+        public List<CheckBox> SelectAllCheckBoxes { get; set; }
         // List of all Checkboxes
-        public static List<CheckBox> AllCheckBoxes = new List<CheckBox>();
+        public List<CheckBox> AllCheckBoxes { get; set; }
         // List of all Listviews
-        public static List<ListView> ListViews = new List<ListView>();        
+        public List<ListView> ListViews { get; set; }
+
+        public Data()
+        {
+            CheckboxesDictionary = new Dictionary<string, List<CheckBox>>();
+            CheckboxesBoolDictionary = new Dictionary<string, bool>();
+            ListViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
+            NameCompareTuples = new List<Tuple<string, string>>();
+            SelectAllCheckBoxes = new List<CheckBox>();
+            AllCheckBoxes = new List<CheckBox>();
+            ListViews = new List<ListView>();
+
+            ClearEverything();
+        }
+
+        private void ClearEverything()
+        {
+            // Clear everything
+            CheckboxesDictionary.Clear();
+            CheckboxesBoolDictionary.Clear();
+            ListViewSelectAllList.Clear();
+            NameCompareTuples.Clear();
+            SelectAllCheckBoxes.Clear();
+            AllCheckBoxes.Clear();
+            ListViews.Clear();
+        }
     }
-    class User
+    public class User
     {
         //List of all skillnames in the game
         public static List<string> SkillNames = new List<string>
