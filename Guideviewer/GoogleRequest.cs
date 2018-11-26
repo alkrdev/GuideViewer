@@ -28,7 +28,7 @@ namespace Guideviewer
             //Everytime I mistakenly push the correct link, I revoke the access of the link.
             using (WebClient wc = new WebClient())
             {
-                wc.DownloadFile(URLReturner("[REDACTED]"), "\\client_secret.json");
+                wc.DownloadFile(URLReturner("ulmz4"), "\\client_secret.json");
 
                 // Using the .Json file that contains my "Client Secret" - This allows access to data from spreadsheet
                 using (var stream = new FileStream("\\client_secret.json", FileMode.Open, FileAccess.Read,

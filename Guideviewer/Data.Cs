@@ -20,8 +20,7 @@ namespace Guideviewer
         // List of all Checkboxes
         public static List<CheckBox> AllCheckBoxes = new List<CheckBox>();
         // List of all Listviews
-        public static List<ListView> ListViews = new List<ListView>();
-        
+        public static List<ListView> ListViews = new List<ListView>();        
     }
     class User
     {

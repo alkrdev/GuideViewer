@@ -26,15 +26,11 @@ namespace Guideviewer
         {
             get => UrlUsername.Text;
             set => UrlUsername.Text = value.Replace(' ', '_');
-        }
-
-        //Parameters to handle GoogleRequest
-        public IList<IList<object>> Values;
-                
+        }                
         public static List<string[]> ColumnList = new List<string[]>();
 
         //Struct to insert data from datasource in correct columns
-        public struct Data
+        struct Data
         {
             public string Qt { set; get; }
             public string L { set; get; }
@@ -234,7 +230,7 @@ namespace Guideviewer
                 ColumnList.Add(new string[new GoogleRequest().GoogleRequestInit().Execute().Values.Count]);
             }
 
-            FirstLoad();
+            new Loading().FirstLoad();
         }
 
         private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
@@ -243,8 +239,8 @@ namespace Guideviewer
             {
                 string runemetrics = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
                 string hiscore = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName);
-                Loading.LoadUser(runemetrics, hiscore.Split('\n'), true);
-                        SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
+                new Loading().LoadUser(runemetrics, hiscore.Split('\n'), true);
+                new Progress().SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), DefaultIntArrayString);
             }
             catch (Exception d)
             {
@@ -263,70 +259,35 @@ namespace Guideviewer
             HasLoaded = true;
         }
 
-        //Fill all of the columns
-        private void FillAllColumns()
-        {
-            if (Values != null)
-            {
-                for (int a = 0; a < Values.Count; a++)
-                {
-                    MyDataGrid.Items.Add(new Data
-                    {
-                        Qt = ColumnList[0][a],
-                        L = ColumnList[1][a],
-                        Mqc = ColumnList[2][a],
-                        Cc = ColumnList[3][a],
-                        Tcc = ColumnList[4][a],
-                        Im = ColumnList[5][a]
-                    });
-                }
-            }
-        }
+		//Fill all of the columns
+		public void FillAllColumns()
+		{
+			if (Loading.Values != null)
+			{
+				for (int a = 0; a < Loading.Values.Count; a++)
+				{
+					MyDataGrid.Items.Add(new Data
+					{
+						Qt = ColumnList[0][a],
+						L = ColumnList[1][a],
+						Mqc = ColumnList[2][a],
+						Cc = ColumnList[3][a],
+						Tcc = ColumnList[4][a],
+						Im = ColumnList[5][a]
+					});
+				}
+			}
+		}
 
-        private void FirstLoad()
-        {
-            //Google Request
-            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
 
-            //Insert the requested data into column arrays
-            if (Values != null && Values.Count > 0)
-            {
-                for (var j = 0; j < Values.Count; j++)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        ColumnList[i][j] = Values[j][i].ToString();
-                    }
-                }
-            }
-            
-            FillAllColumns();
 
-            for (int i = 0; i < LoadedSkillLevels.Length; i++)
-            {
-                if (i == 4)
-                {
-                    LoadedSkillLevels[i] = 10;
-                    LoadedSkillExperiences[i] = 1154;
-                }
-                else
-                {
-                    LoadedSkillLevels[i] = 1;
-                    LoadedSkillExperiences[i] = 0;
-                }
-                Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
-            }
-        }
-
-        private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
+		private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
         {            
             for (int i = ColumnList[0].Length - 1; i >= 0; i--)
             {
                 var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
-
-                bool allAreSame = strings.Skip(1).All(c => c.Equals(strings[0]));
-
-				if (allAreSame)
+				
+				if (strings.All(c => c.Equals(strings[0])))
                 {
                     MyDataGrid.Items.RemoveAt(i);
                 }
@@ -345,7 +306,7 @@ namespace Guideviewer
             MyDataGrid.Items.Clear();
             MessageBox.Show("ALL ITEMS WERE CLEARED");
 
-            FirstLoad();
+			new Loading().FirstLoad();
         }
 
         private void Reload(object sender, RoutedEventArgs e)
@@ -366,16 +327,7 @@ namespace Guideviewer
                             CheckboxesBoolDictionary.Add(AllCheckBoxes[i].Name, false);
                             break;
                     }
-
-                    MessageBox.Show(CheckboxesBoolDictionary.Count.ToString());
-
-                    MessageBox.Show(AllCheckBoxes.Count.ToString());
-
-                    MessageBox.Show(NameCompareTuples.Count.ToString());
-
-                    
-
-                    Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1,
+                    new Specific().CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1,
                         NameCompareTuples[i].Item2);
                 }
             } else if (HasLoaded)
@@ -397,15 +349,15 @@ namespace Guideviewer
                             break;
                     }
 
-                    // Specific.CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
+                    //new Specific().CheckBoxRemover(CheckboxesBoolDictionary, AllCheckBoxes[i], NameCompareTuples[i].Item1, NameCompareTuples[i].Item2);
                 }
             }
 
             MyDataGrid.Items.Clear();
             FillAllColumns();
         }
-        private void Check(object sender, RoutedEventArgs routedEventArgs) { Switch(sender, true); }
-        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) { Switch(sender, false); }
+        private void Check(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, true); 
+        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, false); 
 
 
         private void Switch(object sender, bool boolean)
@@ -522,10 +474,8 @@ namespace Guideviewer
         private void OnApplyOptions(object sender, RoutedEventArgs e)
         {
             HasApplied = true;
-            string str = CheckboxStringSave(sender, CheckboxesBoolDictionary);
-            string v = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName);
 
-			SaveText(v, ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), str);
+			new Progress().SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName), ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave(sender, CheckboxesBoolDictionary));
         }
 
         private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
@@ -536,10 +486,10 @@ namespace Guideviewer
 
             if (ofd.ShowDialog() == true)
             {
-                string v = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
-                if (v.EndsWith(","))
+                string saveString = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
+                if (saveString.EndsWith(","))
                 {
-                    checkboxString = v.Remove(v.LastIndexOf(','));
+                    checkboxString = saveString.Remove(saveString.LastIndexOf(','));
                 }
 
                 if (checkboxString != null)
@@ -552,9 +502,7 @@ namespace Guideviewer
                     }
                 }
             }
-
             HandleSelectAll();
-
             ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
         }
 
