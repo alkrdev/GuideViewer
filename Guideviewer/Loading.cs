@@ -1,6 +1,5 @@
 ﻿using System;
-using static Guideviewer.MainWindow;
-using static Guideviewer.User;
+using System.Linq;
 
 namespace Guideviewer
 {
@@ -10,59 +9,58 @@ namespace Guideviewer
         {
             // Loop through the amount of skills
             new Progress().ExtractInsert(userskillData, online);
-            
-            // Loop through the length of the entire first column
-            for (int i = 1; i < ColumnList[0].Length; i++)
-            {
-                // If the current value starts with "[Train"
-                if (ColumnList[0][i].StartsWith("[Train"))
-                {
+
+			MainWindow.ColumnList[0].ToList().ForEach(text =>
+			{
+				// If the current value starts with "[Train"
+				if (text.StartsWith("[Train"))
+				{
 					// Then loop through all known skills in the game
-					SkillNames.ForEach(skill =>
+					User.SkillNames.ForEach(skill =>
 					{
 						if (skill != "Total")
 						{
 							// If the current value contains the current skill
-							if (ColumnList[0][i].Contains(skill))
+							if (text.Contains(skill))
 							{
 								// Fetch the users level, in the currently focused skill
-								if (SkillsDictionary.TryGetValue(skill, out int value))
+								if (User.SkillsDictionary.TryGetValue(skill, out int value))
 								{
 									// If the users level is higher than our focuslevel
-									if (Convert.ToInt32(ColumnList[0][i].Substring(("[Train " + skill + " to ").Length).Replace("]", "").Replace("[OPTIONAL", "")) <= value)
-									{
+									if (Convert.ToInt32(
+											text.Substring(("[Train " + skill + " to ").Length)
+												.Replace("]", "").Replace("[OPTIONAL", "")) <= value) {
 										// Remove the value from the Datagrid
-										ColumnList[0][i] = ColumnList[0][i].Remove(0);
+										text = text.Remove(0);
 									}
 								}
 							}
 						}
 					});
-                }
-            }
+				}
+			});
 
             // For each quest in our Questslist
             foreach (var t in Quests.FromJson(userquestData).QuestsList)
             {
                 // Loop through the length of our first column
-                for (int j = 0; j < ColumnList[0].Length; j++)
+                for (int j = 0; j < MainWindow.ColumnList[0].Length; j++)
                 {
                     // If the title of the current quest, and the current value are the same - And the quest has been completed
-                    if (t.Title == ColumnList[0][j] && t.Status == Status.Completed)
+                    if (t.Title == MainWindow.ColumnList[0][j] && t.Status == Status.Completed)
                     {
                         // Remove the value from the Datagrid
-                        ColumnList[0][j] = ColumnList[0][j].Remove(0);
+                        MainWindow.ColumnList[0][j] = MainWindow.ColumnList[0][j].Remove(0);
 
                         // If there is a value in the column to the right
-                        if (ColumnList[1][j] != "")
+                        if (MainWindow.ColumnList[1][j] != "")
                         {
                             // Remove the value from the Datagrid
-                            ColumnList[1][j] = ColumnList[1][j].Remove(0);
-
+                            MainWindow.ColumnList[1][j] = MainWindow.ColumnList[1][j].Remove(0);
                         }
 
-                        // For each column in our columnlist
-                        foreach (var col in ColumnList)
+                        // For each column in our MainWindow.ColumnList
+                        foreach (var col in MainWindow.ColumnList)
                         {
                             // Loop through the length of our Column
                             for (var i = 0; i < col.Length; i++)
@@ -76,11 +74,9 @@ namespace Guideviewer
                             }
                         }
 
-                        // For each prerequisite combination
-                        foreach (var t1 in PrerequisiteTuples)
-                        {
-                            new Specific().PrerequisiteRemover(t1.Item1, t1.Item2, t);
-                        }
+						User.PrerequisiteTuples.ToList().ForEach(
+							t1 => {new Specific().PrerequisiteRemover(t1.Item1, t1.Item2, t);
+						});
                     }
                 }
             }
