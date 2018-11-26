@@ -2,46 +2,45 @@
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
-using static Guideviewer.User;
 
 namespace Guideviewer {
     public class Progress {
-        public static string[] Categories;
+        public string[] Categories;
 
-        public static void ExtractInsert(string[] userSkillData, bool online)
+        public void ExtractInsert(string[] userSkillData, bool online)
         {
-            SkillsDictionary.Clear();
-            for (int i = 1; i < SkillNames.Count; i++) {
+            User.SkillsDictionary.Clear();
+            for (int i = 1; i < User.SkillNames.Count; i++) {
                 if (online) 
                 {
                     Categories = userSkillData[i].Split(',');
                 }
                 else 
                 {
-                    userSkillData[SkillNames.Count] = "";
+                    userSkillData[User.SkillNames.Count] = "";
                     Categories[1] = userSkillData[i].Substring(userSkillData[i].IndexOf(':') + 2);
                 }
 
-                LoadedSkillLevels[i] = Convert.ToInt32(Categories[1]);
+				User.LoadedSkillLevels[i] = Convert.ToInt32(Categories[1]);
 
-                SkillsDictionary.Add(SkillNames[i], LoadedSkillLevels[i]);
+				User.SkillsDictionary.Add(User.SkillNames[i], User.LoadedSkillLevels[i]);
             }
         }
 
-        public static void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
+        public void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
         {
             using (sw)
             {
                 sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
                 sw.WriteLine(" ");
 
-                for (var index = 1; index < Levels.Length; index++)
+                for (var index = 1; index < User.Levels.Length; index++)
                 {
-                    sw.WriteLine(Levels[index].Item1 + " level: " + Levels[index].Item2);
+                    sw.WriteLine(User.Levels[index].Item1 + " level: " + User.Levels[index].Item2);
                 }
 
                 sw.WriteLine(" ");
-                sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : DefaultIntArrayString);
+                sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : User.DefaultIntArrayString);
 
                 sw.WriteLine(" ");
                 sw.WriteLine(userQuestData);
@@ -53,18 +52,18 @@ namespace Guideviewer {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == true) {
 
-                string[] userskilldata = new string[SkillNames.Count];
+                string[] userskilldata = new string[User.SkillNames.Count];
 
-                for (int i = 1; i < SkillNames.Count-1; i++)
+                for (int i = 1; i < User.SkillNames.Count-1; i++)
                 {
                     userskilldata[i] = File.ReadLines(ofd.FileName).Skip(2+i).Take(1).First();
                 }
 
-                for (int i = 1; i < Levels.Length; i++)
+                for (int i = 1; i < User.Levels.Length; i++)
                 {
                     string v = File.ReadLines(ofd.FileName).Skip(i + 2).Take(1).First();
-                    LoadedSkillLevels[i] = Convert.ToInt32(v.Substring(v.IndexOf(": ", 3, StringComparison.Ordinal) + 2));
-                    Levels[i] = new Tuple<string, int, int>(SkillNames[i], LoadedSkillLevels[i], LoadedSkillExperiences[i]);
+					User.LoadedSkillLevels[i] = Convert.ToInt32(v.Substring(v.IndexOf(": ", 3, StringComparison.Ordinal) + 2));
+					User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
                 }
 
                 Loading.LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, false);

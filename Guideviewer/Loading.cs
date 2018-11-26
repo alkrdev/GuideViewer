@@ -6,10 +6,10 @@ namespace Guideviewer
 {
     public class Loading
     {
-        public static void LoadUser(string userquestData, string[] userskillData, bool online)
+        public void LoadUser(string userquestData, string[] userskillData, bool online)
         {
             // Loop through the amount of skills
-            Progress.ExtractInsert(userskillData, online);
+            new Progress().ExtractInsert(userskillData, online);
             
             // Loop through the length of the entire first column
             for (int i = 1; i < ColumnList[0].Length; i++)
@@ -17,44 +17,27 @@ namespace Guideviewer
                 // If the current value starts with "[Train"
                 if (ColumnList[0][i].StartsWith("[Train"))
                 {
-                    // Then loop through all known skills in the game
-                    foreach (var skill in SkillNames)
-                    {
-                        // But skip the skillname "Total", because it is not a skill - It's an accumulation
-                        if (skill == "Total")
-                        {
-                            // Skip
-                            continue;
-                        }
-
-                        // If the current value contains the current skill
-                        if (ColumnList[0][i].Contains(skill))
-                        {
-                            // Create a string.    Example: "[Train Attack to "
-                            string text = "[Train " + skill + " to ";
-
-                            // Create a substring. Example: "[Train Attack to 70]" => "70]"
-                            var substring = ColumnList[0][i].Substring(text.Length);
-
-                            // Replace "]"         Example: "70]" => "70"
-                            var replace = substring.Replace("]", "");
-                            var replaceA = replace.Replace("[OPTIONAL", "");
-
-                            // Convert our String to an Int
-                            var focusLevel = Convert.ToInt32(replaceA);
-
-                            // Fetch the users level, in the currently focused skill
-                            if (SkillsDictionary.TryGetValue(skill, out int value))
-                            {
-                                // If the users level is higher than our focuslevel
-                                if (focusLevel <= value)
-                                {
-                                    // Remove the value from the Datagrid
-                                    ColumnList[0][i] = ColumnList[0][i].Remove(0);
-                                }
-                            }
-                        }
-                    }
+					// Then loop through all known skills in the game
+					SkillNames.ForEach(skill =>
+					{
+						if (skill != "Total")
+						{
+							// If the current value contains the current skill
+							if (ColumnList[0][i].Contains(skill))
+							{
+								// Fetch the users level, in the currently focused skill
+								if (SkillsDictionary.TryGetValue(skill, out int value))
+								{
+									// If the users level is higher than our focuslevel
+									if (Convert.ToInt32(ColumnList[0][i].Substring(("[Train " + skill + " to ").Length).Replace("]", "").Replace("[OPTIONAL", "")) <= value)
+									{
+										// Remove the value from the Datagrid
+										ColumnList[0][i] = ColumnList[0][i].Remove(0);
+									}
+								}
+							}
+						}
+					});
                 }
             }
 
@@ -96,7 +79,7 @@ namespace Guideviewer
                         // For each prerequisite combination
                         foreach (var t1 in PrerequisiteTuples)
                         {
-                            Specific.PrerequisiteRemover(t1.Item1, t1.Item2, t);
+                            new Specific().PrerequisiteRemover(t1.Item1, t1.Item2, t);
                         }
                     }
                 }
