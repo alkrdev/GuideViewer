@@ -52,23 +52,47 @@ namespace Guideviewer
             public string Mqc { set; get; }
             public string Cc { set; get; }
             public string Tcc { set; get; }
-            public string Im { set; get; }
         }
 
         public MainWindow()
-        {
-            InitializeComponent();
+		{
+			InitializeComponent();
+			data = new Data();
+			SearchTreeHierarchy(SearchCriteria.ListView);
+			IdentifySelectAllCheckboxes();
+			IdentifyDuplicateCheckboxes();
+			AddColumns();
+			MakeGoogleRequest();
+			InsertRequestedData();
+			FillAllColumns();
+			SetDefaultUserData();
+		}
 
-            data = new Data();
-            HandleNesting(SearchCriteria.ListView);
-
-            for (int i = 0; i < data.SelectAllCheckBoxes.Count; i++)
-            {
-                data.ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(data.SelectAllCheckBoxes[i], data.ListViews[i]));
-            }
-
-            foreach (var list in new List<List<CheckBox>>
-            {
+		private void IdentifySelectAllCheckboxes()
+		{
+			for (int i = 0; i < data.SelectAllCheckBoxes.Count; i++)
+			{
+				data.ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(data.SelectAllCheckBoxes[i], data.ListViews[i]));
+			}
+		}
+		private void AddColumns()
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				ColumnList.Add(new string[new GoogleRequest().GoogleRequestInit().Execute().Values.Count]);
+			}
+		}
+		private void ExtractHyperlinkText()
+		{
+			foreach (var cb in data.AllCheckBoxes)
+			{
+				data.NameCompareTuples.Add(new Tuple<string, string>(cb.Name, (cb.Content as TextBlock).Text));				
+			}
+		}
+		private void IdentifyDuplicateCheckboxes()
+		{
+			foreach (var list in new List<List<CheckBox>>
+			{
                 // Master Quest + Completionist 
                 new List<CheckBox> {Ann, Annc}, // Annihilator Title
                 new List<CheckBox> {Aby, Abyc}, // The Abyss
@@ -103,15 +127,15 @@ namespace Guideviewer
                 new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
                 new List<CheckBox> {D1, D1c}, // Doric Tasks
                 new List<CheckBox> {D2, D2c},
-                new List<CheckBox> {D3, D3c},
-                new List<CheckBox> {D4, D4c},
-                new List<CheckBox> {D5, D5c},
-                new List<CheckBox> {D6, D6c},
-                new List<CheckBox> {D7, D7c},
-                new List<CheckBox> {D8, D8c},
-                new List<CheckBox> {B1, B1c}, // Boric Tasks
+				new List<CheckBox> {D3, D3c},
+				new List<CheckBox> {D4, D4c},
+				new List<CheckBox> {D5, D5c},
+				new List<CheckBox> {D6, D6c},
+				new List<CheckBox> {D7, D7c},
+				new List<CheckBox> {D8, D8c},
+				new List<CheckBox> {B1, B1c}, // Boric Tasks
                 new List<CheckBox> {B2, B2c},
-                new List<CheckBox> {B3, B3c},
+				new List<CheckBox> {B3, B3c},
 
 
                 // Master Quest + Trimmed Completionist
@@ -137,68 +161,26 @@ namespace Guideviewer
 
                 new List<CheckBox> {Swb, Swbt}, // Advanced Sweeping
                 new List<CheckBox> {Swb2, Swb2t},
-                new List<CheckBox> {Swb3, Swb3t},
-                new List<CheckBox> {Swb4, Swb4t},
-                new List<CheckBox> {Swb5, Swb5t},
+				new List<CheckBox> {Swb3, Swb3t},
+				new List<CheckBox> {Swb4, Swb4t},
+				new List<CheckBox> {Swb5, Swb5t},
 
-                new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
+				new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
                 new List<CheckBox> {Bts2, Bts2t},
-                new List<CheckBox> {Bts3, Bts3t},
-                new List<CheckBox> {Bts4, Bts4t}
-            })
-            {
-                data.CheckboxesDictionary.Add(list[0].Name, list);
-                data.CheckboxesDictionary.Add(list[1].Name, list);
-            }
-
-            foreach (var cb in data.AllCheckBoxes)
-            {
-                if (cb.Content is TextBlock textB)
-                {
-                    foreach (Hyperlink hyperlink in LogicalTreeHelper.GetChildren(textB))
-                    {
-                        data.NameCompareTuples.Add(new Tuple<string, string>(cb.Name, hyperlink.ToString()));
-                    }
-                }
-            }
-            for (int i = 0; i < 6; i++)
-            {
-                ColumnList.Add(new string[new GoogleRequest().GoogleRequestInit().Execute().Values.Count]);
-            }
-            //Google Request
-            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
-
-            //Insert the requested data into column arrays
-            if (Values != null && Values.Count > 0)
-            {
-                for (var j = 0; j < Values.Count; j++)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        MainWindow.ColumnList[i][j] = Values[j][i].ToString();
-                    }
-                }
-            }
-
-            FillAllColumns();
-
-            for (int i = 0; i < User.LoadedSkillLevels.Length; i++)
-            {
-                if (i == 4)
-                {
-                    User.LoadedSkillLevels[i] = 10;
-                    User.LoadedSkillExperiences[i] = 1154;
-                }
-                else
-                {
-                    User.LoadedSkillLevels[i] = 1;
-                    User.LoadedSkillExperiences[i] = 0;
-                }
-                User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
-            }
-        }
-
-        private void HandleNesting(SearchCriteria crit)
+				new List<CheckBox> {Bts3, Bts3t},
+				new List<CheckBox> {Bts4, Bts4t}
+			})
+			{
+				data.CheckboxesDictionary.Add(list[0].Name, list);
+				data.CheckboxesDictionary.Add(list[1].Name, list);
+			}
+		}
+		private void MakeGoogleRequest()
+		{
+			//Google Request
+			Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
+		}
+		private void SearchTreeHierarchy(SearchCriteria crit)
         {
             foreach (var tabcontrolItem in MainTabControl.Items)
             {
@@ -224,7 +206,7 @@ namespace Guideviewer
                                                     {
                                                         if (grid2Child is ListView listview)
                                                         {
-                                                            if (crit != SearchCriteria.CheckBox)
+                                                            if (crit == SearchCriteria.CheckBox)
                                                             {
                                                                 if (new string[] { "Mq", "Sa", "Co", "Tri" }.Any(p => listview.Name.StartsWith(p)))
                                                                 {
@@ -283,15 +265,195 @@ namespace Guideviewer
                 } 
             } 
         }
+		public void FillAllColumns()
+		{
+			if (Values != null)
+			{
+				for (int a = 0; a < Values.Count; a++)
+				{
+					MyDataGrid.Items.Add(new DataGridInfo
+					{
+						Qt = ColumnList[0][a],
+						L = ColumnList[1][a],
+						Mqc = ColumnList[2][a],
+						Cc = ColumnList[3][a],
+						Tcc = ColumnList[4][a]
+					});
+				}
+			}
+		}
+		public void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
+		{
+			using (sw)
+			{
+				sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
+				sw.WriteLine(" ");
 
+				for (var index = 1; index < User.Levels.Length; index++)
+				{
+					sw.WriteLine(User.Levels[index].Item1 + " level: " + User.Levels[index].Item2);
+				}
+
+				sw.WriteLine(" ");
+				sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : User.DefaultIntArrayString);
+
+				sw.WriteLine(" ");
+				sw.WriteLine(userQuestData);
+			}
+		}
+		public void LoadUser(string userquestData, string[] userskillData, bool online)
+		{
+			User.SkillsDictionary.Clear();
+			for (int i = 1; i < User.SkillNames.Count; i++)
+			{
+				User.LoadedSkillLevels[i] = Convert.ToInt32(userskillData[i].Split(',')[1]);
+				User.SkillsDictionary.Add(User.SkillNames[i], User.LoadedSkillLevels[i]);
+			}
+
+			for (int i = 0; i < ColumnList[0].Length; i++)
+			{
+				string text = ColumnList[0][i];
+				// If the current value starts with "[Train"
+				if (text.StartsWith("[Train"))
+				{
+					// Then loop through all known skills in the game
+					User.SkillNames.ForEach(skill =>
+					{
+						// If the users level is higher than our focuslevel
+						if (skill != "Total" && text.Contains(skill) && User.SkillsDictionary.TryGetValue(skill, out int value) && Convert.ToInt32(
+								text.Substring(("[Train " + skill + " to ").Length)
+									.Replace("]", "").Replace("[OPTIONAL", "")) <= value)
+						{
+							// Remove the value from the Datagrid
+							ColumnList[0][i] = text.Remove(0);
+						}
+					});
+				}
+			}
+
+			Quests.FromJson(userquestData).QuestsList.ForEach(quest => {
+				// Loop through the length of our first column
+				for (int j = 0; j < ColumnList[0].Length; j++)
+				{
+					// If the title of the current quest, and the current value are the same - And the quest has been completed
+					if (quest.Title == ColumnList[0][j] && quest.Status == Status.Completed)
+					{
+						// Remove the value from the Datagrid
+						ColumnList[0][j] = ColumnList[0][j].Remove(0);
+
+						// If there is a value in the column to the right
+						if (ColumnList[1][j] != "")
+						{
+							// Remove the value from the Datagrid
+							ColumnList[1][j] = ColumnList[1][j].Remove(0);
+						}
+
+						ColumnList.ForEach(col =>
+						{
+							// Loop through the length of our Column
+							for (var i = 0; i < col.Length; i++)
+							{
+								// If the value is a space, and the value is not nothing
+								if (col[i] == " " && col[i] != "")
+								{
+									// Remove the value from the Datagrid
+									col[i] = col[i].Remove(0);
+								}
+							}
+						});
+
+						foreach (var pre in User.PrerequisiteTuples)
+						{
+							if (quest.Title == pre.Item1 && quest.Status == Status.Completed)
+							{
+								for (int h = 0; h < ColumnList[0].Length; h++)
+								{
+									if (ColumnList[0][h] == pre.Item2)
+									{
+										ColumnList[0][h] = ColumnList[0][h].Remove(0);
+
+										if (ColumnList[1][h] != "")
+										{
+											ColumnList[1][h] = ColumnList[1][h].Remove(0);
+										}
+									}
+								}
+							}
+						};
+					}
+				}
+			});
+		}
+		private void RemoveByCheckboxes()
+		{
+			data.CheckboxesBoolDictionary.Clear();
+
+			for (int i = 0; i < data.AllCheckBoxes.Count; i++)
+			{
+				switch (data.AllCheckBoxes[i].IsChecked)
+				{
+					case true:
+						data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, true);
+						break;
+					case false:
+						data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, false);
+						break;
+				}
+
+				if (data.CheckboxesBoolDictionary.TryGetValue(data.AllCheckBoxes[i].Name, out bool isTrue))
+				{
+					for (int j = ColumnList.Count - 1; j >= 2; j--)
+					{
+						for (int k = ColumnList[0].Length - 1; k >= 0; k--)
+						{
+							if (string.Equals(data.AllCheckBoxes[j].Name.ToLower(), data.NameCompareTuples[j].Item1.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[j][k].Contains(data.NameCompareTuples[j].Item2))
+							{
+								ColumnList[j][k] = ColumnList[j][k].Remove(0);
+							}
+						}
+					}
+				}
+			}
+		}
+		private void SetDefaultUserData()
+		{
+			for (int i = 0; i < User.LoadedSkillLevels.Length; i++)
+			{
+				if (i == 4)
+				{
+					User.LoadedSkillLevels[i] = 10;
+					User.LoadedSkillExperiences[i] = 1154;
+				}
+				else
+				{
+					User.LoadedSkillLevels[i] = 1;
+					User.LoadedSkillExperiences[i] = 0;
+				}
+				User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
+			}
+		}
+		private void InsertRequestedData()
+		{
+			//Insert the requested data into column arrays
+			if (Values != null && Values.Count > 0)
+			{
+				for (var j = 0; j < Values.Count; j++)
+				{
+					for (int i = 0; i < 5; i++)
+					{
+						ColumnList[i][j] = Values[j][i].ToString();
+					}
+				}
+			}
+		}
         private void LoadOnline_OnClick (object sender, RoutedEventArgs e)
         {
             try
             {
                 string runemetrics = new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + UrlUserName);
                 string hiscore = new WebClient().DownloadString("http://services.runescape.com/m=hiscore/index_lite.ws?player=" + UrlUserName);
-                new Loading().LoadUser(runemetrics, hiscore.Split('\n'), true);
-                new Progress().SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), User.DefaultIntArrayString);
+                LoadUser(runemetrics, hiscore.Split('\n'), true);
+                SaveText(runemetrics, UrlUserName, new StreamWriter($"{UrlUserName}.txt"), User.DefaultIntArrayString);
             }
             catch (Exception d)
             {
@@ -310,39 +472,27 @@ namespace Guideviewer
             HasLoaded = true;
         }
 
-		//Fill all of the columns
-		public void FillAllColumns()
-		{
-			if (Values != null)
+		// WORKS ONCE, THEN CRASHES DUE TO NULLREFERENCE
+		private void DeleteEmptyRows(object sender, RoutedEventArgs e)
+        {
+			try
 			{
-				for (int a = 0; a < Values.Count; a++)
+				for (int i = ColumnList[0].Length - 1; i >= 0; i--)
 				{
-					MyDataGrid.Items.Add(new DataGridInfo
+					string[] strings = { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
+
+					if (strings.All(c => string.IsNullOrWhiteSpace(c)))
 					{
-						Qt = ColumnList[0][a],
-						L = ColumnList[1][a],
-						Mqc = ColumnList[2][a],
-						Cc = ColumnList[3][a],
-						Tcc = ColumnList[4][a],
-						Im = ColumnList[5][a]
-					});
+						MyDataGrid.Items.RemoveAt(i);
+					}
 				}
 			}
-		}
+			catch (Exception)
+			{
+				MessageBox.Show("Please reload before deleting rows");
+			}
+        }        
 
-		private void DeleteEmptyRows(object sender, RoutedEventArgs routedEventArgs)
-        {            
-            for (int i = ColumnList[0].Length - 1; i >= 0; i--)
-            {
-                var strings = new List<string> { ColumnList[0][i], ColumnList[1][i], ColumnList[2][i], ColumnList[3][i], ColumnList[4][i], ColumnList[5][i] };
-				
-				if (strings.Skip(1).All(c => string.IsNullOrWhiteSpace(c)))
-                {
-                    MyDataGrid.Items.RemoveAt(i);
-                }
-            }
-        }
-        
         private void LoadFile_OnClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -363,107 +513,53 @@ namespace Guideviewer
                     User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
                 }
 
-                new Loading().LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, false);
+                LoadUser(File.ReadLines(ofd.FileName).Skip(33).Take(1).First(), userskilldata, false);
             }
             HasLoaded = false;
         }
+        private void Reset(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				HasLoaded = false;
+				MyDataGrid.Items.Clear();
 
-        private void Reset(object sender, RoutedEventArgs routedEventArgs)
-        {
-            HasLoaded = false;
-            MyDataGrid.Items.Clear();
-            MessageBox.Show("ALL ITEMS WERE CLEARED");
-            FirstLoad();
-        }
+				MakeGoogleRequest();
+				InsertRequestedData();
 
-        private void FirstLoad()
-        {
-            //Google Request
-            Values = new GoogleRequest().GoogleRequestInit().Execute().Values;
-
-            //Insert the requested data into column arrays
-            if (Values != null && Values.Count > 0)
-            {
-                for (var j = 0; j < Values.Count; j++)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        ColumnList[i][j] = Values[j][i].ToString();
-                    }
-                }
-            }
-
-            FillAllColumns();
-
-            for (int i = 0; i < User.LoadedSkillLevels.Length; i++)
-            {
-                if (i == 4)
-                {
-                    User.LoadedSkillLevels[i] = 10;
-                    User.LoadedSkillExperiences[i] = 1154;
-                }
-                else
-                {
-                    User.LoadedSkillLevels[i] = 1;
-                    User.LoadedSkillExperiences[i] = 0;
-                }
-                User.Levels[i] = new Tuple<string, int, int>(User.SkillNames[i], User.LoadedSkillLevels[i], User.LoadedSkillExperiences[i]);
-            }
-        }
-
-        private void Reload(object sender, RoutedEventArgs e)
+				FillAllColumns();
+				SetDefaultUserData();
+			}
+			catch (Exception a)
+			{
+				MessageBox.Show(a.ToString());
+				throw;
+			}
+			finally
+			{
+				MessageBox.Show("ALL ITEMS WERE CLEARED");
+			}
+		}
+		private void Reload(object sender, RoutedEventArgs e)
         {
             if (HasApplied)
             {
                 HasApplied = false;
 
-                RemoveCheckboxes();
+                RemoveByCheckboxes();
             }
             else if (HasLoaded)
             {
                 HasLoaded = false;
 
-                RemoveCheckboxes();
+                RemoveByCheckboxes();
             }
 
             MyDataGrid.Items.Clear();
             FillAllColumns();
         }
-
-        private void RemoveCheckboxes()
-        {
-            data.CheckboxesBoolDictionary.Clear();
-
-            for (int i = 0; i < data.AllCheckBoxes.Count; i++)
-            {
-                switch (data.AllCheckBoxes[i].IsChecked)
-                {
-                    case true:
-                        data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, true);
-                        break;
-                    case false:
-                        data.CheckboxesBoolDictionary.Add(data.AllCheckBoxes[i].Name, false);
-                        break;
-                }
-                if (data.CheckboxesBoolDictionary.TryGetValue(data.AllCheckBoxes[i].Name, out bool isTrue))
-                {
-                    for (int j = ColumnList.Count - 1; j >= 2; j--)
-                    {
-                        for (int k = ColumnList[0].Length - 1; k >= 0; k--)
-                        {
-                            if (string.Equals(data.AllCheckBoxes[j].Name.ToLower(), data.NameCompareTuples[j].Item1.ToLower(), StringComparison.Ordinal) && isTrue && ColumnList[j][k].Contains(data.NameCompareTuples[j].Item2))
-                            {
-                                ColumnList[j][k] = ColumnList[j][k].Remove(0);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void Check(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, true); 
-        private void UnCheck(object sender, RoutedEventArgs routedEventArgs) => Switch(sender, false); 
-
+        private void Check(object sender, RoutedEventArgs e) => Switch(sender, true); 
+        private void UnCheck(object sender, RoutedEventArgs e) => Switch(sender, false); 
         private void Switch(object sender, bool boolean)
         {
             if (sender is CheckBox senderBox)
@@ -471,10 +567,7 @@ namespace Guideviewer
                 // Main Duplicate Control
                 if (data.CheckboxesDictionary.TryGetValue(senderBox.Name, out var value))
                 {
-                    foreach (var cb in value)
-                    {
-                        cb.IsChecked = boolean;
-                    }
+					value.ForEach(x => x.IsChecked = boolean);
                 }
 
                 // Select All Control
@@ -488,178 +581,63 @@ namespace Guideviewer
                 }
             }
         }
-
         public string CheckboxStringSave(object sender, Dictionary<string, bool> boolDictionary)
         {
             data.CheckboxesBoolDictionary.Clear();
             string str = "";
 
-            foreach (var cb in data.AllCheckBoxes)
-            {
-                switch (cb.IsChecked)
-                {
-                    case true:
-                        data.CheckboxesBoolDictionary.Add(cb.Name, true);
-                        str += "1,";
-                        break;
-                    case false:
-                        data.CheckboxesBoolDictionary.Add(cb.Name, false);
-                        str += "0,";
-                        break;
-                }
-            }
+			data.AllCheckBoxes.ForEach(cb => {
+				if (cb.IsChecked == true)
+				{
+					data.CheckboxesBoolDictionary.Add(cb.Name, true);
+					str += "1,";
+				}
+				else
+				{
+					data.CheckboxesBoolDictionary.Add(cb.Name, false);
+					str += "0,";
+				}
+			});
+			
             return str;
         }
-
         private void OnApplyOptions(object sender, RoutedEventArgs e)
         {
             HasApplied = true;
 
-			new Progress().SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName), ApplyUserName, new StreamWriter($"{ApplyUserName}.txt"), CheckboxStringSave(sender, data.CheckboxesBoolDictionary));
+			SaveText(new WebClient().DownloadString("https://apps.runescape.com/runemetrics/quests?user=" + ApplyUserName), 
+					 ApplyUserName, 
+					 new StreamWriter($"{ApplyUserName}.txt"), 
+					 CheckboxStringSave(sender, data.CheckboxesBoolDictionary));
         }
-
-        private void OnOpenLoad(object sender, RoutedEventArgs routedEventArgs)
+        private void OnOpenLoad(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            string checkboxString = null;
-
             if (ofd.ShowDialog() == true)
             {
-                string saveString = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
-                if (saveString.EndsWith(","))
-                {
-                    checkboxString = saveString.Remove(saveString.LastIndexOf(','));
-                }
+				string saveString = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
+				string checkboxString = saveString.EndsWith(",") ? saveString.Remove(saveString.LastIndexOf(',')) : null;
 
-                if (checkboxString != null)
-                {
-                    int[] checkBoxIntArray = Array.ConvertAll(checkboxString.Split(','), int.Parse);
+				if (checkboxString != null)
+				{
+					int[] checkBoxIntArray = Array.ConvertAll(checkboxString.Split(','), int.Parse);
 
-                    for (var index = 0; index < checkBoxIntArray.Length; index++)
-                    {
-                        data.AllCheckBoxes[index].IsChecked = checkBoxIntArray[index] == 1;
-                    }
-                }
+					for (var i = 0; i < checkBoxIntArray.Length; i++)
+					{
+						data.AllCheckBoxes[i].IsChecked = checkBoxIntArray[i] == 1;
+					}
+				}				
             }
-            HandleNesting(SearchCriteria.CheckBox);
-            ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
-        }
 
+            SearchTreeHierarchy(SearchCriteria.CheckBox);
+            ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
+			ExtractHyperlinkText();
+		}
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
-    }
-
-    public class Loading
-    {
-        public void LoadUser(string userquestData, string[] userskillData, bool online)
-        {
-            User.SkillsDictionary.Clear();
-            for (int i = 1; i < User.SkillNames.Count; i++)
-            {
-                User.LoadedSkillLevels[i] = Convert.ToInt32(userskillData[i].Split(',')[1]);
-
-                User.SkillsDictionary.Add(User.SkillNames[i], User.LoadedSkillLevels[i]);
-            }
-
-            MainWindow.ColumnList[0].ToList().ForEach(text =>
-            {
-                // If the current value starts with "[Train"
-                if (text.StartsWith("[Train"))
-                {
-                    // Then loop through all known skills in the game
-                    User.SkillNames.ForEach(skill =>
-                    {
-                        // If the users level is higher than our focuslevel
-                        if (skill != "Total" && text.Contains(skill) && User.SkillsDictionary.TryGetValue(skill, out int value) && Convert.ToInt32(
-                                text.Substring(("[Train " + skill + " to ").Length)
-                                    .Replace("]", "").Replace("[OPTIONAL", "")) <= value)
-                        {
-                            // Remove the value from the Datagrid
-                            text = text.Remove(0);
-                        }
-                    });
-                }
-            });
-
-            Quests.FromJson(userquestData).QuestsList.ForEach(quest => {
-                // Loop through the length of our first column
-                for (int j = 0; j < MainWindow.ColumnList[0].Length; j++)
-                {
-                    // If the title of the current quest, and the current value are the same - And the quest has been completed
-                    if (quest.Title == MainWindow.ColumnList[0][j] && quest.Status == Status.Completed)
-                    {
-                        // Remove the value from the Datagrid
-                        MainWindow.ColumnList[0][j] = MainWindow.ColumnList[0][j].Remove(0);
-
-                        // If there is a value in the column to the right
-                        if (MainWindow.ColumnList[1][j] != "")
-                        {
-                            // Remove the value from the Datagrid
-                            MainWindow.ColumnList[1][j] = MainWindow.ColumnList[1][j].Remove(0);
-                        }
-
-                        MainWindow.ColumnList.ForEach(col =>
-                        {
-                            // Loop through the length of our Column
-                            for (var i = 0; i < col.Length; i++)
-                            {
-                                // If the value is a space, and the value is not nothing
-                                if (col[i] == " " && col[i] != "")
-                                {
-                                    // Remove the value from the Datagrid
-                                    col[i] = col[i].Remove(0);
-                                }
-                            }
-                        });
-
-                        User.PrerequisiteTuples.ToList().ForEach(pre => 
-                        {
-                            if (quest.Title == pre.Item1 && quest.Status == Status.Completed)
-                            {
-                                for (int h = 0; h < MainWindow.ColumnList[0].Length; h++)
-                                {
-                                    if (MainWindow.ColumnList[0][h] == pre.Item2)
-                                    {
-                                        MainWindow.ColumnList[0][h] = MainWindow.ColumnList[0][h].Remove(0);
-
-                                        if (MainWindow.ColumnList[1][h] != "")
-                                        {
-                                            MainWindow.ColumnList[1][h] = MainWindow.ColumnList[1][h].Remove(0);
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-        }
-    }
-
-    public class Progress
-    {        
-        public void SaveText(string userQuestData, string username, StreamWriter sw, string checkboxStringSave)
-        {
-            using (sw)
-            {
-                sw.WriteLine("Username: " + username.Replace(' ', '_') + "\n");
-                sw.WriteLine(" ");
-
-                for (var index = 1; index < User.Levels.Length; index++)
-                {
-                    sw.WriteLine(User.Levels[index].Item1 + " level: " + User.Levels[index].Item2);
-                }
-
-                sw.WriteLine(" ");
-                sw.WriteLine(File.Exists($"{username}.txt") ? checkboxStringSave : User.DefaultIntArrayString);
-
-                sw.WriteLine(" ");
-                sw.WriteLine(userQuestData);
-            }
-        }
-    }
+	}
 }

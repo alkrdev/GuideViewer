@@ -9,16 +9,22 @@ namespace Library
     {
         // Dictionary to keep track of all CheckBoxes
         public Dictionary<string, List<CheckBox>>CheckboxesDictionary { get; set; }
+
         // Dictionary to keep track of all bool values of CheckBoxes
         public Dictionary<string, bool> CheckboxesBoolDictionary { get; set; }
+
         // List of all "Select All" Checkboxes
         public List<Tuple<CheckBox, ListView>> ListViewSelectAllList { get; set; }
+
         // List of tuples that contain almost identical names
         public List<Tuple<string, string>> NameCompareTuples { get; set; }
+
         // List of all "Select All" Checkboxes
         public List<CheckBox> SelectAllCheckBoxes { get; set; }
+
         // List of all Checkboxes
         public List<CheckBox> AllCheckBoxes { get; set; }
+
         // List of all Listviews
         public List<ListView> ListViews { get; set; }
 
