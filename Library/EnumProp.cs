@@ -4,6 +4,7 @@ namespace Library
 {
     //Reference to decide if a quest has been completed or not
     public enum Status { Completed, NotStarted, Started };
+	public enum CheckBoxType { SelectAll, Mqc, Comp, Trim };
 
     public class Quest
     {
