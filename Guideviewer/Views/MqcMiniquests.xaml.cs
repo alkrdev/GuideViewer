@@ -13,6 +13,8 @@ namespace Guideviewer.Views
 		public MqcMiniquests()
 		{
 			InitializeComponent();
+
+            DataContext = new CheckBoxViewModel();
 		}
 
 		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

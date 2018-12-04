@@ -39,11 +39,7 @@ namespace Guideviewer
 
 		private static List<string[]> _columnList = new List<string[]>();
 
-		private enum SearchCriteria
-		{
-			ListView,
-			CheckBox
-		}
+		
 
 		//Parameters to handle GoogleRequest
 		private IList<IList<object>> _values;
@@ -66,7 +62,7 @@ namespace Guideviewer
 
 			data = new Data();
 
-			SearchAndIdentify();
+			//SearchAndIdentify();
 			AddColumns();
 			HandleData();
 		}
@@ -83,7 +79,7 @@ namespace Guideviewer
 		{
 			SearchTreeHierarchy(SearchCriteria.ListView);
 			IdentifySelectAllCheckboxes();
-			IdentifyDuplicateCheckboxes();
+		    //IdentifyDuplicateCheckboxes();
 		}
 
 		private void IdentifySelectAllCheckboxes()
@@ -111,94 +107,92 @@ namespace Guideviewer
 			}
 		}
 
-		private void IdentifyDuplicateCheckboxes()
-		{
-			foreach (var list in new List<List<CheckBox>>
-			{
-				// ReSharper disable CommentTypo
-				// Master Quest + Completionist 
-                new List<CheckBox> {Ann, Annc}, // Annihilator Title
-                //new List<CheckBox> {Aby, Abyc}, // The Abyss
-                new List<CheckBox> {Bam, Bamc}, // Bandos Memories
-                new List<CheckBox> {Frs, Frsc}, // Fremennik Sagas
-                new List<CheckBox> {Tbo, Tboc}, // Tune Bane Ore
-                new List<CheckBox> {Crv, Crvc}, // Carnillean Rising
-                new List<CheckBox> {Tha, Thac}, // Thalassus
-                new List<CheckBox> {Hag, Hagc}, // Hefin Agility Course
-                new List<CheckBox> {Rsp, Rspc}, // Reconnect Spirit Tree
-                new List<CheckBox> {Cle, Clec}, // Cleansing Shadow Cores
-                new List<CheckBox> {Rob, Robc}, // Rush of Blood
-                new List<CheckBox> {Mam, Mamc}, // Mahjarrat Memories
-                new List<CheckBox> {Mge, Mgec}, // Memorial to Guthix Engrams
-                new List<CheckBox> {Sme, Smec}, // Seren Memoriam
-                new List<CheckBox> {Pme, Pmec}, // Prifddinas Memoriam
-                new List<CheckBox> {Zme, Zmec}, // Zaros Memoriam
-                new List<CheckBox> {Cme, Cmec}, // Core Memories
-                new List<CheckBox> {Fko, Fkoc}, // Full Kudos Obtained
-                new List<CheckBox> {Imt, Imtc}, // In Memory of the Myreque
-                new List<CheckBox> {Rcl, Rclc}, // Returning Clarence
-                new List<CheckBox> {Our, Ourc}, // Ouranaia Teleport
-                new List<CheckBox> {Pre, Prec}, // Lost Potion Recipes
-                new List<CheckBox> {Csr, Csrc}, // Crystal Singing Research
-                new List<CheckBox> {Sop, Sopc}, // Stronghold of Player Safety
-                new List<CheckBox> {Sos, Sosc}, // Stronghold of Security
-                new List<CheckBox> {Ttr, Ttrc}, // The Lair of Tarn Razorlor
-                new List<CheckBox> {Rco, Rcoc}, // Removing Corruption
-                new List<CheckBox> {Hsw, Hswc}, // Hopespear's Will
+		//private void IdentifyDuplicateCheckboxes()
+		//{
+		//	foreach (var list in new List<List<CheckBox>>
+		//	{
+		//		// Master Quest + Completionist 
+  //              new List<CheckBox> {Ann, Annc}, // Annihilator Title
+  //              //new List<CheckBox> {Aby, Abyc}, // The Abyss
+  //              new List<CheckBox> {Bam, Bamc}, // Bandos Memories
+  //              new List<CheckBox> {Frs, Frsc}, // Fremennik Sagas
+  //              new List<CheckBox> {Tbo, Tboc}, // Tune Bane Ore
+  //              new List<CheckBox> {Crv, Crvc}, // Carnillean Rising
+  //              new List<CheckBox> {Tha, Thac}, // Thalassus
+  //              new List<CheckBox> {Hag, Hagc}, // Hefin Agility Course
+  //              new List<CheckBox> {Rsp, Rspc}, // Reconnect Spirit Tree
+  //              new List<CheckBox> {Cle, Clec}, // Cleansing Shadow Cores
+  //              new List<CheckBox> {Rob, Robc}, // Rush of Blood
+  //              new List<CheckBox> {Mam, Mamc}, // Mahjarrat Memories
+  //              new List<CheckBox> {Mge, Mgec}, // Memorial to Guthix Engrams
+  //              new List<CheckBox> {Sme, Smec}, // Seren Memoriam
+  //              new List<CheckBox> {Pme, Pmec}, // Prifddinas Memoriam
+  //              new List<CheckBox> {Zme, Zmec}, // Zaros Memoriam
+  //              new List<CheckBox> {Cme, Cmec}, // Core Memories
+  //              new List<CheckBox> {Fko, Fkoc}, // Full Kudos Obtained
+  //              new List<CheckBox> {Imt, Imtc}, // In Memory of the Myreque
+  //              new List<CheckBox> {Rcl, Rclc}, // Returning Clarence
+  //              new List<CheckBox> {Our, Ourc}, // Ouranaia Teleport
+  //              new List<CheckBox> {Pre, Prec}, // Lost Potion Recipes
+  //              new List<CheckBox> {Csr, Csrc}, // Crystal Singing Research
+  //              new List<CheckBox> {Sop, Sopc}, // Stronghold of Player Safety
+  //              new List<CheckBox> {Sos, Sosc}, // Stronghold of Security
+  //              new List<CheckBox> {Ttr, Ttrc}, // The Lair of Tarn Razorlor
+  //              new List<CheckBox> {Rco, Rcoc}, // Removing Corruption
+  //              new List<CheckBox> {Hsw, Hswc}, // Hopespear's Will
 
 
-                new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
-                new List<CheckBox> {D1, D1c}, // Doric Tasks
-                new List<CheckBox> {D2, D2c},
-				new List<CheckBox> {D3, D3c},
-				new List<CheckBox> {D4, D4c},
-				new List<CheckBox> {D5, D5c},
-				new List<CheckBox> {D6, D6c},
-				new List<CheckBox> {D7, D7c},
-				new List<CheckBox> {D8, D8c},
-				new List<CheckBox> {B1, B1c}, // Boric Tasks
-                new List<CheckBox> {B2, B2c},
-				new List<CheckBox> {B3, B3c},
+  //              new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
+  //              new List<CheckBox> {D1, D1c}, // Doric Tasks
+  //              new List<CheckBox> {D2, D2c},
+		//		new List<CheckBox> {D3, D3c},
+		//		new List<CheckBox> {D4, D4c},
+		//		new List<CheckBox> {D5, D5c},
+		//		new List<CheckBox> {D6, D6c},
+		//		new List<CheckBox> {D7, D7c},
+		//		new List<CheckBox> {D8, D8c},
+		//		new List<CheckBox> {B1, B1c}, // Boric Tasks
+  //              new List<CheckBox> {B2, B2c},
+		//		new List<CheckBox> {B3, B3c},
 
 
-                // Master Quest + Trimmed Completionist
-                new List<CheckBox> {Ekm, Ekmt}, // Enchanted Key
-                new List<CheckBox> {Aca, Acat}, // Ancient Cavern
-                new List<CheckBox> {Ter, Tert}, // Temple Trekking
-                new List<CheckBox> {Etr, Etrt}, // Eagle Transport Route
-                new List<CheckBox> {Qbd, Qbdt}, // Queen Black Dragon Journals
-                new List<CheckBox> {Bch, Bcht}, // Broken Home Challenges
-                new List<CheckBox> {Cts, Ctst}, // Char's Treasured Symbol
-                new List<CheckBox> {Uif, Uift}, // Upgrade Ivandis Flail
-                new List<CheckBox> {Wip, Wipt}, // Witch's Potion
-                new List<CheckBox> {Ton, Tont}, // Tales of Nomad
-                new List<CheckBox> {Tgw, Tgwt}, // Tales of the God Wars
-                new List<CheckBox> {Dsl, Dslt}, // Desert Slayer Dungeon
-                new List<CheckBox> {Scn, Scnt}, // Scabarite Notes
-                new List<CheckBox> {Sde, Sdet}, // Song from the Depths
-                new List<CheckBox> {Shs, Shst}, // Sheep Shearer
-                new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
-                new List<CheckBox> {Fta, Ftat}, // From Tiny Acorns
-                new List<CheckBox> {Lhm, Lhmt}, // Lost Her Marbles
-                new List<CheckBox> {Ago, Agot}, // A Guild of Our Own
+  //              // Master Quest + Trimmed Completionist
+  //              new List<CheckBox> {Ekm, Ekmt}, // Enchanted Key
+  //              new List<CheckBox> {Aca, Acat}, // Ancient Cavern
+  //              new List<CheckBox> {Ter, Tert}, // Temple Trekking
+  //              new List<CheckBox> {Etr, Etrt}, // Eagle Transport Route
+  //              new List<CheckBox> {Qbd, Qbdt}, // Queen Black Dragon Journals
+  //              new List<CheckBox> {Bch, Bcht}, // Broken Home Challenges
+  //              new List<CheckBox> {Cts, Ctst}, // Char's Treasured Symbol
+  //              new List<CheckBox> {Uif, Uift}, // Upgrade Ivandis Flail
+  //              new List<CheckBox> {Wip, Wipt}, // Witch's Potion
+  //              new List<CheckBox> {Ton, Tont}, // Tales of Nomad
+  //              new List<CheckBox> {Tgw, Tgwt}, // Tales of the God Wars
+  //              new List<CheckBox> {Dsl, Dslt}, // Desert Slayer Dungeon
+  //              new List<CheckBox> {Scn, Scnt}, // Scabarite Notes
+  //              new List<CheckBox> {Sde, Sdet}, // Song from the Depths
+  //              new List<CheckBox> {Shs, Shst}, // Sheep Shearer
+  //              new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
+  //              new List<CheckBox> {Fta, Ftat}, // From Tiny Acorns
+  //              new List<CheckBox> {Lhm, Lhmt}, // Lost Her Marbles
+  //              new List<CheckBox> {Ago, Agot}, // A Guild of Our Own
 
-                new List<CheckBox> {Swb, Swbt}, // Advanced Sweeping
-                new List<CheckBox> {Swb2, Swb2t},
-				new List<CheckBox> {Swb3, Swb3t},
-				new List<CheckBox> {Swb4, Swb4t},
-				new List<CheckBox> {Swb5, Swb5t},
+  //              new List<CheckBox> {Swb, Swbt}, // Advanced Sweeping
+  //              new List<CheckBox> {Swb2, Swb2t},
+		//		new List<CheckBox> {Swb3, Swb3t},
+		//		new List<CheckBox> {Swb4, Swb4t},
+		//		new List<CheckBox> {Swb5, Swb5t},
 
-				new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
-                new List<CheckBox> {Bts2, Bts2t},
-				new List<CheckBox> {Bts3, Bts3t},
-				new List<CheckBox> {Bts4, Bts4t}
-				// ReSharper restore CommentTypo
-			})
-			{
-				data.CheckboxesDictionary.Add(list[0].Name, list);
-				data.CheckboxesDictionary.Add(list[1].Name, list);
-			}
-		}
+		//		new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
+  //              new List<CheckBox> {Bts2, Bts2t},
+		//		new List<CheckBox> {Bts3, Bts3t},
+		//		new List<CheckBox> {Bts4, Bts4t}
+		//	})
+		//	{
+		//		data.CheckboxesDictionary.Add(list[0].Name, list);
+		//		data.CheckboxesDictionary.Add(list[1].Name, list);
+		//	}
+		//}
 		private void MakeGoogleRequest()
 		{
 			//Google Request
