@@ -1,0 +1,38 @@
+body div div {
+    background-color: black;
+    width: 250px;
+    display: inline-table;    
+}
+
+p {
+    color:yellow;
+    text-align: center;
+}
+
+/* 
+
+#A {
+}
+
+#L {
+}
+
+*/
+
+#M {
+    width: 350px;
+}
+
+/*
+
+#C {
+}
+
+#T {
+}
+
+#I {
+} 
+
+*/
+
