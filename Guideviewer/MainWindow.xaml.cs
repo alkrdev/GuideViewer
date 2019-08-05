@@ -62,10 +62,15 @@ namespace Guideviewer
 
 			data = new Data();
 
-			//SearchAndIdentify();
+			FindDuplicateCheckBoxes();
 			AddColumns();
 			HandleData();
 		}
+
+		private static void FindDuplicateCheckBoxes() => data.CheckBoxesDuplicateList = CheckBoxViewModel.AllCheckBoxes.GroupBy(x => x)
+														.Where(g => g.Count() > 1)
+														.Select(y => y.Key)
+														.ToList();
 
 		private void HandleData()
 		{
@@ -75,20 +80,6 @@ namespace Guideviewer
 			SetDefaultUserData();
 		}
 
-		private void SearchAndIdentify()
-		{
-			SearchTreeHierarchy(SearchCriteria.ListView);
-			IdentifySelectAllCheckboxes();
-		    //IdentifyDuplicateCheckboxes();
-		}
-
-		private void IdentifySelectAllCheckboxes()
-		{
-			for (int i = 0; i < data.SelectAllCheckBoxes.Count; i++)
-			{
-				data.ListViewSelectAllList.Add(new Tuple<CheckBox, ListView>(data.SelectAllCheckBoxes[i], data.ListViews[i]));
-			}
-		}
 		private void AddColumns()
 		{
 			for (int i = 0; i < 6; i++)
@@ -99,7 +90,7 @@ namespace Guideviewer
 
 		private void ExtractHyperlinkText()
 		{
-			foreach (CheckBox cb in data.AllCheckBoxes)
+			foreach (CheckBox cb in CheckBoxViewModel.AllCheckBoxes)
 			{
 				Hyperlink newHyperLink = (Hyperlink)cb.Content;
 				Console.WriteLine(newHyperLink);
@@ -107,168 +98,10 @@ namespace Guideviewer
 			}
 		}
 
-		//private void IdentifyDuplicateCheckboxes()
-		//{
-		//	foreach (var list in new List<List<CheckBox>>
-		//	{
-		//		// Master Quest + Completionist 
-  //              new List<CheckBox> {Ann, Annc}, // Annihilator Title
-  //              //new List<CheckBox> {Aby, Abyc}, // The Abyss
-  //              new List<CheckBox> {Bam, Bamc}, // Bandos Memories
-  //              new List<CheckBox> {Frs, Frsc}, // Fremennik Sagas
-  //              new List<CheckBox> {Tbo, Tboc}, // Tune Bane Ore
-  //              new List<CheckBox> {Crv, Crvc}, // Carnillean Rising
-  //              new List<CheckBox> {Tha, Thac}, // Thalassus
-  //              new List<CheckBox> {Hag, Hagc}, // Hefin Agility Course
-  //              new List<CheckBox> {Rsp, Rspc}, // Reconnect Spirit Tree
-  //              new List<CheckBox> {Cle, Clec}, // Cleansing Shadow Cores
-  //              new List<CheckBox> {Rob, Robc}, // Rush of Blood
-  //              new List<CheckBox> {Mam, Mamc}, // Mahjarrat Memories
-  //              new List<CheckBox> {Mge, Mgec}, // Memorial to Guthix Engrams
-  //              new List<CheckBox> {Sme, Smec}, // Seren Memoriam
-  //              new List<CheckBox> {Pme, Pmec}, // Prifddinas Memoriam
-  //              new List<CheckBox> {Zme, Zmec}, // Zaros Memoriam
-  //              new List<CheckBox> {Cme, Cmec}, // Core Memories
-  //              new List<CheckBox> {Fko, Fkoc}, // Full Kudos Obtained
-  //              new List<CheckBox> {Imt, Imtc}, // In Memory of the Myreque
-  //              new List<CheckBox> {Rcl, Rclc}, // Returning Clarence
-  //              new List<CheckBox> {Our, Ourc}, // Ouranaia Teleport
-  //              new List<CheckBox> {Pre, Prec}, // Lost Potion Recipes
-  //              new List<CheckBox> {Csr, Csrc}, // Crystal Singing Research
-  //              new List<CheckBox> {Sop, Sopc}, // Stronghold of Player Safety
-  //              new List<CheckBox> {Sos, Sosc}, // Stronghold of Security
-  //              new List<CheckBox> {Ttr, Ttrc}, // The Lair of Tarn Razorlor
-  //              new List<CheckBox> {Rco, Rcoc}, // Removing Corruption
-  //              new List<CheckBox> {Hsw, Hswc}, // Hopespear's Will
-
-
-  //              new List<CheckBox> {Sa03, Sa30}, // SelectAll Doric And Boric tasks
-  //              new List<CheckBox> {D1, D1c}, // Doric Tasks
-  //              new List<CheckBox> {D2, D2c},
-		//		new List<CheckBox> {D3, D3c},
-		//		new List<CheckBox> {D4, D4c},
-		//		new List<CheckBox> {D5, D5c},
-		//		new List<CheckBox> {D6, D6c},
-		//		new List<CheckBox> {D7, D7c},
-		//		new List<CheckBox> {D8, D8c},
-		//		new List<CheckBox> {B1, B1c}, // Boric Tasks
-  //              new List<CheckBox> {B2, B2c},
-		//		new List<CheckBox> {B3, B3c},
-
-
-  //              // Master Quest + Trimmed Completionist
-  //              new List<CheckBox> {Ekm, Ekmt}, // Enchanted Key
-  //              new List<CheckBox> {Aca, Acat}, // Ancient Cavern
-  //              new List<CheckBox> {Ter, Tert}, // Temple Trekking
-  //              new List<CheckBox> {Etr, Etrt}, // Eagle Transport Route
-  //              new List<CheckBox> {Qbd, Qbdt}, // Queen Black Dragon Journals
-  //              new List<CheckBox> {Bch, Bcht}, // Broken Home Challenges
-  //              new List<CheckBox> {Cts, Ctst}, // Char's Treasured Symbol
-  //              new List<CheckBox> {Uif, Uift}, // Upgrade Ivandis Flail
-  //              new List<CheckBox> {Wip, Wipt}, // Witch's Potion
-  //              new List<CheckBox> {Ton, Tont}, // Tales of Nomad
-  //              new List<CheckBox> {Tgw, Tgwt}, // Tales of the God Wars
-  //              new List<CheckBox> {Dsl, Dslt}, // Desert Slayer Dungeon
-  //              new List<CheckBox> {Scn, Scnt}, // Scabarite Notes
-  //              new List<CheckBox> {Sde, Sdet}, // Song from the Depths
-  //              new List<CheckBox> {Shs, Shst}, // Sheep Shearer
-  //              new List<CheckBox> {Mwk, Mwkt}, // Master White Knight
-  //              new List<CheckBox> {Fta, Ftat}, // From Tiny Acorns
-  //              new List<CheckBox> {Lhm, Lhmt}, // Lost Her Marbles
-  //              new List<CheckBox> {Ago, Agot}, // A Guild of Our Own
-
-  //              new List<CheckBox> {Swb, Swbt}, // Advanced Sweeping
-  //              new List<CheckBox> {Swb2, Swb2t},
-		//		new List<CheckBox> {Swb3, Swb3t},
-		//		new List<CheckBox> {Swb4, Swb4t},
-		//		new List<CheckBox> {Swb5, Swb5t},
-
-		//		new List<CheckBox> {Bts, Btst}, // Around the World in Six Ways
-  //              new List<CheckBox> {Bts2, Bts2t},
-		//		new List<CheckBox> {Bts3, Bts3t},
-		//		new List<CheckBox> {Bts4, Bts4t}
-		//	})
-		//	{
-		//		data.CheckboxesDictionary.Add(list[0].Name, list);
-		//		data.CheckboxesDictionary.Add(list[1].Name, list);
-		//	}
-		//}
 		private void MakeGoogleRequest()
 		{
 			//Google Request
 			_values = new GoogleRequest().GoogleRequestInit().Execute().Values;
-		}
-		private void SearchTreeHierarchy(SearchCriteria crit)
-		{
-			foreach (var tabcontrolItem in MainTabControl.Items)
-			{
-				if (!(tabcontrolItem is TabItem tabitem)) continue;
-				foreach (var child in LogicalTreeHelper.GetChildren(tabitem))
-				{
-					if (!(child is Grid grid)) continue;
-					foreach (var gridChild in grid.Children)
-					{
-						if (!(gridChild is TabControl tabcontrol)) continue;
-						foreach (var tabcontrolItem2 in tabcontrol.Items)
-						{
-							if (!(tabcontrolItem2 is TabItem tabitem2)) continue;
-							foreach (var child2 in LogicalTreeHelper.GetChildren(tabitem2))
-							{
-								if (!(child2 is Grid grid2)) continue;
-								foreach (var grid2Child in grid2.Children)
-								{
-									if (!(grid2Child is ListView listview)) continue;
-									if (crit == SearchCriteria.CheckBox)
-									{
-										if (new[] { "Mq", "Sa", "Co", "Tri" }.Any(p => listview.Name.StartsWith(p)))
-										{
-											data.ListViews.Add(listview);
-										}
-
-										foreach (var checkbox in listview.Items)
-										{
-											if (!(checkbox is CheckBox cb)) continue;
-											if (cb.Name.StartsWith("Sa"))
-											{
-												data.SelectAllCheckBoxes.Add(cb);
-											}
-											else
-											{
-												data.AllCheckBoxes.Add(cb);
-											}
-										}
-									}
-									else
-									{
-										var availableCheckBoxes = new List<CheckBox>();
-										foreach (var checkbox in listview.Items)
-										{
-											if (checkbox is CheckBox cb && !cb.Name.StartsWith("Sa"))
-											{
-												availableCheckBoxes.Add(cb);
-											}
-										}
-										foreach (var listviewItem in listview.Items)
-										{
-											if (listviewItem is CheckBox cb && cb.Name.StartsWith("Sa"))
-											{
-												if (availableCheckBoxes.All(box => box.IsChecked == true))
-												{
-													cb.IsChecked = true;
-												}
-												else if (availableCheckBoxes.All(box => box.IsChecked == false))
-												{
-													cb.IsChecked = false;
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 
 		private void FillAllColumns()
@@ -390,7 +223,7 @@ namespace Guideviewer
 		{
 			data.CheckboxesBoolDictionary.Clear();
 
-			foreach (var cb in data.AllCheckBoxes)
+			foreach (var cb in CheckBoxViewModel.AllCheckBoxes)
 			{
 				if (!(cb.IsChecked is true))
 				{
@@ -404,7 +237,7 @@ namespace Guideviewer
 				{
 					for (int k = _columnList[0].Length - 1; k >= 0; k--)
 					{
-						if (string.Equals(data.AllCheckBoxes[j].Name.ToLower(), data.NameCompareTuples[j].Item1.ToLower(),
+						if (string.Equals(CheckBoxViewModel.AllCheckBoxes[j].Name.ToLower(), data.NameCompareTuples[j].Item1.ToLower(),
 								StringComparison.Ordinal) && isTrue && _columnList[j][k].Contains(data.NameCompareTuples[j].Item2))
 						{
 							_columnList[j][k] = _columnList[j][k].Remove(0);
@@ -559,47 +392,29 @@ namespace Guideviewer
 			MyDataGrid.Items.Clear();
 			FillAllColumns();
 		}
-		private void Check(object sender, RoutedEventArgs e) => Switch(sender, true);
-		private void UnCheck(object sender, RoutedEventArgs e) => Switch(sender, false);
-		private void Switch(object sender, bool boolean)
-		{
-			if (!(sender is CheckBox senderBox)) return;
-			// Main Duplicate Control
-			if (data.CheckboxesDictionary.TryGetValue(senderBox.Name, out var value))
-			{
-				foreach (var x in value) x.IsChecked = boolean;
-			}
-
-			// Select All Control
-			if (!senderBox.Name.StartsWith("Sa")) return;
-			foreach (var listViewChild in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(senderBox)))
-			{
-				if (listViewChild is CheckBox cb)
-				{
-					cb.IsChecked = boolean;
-				}
-			}
-		}
 
 		private string CheckboxStringSave()
 		{
 			data.CheckboxesBoolDictionary.Clear();
 			string str = "";
 
-			data.AllCheckBoxes.ForEach(cb =>
+			foreach (var cb in CheckBoxViewModel.AllCheckBoxes)
 			{
-				var isChecked = cb.IsChecked;
-				if (isChecked != null && cb.IsChecked == isChecked)
+				if (cb.IsChecked != null)
 				{
-					data.CheckboxesBoolDictionary.Add(cb.Name, (bool)isChecked);
-					str += "1,";
+					if (cb.IsChecked == true)
+					{
+						addToDict();
+						str += "1,";
+					}
+					else
+					{
+						addToDict();
+						str += "0,";
+					}
 				}
-				else
-				{
-					data.CheckboxesBoolDictionary.Add(cb.Name, isChecked != null && (bool)isChecked);
-					str += "0,";
-				}
-			});
+				void addToDict() => data.CheckboxesBoolDictionary.Add(cb.Name, (bool)cb.IsChecked);
+			};
 
 			return str;
 		}
@@ -620,21 +435,21 @@ namespace Guideviewer
 			{
 				string fileFetch = File.ReadLines(ofd.FileName).Skip(31).Take(1).First();
 
-				foreach (var item in data.AllCheckBoxes)
+				foreach (var item in CheckBoxViewModel.AllCheckBoxes)
 				{
 					Console.WriteLine(item.Content);
 				}
 
 				//         Array.ConvertAll(fileFetch.Remove(fileFetch.LastIndexOf(','))
 				//          .Split(','), int.Parse).ToList().ForEach(checkBoxValue => {
-				//	data.AllCheckBoxes.ForEach(cb => cb.IsChecked = checkBoxValue == 1);
+				//	CheckBoxViewModel.AllCheckboxes.ForEach(cb => cb.IsChecked = checkBoxValue == 1);
 				//});			
 			}
-
-			SearchTreeHierarchy(SearchCriteria.CheckBox);
+			
 			ApplyUsername.Text = ofd.SafeFileName.Replace(".txt", "");
 			ExtractHyperlinkText();
 		}
+
 		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
 		{
 			string url = e.Uri.OriginalString;

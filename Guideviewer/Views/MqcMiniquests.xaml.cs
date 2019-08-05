@@ -10,12 +10,7 @@ namespace Guideviewer.Views
 	/// </summary>
 	public partial class MqcMiniquests : UserControl
 	{
-		public MqcMiniquests()
-		{
-			InitializeComponent();
-
-            DataContext = new CheckBoxViewModel();
-		}
+		public MqcMiniquests() => InitializeComponent();
 
 		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
 		{
@@ -25,23 +20,21 @@ namespace Guideviewer.Views
 
 		private void Check(object sender, RoutedEventArgs e) => Switch(sender, true);
 		private void UnCheck(object sender, RoutedEventArgs e) => Switch(sender, false);
+
 		private void Switch(object sender, bool boolean)
 		{
 			if (!(sender is CheckBox senderBox)) return;
 			// Main Duplicate Control
-			if (MainWindow.data.CheckboxesDictionary.TryGetValue(senderBox.Name, out var value))
+			if (MainWindow.data.CheckBoxesDuplicateList.Exists(x => x.Name == senderBox.Name))
 			{
-				foreach (var x in value) x.IsChecked = boolean;
+				//Set the other Checkbox to IsChecked = true;
 			}
 
 			// Select All Control
 			if (!senderBox.Name.StartsWith("Sa")) return;
 			foreach (var listViewChild in LogicalTreeHelper.GetChildren(LogicalTreeHelper.GetParent(senderBox)))
 			{
-				if (listViewChild is CheckBox cb)
-				{
-					cb.IsChecked = boolean;
-				}
+				if (listViewChild is CheckBox cb) cb.IsChecked = boolean;
 			}
 		}
 	}

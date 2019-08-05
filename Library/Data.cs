@@ -8,7 +8,7 @@ namespace Library
     public class Data
     {
         // Dictionary to keep track of all CheckBoxes
-        public Dictionary<string, List<CheckBox>>CheckboxesDictionary { get; set; }
+        public List<CheckBox> CheckBoxesDuplicateList { get; set; }
 
         // Dictionary to keep track of all bool values of CheckBoxes
         public Dictionary<string, bool> CheckboxesBoolDictionary { get; set; }
@@ -21,21 +21,16 @@ namespace Library
 
         // List of all "Select All" Checkboxes
         public List<CheckBox> SelectAllCheckBoxes { get; set; }
-
-        // List of all Checkboxes
-        public List<CheckBox> AllCheckBoxes { get; set; }
-
+			   
         // List of all Listviews
         public List<ListView> ListViews { get; set; }
 
         public Data()
         {
-            CheckboxesDictionary = new Dictionary<string, List<CheckBox>>();
             CheckboxesBoolDictionary = new Dictionary<string, bool>();
             ListViewSelectAllList = new List<Tuple<CheckBox, ListView>>();
             NameCompareTuples = new List<Tuple<string, string>>();
             SelectAllCheckBoxes = new List<CheckBox>();
-            AllCheckBoxes = new List<CheckBox>();
             ListViews = new List<ListView>();
 
             ClearEverything();
@@ -44,12 +39,11 @@ namespace Library
         private void ClearEverything()
         {
             // Clear everything
-            CheckboxesDictionary.Clear();
+            CheckBoxesDuplicateList.Clear();
             CheckboxesBoolDictionary.Clear();
             ListViewSelectAllList.Clear();
             NameCompareTuples.Clear();
             SelectAllCheckBoxes.Clear();
-            AllCheckBoxes.Clear();
             ListViews.Clear();
         }
     }

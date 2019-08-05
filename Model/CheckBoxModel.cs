@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace Guideviewer
 {
-	class CheckBoxModel 
+	class CheckBoxModel : INotifyPropertyChanged
 	{
 		private string _hyperlink;
 		private string _text;
-		private CheckBoxType CbType1;
+        private CheckBoxType CbType1;
 		private CheckBoxType CbType2;
 		private CheckBoxType CbType3;
 		public string Checked = "Check";
@@ -52,7 +52,7 @@ namespace Guideviewer
 			set
 			{
 				_hyperlink = value;
-				RaisePropertyChanged("Hyperlink");
+				OnPropertyChanged("Hyperlink");
 			}
 		}
 
@@ -62,15 +62,21 @@ namespace Guideviewer
 			set
 			{
 				_text = value;
-				RaisePropertyChanged("Text");
+				OnPropertyChanged("Text");
 			}
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private void RaisePropertyChanged(string property)
+		private void OnPropertyChanged(string property)
 		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(property));
+            }
 		}
+
+        
 	}
 }
