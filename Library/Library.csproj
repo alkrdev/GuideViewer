@@ -9,7 +9,7 @@
     <PackageReference Include="Google.Apis.Auth" Version="1.36.1" />
     <PackageReference Include="Google.Apis.Core" Version="1.36.1" />
     <PackageReference Include="Google.Apis.Sheets.v4" Version="1.36.1.1412" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
   <ItemGroup>
